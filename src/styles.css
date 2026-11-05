@@ -2764,3 +2764,25 @@ a {
     min-height: 64px;
   }
 }
+
+/* Method names and selectors remain usable in the fixed property panel. */
+.method-select {
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 12px;
+}
+.method-select select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  text-overflow: ellipsis;
+}
+.meta-method {
+  min-width: 0;
+  overflow: hidden;
+}
+.meta-method .method-name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

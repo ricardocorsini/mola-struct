@@ -80,6 +80,7 @@
       "bottom": 5,
       "soil": "sand",
       "e": 18,
+      "schmertmannK": 0.7,
       "nu": 0.3,
       "gamma": 18,
       "gammaSat": 20,
@@ -98,6 +99,7 @@
       "bottom": 10,
       "soil": "sand",
       "e": 45,
+      "schmertmannK": 0.9,
       "nu": 0.28,
       "gamma": 19,
       "gammaSat": 21,
@@ -116,6 +118,7 @@
       "bottom": 16,
       "soil": "silt",
       "e": 60,
+      "schmertmannK": 0.45,
       "nu": 0.32,
       "gamma": 19,
       "gammaSat": 21,
@@ -157,7 +160,17 @@
       "efficiency": 1,
       "segments": 24,
       "safety": 3,
-      "sptFactor": 20
+      "sptFactor": 20,
+      "pileMethod": "winkler",
+      "footingMethod": "elastic",
+      "modulusSource": "manual",
+      "horizontalRatio": 0.3,
+      "kvInput": 30000,
+      "allowablePressure": 200,
+      "randolphRho": 1,
+      "integration": 16,
+      "transfer": "capacity-ratio",
+      "tipFraction": 0.5
     },
     {
       "id": "F02",
@@ -186,7 +199,17 @@
       "efficiency": 1,
       "segments": 24,
       "safety": 3,
-      "sptFactor": 20
+      "sptFactor": 20,
+      "pileMethod": "winkler",
+      "footingMethod": "elastic",
+      "modulusSource": "manual",
+      "horizontalRatio": 0.3,
+      "kvInput": 30000,
+      "allowablePressure": 200,
+      "randolphRho": 1,
+      "integration": 16,
+      "transfer": "capacity-ratio",
+      "tipFraction": 0.5
     },
     {
       "id": "S01",
@@ -215,7 +238,17 @@
       "efficiency": 1,
       "segments": 24,
       "safety": 3,
-      "sptFactor": 20
+      "sptFactor": 20,
+      "pileMethod": "winkler",
+      "footingMethod": "elastic",
+      "modulusSource": "manual",
+      "horizontalRatio": 0.3,
+      "kvInput": 30000,
+      "allowablePressure": 200,
+      "randolphRho": 1,
+      "integration": 16,
+      "transfer": "capacity-ratio",
+      "tipFraction": 0.5
     }
   ]
 }

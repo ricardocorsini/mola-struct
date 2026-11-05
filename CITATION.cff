@@ -5,7 +5,7 @@ title: "MolasStruct: estimativa de rigidez de fundações"
 authors:
   - family-names: Corsini
     given-names: Ricardo
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-11-05
 repository-code: "https://github.com/ricardocorsini/mola-struct"
 url: "https://github.com/ricardocorsini/mola-struct"

@@ -76,7 +76,7 @@
       },
       {
         "level": "info",
-        "message": "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão."
+        "message": "Estimativa experimental linear. Capacidade de carga e rigidez são grandezas distintas. Métodos, correlações e parâmetros devem ser avaliados pelo projetista."
       },
       {
         "level": "info",
@@ -166,7 +166,9 @@
         "point": 0
       }
     ],
-    "version": "0.1.0-experimental"
+    "details": [],
+    "verticalCompliance": null,
+    "version": "0.2.0-experimental"
   },
   {
     "id": "F02",
@@ -245,7 +247,7 @@
       },
       {
         "level": "info",
-        "message": "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão."
+        "message": "Estimativa experimental linear. Capacidade de carga e rigidez são grandezas distintas. Métodos, correlações e parâmetros devem ser avaliados pelo projetista."
       },
       {
         "level": "info",
@@ -337,7 +339,9 @@
         "point": 0
       }
     ],
-    "version": "0.1.0-experimental"
+    "details": [],
+    "verticalCompliance": null,
+    "version": "0.2.0-experimental"
   },
   {
     "id": "S01",
@@ -412,7 +416,7 @@
     "notices": [
       {
         "level": "info",
-        "message": "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão."
+        "message": "Estimativa experimental linear. Capacidade de carga e rigidez são grandezas distintas. Métodos, correlações e parâmetros devem ser avaliados pelo projetista."
       },
       {
         "level": "warning",
@@ -434,6 +438,8 @@
     "qSpt": 264.4444444444444,
     "kv": 10916.530476925498,
     "segments": [],
-    "version": "0.1.0-experimental"
+    "details": [],
+    "verticalCompliance": null,
+    "version": "0.2.0-experimental"
   }
 ]

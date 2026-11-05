@@ -1,8 +1,32 @@
 import { BookOpen, ExternalLink } from "lucide-react";
 import { fmt, type Foundation, type Project } from "../domain/model";
+import { methodNarrative } from "../domain/methods";
 import type { Calculation } from "../domain/engine";
 import { Notices } from "./Results";
 export const references = [
+  {
+    title: "TQS · Estimativa de Vínculos Elásticos de Fundação",
+    url: "https://docs.tqs.com.br/Docs/Details?id=1523972768&language=pt-BR",
+  },
+  {
+    title: "TQS · Coeficiente de mola — Uma estaca (discussão conceitual)",
+    url: "https://docs.tqs.com.br/Docs/Details?id=3288&language=pt-BR",
+  },
+  {
+    title:
+      "Mindlin (1936) · Force at a Point in the Interior of a Semi-Infinite Solid · Physics 7, 195–202",
+    url: "https://doi.org/10.1063/1.1745385",
+  },
+  {
+    title:
+      "Silva, Pedro Lima e (2017) · Desenvolvimento de programa computacional para estimativa de recalque elástico de estacas · UFRN, pp. 36–42 · PDF fornecido pelo usuário",
+    url: "",
+  },
+  {
+    title:
+      "Olavo, Luiz Henrique Felipe (2023) · Código-fonte para cálculo de recalques de fundações · Revista On-line IDD 3, pp. 2–3 · PDF fornecido; divergência no termo 8(1−ν)² documentada",
+    url: "",
+  },
   {
     title:
       "NIST GCR 12-917-21 · Soil-Structure Interaction for Building Structures (2012)",
@@ -117,6 +141,7 @@ export default function Report({
               <th>Fim (m)</th>
               <th>E (MPa)</th>
               <th>ν</th>
+              <th>K_E (MPa)</th>
               <th>α</th>
               <th>K (kPa)</th>
             </tr>
@@ -128,66 +153,43 @@ export default function Report({
                 <td>{fmt(l.bottom, 1)}</td>
                 <td>{fmt(l.e, 0)}</td>
                 <td>{fmt(l.nu)}</td>
+                <td>{fmt(l.schmertmannK)}</td>
                 <td>{fmt(l.alpha, 3)}</td>
                 <td>{fmt(l.k, 0)}</td>
               </tr>
             ))}
           </tbody>
         </table>
-        <p>
-          Parâmetros de deformabilidade informados, sem derivação automática a
-          partir de N SPT.
-        </p>
         <h2>03 / Modelo de cálculo</h2>
         <h3>{r.method || "Entradas inválidas"}</h3>
-        {f.kind === "pile" ? (
-          <>
-            <p>
-              Estacas modeladas como barras axiais e vigas de Euler–Bernoulli em
-              base elástica de Winkler. A malha utiliza {f.segments} elementos
-              por estaca, matriz consistente de reação lateral e molas
-              distribuídas de interface do fuste. A ponta axial possui mola kp ×
-              Ap; a ponta lateral é livre.
-            </p>
-            <div className="report-formula">
-              EI · w'''' + kh · d · w = 0<br />
-              EA · u'' − kt · U · u = 0<br />
-              Kbloco = η · Σ(Tᵢᵀ · Kestaca · Tᵢ)
-            </div>
-            <p>
-              Topo solidário ao bloco rígido, sem contato bloco–solo e sem
-              interação elástica entre estacas. A torção da estaca usa GJ e
-              reação tangencial distribuída kt · U · r²; sem mola torsional de
-              ponta. Aoki–Velloso é calculado separadamente, com Np do intervalo
-              da ponta e sem truncamento de N.
-            </p>
-          </>
-        ) : (
-          <>
-            <p>
-              Sapata representada por disco de mesma área para as translações. O
-              solo é substituído por semiespaço homogêneo com E equivalente
-              harmônico e ν médio na faixa de 2B abaixo da base, sendo B a menor
-              dimensão em planta.
-            </p>
-            <div className="report-formula">
-              r = √(A/π) · G = Eeq/[2(1+ν)]
-              <br />
-              Kz = 4Gr/(1−ν) · Kx = Ky = 8Gr/(2−ν)
-              <br />
-              kv = Kz/A · Kθx = kv · Ix · Kθy = kv · Iy
-              <br />
-              Kθz = (Kx/A) · (Ix + Iy)
-            </div>
-            <p>
-              As rotações são uma aproximação por Winkler distribuído, diferente
-              da solução de disco rígido. Sem correção de embutimento e de base
-              rígida. A tensão última usa fatores de Vésic e fatores de forma,
-              com demais fatores unitários. A correlação qSPT = C × N é
-              exploratória e não normativa.
-            </p>
-          </>
-        )}
+        {methodNarrative(f).map((t) => (
+          <p key={t}>{t}</p>
+        ))}
+        <table>
+          <tbody>
+            {[
+              ["Origem de E", f.modulusSource],
+              ["μh / ρ", `${fmt(f.horizontalRatio)} / ${fmt(f.randolphRho)}`],
+              [
+                "Integração / transferência",
+                `${f.integration} / ${f.transfer} / βp=${fmt(f.tipFraction)}`,
+              ],
+              [
+                "kv informado / σadm",
+                `${fmt(f.kvInput)} kN/m³ / ${fmt(f.allowablePressure)} kPa`,
+              ],
+              ...r.details.map((d) => [
+                d.label,
+                `${fmt(d.value, d.unit === "m/kN" ? 9 : 4)} ${d.unit}`,
+              ]),
+            ].map(([a, b]) => (
+              <tr key={a}>
+                <th>{a}</th>
+                <td>{b}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
         <h2>04 / Rigidezes e resposta</h2>
         <table>
           <thead>
@@ -220,10 +222,9 @@ export default function Report({
         <h2>05 / Hipóteses e observações</h2>
         <Notices result={r} />
         <p>
-          <b>Pendentes:</b> Mindlin, Steinbrenner, Terzaghi e tensão básica da
-          NBR 6122:1996. Sem avaliação de conformidade normativa,
-          dimensionamento do bloco, efeitos de longo prazo ou calibração com
-          provas de carga.
+          <b>Pendentes:</b> Terzaghi e tensão básica da NBR 6122:1996. Sem
+          avaliação de conformidade normativa, dimensionamento do bloco, efeitos
+          de longo prazo ou calibração com provas de carga.
         </p>
         <h2>06 / Referências e rastreabilidade</h2>
         <p>
@@ -234,8 +235,8 @@ export default function Report({
         {references.map((ref) => (
           <a
             className="report-ref"
-            key={ref.url}
-            href={ref.url}
+            key={ref.title}
+            href={ref.url || undefined}
             target="_blank"
             rel="noreferrer"
           >

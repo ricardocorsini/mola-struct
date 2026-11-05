@@ -2,6 +2,18 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.2.0 — 2026-11-05
+
+- Perfis de método por fundação, mantendo Winkler/disco para projetos v1 antigos.
+- Mindlin vertical com discretização Aoki–Lopes, Steinbrenner, encurtamento EA e flexibilidade mútua entre 1 a 4 estacas. Mobilização proporcional fixa declarada, não bilinear.
+- Integral retangular Mindlin para recalque central de sapata, com quadratura de Duffy.
+- Randolph–Wroth simplificado conforme a expressão de fuste do TQS; rotação nos eixos sem braço por 0,5·3EI/L.
+- kv informado ou correlação SAFE/Morrison com conversão de unidades e faixa controlada.
+- SPT → E opcional por Schmertmann e K_E independente dos coeficientes Aoki–Velloso.
+- Memória de cálculo e PDF com fórmulas, parâmetros intermediários e origem das hipóteses; cobertura tipográfica ampliada.
+- Exemplo comparativo dos métodos, caso de capacidade do print e documentação técnica das fontes.
+- Testes analíticos novos, estudo de convergência e 22 casos de paridade Rust/TypeScript.
+
 ## 0.1.0 — 2026-11-05
 
 ### Adicionado

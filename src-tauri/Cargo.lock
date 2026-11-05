@@ -1784,14 +1784,14 @@ dependencies = [
 
 [[package]]
 name = "molas-core"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "serde",
 ]
 
 [[package]]
 name = "molasstruct"
-version = "0.1.0"
+version = "0.2.0"
 dependencies = [
  "molas-core",
  "tauri",

@@ -3,11 +3,19 @@ import {
   pilePositions,
   projectSchema,
   type Foundation,
-  type Layer,
   type Project,
 } from "./model";
 
-export type Matrix = number[][];
+import { zeros, solve, type Matrix } from "./matrix";
+import { intervals, layerAt, sptAt } from "./profile";
+export { zeros, solve, type Matrix } from "./matrix";
+export { layerAt, sptAt } from "./profile";
+import {
+  effectiveProfile,
+  methodMatrix,
+  replaceAxial,
+  type MethodResult,
+} from "./methods";
 export type Notice = { level: "error" | "warning" | "info"; message: string };
 export type Segment = {
   top: number;
@@ -39,57 +47,11 @@ export type Calculation = {
   qSpt: number | null;
   kv: number;
   segments: Segment[];
+  details: MethodResult["details"];
+  verticalCompliance: Matrix | null;
   version: string;
 };
-export const ENGINE_VERSION = "0.1.0-experimental";
-export const zeros = (n: number, m = n): Matrix =>
-  Array.from({ length: n }, () => Array(m).fill(0));
-
-/** Partial-pivot Gaussian solve. All matrices use kN, m, rad; no regularization. */
-export function solve(a: Matrix, b: number[]): number[] {
-  const n = b.length,
-    m = a.map((row, i) => [...row, b[i]]);
-  for (let c = 0; c < n; c++) {
-    let p = c;
-    for (let i = c + 1; i < n; i++)
-      if (Math.abs(m[i][c]) > Math.abs(m[p][c])) p = i;
-    if (!Number.isFinite(m[p][c]) || Math.abs(m[p][c]) < 1e-12)
-      throw new Error("Matriz singular: revise os parâmetros de rigidez.");
-    [m[c], m[p]] = [m[p], m[c]];
-    for (let i = c + 1; i < n; i++) {
-      const r = m[i][c] / m[c][c];
-      if (r === 0) continue;
-      for (let j = c; j <= n; j++) m[i][j] -= r * m[c][j];
-    }
-  }
-  const x = Array(n).fill(0);
-  for (let i = n - 1; i >= 0; i--) {
-    let v = m[i][n];
-    for (let j = i + 1; j < n; j++) v -= m[i][j] * x[j];
-    x[i] = v / m[i][i];
-  }
-  return x;
-}
-export function layerAt(p: Project, z: number): Layer {
-  return (
-    p.layers.find((l) => z <= l.bottom + 1e-9) ?? p.layers[p.layers.length - 1]
-  );
-}
-export function sptAt(p: Project, z: number): number {
-  return (p.spt.find((s) => z <= s.depth + 1e-9) ?? p.spt[p.spt.length - 1]).n;
-}
-function intervals(p: Project, a: number, b: number): [number, number][] {
-  const bounds = [
-    a,
-    b,
-    ...p.layers.map((l) => l.bottom),
-    ...p.spt.map((s) => s.depth),
-  ]
-    .filter((x) => x >= a && x <= b)
-    .sort((x, y) => x - y);
-  const u = [...new Set(bounds)];
-  return u.slice(1).map((v, i) => [u[i], v]);
-}
+export const ENGINE_VERSION = "0.2.0-experimental";
 function check(p: Project, f: Foundation): Notice[] {
   const ns: Notice[] = [];
   const err = (message: string) => ns.push({ level: "error", message });
@@ -112,11 +74,19 @@ function check(p: Project, f: Foundation): Notice[] {
     f.kind === "pile"
       ? f.depth + f.length
       : f.depth + 2 * Math.min(f.capX, f.capY);
-  if (required > p.layers[p.layers.length - 1].bottom + 1e-8)
+  const mindlin =
+    f.kind === "pile"
+      ? f.pileMethod === "mindlin"
+      : f.footingMethod === "mindlin";
+  const soilRequired = mindlin ? p.bedrock : required;
+  if (soilRequired > p.layers[p.layers.length - 1].bottom + 1e-8)
     err(
-      `Camadas insuficientes: o modelo requer solo descrito até ${required.toFixed(2)} m.`,
+      `Camadas insuficientes: o modelo requer solo descrito até ${soilRequired.toFixed(2)} m.`,
     );
-  if (required > p.spt[p.spt.length - 1].depth + 1e-8)
+  if (
+    (f.modulusSource === "spt" ? layerAt(p, soilRequired).bottom : required) >
+    p.spt[p.spt.length - 1].depth + 1e-8
+  )
     err(
       `Sondagem insuficiente: informe SPT até ${required.toFixed(2)} m. Não há extrapolação.`,
     );
@@ -125,7 +95,12 @@ function check(p: Project, f: Foundation): Notice[] {
     (f.kind === "pile" && f.depth + f.length > p.bedrock)
   )
     err("A fundação ultrapassa a cota impenetrável informada.");
-  if (f.kind === "footing" && required > p.bedrock)
+  if (
+    mindlin &&
+    (f.kind === "pile" ? f.depth + f.length : f.depth) >= p.bedrock
+  )
+    err("Mindlin requer base indeslocável estritamente abaixo da fundação.");
+  if (f.kind === "footing" && !mindlin && required > p.bedrock)
     ns.push({
       level: "warning",
       message:
@@ -152,13 +127,15 @@ function check(p: Project, f: Foundation): Notice[] {
     ns.push({
       level: "warning",
       message:
-        "Estacas independentes em bloco rígido. Interação entre estacas e contato bloco–solo não modelados; η é um redutor manual da rigidez.",
+        f.pileMethod === "mindlin"
+          ? "Mindlin: interação vertical entre as estacas incluída; sem interação lateral nem contato bloco–solo. η é um redutor manual adicional."
+          : "Estacas independentes em bloco rígido. Interação entre estacas e contato bloco–solo não modelados; η é um redutor manual da rigidez.",
     });
   }
   ns.push({
     level: "info",
     message:
-      "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão.",
+      "Estimativa experimental linear. Capacidade de carga e rigidez são grandezas distintas. Métodos, correlações e parâmetros devem ser avaliados pelo projetista.",
   });
   return ns;
 }
@@ -268,10 +245,14 @@ export function calculate(p: Project, f: Foundation): Calculation {
       qSpt: null,
       kv: 0,
       segments: [],
+      details: [],
+      verticalCompliance: null,
       version: ENGINE_VERSION,
     };
   if (notices.some((n) => n.level === "error")) return result;
   try {
+    const original = p;
+    p = effectiveProfile(p, f);
     if (f.kind === "pile") {
       const lateral = lateralHead(p, f),
         axial = barHead(p, f),
@@ -388,10 +369,45 @@ export function calculate(p: Project, f: Foundation): Calculation {
           message:
             "Vésic é apresentado para carga vertical centrada: inclinação, excentricidade e profundidade têm fatores unitários. Não constitui verificação da combinação aplicada.",
         });
+      if (f.footingMethod === "elastic")
+        notices.push({
+          level: "warning",
+          message:
+            "Sapatas: E equivalente harmônico e ν médio na faixa de 2B sob a base. Rigidezes de translação por disco de mesma área; rotações por Winkler. Sem correção de embutimento ou base rígida.",
+        });
+    }
+    const model = methodMatrix(
+      p,
+      f,
+      result.matrix,
+      result.ultimate ?? 0,
+      result.point ?? 0,
+    );
+    if (model.compliance)
+      replaceAxial(
+        model.matrix,
+        f,
+        model.compliance,
+        f.pileMethod === "mindlin" ? barHead(p, f) : 0,
+      );
+    result.matrix = model.matrix;
+    result.details = model.details;
+    result.verticalCompliance = model.compliance ?? null;
+    if (model.method) result.method = model.method;
+    if (model.kv !== undefined) result.kv = model.kv;
+    notices.push(...model.notices);
+    if (f.modulusSource === "spt") {
+      result.details.push(
+        ...p.layers.map((l, i) => ({
+          label: `E SPT · ${original.layers[i].name}`,
+          value: l.e,
+          unit: "MPa",
+        })),
+      );
       notices.push({
         level: "warning",
         message:
-          "Sapatas: E equivalente harmônico e ν médio na faixa de 2B sob a base. Rigidezes de translação por disco de mesma área; rotações por Winkler. Sem correção de embutimento ou base rígida.",
+          "E = 3 K_E N̄SPT por camada (Schmertmann conforme TQS). Correlação empírica; K_E em MPa é independente do K de Aoki–Velloso. ν permanece informado.",
       });
     }
     result.diagonal = result.matrix.map((row, i) => row[i]);
@@ -405,11 +421,13 @@ export function calculate(p: Project, f: Foundation): Calculation {
     ]);
     result.settlement = -result.displacement[2] * 1000;
     if (f.kind === "pile") {
-      const d = result.displacement,
-        axial = barHead(p, f) * f.efficiency;
-      result.pileForces = pilePositions(f).map(
-        ([x, y]) => -axial * (d[2] + d[3] * y - d[4] * x),
+      const d = result.displacement;
+      const head = pilePositions(f).map(
+        ([x, y]) => -(d[2] + d[3] * y - d[4] * x),
       );
+      result.pileForces = model.compliance
+        ? solve(model.compliance, head).map((v) => v * f.efficiency)
+        : head.map((v) => v * barHead(p, f) * f.efficiency);
       if (result.pileForces.some((n) => n < 0))
         notices.push({
           level: "warning",

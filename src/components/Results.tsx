@@ -144,6 +144,33 @@ export default function Results({
       {tab === "springs" && (
         <>
           <SpringCards result={r} unit={unit} />
+          {r.details.length > 0 && (
+            <div className="table-scroll">
+              <table className="data-table">
+                <thead>
+                  <tr>
+                    <th>Parâmetro intermediário</th>
+                    <th>Valor</th>
+                    <th>Unidade</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {r.details.map((d) => (
+                    <tr key={d.label}>
+                      <td>{d.label}</td>
+                      <td>
+                        {r.valid
+                          ? fmt(d.value, d.unit === "m/kN" ? 9 : 4)
+                          : "—"}
+                      </td>
+                      <td>{d.unit}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
+
           <div className="result-metrics">
             <div>
               <ArrowDownToLine />
@@ -459,57 +486,60 @@ function Sensitivity({
   foundation: Foundation;
 }) {
   const [mult, setMult] = useState(1);
-  const rows = useMemo(
-    () =>
-      [0.5, 0.75, 1, 1.25, 1.5, 2].map((factor) => {
-        const layers = p.layers.map((l) =>
-          f.kind === "pile"
-            ? {
-                ...l,
-                kh: l.kh * factor,
-                shaftK: l.shaftK * factor,
-                baseK: l.baseK * factor,
-              }
-            : { ...l, e: l.e * factor },
-        );
-        return { factor, r: calculate({ ...p, layers }, f) };
-      }),
-    [p, f],
-  );
-  const modified = useMemo(
-    () =>
-      calculate(
-        {
-          ...p,
-          layers: p.layers.map((l) =>
-            f.kind === "pile"
-              ? {
-                  ...l,
-                  kh: l.kh * mult,
-                  shaftK: l.shaftK * mult,
-                  baseK: l.baseK * mult,
-                }
-              : { ...l, e: l.e * mult },
-          ),
-        },
-        f,
-      ),
-    [p, f, mult],
-  );
+  const parameter =
+    f.kind === "pile" && f.pileMethod === "winkler"
+      ? "winkler"
+      : f.kind === "footing" && f.footingMethod === "winkler"
+        ? "kv"
+        : f.kind === "footing" && f.footingMethod === "safe"
+          ? "safe"
+          : "e";
+  const variant = (factor: number) => {
+    const winkler = f.kind === "pile" && f.pileMethod === "winkler";
+    const layers = p.layers.map((l) =>
+      winkler
+        ? {
+            ...l,
+            kh: l.kh * factor,
+            shaftK: l.shaftK * factor,
+            baseK: l.baseK * factor,
+          }
+        : { ...l, e: l.e * factor, schmertmannK: l.schmertmannK * factor },
+    );
+    const foundation = {
+      ...f,
+      kvInput: f.kvInput * factor,
+      allowablePressure: f.allowablePressure * factor,
+    };
+    return calculate({ ...p, layers }, foundation);
+  };
+  const rows = [0.5, 0.75, 1, 1.25, 1.5, 2].map((factor) => ({
+    factor,
+    r: variant(factor),
+  }));
+  const modified = variant(mult);
   const max = Math.max(...rows.map((x) => x.r.diagonal[2]), 1);
   return (
     <>
       <div className="sensitivity-control">
         <div>
           <h3>
-            {f.kind === "pile"
+            {parameter === "winkler"
               ? "Coeficientes de reação do solo"
-              : "Módulo de elasticidade do solo"}
+              : parameter === "kv"
+                ? "Coeficiente kv informado"
+                : parameter === "safe"
+                  ? "Tensão admissível da correlação SAFE"
+                  : "Módulo de elasticidade do solo"}
           </h3>
           <p>
-            {f.kind === "pile"
+            {parameter === "winkler"
               ? "Varia kh, kt e kp de todas as camadas."
-              : "Varia E de todas as camadas, mantendo ν."}{" "}
+              : parameter === "kv"
+                ? "Varia kv, mantendo μh."
+                : parameter === "safe"
+                  ? "Varia σadm; valores fora da faixa SAFE são bloqueados."
+                  : "Varia E (ou K_E na correlação SPT) de todas as camadas, mantendo ν."}{" "}
             Ações e geometria constantes.
           </p>
         </div>
@@ -527,6 +557,7 @@ function Sensitivity({
         </label>
       </div>
       <SpringCards result={modified} compact />
+      {!modified.valid && <Notices result={modified} />}
       <div className="sensitivity-chart">
         <h3>Influência na rigidez vertical</h3>
         {rows.map(({ factor, r }) => (

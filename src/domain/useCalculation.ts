@@ -5,7 +5,12 @@ import type { Foundation, Project } from "./model";
 export function useCalculation(p: Project, f: Foundation): Calculation {
   const estimate = useMemo(() => calculate(p, f), [p, f]);
   const desktop = isTauri(),
-    key = JSON.stringify({ foundation: f, layers: p.layers });
+    key = JSON.stringify({
+      foundation: f,
+      layers: p.layers,
+      spt: p.spt,
+      bedrock: p.bedrock,
+    });
   const [native, setNative] = useState<{
     key: string;
     matrix?: Matrix;

@@ -1,3 +1,4 @@
+import { methodNarrative } from "./domain/methods";
 import { isTauri } from "@tauri-apps/api/core";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
@@ -266,7 +267,10 @@ export async function reportPdf(
     pdf.setFont("DejaVu", bold ? "bold" : "normal");
     pdf.setFontSize(size);
     pdf.setTextColor(color);
-    const lines = pdf.splitTextToSize(safeAscii(s), 174) as string[];
+    const lines = pdf.splitTextToSize(
+      s.replace(/[−–—]/g, "-"),
+      174,
+    ) as string[];
     for (const line of lines) {
       if (y > 273) {
         next();
@@ -333,7 +337,10 @@ export async function reportPdf(
   text(p.spt.map((s) => `${fmt(s.depth, 1)} / ${s.n}`).join("   |   "), 8);
   p.layers.forEach((l, i) => {
     text(`Camada ${i + 1}: ${l.name} - ate ${fmt(l.bottom)} m`, 10, true);
-    row("Elasticidade", `E=${fmt(l.e)} MPa; nu=${fmt(l.nu)}`);
+    row(
+      "Elasticidade",
+      `K_E=${fmt(l.schmertmannK)} MPa; E=${fmt(l.e)} MPa; nu=${fmt(l.nu)}`,
+    );
     row(
       "Capacidade",
       `alpha=${fmt(l.alpha, 4)}; K=${fmt(l.k)} kPa; phi=${fmt(l.phi)} graus; c=${fmt(l.cohesion)} kPa; gamma=${fmt(l.gamma)} kN/m3; gamma_sat=${fmt(l.gammaSat)} kN/m3`,
@@ -345,14 +352,17 @@ export async function reportPdf(
   });
   title("03 / Modelo e hipoteses");
   text(r.method, 10, true);
-  if (f.kind === "pile")
-    text(
-      `Viga de Euler-Bernoulli sobre Winkler lateral: EI w'''' + kh d w = 0. Barra axial: EA u\'\' - kt U u = 0. Matriz consistente de reacao; ponta livre lateralmente, mola axial kp Ap. Torcao por GJ e reacao kt U r2, sem mola torsional de ponta. Kbloco = eta SUM(Ti^T Kestaca Ti). Bloco rigido, sem contato bloco-solo, sem interacao entre estacas.`,
-    );
-  else
-    text(
-      `Disco de area equivalente: r=sqrt(A/pi), G=Eeq/[2(1+nu)], Kz=4Gr/(1-nu), Kx=Ky=8Gr/(2-nu). Eeq harmonico=${fmt(r.e)} MPa e nu medio=${fmt(r.nu)} na faixa de 2B sob a base. Rotacoes Winkler: kv=Kz/A; KthetaX=kv Ix; KthetaY=kv Iy; KthetaZ=(Kx/A)(Ix+Iy). Sem correcao de embutimento ou base rigida.`,
-    );
+  for (const paragraph of methodNarrative(f)) text(paragraph);
+  row(
+    "Seletores",
+    `E=${f.modulusSource}; μh=${fmt(f.horizontalRatio)}; ρ=${fmt(f.randolphRho)}; integração=${f.integration}; transferência=${f.transfer}; βp=${fmt(f.tipFraction)}`,
+  );
+  row(
+    "kv / σadm informados",
+    `${fmt(f.kvInput)} kN/m³ / ${fmt(f.allowablePressure)} kPa`,
+  );
+  for (const d of r.details)
+    row(d.label, `${fmt(d.value, d.unit === "m/kN" ? 9 : 4)} ${d.unit}`);
   title("04 / Matriz de rigidez e resposta");
   text(
     "F = K u. Ordem: X, Y, Z, thetaX, thetaY, thetaZ. Z positivo para cima; Fz=-N. Translacoes em m e rotacoes em rad. Bloco TT: kN/m, TR e RT: kN, RR: kN.m/rad. A diagonal Kii pressupoe outros GDL impedidos.",
@@ -403,12 +413,13 @@ export async function reportPdf(
   title("06 / Observacoes de validacao");
   r.notices.forEach((n) => text(`[${n.level.toUpperCase()}] ${n.message}`, 8));
   text(
-    "PENDENTES: Mindlin, Steinbrenner, Terzaghi, tensao basica NBR 6122:1996. Sem resultados simulados sob estes nomes.",
+    "PENDENTES: Terzaghi, tensao basica NBR 6122:1996. Sem resultados simulados sob estes nomes.",
   );
   title("07 / Referencias");
   references.forEach((ref) => {
-    text(ref.title, 8, true);
-    text(ref.url, 7);
+    if (y > 250) next();
+    text(ref.title, 7, true);
+    if (ref.url) text(ref.url, 6);
   });
   pdf.setFontSize(7);
   pdf.setTextColor(120);

@@ -53,6 +53,7 @@ import {
   clone,
   defaultFoundation,
   exampleProject,
+  methodologyProject,
   fmt,
   parseProject,
   uid,
@@ -461,6 +462,21 @@ export default function App() {
             title: "Projeto",
             items: [
               { label: "Novo", Icon: FilePlus2, action: newProject },
+              {
+                label: "Exemplo métodos",
+                Icon: BookOpen,
+                action: () => {
+                  const next = methodologyProject();
+                  update(next);
+                  setSelected("M3");
+                  setView("results");
+                  setTab("methods");
+                  setRight(true);
+                  toast(
+                    "Exemplo de métodos carregado. Desfazer recupera o projeto anterior.",
+                  );
+                },
+              },
               { label: "Abrir", Icon: FolderOpen, action: () => void open() },
               {
                 label: "Salvar JSON",
@@ -838,7 +854,7 @@ export default function App() {
           ))}
         </nav>
         <span className="release">
-          MOLAS DE FUNDAÇÃO <b>v0.1</b>
+          MOLAS DE FUNDAÇÃO <b>v0.2</b>
         </span>
       </div>
       <div className="ribbon">
@@ -1068,9 +1084,9 @@ export default function App() {
             </span>
             <span className="meta-method">
               <span className="dot teal" />{" "}
-              {f.kind === "pile"
-                ? "Modelo Winkler"
-                : "Modelo elástico equivalente"}
+              <span className="method-name" title={r.method}>
+                {r.method || "Entradas inválidas"}
+              </span>
               <span className="experimental">EXPERIMENTAL</span>
             </span>
           </div>
@@ -1194,7 +1210,7 @@ export default function App() {
           {r.valid
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
-          <i /> Motor 0.1.0
+          <i /> Motor 0.2.0
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑
@@ -1379,14 +1395,14 @@ export default function App() {
                   compare modelos e exporte uma memória rastreável.
                 </p>
                 <p>
-                  <b>Ativo:</b> viga/barra em Winkler, semiespaço circular
-                  equivalente, rotações por Winkler, capacidade Aoki–Velloso e
-                  tensão última com fatores de Vésic.
+                  <b>Ativo:</b> Mindlin/Aoki–Lopes, Steinbrenner, Randolph–Wroth
+                  simplificado, SAFE/Morrison, viga/barra em Winkler, semiespaço
+                  circular equivalente, rotações por Winkler, capacidade
+                  Aoki–Velloso e tensão última com fatores de Vésic.
                 </p>
                 <p>
-                  <b>Em preparação:</b> Mindlin, Steinbrenner, Terzaghi e
-                  referência histórica NBR 6122:1996. As opções pendentes não
-                  geram valores.
+                  <b>Em preparação:</b> Terzaghi e referência histórica NBR
+                  6122:1996. As opções pendentes não geram valores.
                 </p>
                 <div className="shortcut-grid">
                   <span>

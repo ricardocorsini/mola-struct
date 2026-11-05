@@ -1,5 +1,6 @@
 //! Static linear foundation stiffness. Internal units: kN, m, rad.
-//! No capacity, normative approval or group-interaction model is implied.
+//! Experimental models; no normative approval is implied.
+mod methods;
 use serde::{Deserialize, Serialize};
 use std::f64::consts::PI;
 pub type Matrix = Vec<Vec<f64>>;
@@ -26,6 +27,30 @@ pub struct Foundation {
     pub mx: f64,
     pub my: f64,
     pub mz: f64,
+    #[serde(default = "winkler")]
+    pub pile_method: String,
+    #[serde(default = "elastic")]
+    pub footing_method: String,
+    #[serde(default = "manual")]
+    pub modulus_source: String,
+    #[serde(default = "manual")]
+    pub transfer: String,
+    #[serde(default = "one")]
+    pub f1: f64,
+    #[serde(default = "one")]
+    pub f2: f64,
+    #[serde(default = "one")]
+    pub randolph_rho: f64,
+    #[serde(default = "ratio")]
+    pub horizontal_ratio: f64,
+    #[serde(default = "kv_default")]
+    pub kv_input: f64,
+    #[serde(default = "pressure_default")]
+    pub allowable_pressure: f64,
+    #[serde(default = "integration_default")]
+    pub integration: usize,
+    #[serde(default = "half")]
+    pub tip_fraction: f64,
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -36,11 +61,56 @@ pub struct Layer {
     pub kh: f64,
     pub shaft_k: f64,
     pub base_k: f64,
+    #[serde(default)]
+    pub alpha: f64,
+    #[serde(default = "one")]
+    pub k: f64,
+    #[serde(default = "schmertmann_default")]
+    pub schmertmann_k: f64,
+}
+fn winkler() -> String {
+    "winkler".into()
+}
+fn elastic() -> String {
+    "elastic".into()
+}
+fn manual() -> String {
+    "manual".into()
+}
+fn one() -> f64 {
+    1.
+}
+fn half() -> f64 {
+    0.5
+}
+fn ratio() -> f64 {
+    0.3
+}
+fn kv_default() -> f64 {
+    30000.
+}
+fn pressure_default() -> f64 {
+    200.
+}
+fn integration_default() -> usize {
+    16
+}
+fn schmertmann_default() -> f64 {
+    0.9
+}
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct Spt {
+    pub depth: f64,
+    pub n: f64,
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Input {
     pub foundation: Foundation,
     pub layers: Vec<Layer>,
+    #[serde(default)]
+    pub spt: Vec<Spt>,
+    #[serde(default)]
+    pub bedrock: f64,
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Output {
@@ -152,6 +222,79 @@ fn validate(input: &Input) -> Result<(), String> {
         }
         top = l.bottom;
     }
+    if !matches!(f.pile_method.as_str(), "winkler" | "randolph" | "mindlin")
+        || !matches!(
+            f.footing_method.as_str(),
+            "elastic" | "winkler" | "safe" | "mindlin"
+        )
+        || !matches!(f.modulus_source.as_str(), "manual" | "spt")
+        || !matches!(f.transfer.as_str(), "manual" | "capacity-ratio")
+        || !(8..=32).contains(&f.integration)
+        || !(0.0..=1.0).contains(&f.tip_fraction)
+        || !positive(f.horizontal_ratio)
+        || f.horizontal_ratio > 1.
+        || !positive(f.randolph_rho)
+        || f.randolph_rho > 1.
+        || !positive(f.kv_input)
+        || !positive(f.allowable_pressure)
+        || !positive(f.f1)
+        || !positive(f.f2)
+    {
+        return Err("Método ou parâmetros inválidos".into());
+    }
+    let mindlin = if f.kind == "pile" {
+        f.pile_method == "mindlin"
+    } else {
+        f.footing_method == "mindlin"
+    };
+    let base = if f.kind == "pile" {
+        f.depth + f.length
+    } else {
+        f.depth
+    };
+    if mindlin && (!positive(input.bedrock) || input.bedrock <= base || input.bedrock > top + 1e-8)
+    {
+        return Err("Base rígida ou cobertura de camadas inválida".into());
+    }
+    let requires_spt =
+        f.modulus_source == "spt" || (f.kind == "pile" && f.pile_method == "mindlin");
+    if requires_spt {
+        let mut previous = 0.;
+        for s in &input.spt {
+            if !positive(s.depth)
+                || s.depth <= previous
+                || !s.n.is_finite()
+                || !(0.0..=100.0).contains(&s.n)
+            {
+                return Err("SPT inválido".into());
+            }
+            previous = s.depth;
+        }
+        let end = if f.modulus_source == "spt" {
+            if mindlin {
+                input.bedrock
+            } else if f.kind == "footing" {
+                f.depth + 2. * f.cap_x.min(f.cap_y)
+            } else {
+                base
+            }
+        } else {
+            base
+        };
+        let end = if f.modulus_source == "spt" {
+            layer_at(&input.layers, end).bottom
+        } else {
+            end
+        };
+        if previous < end {
+            return Err("SPT insuficiente".into());
+        }
+        if input.layers.iter().any(|l| {
+            !positive(l.k) || !l.alpha.is_finite() || l.alpha < 0. || !positive(l.schmertmann_k)
+        }) {
+            return Err("Parâmetros de solo inválidos".into());
+        }
+    }
     let required = if f.kind == "pile" {
         f.depth + f.length
     } else {
@@ -239,6 +382,8 @@ fn bar(input: &Input, torsion: bool) -> Result<f64, String> {
 }
 pub fn stiffness(input: &Input) -> Result<Output, String> {
     validate(input)?;
+    let effective = methods::effective(input)?;
+    let input = &effective;
     let f = &input.foundation;
     let mut matrix = zeros(6);
     if f.kind == "pile" {
@@ -303,6 +448,7 @@ pub fn stiffness(input: &Input) -> Result<Output, String> {
             matrix[i][i] = diag[i];
         }
     }
+    methods::apply(input, &mut matrix)?;
     if matrix.iter().flatten().any(|v| !v.is_finite()) {
         return Err("Rigidez não finita".into());
     }

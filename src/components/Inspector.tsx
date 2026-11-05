@@ -355,46 +355,210 @@ export default function Inspector({
         )}
         {tab === "methods" && (
           <>
-            <Section title="MOTOR ATIVO">
-              <div className="method-card">
-                <span className="dot teal" />
-                <strong>
-                  {f.kind === "pile"
-                    ? "Winkler · viga/barra discretizada"
-                    : "Elasticidade + Winkler"}
-                </strong>
-                <small>Implementação experimental · v0.1</small>
-              </div>
-              {f.kind === "pile" ? (
+            <Section title="MODELO DE RIGIDEZ">
+              <label className="select-field method-select">
+                <span>Método de cálculo</span>
+                <select
+                  aria-label="Método de cálculo"
+                  value={f.kind === "pile" ? f.pileMethod : f.footingMethod}
+                  onChange={(e) =>
+                    up({
+                      ...f,
+                      ...(f.kind === "pile"
+                        ? {
+                            pileMethod: e.target
+                              .value as Foundation["pileMethod"],
+                          }
+                        : {
+                            footingMethod: e.target
+                              .value as Foundation["footingMethod"],
+                          }),
+                    })
+                  }
+                >
+                  {f.kind === "pile" ? (
+                    <>
+                      <option value="winkler">Winkler · viga e barra</option>
+                      <option value="randolph">
+                        Randolph–Wroth · TQS simplificado
+                      </option>
+                      <option value="mindlin">
+                        Mindlin / Aoki–Lopes / Steinbrenner
+                      </option>
+                    </>
+                  ) : (
+                    <>
+                      <option value="elastic">
+                        Elasticidade · disco equivalente
+                      </option>
+                      <option value="winkler">Winkler · kv informado</option>
+                      <option value="safe">
+                        Winkler · SAFE/Morrison (TQS)
+                      </option>
+                      <option value="mindlin">
+                        Mindlin / Steinbrenner · centro
+                      </option>
+                    </>
+                  )}
+                </select>
+              </label>
+              <p className="field-help">
+                Métodos experimentais. Consulte as hipóteses e os valores
+                intermediários na memória de cálculo.
+              </p>
+              {(f.kind === "pile" ||
+                f.footingMethod === "mindlin" ||
+                f.footingMethod === "elastic") && (
+                <label className="select-field method-select">
+                  <span>Módulo do solo E</span>
+                  <select
+                    aria-label="Origem do módulo do solo"
+                    value={f.modulusSource}
+                    onChange={(e) =>
+                      up({
+                        ...f,
+                        modulusSource: e.target
+                          .value as Foundation["modulusSource"],
+                      })
+                    }
+                  >
+                    <option value="manual">Informado por camada</option>
+                    <option value="spt">SPT · Schmertmann (3 K_E N)</option>
+                  </select>
+                </label>
+              )}
+              {f.kind === "pile" && (
                 <>
                   {field("segments", "Elementos por estaca", "—", "ne")}
-                  {field("efficiency", "Redutor manual de rigidez", "—", "η")}
-                  <p className="field-help">
-                    η = 1 soma estacas independentes. Não substitui a análise de
-                    interação de grupo.
-                  </p>
-                </>
-              ) : (
-                <>
-                  {field("safety", "Divisor da tensão última", "—", "FS")}
                   {field(
-                    "sptFactor",
-                    "Fator da correlação SPT",
-                    "kPa/golpe",
-                    "C",
+                    "efficiency",
+                    "Redutor adicional de rigidez",
+                    "—",
+                    "η",
                   )}
                   <p className="field-help">
-                    qSPT = C × N médio em 2B. Correlação exploratória, sem
-                    atribuição normativa.
+                    η = 1 mantém a rigidez do método. Mindlin inclui interação
+                    vertical; os demais somam estacas independentes.
                   </p>
                 </>
               )}
+              {f.kind === "footing" &&
+                f.footingMethod === "winkler" &&
+                field(
+                  "kvInput",
+                  "Coeficiente de reação vertical",
+                  "kN/m³",
+                  "kv",
+                )}
+              {f.kind === "footing" && f.footingMethod === "safe" && (
+                <>
+                  {field(
+                    "allowablePressure",
+                    "Tensão admissível informada",
+                    "kPa",
+                    "σadm",
+                  )}
+                  <p className="field-help">
+                    Faixa da correlação: 24,52–392,27 kPa. Sem extrapolação. Não
+                    utiliza automaticamente qúlt/FS.
+                  </p>
+                </>
+              )}
+              {((f.kind === "pile" && f.pileMethod === "randolph") ||
+                (f.kind === "footing" && f.footingMethod !== "elastic")) &&
+                field(
+                  "horizontalRatio",
+                  "Razão horizontal / vertical",
+                  "—",
+                  "μh",
+                )}
+              {f.kind === "pile" && f.pileMethod === "randolph" && (
+                <>
+                  {field(
+                    "randolphRho",
+                    "Razão de módulos G(L/2)/G(L)",
+                    "—",
+                    "ρ",
+                  )}
+                  <p className="field-help">
+                    ρ = 1 para fuste equivalente homogêneo. Formulação
+                    simplificada de fuste publicada pelo TQS, sem termo de ponta
+                    do método completo.
+                  </p>
+                </>
+              )}
+              {((f.kind === "pile" && f.pileMethod === "mindlin") ||
+                (f.kind === "footing" && f.footingMethod === "mindlin")) && (
+                <>
+                  {field(
+                    "integration",
+                    "Ordem de integração (8–32)",
+                    "—",
+                    "ng",
+                  )}
+                  <p className="field-help">
+                    Descreva as camadas até a base indeslocável de{" "}
+                    {fmt(p.bedrock)} m. Compare ordens e malhas para conferir
+                    convergência.
+                  </p>
+                  {f.kind === "pile" && (
+                    <>
+                      <label className="select-field method-select">
+                        <span>Transferência vertical</span>
+                        <select
+                          aria-label="Transferência vertical"
+                          value={f.transfer}
+                          onChange={(e) =>
+                            up({
+                              ...f,
+                              transfer: e.target
+                                .value as Foundation["transfer"],
+                            })
+                          }
+                        >
+                          <option value="capacity-ratio">
+                            Proporcional a RL e RP (Aoki–Velloso)
+                          </option>
+                          <option value="manual">
+                            Fração de ponta informada
+                          </option>
+                        </select>
+                      </label>
+                      {f.transfer === "manual" &&
+                        field(
+                          "tipFraction",
+                          "Fração de carga na ponta (0–1)",
+                          "—",
+                          "βp",
+                        )}
+                      <p className="field-help">
+                        Fração fixa para estimativa linear; não representa a
+                        sequência real de mobilização fuste/ponta. Lateral e
+                        torção por Winkler.
+                      </p>
+                    </>
+                  )}
+                </>
+              )}
             </Section>
-            <Section title="MÉTODOS PARA PRÓXIMA REVISÃO">
+            {f.kind === "footing" && (
+              <Section title="REFERÊNCIAS DE CAPACIDADE">
+                {field("safety", "Divisor da tensão última", "—", "FS")}
+                {field(
+                  "sptFactor",
+                  "Fator da correlação SPT",
+                  "kPa/golpe",
+                  "C",
+                )}
+                <p className="field-help">
+                  Vésic e qSPT são estimativas separadas da rigidez, sem
+                  verificação normativa completa.
+                </p>
+              </Section>
+            )}
+            <Section title="METODOLOGIA A COMPLEMENTAR">
               {[
-                "Mindlin · meio contínuo",
-                "Steinbrenner · camada finita",
-                "NBR 6122:1996 · tensão básica",
+                "NBR 6122:1996 · referência histórica",
                 "Terzaghi · capacidade de carga",
               ].map((m) => (
                 <div className="pending-method" key={m}>
@@ -402,10 +566,6 @@ export default function Inspector({
                   <small>Pendente</small>
                 </div>
               ))}
-              <p className="field-help">
-                Disponíveis na estrutura do projeto para futura implementação.
-                Não produzem resultados nesta versão.
-              </p>
             </Section>
             <button className="secondary full" onClick={openProject}>
               Dados e observações do projeto

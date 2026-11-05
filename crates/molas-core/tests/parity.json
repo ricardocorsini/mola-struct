@@ -28,7 +28,17 @@
         "efficiency": 1,
         "segments": 24,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -37,6 +47,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -55,6 +66,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -73,6 +85,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -85,7 +98,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -177,7 +257,17 @@
         "efficiency": 1,
         "segments": 24,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -186,6 +276,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -204,6 +295,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -222,6 +314,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -234,7 +327,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -326,7 +486,17 @@
         "efficiency": 1,
         "segments": 24,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -335,6 +505,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -353,6 +524,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -371,6 +543,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -383,7 +556,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -475,7 +715,17 @@
         "efficiency": 1,
         "segments": 24,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -484,6 +734,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -502,6 +753,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -520,6 +772,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -532,7 +785,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -624,7 +944,17 @@
         "efficiency": 1,
         "segments": 24,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -633,6 +963,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -651,6 +982,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -669,6 +1001,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -681,7 +1014,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -773,7 +1173,17 @@
         "efficiency": 0.75,
         "segments": 48,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -782,6 +1192,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -800,6 +1211,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -818,6 +1230,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -830,7 +1243,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -922,7 +1402,17 @@
         "efficiency": 1,
         "segments": 24,
         "safety": 3,
-        "sptFactor": 20
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
       },
       "layers": [
         {
@@ -931,6 +1421,7 @@
           "bottom": 5,
           "soil": "sand",
           "e": 18,
+          "schmertmannK": 0.7,
           "nu": 0.3,
           "gamma": 18,
           "gammaSat": 20,
@@ -949,6 +1440,7 @@
           "bottom": 10,
           "soil": "sand",
           "e": 45,
+          "schmertmannK": 0.9,
           "nu": 0.28,
           "gamma": 19,
           "gammaSat": 21,
@@ -967,6 +1459,7 @@
           "bottom": 16,
           "soil": "silt",
           "e": 60,
+          "schmertmannK": 0.45,
           "nu": 0.32,
           "gamma": 19,
           "gammaSat": 21,
@@ -979,7 +1472,74 @@
           "baseK": 220000,
           "color": "#7D8B84"
         }
-      ]
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 20
     },
     "expected": {
       "matrix": [
@@ -1036,6 +1596,3441 @@
         0,
         0,
         -0.008744785758782818,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 1.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          30892.548164842738,
+          0,
+          0,
+          0,
+          -33111.15021736958,
+          0
+        ],
+        [
+          0,
+          30892.548164842738,
+          0,
+          33111.15021736958,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          411858.4149338777,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          33111.15021736958,
+          0,
+          71232.20613485883,
+          0,
+          0
+        ],
+        [
+          -33111.15021736958,
+          0,
+          0,
+          0,
+          219501.2355110548,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          21076.62083061035
+        ]
+      ],
+      "displacement": [
+        0.0007539404454823941,
+        0,
+        -0.0012140094310814872,
+        0,
+        0.0002504033073770554,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M2",
+        "name": "M2 · Randolph TQS",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 1.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "randolph",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          78542.76326749827,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          78542.76326749827,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          261809.21089166088,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          14137.166941154072,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          94251.3159209979,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          38230.698267566346
+        ]
+      ],
+      "displacement": [
+        0.0001909787659101515,
+        0,
+        -0.0019097876591015154,
+        0,
+        0.0003182979431835859,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M3",
+        "name": "M3 · Mindlin grupo",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 1.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          30892.548164842738,
+          0,
+          0,
+          0,
+          -33111.15021736958,
+          0
+        ],
+        [
+          0,
+          30892.548164842738,
+          0,
+          33111.15021736958,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          80370.1574171705,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          33111.15021736958,
+          0,
+          71232.20613485883,
+          0,
+          0
+        ],
+        [
+          -33111.15021736958,
+          0,
+          0,
+          0,
+          103869.93461102992,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          21076.62083061035
+        ]
+      ],
+      "displacement": [
+        0.0012077791337702167,
+        0,
+        -0.006221214640711636,
+        0,
+        0.0006738326792037648,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S1",
+        "name": "S1 · Disco equivalente",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.4,
+        "capY": 1.8,
+        "height": 0.6,
+        "depth": 1.5,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          38855.28788217001,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          38855.28788217001,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          47159.411660318154,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          12733.041148285902,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          22636.51759695271,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          29141.465911627503
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.008481870021643554,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S2",
+        "name": "S2 · kv informado",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.4,
+        "capY": 1.8,
+        "height": 0.6,
+        "depth": 1.5,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "winkler",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          38880,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          38880,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          129600.00000000001,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          34992,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          62208,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          29160.000000000004
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0030864197530864196,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S3",
+        "name": "S3 · SAFE/Morrison",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.4,
+        "capY": 1.8,
+        "height": 0.6,
+        "depth": 1.5,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "safe",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          52017.357226065884,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          52017.357226065884,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          173391.19075355295,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          46815.6215034593,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          83227.7715617054,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          39013.01791954941
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.002306922273626543,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S4",
+        "name": "S4 · Mindlin centro",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.4,
+        "capY": 1.8,
+        "height": 0.6,
+        "depth": 1.5,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "mindlin",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          21266.99908981479,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          21266.99908981479,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          70889.99696604931,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          19140.299180833314,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          34027.198543703664,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15950.249317361093
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.005642545029188932,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 1,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          15446.274082421369,
+          0,
+          0,
+          0,
+          -16555.57510868479,
+          0
+        ],
+        [
+          0,
+          15446.274082421369,
+          0,
+          16555.57510868479,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          42602.84887652367,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          16555.57510868479,
+          0,
+          35616.103067429416,
+          0,
+          0
+        ],
+        [
+          -16555.57510868479,
+          0,
+          0,
+          0,
+          35616.103067429416,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4977.651745633483
+        ]
+      ],
+      "displacement": [
+        0.0037345134924098617,
+        0,
+        -0.011736304336105686,
+        0,
+        0.002578244409393658,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 1,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "randolph",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          39271.38163374914,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          39271.38163374914,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          130904.60544583044,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          7068.583470577036,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          7068.583470577036,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4977.651745633483
+        ]
+      ],
+      "displacement": [
+        0.000381957531820303,
+        0,
+        -0.0038195753182030307,
+        0,
+        0.004244131815783875,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 3,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          46338.82224726411,
+          0,
+          0,
+          0,
+          -49666.725326054366,
+          0
+        ],
+        [
+          0,
+          46338.82224726411,
+          0,
+          49666.725326054366,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          115135.54742454915,
+          248.37239852527273,
+          0,
+          0
+        ],
+        [
+          0,
+          49666.725326054366,
+          248.37239852527273,
+          149896.43847328,
+          0,
+          0
+        ],
+        [
+          -49666.725326054366,
+          0,
+          0,
+          0,
+          139486.03767845937,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          40882.69569536834
+        ]
+      ],
+      "displacement": [
+        0.0008962822418553854,
+        -0.000011959896674882679,
+        -0.004342731525187133,
+        0.000011158527615314817,
+        0.0005342140701754192,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 3,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "randolph",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          117814.1449012474,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          117814.1449012474,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          392713.8163374913,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          125668.42122799721,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          94251.3159209979,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          80908.876381599
+        ]
+      ],
+      "displacement": [
+        0.00012731917727343435,
+        0,
+        -0.0012731917727343436,
+        0,
+        0.0003182979431835859,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 4,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          61785.096329685475,
+          0,
+          0,
+          0,
+          -66222.30043473915,
+          0
+        ],
+        [
+          0,
+          61785.096329685475,
+          0,
+          66222.30043473915,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          146981.11524786978,
+          -2.9103830456733704e-11,
+          0,
+          0
+        ],
+        [
+          0,
+          66222.30043473915,
+          -2.9103830456733704e-11,
+          206307.3965418368,
+          0,
+          0
+        ],
+        [
+          -66222.30043473915,
+          0,
+          0,
+          0,
+          206307.3965418368,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          64395.87633990747
+        ]
+      ],
+      "displacement": [
+        0.0006077119776659129,
+        7.84129067569609e-19,
+        -0.0034017975653320986,
+        -7.3158874966052945e-19,
+        0.00034048263096828367,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M1",
+        "name": "M1 · Winkler",
+        "kind": "pile",
+        "count": 4,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "randolph",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          157085.52653499655,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          157085.52653499655,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          523618.42178332177,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          188502.6318419958,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          188502.6318419958,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          133012.18608773145
+        ]
+      ],
+      "displacement": [
+        0.00009548938295507575,
+        0,
+        -0.0009548938295507577,
+        0,
+        0.00015914897159179296,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "M3",
+        "name": "M3 · Mindlin grupo",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 1.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 0.8,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "footingMethod": "elastic",
+        "modulusSource": "spt",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 8,
+        "transfer": "manual",
+        "tipFraction": 0.25
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          24714.03853187419,
+          0,
+          0,
+          0,
+          -26488.92017389566,
+          0
+        ],
+        [
+          0,
+          24714.03853187419,
+          0,
+          26488.92017389566,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          214205.36928197855,
+          0,
+          -1.4551915228366852e-11,
+          0
+        ],
+        [
+          0,
+          26488.92017389566,
+          0,
+          56985.76490788707,
+          0,
+          0
+        ],
+        [
+          -26488.92017389566,
+          0,
+          -1.4551915228366852e-11,
+          0,
+          160740.7996935937,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          16861.29666448828
+        ]
+      ],
+      "displacement": [
+        0.0009800935536507063,
+        0,
+        -0.002334208529300698,
+        0,
+        0.0003481481989157579,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S4",
+        "name": "S4 · Mindlin centro",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.8,
+        "capY": 2.5,
+        "height": 0.6,
+        "depth": 1.5,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "footingMethod": "mindlin",
+        "modulusSource": "spt",
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 24,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "schmertmannK": 0.7,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "schmertmannK": 0.9,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "schmertmannK": 0.45,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 4
+        },
+        {
+          "depth": 2,
+          "n": 6
+        },
+        {
+          "depth": 3,
+          "n": 10
+        },
+        {
+          "depth": 4,
+          "n": 12
+        },
+        {
+          "depth": 5,
+          "n": 20
+        },
+        {
+          "depth": 6,
+          "n": 26
+        },
+        {
+          "depth": 7,
+          "n": 32
+        },
+        {
+          "depth": 8,
+          "n": 38
+        },
+        {
+          "depth": 9,
+          "n": 38
+        },
+        {
+          "depth": 10,
+          "n": 40
+        },
+        {
+          "depth": 11,
+          "n": 42
+        },
+        {
+          "depth": 12,
+          "n": 45
+        },
+        {
+          "depth": 13,
+          "n": 48
+        },
+        {
+          "depth": 14,
+          "n": 50
+        },
+        {
+          "depth": 15,
+          "n": 50
+        },
+        {
+          "depth": 16,
+          "n": 50
+        }
+      ],
+      "bedrock": 16
+    },
+    "expected": {
+      "matrix": [
+        [
+          27284.26695587058,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          27284.26695587058,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          90947.55651956859,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          47368.51902060864,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          24555.84026028352,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          21577.30778426765
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.004398139051860449,
         0,
         0,
         0

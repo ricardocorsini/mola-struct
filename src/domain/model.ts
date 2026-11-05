@@ -18,6 +18,7 @@ export const layerSchema = z.object({
   kh: positive,
   shaftK: positive,
   baseK: positive,
+  schmertmannK: positive.default(0.9),
   color: z.string().regex(/^#[0-9a-f]{6}$/i),
 });
 export const foundationSchema = z.object({
@@ -48,6 +49,18 @@ export const foundationSchema = z.object({
   segments: z.number().int().min(8).max(64),
   safety: positive,
   sptFactor: positive,
+  pileMethod: z.enum(["winkler", "randolph", "mindlin"]).default("winkler"),
+  footingMethod: z
+    .enum(["elastic", "winkler", "safe", "mindlin"])
+    .default("elastic"),
+  modulusSource: z.enum(["manual", "spt"]).default("manual"),
+  horizontalRatio: positive.max(1).default(0.3),
+  kvInput: positive.default(30000),
+  allowablePressure: positive.default(200),
+  randolphRho: positive.max(1).default(1),
+  integration: z.number().int().min(8).max(32).default(16),
+  transfer: z.enum(["capacity-ratio", "manual"]).default("capacity-ratio"),
+  tipFraction: z.number().min(0).max(1).default(0.5),
 });
 export const projectSchema = z.object({
   format: z.literal("molasstruct"),
@@ -135,6 +148,16 @@ export const defaultFoundation = (
   segments: 24,
   safety: 3,
   sptFactor: 20,
+  pileMethod: "winkler",
+  footingMethod: "elastic",
+  modulusSource: "manual",
+  horizontalRatio: 0.3,
+  kvInput: 30000,
+  allowablePressure: 200,
+  randolphRho: 1,
+  integration: 16,
+  transfer: "capacity-ratio",
+  tipFraction: 0.5,
 });
 export const exampleProject = (): Project => ({
   format: "molasstruct",
@@ -156,6 +179,7 @@ export const exampleProject = (): Project => ({
       bottom: 5,
       soil: "sand",
       e: 18,
+      schmertmannK: 0.7,
       nu: 0.3,
       gamma: 18,
       gammaSat: 20,
@@ -174,6 +198,7 @@ export const exampleProject = (): Project => ({
       bottom: 10,
       soil: "sand",
       e: 45,
+      schmertmannK: 0.9,
       nu: 0.28,
       gamma: 19,
       gammaSat: 21,
@@ -192,6 +217,7 @@ export const exampleProject = (): Project => ({
       bottom: 16,
       soil: "silt",
       e: 60,
+      schmertmannK: 0.45,
       nu: 0.32,
       gamma: 19,
       gammaSat: 21,
@@ -232,4 +258,36 @@ export function parseProject(text: string): Project {
 }
 export function clone<T>(x: T): T {
   return structuredClone(x);
+}
+/** Dedicated numerical demonstration, separate from projects made by users. */
+export function methodologyProject(): Project {
+  const p = exampleProject();
+  p.name = "Comparação de metodologias";
+  p.bedrock = 16;
+  p.notes =
+    "Dados fictícios. Mesma geometria por família para comparar hipóteses de rigidez. Métodos têm alcances diferentes; não constituem validação por comparação entre si.";
+  const pile = defaultFoundation();
+  const footing = { ...p.foundations[2] };
+  p.foundations = [
+    ...(["winkler", "randolph", "mindlin"] as const).map((pileMethod, i) => ({
+      ...pile,
+      id: `M${i + 1}`,
+      name: ["M1 · Winkler", "M2 · Randolph TQS", "M3 · Mindlin grupo"][i],
+      pileMethod,
+    })),
+    ...(["elastic", "winkler", "safe", "mindlin"] as const).map(
+      (footingMethod, i) => ({
+        ...footing,
+        id: `S${i + 1}`,
+        name: [
+          "S1 · Disco equivalente",
+          "S2 · kv informado",
+          "S3 · SAFE/Morrison",
+          "S4 · Mindlin centro",
+        ][i],
+        footingMethod,
+      }),
+    ),
+  ];
+  return p;
 }

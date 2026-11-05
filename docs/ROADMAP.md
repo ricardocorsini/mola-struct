@@ -2,7 +2,7 @@
 
 A disponibilidade de referências e resultados independentes condiciona a ordem de implementação. Não há datas de lançamento fixadas.
 
-## Base disponível na 0.1.0
+## Base disponível na 0.2.0
 
 - [x] Editor de fundações, SPT e camadas.
 - [x] Vistas 3D e vetoriais sincronizadas.
@@ -22,11 +22,14 @@ A disponibilidade de referências e resultados independentes condiciona a ordem 
 
 ## Evolução do motor
 
-- [ ] Mindlin e Steinbrenner com referências e convenções explicitadas.
+- [x] Mindlin vertical, Aoki–Lopes e Steinbrenner com referências, convenções e testes analíticos.
+- [x] Randolph–Wroth simplificado e SAFE/Morrison conforme TQS.
 - [ ] Terzaghi e documentação do alcance das comparações de capacidade.
-- [ ] Interação de grupo, contato bloco–solo e hipóteses de cabeça/ponta.
+- [x] Interação vertical entre estacas no perfil Mindlin.
+- [ ] Interação lateral, contato bloco–solo e transferência não linear de fuste/ponta.
 - [ ] Contato unilateral e perda de contato das sapatas.
-- [ ] Eventual correlação SPT → E com fonte, domínio e limites regionais.
+- [x] Correlação opcional SPT → E de Schmertmann conforme TQS, com unidade explícita.
+- [ ] Calibração regional de E e coeficientes de reação.
 - [ ] Definição de escopo e versões normativas antes de oferecer conformidade.
 
 Novas propostas podem ser discutidas em [issues](https://github.com/ricardocorsini/mola-struct/issues/new/choose).

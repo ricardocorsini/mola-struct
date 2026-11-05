@@ -1,4 +1,4 @@
-# Motor 0.1.0 — hipóteses, equações e unidades
+# Motor 0.2.0 — hipóteses, equações e unidades
 
 ## Convenções
 
@@ -43,9 +43,9 @@ Bloco perfeitamente rígido, estacas verticais idênticas, terreno horizontal, s
 
 `Ru = RL + RP`
 
-Integração dividida nos limites de SPT, nas transições de solo e na geometria da estaca. N representa o intervalo entre o registro anterior e a profundidade indicada. Np corresponde ao intervalo que contém a ponta; se a ponta coincide com uma fronteira, usa o intervalo que termina nela. Não há média na ponta ou truncamento automático de N. F1/F2 são editáveis e não são inferidos pelo tipo executivo. Resistências últimas por estaca isolada, sem verificação de grupo, arraste negativo, fator de segurança ou limites normativos. A capacidade não altera a rigidez linear.
+Integração dividida nos limites de SPT, nas transições de solo e na geometria da estaca. N representa o intervalo entre o registro anterior e a profundidade indicada. Np corresponde ao intervalo que contém a ponta; se a ponta coincide com uma fronteira, usa o intervalo que termina nela. Não há média na ponta ou truncamento automático de N. F1/F2 são editáveis e não são inferidos pelo tipo executivo. Resistências últimas por estaca isolada, sem verificação de grupo, arraste negativo, fator de segurança ou limites normativos. No modo Winkler, a capacidade não altera a rigidez linear. Em Mindlin, a razão RP/(RL+RP) pode definir a transferência proporcional de carga.
 
-## Sapata
+## Sapata por disco equivalente (opção legada)
 
 B = menor dimensão e L = maior dimensão em planta; A = Lx Ly. Integra-se a faixa D a D + 2B para obter E equivalente harmônico `Eeq = 2B / SUM(dz/E)` e ν médio por espessura. Esta homogeneização é uma escolha da implementação, não o método de Steinbrenner.
 
@@ -103,4 +103,91 @@ Exportações mantêm kN, m e rad. A opção tf na tela divide rigidezes por 9,8
 - Vesić (1973), Analysis of Ultimate Loads of Shallow Foundations: <https://doi.org/10.1061/JSFEAQ.0001846>.
 - USACE EM 1110-1-1905, edição histórica de 30/10/1992, fatores de capacidade: <https://www.publications.usace.army.mil/portals/76/publications/engineermanuals/em_1110-1-1905.pdf>.
 
-Não há implementação nem reivindicação de conformidade com NBR 6122 nesta versão. Mindlin, Steinbrenner e Terzaghi aguardam referências e casos de validação.
+Não há implementação nem reivindicação de conformidade com NBR 6122 nesta versão. Terzaghi e a referência histórica NBR 6122:1996 permanecem pendentes. Os métodos novos estão descritos abaixo e em [METODOLOGIAS.md](METODOLOGIAS.md).
+
+## Mindlin / Aoki–Lopes / Steinbrenner
+
+Núcleo vertical, `w/P` em m/kN, E em kPa, fonte a c, ponto de avaliação a z e distância horizontal r:
+
+```text
+R1² = r² + (z-c)²; R2² = r² + (z+c)²; a = 3-4ν
+w/P = (1+ν)/[8πE(1-ν)] × {
+  a/R1 + [8(1-ν)²-a]/R2 + (z-c)²/R1³
+  + [a(z+c)²-2cz]/R2³ + 6cz(z+c)²/R2⁵
+}
+```
+
+O termo `8(1-ν)²` é conferido pelo limite de Boussinesq em c = 0; há uma divergência na equação impressa do artigo de Olavo, enquanto o código mostrado no próprio artigo e a dissertação de Silva usam o sinal acima. Implementação independente das equações, sem incorporar código das referências.
+
+Para meio finito estratificado, soma-se `w(topoi,Ei,νi) - w(basei,Ei,νi)` das camadas abaixo do ponto de avaliação até a base indeslocável. É o artifício aproximado de Steinbrenner, não uma solução exata de elasticidade multicamadas. Razões de módulo entre camadas ≥ 10 geram observação (Silva, 2017, p. 38).
+
+### Estacas
+
+- Fontes no fuste: círculos de raio d/2, divididos em 2ng ângulos. Trechos verticais respeitam os limites de camadas, registros SPT e ne segmentos de malha; carga de cada trecho aplicada no ponto médio. A intensidade de transferência é proporcional a α K N/F2 dentro de cada trecho.
+- Ponta: disco com pressão uniforme, ng pontos de Gauss radiais e 2ng divisões angulares. Pesos radiais `2u du`, sem aproximar o disco por uma carga singular central.
+- Fração de ponta βp: informada entre 0 e 1 ou igual a RP/(RL+RP). A parcela restante é distribuída pelo fuste. Esta mobilização **proporcional fixa** é uma hipótese linear explícita, distinta da sequência fuste-primeiro e da curva bilinear apresentadas no ALPI. Resistência de fuste nula exige βp = 1; resistência total nula impede a opção automática.
+- Deslocamento avaliado no centro da ponta de cada estaca. Fontes próprias e de outras estacas entram na flexibilidade `Cij`. Soma-se na diagonal o encurtamento elástico `∫N(z)/(Ep Ap) dz`, integrado exatamente para a transferência constante em cada trecho.
+- `B_i = [1, yi, -xi]` para os GDL `[uz, θx, θy]`; `Kvertical = η Bᵀ C⁻¹ B`. As reações verticais são recuperadas de `η C⁻¹ B u`, e não de molas independentes quando há interação.
+- A matriz de flexibilidade deve ser positiva definida; o motor bloqueia a solução em caso contrário. Nenhuma mola de regularização é inserida.
+- As parcelas lateral/flexão local/torção permanecem Winkler; não há interação lateral entre estacas. Sem contato bloco–solo, estacas inclinadas, fluência, adensamento, arraste negativo ou redistribuição não linear de transferência.
+
+### Sapatas
+
+Pressão uniforme sobre retângulo em D; deslocamento avaliado no centro da base. Quadratura Gauss–Legendre com transformação de Duffy em dois triângulos por quadrante, tratando a singularidade integrável de 1/r sem raio mínimo artificial. Aplica-se Steinbrenner das camadas sob a base ao indeslocável.
+
+`Kz = P/wcentro`, `kv = Kz/A`. É um recalque central de base flexível sob pressão uniforme; **não** é o recalque médio nem a solução do contato de uma sapata perfeitamente rígida. Rotações são aproximadas por `kv I`. `Kh = μh Kz` e `Kθz = (Kh/A)(Ix+Iy)` são hipóteses adicionais, não resultados de uma solução Mindlin completa para seis GDL.
+
+### Discretização e cobertura
+
+ng = 8…32, ne = 8…64. Compare ne e ng antes de adotar um resultado. Camadas devem cobrir todo o trecho até o indeslocável; não se prolonga silenciosamente a última camada. SPT manual deve cobrir a ponta (estaca) ou a faixa 2B usada na capacidade (sapata). Com correlação SPT → E, investigue até o fim da última camada consumida pelo modelo.
+
+## Randolph–Wroth simplificado conforme a documentação TQS
+
+A formulação implementada é a expressão de **fuste** efetivamente publicada no link fornecido, não a solução completa de Randolph & Wroth (1978):
+
+```text
+Eeq = Σ(Ei Δz)/L; νeq = Σ(νi Δz)/L; G = Eeq/[2(1+νeq)]
+r0 = d/2; rm = 2,5 L ρ (1-νeq); ζ = ln(rm/r0)
+μRW = sqrt[2G/(ζ Ep)]/r0
+kz_estaca = (2π L G ρ / ζ) tanh(μRW L)/(μRW L)
+```
+
+ρ = G(L/2)/G(L) informado, padrão 1 para o fuste equivalente homogêneo; domínio adotado 0 < ρ ≤ 1. rm deve superar r0. Ep é o Ec informado pelo usuário, preservando a possibilidade de editar o concreto. E e ν são médias aritméticas ponderadas por espessura ao longo do fuste: escolha explícita da implementação para a camada equivalente mencionada pelo TQS. Não se atribui contribuição de base ausente na equação publicada.
+
+Grupo rígido soma as molas verticais e braços, sem interação. Para 2 estacas em X: `Kz=2k`, `Kθy=k sx²/2=Kz sx²/4`. Nos eixos sem braço, soma-se `0,5×3EpI/L` por estaca. `Kh=μh Kz` com μh informado e 0 < μh ≤ 1. A torção, não definida na dedução TQS, usa a barra GJ/interface Winkler mais os braços das novas molas horizontais. Não há acoplamento lateral–rotação neste perfil simplificado.
+
+## Sapatas por kv e SAFE/Morrison
+
+kv informado diretamente ou estimado pela expressão do TQS:
+
+`kv = -0,0257 σadm⁴ + 0,2294 σadm³ - 0,6517 σadm² + 2,5467 σadm + 0,1083`
+
+Na expressão original σadm está em **kgf/cm²** e kv em **kgf/cm³**. Entrada da aplicação em kPa; conversões `1 kgf/cm² = 98,0665 kPa` e `1 kgf/cm³ = 9.806,65 kN/m³`. Domínio da tabela: 0,25 ≤ σadm ≤ 4 kgf/cm² (24,516625…392,266 kPa). Usa-se o polinômio publicado, sem extrapolação nem reprodução exata dos valores tabulados.
+
+`Kz = kv A`; `Kh = μh Kz`; `Kθx=kv Ix`; `Kθy=kv Iy`. A extensão `Kθz=(Kh/A)(Ix+Iy)` é uma hipótese do MolasStruct. A tensão admissível é entrada independente, não inferida de `qult/FS`. kv também é dependente do modelo/dimensão de referência; não constitui propriedade universal do solo.
+
+## Correlação opcional SPT → E
+
+Schmertmann conforme a documentação TQS: `E = 3 K_E N̄` em MPa. N̄ é a média dos registros por espessura em cada camada investigada. ν permanece informado. A correlação pode ser selecionada por fundação e não altera os dados E manuais salvos.
+
+| Solo                  | K_E (MPa) |
+| --------------------- | --------: |
+| Areia com pedregulhos |      1,10 |
+| Areia                 |      0,90 |
+| Areia siltosa         |      0,70 |
+| Areia argilosa        |      0,55 |
+| Silte arenoso         |      0,45 |
+| Silte                 |      0,35 |
+| Argila arenosa        |      0,30 |
+| Silte argiloso        |      0,25 |
+| Argila siltosa        |      0,20 |
+
+K_E é editável por camada e **não é** o K (kPa/golpe) de Aoki–Velloso. E positivo é obrigatório; N̄ nulo bloqueia a correlação, sem piso artificial. Em Winkler para estacas, os coeficientes kh, kt e kp são entradas independentes: trocar E não os recalibra.
+
+### Referências acrescentadas
+
+- TQS, Estimativa de Vínculos Elásticos de Fundação: <https://docs.tqs.com.br/Docs/Details?id=1523972768&language=pt-BR>.
+- TQS, Coeficiente de mola — Uma estaca: <https://docs.tqs.com.br/Docs/Details?id=3288&language=pt-BR>.
+- Mindlin, R. D. (1936), Force at a Point in the Interior of a Semi-Infinite Solid, Physics 7, 195–202: <https://doi.org/10.1063/1.1745385>.
+- Silva, Pedro Lima e (2017), Desenvolvimento de programa computacional para estimativa de recalque elástico de estacas, UFRN, pp. 36–42 e 59–61. Dissertação fornecida pelo usuário sob o nome Mindlin.pdf.
+- Olavo, Luiz Henrique Felipe (2023), Código-fonte para cálculo de recalques de fundações, Revista On-line IDD 3, pp. 2–3 e 5. Artigo fornecido pelo usuário. Código da função vertical concorda com Silva; equação impressa tem divergência de sinal no termo quadrático em ν.

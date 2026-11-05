@@ -1,6 +1,10 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { calculate } from "../src/domain/engine";
-import { defaultFoundation, exampleProject } from "../src/domain/model";
+import {
+  defaultFoundation,
+  exampleProject,
+  methodologyProject,
+} from "../src/domain/model";
 import {
   geometryDxf,
   matrixCsv,
@@ -34,11 +38,61 @@ const variants = [
   { ...p.foundations[0], segments: 48, length: 5.5, efficiency: 0.75 },
   { ...p.foundations[2], capX: 1.4, capY: 3, depth: 0.8 },
 ];
-const fixtures = variants.map((f) => {
+const m = methodologyProject();
+writeFileSync(
+  "examples/comparacao-metodologias.molas.json",
+  JSON.stringify(m, null, 2) + "\n",
+);
+for (const id of ["M3", "S4"]) {
+  const f = m.foundations.find((f) => f.id === id)!;
+  const r = calculate(m, f);
+  if (!r.valid) throw new Error("Invalid method example " + id);
+  writeFileSync(`examples/${id}-memoria.pdf`, await reportPdf(m, f, r));
+  writeFileSync(`examples/${id}-matriz.csv`, matrixCsv(f, r));
+}
+writeFileSync(
+  "examples/metodologias-resultados.json",
+  JSON.stringify(
+    m.foundations.map((f) => ({ id: f.id, ...calculate(m, f) })),
+    null,
+    2,
+  ) + "\n",
+);
+const extra = [
+  ...m.foundations,
+  ...([1, 3, 4] as const).flatMap((count) =>
+    (["mindlin", "randolph"] as const).map((pileMethod) => ({
+      ...m.foundations[0],
+      count,
+      pileMethod,
+      capY: 3,
+    })),
+  ),
+  {
+    ...m.foundations[2],
+    modulusSource: "spt" as const,
+    transfer: "manual" as const,
+    tipFraction: 0.25,
+    efficiency: 0.8,
+    integration: 8,
+  },
+  {
+    ...m.foundations[6],
+    modulusSource: "spt" as const,
+    capX: 1.8,
+    capY: 2.5,
+    integration: 24,
+  },
+];
+const cases = [
+  ...variants.map((f) => ({ p, f })),
+  ...extra.map((f) => ({ p: m, f })),
+];
+const fixtures = cases.map(({ p, f }) => {
   const r = calculate(p, f);
   if (!r.valid) throw new Error("Invalid fixture " + f.id);
   return {
-    input: { foundation: f, layers: p.layers },
+    input: { foundation: f, layers: p.layers, spt: p.spt, bedrock: p.bedrock },
     expected: { matrix: r.matrix, displacement: r.displacement },
   };
 });

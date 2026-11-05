@@ -337,6 +337,7 @@ export default function SoilEditor({
                     <>
                       <th>E (MPa)</th>
                       <th>ν</th>
+                      <th>K_E (MPa)</th>
                     </>
                   )}
                   <th />
@@ -398,7 +399,7 @@ export default function SoilEditor({
                           "shaftK",
                           "baseK",
                         ]
-                      : ["e", "nu"]
+                      : ["e", "nu", "schmertmannK"]
                     ).map((key) => (
                       <td key={key}>
                         <Cell
@@ -429,8 +430,10 @@ export default function SoilEditor({
           </div>
           <div className="soil-definitions">
             <p>
-              <b>E e ν</b> são parâmetros informados. Não há correlação
-              automática com SPT.
+              <b>E e ν</b> são informados. Na aba Métodos, cada fundação pode
+              optar por E = 3 K_E N̄SPT (Schmertmann conforme TQS). K_E em MPa:
+              areia 0,90; areia siltosa 0,70; silte 0,35; argila siltosa 0,20.
+              Edite conforme a classificação real.
             </p>
             <p>
               <b>α e K</b> pertencem ao método Aoki–Velloso. α é decimal (ex.:
