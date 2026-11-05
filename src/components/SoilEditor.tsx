@@ -72,7 +72,8 @@ export default function SoilEditor({
           onChange={(water) => onChange({ ...p, water })}
         />
         <NumberField
-          label="Impenetrável"
+          label="Base rígida de referência"
+          hint="Hipótese de deslocamento vertical nulo. Recusa no SPT não comprova, por si só, uma base indeslocável."
           unit="m"
           value={p.bedrock}
           onChange={(bedrock) => onChange({ ...p, bedrock })}

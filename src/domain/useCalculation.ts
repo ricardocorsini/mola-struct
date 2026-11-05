@@ -6,7 +6,7 @@ export function useCalculation(p: Project, f: Foundation): Calculation {
   const estimate = useMemo(() => calculate(p, f), [p, f]);
   const desktop = isTauri(),
     key = JSON.stringify({
-      foundation: f,
+      foundation: { ...f, verification: undefined },
       layers: p.layers,
       spt: p.spt,
       bedrock: p.bedrock,

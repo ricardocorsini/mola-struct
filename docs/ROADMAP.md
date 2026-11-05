@@ -2,7 +2,7 @@
 
 A disponibilidade de referências e resultados independentes condiciona a ordem de implementação. Não há datas de lançamento fixadas.
 
-## Base disponível na 0.2.0
+## Base disponível na 0.3.0
 
 - [x] Editor de fundações, SPT e camadas.
 - [x] Vistas 3D e vetoriais sincronizadas.
@@ -30,6 +30,7 @@ A disponibilidade de referências e resultados independentes condiciona a ordem 
 - [ ] Contato unilateral e perda de contato das sapatas.
 - [x] Correlação opcional SPT → E de Schmertmann conforme TQS, com unidade explícita.
 - [ ] Calibração regional de E e coeficientes de reação.
-- [ ] Definição de escopo e versões normativas antes de oferecer conformidade.
+- [x] Conferência parcial com referência explícita à NBR 6122:2022 e separação ELU/ELS.
+- [ ] Ensaios e benchmarks externos para validação geotécnica; sem oferecer conformidade integral antes de cobrir o escopo necessário.
 
 Novas propostas podem ser discutidas em [issues](https://github.com/ricardocorsini/mola-struct/issues/new/choose).

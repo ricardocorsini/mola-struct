@@ -38,7 +38,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -267,7 +291,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -496,7 +544,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -725,7 +797,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -954,7 +1050,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -1183,7 +1303,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -1412,7 +1556,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -1641,7 +1809,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -1870,7 +2062,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -2099,7 +2315,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -2328,7 +2568,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -2557,7 +2821,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -2786,7 +3074,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -3015,7 +3327,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -3244,7 +3580,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -3473,7 +3833,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -3702,7 +4086,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -3931,7 +4339,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -4160,7 +4592,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -4389,7 +4845,31 @@
         "randolphRho": 1,
         "integration": 16,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -4618,7 +5098,31 @@
         "randolphRho": 1,
         "integration": 8,
         "transfer": "manual",
-        "tipFraction": 0.25
+        "tipFraction": 0.25,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {
@@ -4847,7 +5351,31 @@
         "randolphRho": 1,
         "integration": 24,
         "transfer": "capacity-ratio",
-        "tipFraction": 0.5
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
       },
       "layers": [
         {

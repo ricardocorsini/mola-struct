@@ -1,4 +1,4 @@
-# Motor 0.2.0 — hipóteses, equações e unidades
+# Motor 0.3.0 — hipóteses, equações e unidades
 
 ## Convenções
 
@@ -103,7 +103,7 @@ Exportações mantêm kN, m e rad. A opção tf na tela divide rigidezes por 9,8
 - Vesić (1973), Analysis of Ultimate Loads of Shallow Foundations: <https://doi.org/10.1061/JSFEAQ.0001846>.
 - USACE EM 1110-1-1905, edição histórica de 30/10/1992, fatores de capacidade: <https://www.publications.usace.army.mil/portals/76/publications/engineermanuals/em_1110-1-1905.pdf>.
 
-Não há implementação nem reivindicação de conformidade com NBR 6122 nesta versão. Terzaghi e a referência histórica NBR 6122:1996 permanecem pendentes. Os métodos novos estão descritos abaixo e em [METODOLOGIAS.md](METODOLOGIAS.md).
+Não há reivindicação de conformidade integral com a NBR 6122. A conferência parcial da edição 2022 está documentada em [NBR6122-2022.md](NBR6122-2022.md). A edição 1996 é referência histórica do print, sem uma nova rotina de tensão básica. Terzaghi permanece pendente. Os métodos estão descritos abaixo e em [METODOLOGIAS.md](METODOLOGIAS.md).
 
 ## Mindlin / Aoki–Lopes / Steinbrenner
 
@@ -191,3 +191,15 @@ K_E é editável por camada e **não é** o K (kPa/golpe) de Aoki–Velloso. E p
 - Mindlin, R. D. (1936), Force at a Point in the Interior of a Semi-Infinite Solid, Physics 7, 195–202: <https://doi.org/10.1063/1.1745385>.
 - Silva, Pedro Lima e (2017), Desenvolvimento de programa computacional para estimativa de recalque elástico de estacas, UFRN, pp. 36–42 e 59–61. Dissertação fornecida pelo usuário sob o nome Mindlin.pdf.
 - Olavo, Luiz Henrique Felipe (2023), Código-fonte para cálculo de recalques de fundações, Revista On-line IDD 3, pp. 2–3 e 5. Artigo fornecido pelo usuário. Código da função vertical concorda com Silva; equação impressa tem divergência de sinal no termo quadrático em ν.
+
+## Conferência normativa separada — versão 0.3.0
+
+A camada `src/domain/nbr6122.ts` usa a matriz numérica já calculada. Não altera rigidez, não acrescenta ações automaticamente e não converte uma limitação de resistência ELU em lei de transferência de serviço. O núcleo Rust continua responsável pela rigidez; a conferência, como as capacidades já existentes, é compartilhada pela aplicação web/desktop em TypeScript.
+
+- Vetor principal: serviço, após declaração explícita de origem característica. Vetor ELU: independente, com regime característico/global ou já de cálculo.
+- Serviço: `max |uz + yθx − xθy|` nos topos de estacas ou `|uz|` no centro da sapata, em mm. Translação horizontal `hypot(ux,uy)` em mm; rotação `hypot(θx,θy,θz)` em mrad. Comparação somente com limites informados e justificados.
+- ELU de estacas: ações aplicadas à matriz global e reações recuperadas de C ou das molas axiais correspondentes. Referência de resistência: `(RL + RPconsiderado)/max(FSg,2)` na via característica simples, ou `(RL + RPconsiderado)/1,4` na via de cálculo.
+- ELU da sapata analítica: pressão de borda da distribuição bilateral, comparada a `qult/max(FSg,3)` ou `qult/2,15`. Sem majoração adicional de ações já de cálculo. Sem liberação automática quando há carga horizontal, momento de tombamento, contato parcial, regime de drenagem incompatível ou base geotécnica não declarada.
+- Os fatores menores da norma exigem os dados e condições específicos de ensaios/regiões representativas; não estão implementados como simples opções numéricas.
+
+A base rígida de referência representa uma hipótese de deslocamento nulo. Não deve ser confundida automaticamente com a cota de recusa de uma sondagem SPT. Consulte o alcance, as condições executivas e as pendências em [NBR6122-2022.md](NBR6122-2022.md).

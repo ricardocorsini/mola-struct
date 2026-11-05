@@ -168,7 +168,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "M2",
@@ -378,7 +378,7 @@
         0.000007639150636406061
       ]
     ],
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "M3",
@@ -593,7 +593,7 @@
         0.000023472608672211372
       ]
     ],
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "S1",
@@ -692,7 +692,7 @@
     "segments": [],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "S2",
@@ -802,7 +802,7 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "S3",
@@ -917,7 +917,7 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "S4",
@@ -1042,6 +1042,6 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   }
 ]

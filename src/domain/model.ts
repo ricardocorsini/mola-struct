@@ -21,6 +21,38 @@ export const layerSchema = z.object({
   schmertmannK: positive.default(0.9),
   color: z.string().regex(/^#[0-9a-f]{6}$/i),
 });
+export const verificationSchema = z.object({
+  serviceConfirmed: z.boolean().default(false),
+  serviceReference: z.string().default(""),
+  settlementLimit: positive.nullable().default(null),
+  horizontalLimit: positive.nullable().default(null),
+  rotationLimit: positive.nullable().default(null),
+  limitsReference: z.string().default(""),
+  ultimateBasis: z.enum(["unset", "characteristic", "design"]).default("unset"),
+  ultimateReference: z.string().default(""),
+  ultimateN: nonnegative.default(0),
+  ultimateHx: z.number().finite().default(0),
+  ultimateHy: z.number().finite().default(0),
+  ultimateMx: z.number().finite().default(0),
+  ultimateMy: z.number().finite().default(0),
+  ultimateMz: z.number().finite().default(0),
+  selfWeightIncluded: z.boolean().default(false),
+  geotechnicalBasisConfirmed: z.boolean().default(false),
+  soilRegime: z
+    .enum(["unset", "drained-effective", "undrained-total"])
+    .default("unset"),
+  geotechnicalReference: z.string().default(""),
+  pileType: z
+    .enum(["unspecified", "driven", "cfa", "bored-fluid", "other"])
+    .default("unspecified"),
+  toeProcedure: z
+    .enum(["unconfirmed", "ignored", "minimum", "special"])
+    .default("unconfirmed"),
+  executionReference: z.string().default(""),
+  pileSafety: positive.default(2),
+});
+export const defaultVerification = () => verificationSchema.parse({});
+export type Verification = z.infer<typeof verificationSchema>;
 export const foundationSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
@@ -61,6 +93,7 @@ export const foundationSchema = z.object({
   integration: z.number().int().min(8).max(32).default(16),
   transfer: z.enum(["capacity-ratio", "manual"]).default("capacity-ratio"),
   tipFraction: z.number().min(0).max(1).default(0.5),
+  verification: verificationSchema.prefault({}),
 });
 export const projectSchema = z.object({
   format: z.literal("molasstruct"),
@@ -158,6 +191,7 @@ export const defaultFoundation = (
   integration: 16,
   transfer: "capacity-ratio",
   tipFraction: 0.5,
+  verification: defaultVerification(),
 });
 export const exampleProject = (): Project => ({
   format: "molasstruct",
@@ -288,6 +322,59 @@ export function methodologyProject(): Project {
         footingMethod,
       }),
     ),
+  ];
+  return p;
+}
+/** Illustrative review inputs, not evidence of an actual project or field test. */
+export function normativeExampleProject(): Project {
+  const p = methodologyProject();
+  p.name = "NBR 6122 — conferência parcial fictícia";
+  p.notes =
+    "Exemplo didático com dados, combinações e limites fictícios. As declarações de exemplo não são ensaios nem prova de conformidade de uma obra.";
+  const verification: Verification = {
+    ...defaultVerification(),
+    serviceConfirmed: true,
+    serviceReference:
+      "Combinação característica de serviço FICTÍCIA para demonstração",
+    settlementLimit: 15,
+    horizontalLimit: 5,
+    rotationLimit: 3,
+    limitsReference:
+      "Limites FICTÍCIOS; substituir pelos critérios justificados da obra",
+    ultimateBasis: "characteristic",
+    ultimateReference: "Combinação característica de ELU FICTÍCIA",
+    ultimateN: 600,
+    ultimateMy: 50,
+    selfWeightIncluded: true,
+    geotechnicalBasisConfirmed: true,
+    soilRegime: "drained-effective",
+    geotechnicalReference:
+      "Declaração FICTÍCIA para demonstrar o fluxo; sem ensaios de obra",
+    pileType: "cfa",
+    toeProcedure: "minimum",
+    executionReference:
+      "Declaração executiva FICTÍCIA; não corresponde a comprovante",
+    pileSafety: 2,
+  };
+  p.foundations = [
+    {
+      ...p.foundations[2],
+      id: "N01",
+      name: "N01 · CFA / Mindlin",
+      verification,
+    },
+    {
+      ...p.foundations[3],
+      id: "N02",
+      name: "N02 · Sapata / ELS e ELU",
+      verification: {
+        ...verification,
+        ultimateN: 450,
+        ultimateMy: 30,
+        pileType: "unspecified",
+        toeProcedure: "unconfirmed",
+      },
+    },
   ];
   return p;
 }

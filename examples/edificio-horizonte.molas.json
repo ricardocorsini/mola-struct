@@ -170,7 +170,31 @@
       "randolphRho": 1,
       "integration": 16,
       "transfer": "capacity-ratio",
-      "tipFraction": 0.5
+      "tipFraction": 0.5,
+      "verification": {
+        "serviceConfirmed": false,
+        "serviceReference": "",
+        "settlementLimit": null,
+        "horizontalLimit": null,
+        "rotationLimit": null,
+        "limitsReference": "",
+        "ultimateBasis": "unset",
+        "ultimateReference": "",
+        "ultimateN": 0,
+        "ultimateHx": 0,
+        "ultimateHy": 0,
+        "ultimateMx": 0,
+        "ultimateMy": 0,
+        "ultimateMz": 0,
+        "selfWeightIncluded": false,
+        "geotechnicalBasisConfirmed": false,
+        "soilRegime": "unset",
+        "geotechnicalReference": "",
+        "pileType": "unspecified",
+        "toeProcedure": "unconfirmed",
+        "executionReference": "",
+        "pileSafety": 2
+      }
     },
     {
       "id": "F02",
@@ -209,7 +233,31 @@
       "randolphRho": 1,
       "integration": 16,
       "transfer": "capacity-ratio",
-      "tipFraction": 0.5
+      "tipFraction": 0.5,
+      "verification": {
+        "serviceConfirmed": false,
+        "serviceReference": "",
+        "settlementLimit": null,
+        "horizontalLimit": null,
+        "rotationLimit": null,
+        "limitsReference": "",
+        "ultimateBasis": "unset",
+        "ultimateReference": "",
+        "ultimateN": 0,
+        "ultimateHx": 0,
+        "ultimateHy": 0,
+        "ultimateMx": 0,
+        "ultimateMy": 0,
+        "ultimateMz": 0,
+        "selfWeightIncluded": false,
+        "geotechnicalBasisConfirmed": false,
+        "soilRegime": "unset",
+        "geotechnicalReference": "",
+        "pileType": "unspecified",
+        "toeProcedure": "unconfirmed",
+        "executionReference": "",
+        "pileSafety": 2
+      }
     },
     {
       "id": "S01",
@@ -248,7 +296,31 @@
       "randolphRho": 1,
       "integration": 16,
       "transfer": "capacity-ratio",
-      "tipFraction": 0.5
+      "tipFraction": 0.5,
+      "verification": {
+        "serviceConfirmed": false,
+        "serviceReference": "",
+        "settlementLimit": null,
+        "horizontalLimit": null,
+        "rotationLimit": null,
+        "limitsReference": "",
+        "ultimateBasis": "unset",
+        "ultimateReference": "",
+        "ultimateN": 0,
+        "ultimateHx": 0,
+        "ultimateHy": 0,
+        "ultimateMx": 0,
+        "ultimateMy": 0,
+        "ultimateMz": 0,
+        "selfWeightIncluded": false,
+        "geotechnicalBasisConfirmed": false,
+        "soilRegime": "unset",
+        "geotechnicalReference": "",
+        "pileType": "unspecified",
+        "toeProcedure": "unconfirmed",
+        "executionReference": "",
+        "pileSafety": 2
+      }
     }
   ]
 }

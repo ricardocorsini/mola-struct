@@ -51,7 +51,7 @@ export type Calculation = {
   verticalCompliance: Matrix | null;
   version: string;
 };
-export const ENGINE_VERSION = "0.2.0-experimental";
+export const ENGINE_VERSION = "0.3.0-experimental";
 function check(p: Project, f: Foundation): Notice[] {
   const ns: Notice[] = [];
   const err = (message: string) => ns.push({ level: "error", message });
@@ -94,7 +94,7 @@ function check(p: Project, f: Foundation): Notice[] {
     f.depth >= p.bedrock ||
     (f.kind === "pile" && f.depth + f.length > p.bedrock)
   )
-    err("A fundação ultrapassa a cota impenetrável informada.");
+    err("A fundação ultrapassa a base rígida de referência informada.");
   if (
     mindlin &&
     (f.kind === "pile" ? f.depth + f.length : f.depth) >= p.bedrock
@@ -104,7 +104,7 @@ function check(p: Project, f: Foundation): Notice[] {
     ns.push({
       level: "warning",
       message:
-        "Impenetrável dentro da faixa de influência: a aproximação de semiespaço não considera a base rígida.",
+        "Base rígida dentro da faixa de influência: a aproximação de semiespaço não considera a base rígida.",
     });
   if (f.kind === "pile") {
     const pos = pilePositions(f);

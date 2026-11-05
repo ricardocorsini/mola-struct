@@ -10,7 +10,7 @@ Estimativa de rigidez de fundações com visualização 3D, perfil SPT e memóri
 
 [![CI](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml/badge.svg)](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml)
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-3448D1)](LICENSE)
-[![Versão 0.2.0](https://img.shields.io/badge/vers%C3%A3o-0.2.0-3448D1)](CHANGELOG.md)
+[![Versão 0.3.0](https://img.shields.io/badge/vers%C3%A3o-0.3.0-3448D1)](CHANGELOG.md)
 [![Experimental](https://img.shields.io/badge/status-experimental-D49A40)](#estado-do-projeto)
 
 Parte do ecossistema **OpenStruct** · Engenharia estrutural aberta
@@ -29,7 +29,7 @@ A aplicação funciona no navegador e possui uma base desktop com Tauri. O cálc
 
 ## Estado do projeto
 
-**v0.2.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
+**v0.3.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
 
 Os exemplos são fictícios. Os parâmetros de deformabilidade e reação precisam de justificativa para o solo, a fundação e o nível de deformação em análise. O bloco é considerado rígido; seu dimensionamento estrutural não faz parte desta versão.
 
@@ -87,20 +87,21 @@ Os artefatos ficam em `src-tauri/target/release/bundle/`. O workflow manual [Des
 
 ## Métodos de cálculo
 
-| Recurso                                | Implementação atual                                                                                      |
-| -------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Rigidez das estacas                    | Viga de Euler–Bernoulli e barras axial/torsional em Winkler; reação distribuída e condensação no topo    |
-| Bloco sobre estacas                    | Bloco rígido com molas independentes ou flexibilidade vertical mútua no perfil Mindlin; redutor manual η |
-| Capacidade de estaca isolada           | Aoki–Velloso por intervalos SPT e camadas, com F₁/F₂, α e K informados                                   |
-| Translações da sapata                  | Semiespaço elástico com disco de mesma área e homogeneização explícita de E e ν                          |
-| Rotações da sapata                     | Winkler distribuído sobre o retângulo                                                                    |
-| Tensão última da sapata                | Fatores de Vésic e de forma, para carga vertical centrada; demais fatores unitários                      |
-| Correlação SPT                         | Referência exploratória `qSPT = C × N`, com C informado e sem atribuição normativa                       |
-| Mindlin / Aoki–Lopes / Steinbrenner    | Recalque vertical por superposição, camada finita, encurtamento EA e interação vertical no grupo         |
-| Randolph–Wroth simplificado (TQS)      | Parcela de fuste publicada pelo TQS; Kh proporcional e rotação sem braço por 0,5·3EI/L                   |
-| Sapatas por kv / SAFE-Morrison         | kv informado ou correlação com σadm; unidades originais e domínio controlados                            |
-| SPT → E                                | Opcional: Schmertmann conforme TQS, E = 3 K_E N̄ por camada                                               |
-| Terzaghi e tensão básica NBR 6122:1996 | **Pendentes**; não geram resultados                                                                      |
+| Recurso                             | Implementação atual                                                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| Rigidez das estacas                 | Viga de Euler–Bernoulli e barras axial/torsional em Winkler; reação distribuída e condensação no topo              |
+| Bloco sobre estacas                 | Bloco rígido com molas independentes ou flexibilidade vertical mútua no perfil Mindlin; redutor manual η           |
+| Capacidade de estaca isolada        | Aoki–Velloso por intervalos SPT e camadas, com F₁/F₂, α e K informados                                             |
+| Translações da sapata               | Semiespaço elástico com disco de mesma área e homogeneização explícita de E e ν                                    |
+| Rotações da sapata                  | Winkler distribuído sobre o retângulo                                                                              |
+| Tensão última da sapata             | Fatores de Vésic e de forma, para carga vertical centrada; demais fatores unitários                                |
+| Correlação SPT                      | Referência exploratória `qSPT = C × N`, com C informado e sem atribuição normativa                                 |
+| Mindlin / Aoki–Lopes / Steinbrenner | Recalque vertical por superposição, camada finita, encurtamento EA e interação vertical no grupo                   |
+| Randolph–Wroth simplificado (TQS)   | Parcela de fuste publicada pelo TQS; Kh proporcional e rotação sem braço por 0,5·3EI/L                             |
+| Sapatas por kv / SAFE-Morrison      | kv informado ou correlação com σadm; unidades originais e domínio controlados                                      |
+| SPT → E                             | Opcional: Schmertmann conforme TQS, E = 3 K_E N̄ por camada                                                         |
+| Conferência parcial NBR 6122:2022   | Ações ELS/ELU separadas, limites justificados, fatores da via simples, processo executivo e pendências rastreáveis |
+| Terzaghi                            | **Pendente**; não gera resultados                                                                                  |
 
 A capacidade é calculada separadamente da rigidez. Em Mindlin, as resistências Aoki–Velloso podem definir a **proporção fixa** de carga transferida ao fuste/ponta; isso não constitui mobilização não linear. E pode ser informado ou estimado pela correlação SPT selecionada; ν e os coeficientes Winkler são informados.
 
@@ -109,6 +110,14 @@ Em **Início → Exemplo métodos**, carregue uma comparação com a mesma geome
 ![Seleção de métodos, resultados e parâmetros intermediários](docs/assets/metodos.png)
 
 A revisão dos materiais e o caso do print estão em [METODOLOGIAS.md](docs/METODOLOGIAS.md). Mindlin é vertical: lateral e torção das estacas usam Winkler. A sapata Mindlin usa recalque no **centro sob pressão uniforme**, com rotações aproximadas por kv I; não resolve o contato de um punção rígido. Não há comprovação de equivalência completa com o TQS ou com a calculadora do print.
+
+### Conferência com a NBR 6122:2022
+
+Em **Resultados → NBR 6122:2022**, registre a origem das ações de serviço, limites justificados e um vetor ELU separado. A conferência controla fatores da via simples, distingue a resistência de ponta por execução e identifica contato parcial, grupo e outras verificações ainda fora do escopo. Declarações do usuário aparecem separadas dos critérios calculados; não há aprovação integral automática.
+
+A norma não fornece valores universais de molas nem valida sozinha os métodos de recalque. Veja a [revisão normativa e os dados que ainda faltam](docs/NBR6122-2022.md). O PDF da norma não é redistribuído. Há um [exemplo fictício de conferência](examples/nbr6122-conferencia.molas.json), com limites e declarações apenas didáticos.
+
+![Conferência parcial com ações de ELS e ELU independentes](docs/assets/nbr6122-conferencia.png)
 
 ### Unidades e convenções
 

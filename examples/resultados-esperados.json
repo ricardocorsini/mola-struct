@@ -168,7 +168,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "F02",
@@ -341,7 +341,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   },
   {
     "id": "S01",
@@ -440,6 +440,6 @@
     "segments": [],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.2.0-experimental"
+    "version": "0.3.0-experimental"
   }
 ]

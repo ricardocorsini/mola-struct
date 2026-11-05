@@ -1,3 +1,4 @@
+import NormativeReview from "./NormativeReview";
 import { useMemo, useState } from "react";
 import {
   ArrowDown,
@@ -89,6 +90,7 @@ export default function Results({
   result: r,
   onCopy,
   onSelect,
+  onFoundation,
   initial = "springs",
 }: {
   project: Project;
@@ -96,6 +98,7 @@ export default function Results({
   result: Calculation;
   onCopy: () => void;
   onSelect: (id: string) => void;
+  onFoundation: (f: Foundation) => void;
   initial?: string;
 }) {
   const [tab, setTab] = useState(initial),
@@ -106,7 +109,11 @@ export default function Results({
       <div className="page-heading">
         <div>
           <span className="eyebrow">ANÁLISE / {f.name}</span>
-          <h2>Rigidez do conjunto fundação + solo</h2>
+          <h2>
+            {tab === "normative"
+              ? "Conferência parcial — NBR 6122:2022"
+              : "Rigidez do conjunto fundação + solo"}
+          </h2>
           <p>{r.method || "Revise os dados para calcular."}</p>
         </div>
         <div className="inline-actions">
@@ -131,6 +138,7 @@ export default function Results({
           ["capacity", "Capacidade de carga"],
           ["comparison", "Comparar fundações"],
           ["sensitivity", "Sensibilidade"],
+          ["normative", "NBR 6122:2022"],
         ].map(([key, title]) => (
           <button
             key={key}
@@ -141,6 +149,9 @@ export default function Results({
           </button>
         ))}
       </div>
+      {tab === "normative" && (
+        <NormativeReview foundation={f} result={r} onChange={onFoundation} />
+      )}
       {tab === "springs" && (
         <>
           <SpringCards result={r} unit={unit} />
@@ -402,11 +413,12 @@ export default function Results({
           <div className="pending-banner">
             <Info size={17} />
             <div>
-              <strong>Métodos aguardando referência</strong>
+              <strong>Alcance e validação</strong>
               <p>
-                Mindlin, Steinbrenner, Terzaghi e tensão básica NBR 6122:1996
-                ainda não produzem resultados. A versão da norma citada no
-                software de referência não foi adotada como regra atual.
+                Mindlin e Steinbrenner têm implementação vertical experimental.
+                Terzaghi permanece pendente. NBR 6122:1996 é referência
+                histórica; a conferência atual está na aba NBR 6122:2022, com
+                critérios parciais e informações faltantes identificados.
               </p>
             </div>
           </div>

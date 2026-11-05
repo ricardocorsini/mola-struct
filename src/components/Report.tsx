@@ -1,9 +1,16 @@
+import { reviewFoundation, verificationEntries } from "../domain/nbr6122";
+import { ReviewSummary } from "./NormativeReview";
 import { BookOpen, ExternalLink } from "lucide-react";
 import { fmt, type Foundation, type Project } from "../domain/model";
 import { methodNarrative } from "../domain/methods";
 import type { Calculation } from "../domain/engine";
 import { Notices } from "./Results";
 export const references = [
+  {
+    title:
+      "ABNT NBR 6122:2022 · Projeto e execução de fundações · edição consolidada de 25/03/2022, fornecida pelo usuário. Conferência parcial; texto integral não redistribuído.",
+    url: "https://www.abntcatalogo.com.br/",
+  },
   {
     title: "TQS · Estimativa de Vínculos Elásticos de Fundação",
     url: "https://docs.tqs.com.br/Docs/Details?id=1523972768&language=pt-BR",
@@ -104,7 +111,7 @@ export default function Report({
                 "Cota da base / nível d’água",
                 `${fmt(f.depth)} / ${fmt(p.water)} m`,
               ],
-              ["Impenetrável", `${fmt(p.bedrock)} m`],
+              ["Base rígida de referência", `${fmt(p.bedrock)} m`],
               [
                 "Concreto",
                 `fck ${fmt(f.fck, 0)} MPa · Ec ${fmt(f.ec, 1)} GPa · νc ${fmt(f.concreteNu)}`,
@@ -222,11 +229,27 @@ export default function Report({
         <h2>05 / Hipóteses e observações</h2>
         <Notices result={r} />
         <p>
-          <b>Pendentes:</b> Terzaghi e tensão básica da NBR 6122:1996. Sem
-          avaliação de conformidade normativa, dimensionamento do bloco, efeitos
-          de longo prazo ou calibração com provas de carga.
+          <b>Pendente:</b> Terzaghi. A edição 1996 é referência histórica do
+          print. A conferência segundo 2022 é parcial; sem aprovação integral do
+          projeto, dimensionamento do bloco ou validação por provas de carga.
         </p>
-        <h2>06 / Referências e rastreabilidade</h2>
+        <h2>06 / Conferência parcial — NBR 6122:2022</h2>
+        <p>
+          Entradas da conferência, separadas dos dados numéricos do motor.
+          Registros e limites são declarações do projetista.
+        </p>
+        <table>
+          <tbody>
+            {verificationEntries(f).map(([label, value]) => (
+              <tr key={label}>
+                <th>{label}</th>
+                <td>{value}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <ReviewSummary review={reviewFoundation(f, r)} />
+        <h2>07 / Referências e rastreabilidade</h2>
         <p>
           Referências de base para o modelo e conferência. A implementação
           reduzida e suas hipóteses são descritas acima; não representa

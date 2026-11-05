@@ -2,6 +2,18 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.3.0 — 2026-11-05
+
+- Revisão dos critérios pertinentes da ABNT NBR 6122:2022, com matriz de alcance e dados faltantes.
+- Conferência parcial por fundação: ELS com limites justificados e ações ELU em vetor independente; valores de cálculo não majorados novamente.
+- Fatores da via simples, parcela de ponta conforme processo executivo e recuperação de reações sob momentos pela matriz global.
+- Exceção de ponta em rocha do Anexo J.3.3 não liberada pelo modelo SPT atual; CFA não recebe essa exceção.
+- Contato parcial, capacidade de grupo, ISE global, atrito negativo e longo prazo identificados como pendentes quando fora do escopo.
+- Declarações do usuário separadas dos critérios calculados. Não há aprovação global automática.
+- Base rígida de referência distinguida da recusa ao SPT; propriedades de conferência não provocam chamadas desnecessárias ao núcleo Rust.
+- Memória em tela/PDF com entradas e resultados normativos parciais; exemplo didático e geração reproduzível dos subconjuntos tipográficos.
+- 28 testes novos de conferência, totalizando 61 testes TypeScript e 4 testes Rust, com 22 casos compartilhados de paridade.
+
 ## 0.2.0 — 2026-11-05
 
 - Perfis de método por fundação, mantendo Winkler/disco para projetos v1 antigos.

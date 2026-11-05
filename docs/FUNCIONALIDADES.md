@@ -15,7 +15,7 @@
 | Kx, Ky, Kz, Rotx, Roty                | Painel inferior e análise; Kθz e matriz acoplada acrescentados                         |
 | Recalque por elasticidade             | Disco equivalente ou integral Mindlin–Steinbrenner, com hipóteses na memória           |
 | Tensão Terzaghi & Vésic               | Fatores de Vésic implementados; Terzaghi explicitamente pendente                       |
-| Tensão NBR 6122:1996                  | Referência histórica pendente, sem valor inventado                                     |
+| Tensão NBR 6122:1996                  | Referência histórica, fora do escopo atual; sem valor inventado                        |
 | Correlação por SPT                    | qref = C N, exploratória, com fator informado e sem atribuição normativa               |
 | Desenho da fundação e sondagem        | Corte geotécnico e planta vetoriais, mais vista 3D orbital                             |
 | Calcular molas                        | Resultados atualizados automaticamente ao confirmar campos; botão evidencia validações |
@@ -31,3 +31,7 @@ O MolasStruct integra o ecossistema OpenStruct. Vistas, memória e exportações
 ## Métodos acrescentados na 0.2.0
 
 Seleção por fundação, com conservação do método legado em arquivos antigos. Perfis Mindlin vertical/Aoki–Lopes/Steinbrenner, Randolph–Wroth simplificado conforme TQS, sapata por kv informado ou SAFE/Morrison. Correlação Schmertmann SPT → E opcional e K_E editável por camada. Valores intermediários, proporção de transferência e limitações na tela e no PDF. Exemplo comparativo em Início → Exemplo métodos. [Análise das referências](METODOLOGIAS.md).
+
+## Conferência NBR 6122:2022 na 0.3.0
+
+Resultados → NBR 6122:2022 permite registrar combinações independentes, limites e suas fontes, peso próprio e execução. Critérios calculados, declarações e pendências têm estados distintos. Memória em tela e PDF incluem entradas, item normativo, resultado, condição de aplicação e pendências. A edição de 1996 é mantida somente como referência histórica do print. Não se implementou uma tensão básica supostamente universal para 2022. [Revisão normativa](NBR6122-2022.md).

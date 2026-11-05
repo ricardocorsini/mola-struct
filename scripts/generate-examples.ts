@@ -1,9 +1,11 @@
+import { reviewFoundation } from "../src/domain/nbr6122";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { calculate } from "../src/domain/engine";
 import {
   defaultFoundation,
   exampleProject,
   methodologyProject,
+  normativeExampleProject,
 } from "../src/domain/model";
 import {
   geometryDxf,
@@ -111,3 +113,25 @@ writeFileSync(
 console.log(
   `Examples and ${fixtures.length} shared native fixtures generated.`,
 );
+
+const normative = normativeExampleProject();
+writeFileSync(
+  "examples/nbr6122-conferencia.molas.json",
+  JSON.stringify(normative, null, 2) + "\n",
+);
+writeFileSync(
+  "examples/nbr6122-conferencia-resultados.json",
+  JSON.stringify(
+    normative.foundations.map((f) => ({
+      id: f.id,
+      ...reviewFoundation(f, calculate(normative, f)),
+    })),
+    null,
+    2,
+  ) + "\n",
+);
+for (const f of normative.foundations)
+  writeFileSync(
+    `examples/${f.id}-memoria.pdf`,
+    await reportPdf(normative, f, calculate(normative, f)),
+  );

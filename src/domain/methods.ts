@@ -474,7 +474,7 @@ export function methodNarrative(f: Foundation): string[] {
       "Rotações aproximadas por Winkler: Kθx = kv Ix; Kθy = kv Iy. Nos métodos com kv, Kh = μh Kz. Extensão torsional adotada pelo MolasStruct: Kθz = (Kh/A)(Ix+Iy). Modelo linear bilateral, sem redistribuição do contato quando houver levantamento.",
     );
     model.push(
-      "Capacidade Vésic: fatores de forma incluídos, demais fatores unitários; peso específico efetivo com nível d’água. qSPT = C N̄(2B) é referência exploratória. NBR 6122:1996 e Terzaghi permanecem sem implementação.",
+      "Capacidade Vésic: fatores de forma incluídos, demais fatores unitários; peso específico efetivo com nível d’água. qSPT = C N̄(2B) é referência exploratória. Terzaghi permanece pendente; NBR 6122:1996 é referência histórica do print. Critérios parciais da NBR 6122:2022 são conferidos separadamente.",
     );
   }
   return [common, source, ...model];

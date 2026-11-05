@@ -1,3 +1,8 @@
+import {
+  reviewFoundation,
+  reviewLabels,
+  verificationEntries,
+} from "./domain/nbr6122";
 import { methodNarrative } from "./domain/methods";
 import { isTauri } from "@tauri-apps/api/core";
 import { renderToStaticMarkup } from "react-dom/server";
@@ -307,7 +312,7 @@ export async function reportPdf(
     `${fmt(f.capX)} x ${fmt(f.capY)} x ${fmt(f.height)} m`,
   );
   row(
-    "Cota da base / NA / impenetravel",
+    "Cota da base / NA / base rígida",
     `${fmt(f.depth)} / ${fmt(p.water)} / ${fmt(p.bedrock)} m`,
   );
   row(
@@ -413,9 +418,45 @@ export async function reportPdf(
   title("06 / Observacoes de validacao");
   r.notices.forEach((n) => text(`[${n.level.toUpperCase()}] ${n.message}`, 8));
   text(
-    "PENDENTES: Terzaghi, tensao basica NBR 6122:1996. Sem resultados simulados sob estes nomes.",
+    "Terzaghi permanece pendente. NBR 6122:1996 é referência histórica do print, sem resultado calculado. A conferência atual segundo 2022 é parcial.",
   );
-  title("07 / Referencias");
+  title("07 / Conferência parcial — NBR 6122:2022");
+  const review = reviewFoundation(f, r);
+  text(
+    "Este documento não declara conformidade integral, certificação do motor nem aprovação da fundação. Critérios calculados e declarações do usuário são identificados separadamente.",
+    9,
+    true,
+  );
+  text("Entradas da conferência (registro completo):", 8, true);
+  for (const [label, value] of verificationEntries(f)) row(label, value);
+  for (const i of review.items) {
+    if (y > 245) next();
+    text(`${i.title} · ${i.clause} · ${reviewLabels[i.status]}`, 8, true);
+    if (i.value !== undefined)
+      text(
+        `Valor=${fmt(i.value, 4)} ${i.unit ?? ""}${i.limit !== undefined ? ` · limite/referência=${fmt(i.limit, 4)}` : ""}`,
+        8,
+      );
+    text(i.message, 8);
+  }
+  for (const m of review.metrics) row(m.label, `${fmt(m.value, 4)} ${m.unit}`);
+  // Keep the bibliography together when it fits on one page.
+  const referenceHeight = references.reduce((height, ref) => {
+    pdf.setFont("DejaVu", "bold");
+    pdf.setFontSize(7);
+    const titleLines = pdf.splitTextToSize(ref.title, 174).length;
+    pdf.setFont("DejaVu", "normal");
+    pdf.setFontSize(6);
+    const urlLines = ref.url ? pdf.splitTextToSize(ref.url, 174).length : 0;
+    return (
+      height +
+      titleLines * 7 * 0.48 +
+      2 +
+      (urlLines ? urlLines * 6 * 0.48 + 2 : 0)
+    );
+  }, 20);
+  if (y + referenceHeight > 273) next();
+  title("08 / Referencias");
   references.forEach((ref) => {
     if (y > 250) next();
     text(ref.title, 7, true);

@@ -1,0 +1,348 @@
+[
+  {
+    "id": "N01",
+    "standard": "ABNT NBR 6122:2022",
+    "outcome": "partial",
+    "items": [
+      {
+        "id": "scope",
+        "title": "Alcance da conferência",
+        "clause": "6.1; 6.2",
+        "status": "pending",
+        "message": "Conferência parcial de um modelo local. Não substitui projeto geotécnico/estrutural, combinações da NBR 8681, ensaios, execução e desempenho da obra."
+      },
+      {
+        "id": "service-case",
+        "title": "Identificação das ações de ELS",
+        "clause": "5.1; 6.2.2.1",
+        "status": "declared",
+        "message": "Vetor principal declarado como característico de serviço: Combinação característica de serviço FICTÍCIA para demonstração"
+      },
+      {
+        "id": "ultimate-case",
+        "title": "Identificação das ações de ELU",
+        "clause": "5.1; 6.2.1",
+        "status": "declared",
+        "message": "Vetor separado de ELU: valores característicos / segurança global. Combinação característica de ELU FICTÍCIA"
+      },
+      {
+        "id": "self-weight",
+        "title": "Peso próprio",
+        "clause": "5.6",
+        "status": "declared",
+        "message": "O usuário declara peso próprio do bloco/sapata incluído nos vetores aplicáveis. Nenhuma parcela foi somada automaticamente."
+      },
+      {
+        "id": "ground",
+        "title": "Base geotécnica e domínio do método",
+        "clause": "4; 6.1.1; 7.2; 7.3; 8.2.2",
+        "status": "declared",
+        "message": "Domínio e parâmetros declarados pelo projetista: Declaração FICTÍCIA para demonstrar o fluxo; sem ensaios de obra"
+      },
+      {
+        "id": "settlement",
+        "title": "Deslocamento vertical absoluto máximo nos topos",
+        "clause": "6.2.2.1; 6.2.2.2",
+        "status": "pass",
+        "message": "Comparação do efeito previsto com limite justificado: Limites FICTÍCIOS; substituir pelos critérios justificados da obra. É um critério parcial do modelo.",
+        "value": 6.625514248233895,
+        "limit": 15,
+        "unit": "mm"
+      },
+      {
+        "id": "horizontal",
+        "title": "Translação horizontal resultante",
+        "clause": "6.2.2.1; 6.2.2.2",
+        "status": "pass",
+        "message": "Comparação do efeito previsto com limite justificado: Limites FICTÍCIOS; substituir pelos critérios justificados da obra. É um critério parcial do modelo.",
+        "value": 1.2077791337702166,
+        "limit": 5,
+        "unit": "mm"
+      },
+      {
+        "id": "rotation",
+        "title": "Rotação resultante (X, Y, Z)",
+        "clause": "6.2.2.1; 6.2.2.2",
+        "status": "pass",
+        "message": "Comparação do efeito previsto com limite justificado: Limites FICTÍCIOS; substituir pelos critérios justificados da obra. É um critério parcial do modelo.",
+        "value": 0.6738326792037648,
+        "limit": 3,
+        "unit": "mrad"
+      },
+      {
+        "id": "long-term",
+        "title": "Diferenciais, tempo e vizinhança",
+        "clause": "6.2.2.2; 7.4; 8.2.2",
+        "status": "pending",
+        "message": "Não modelados adensamento, fluência, expansão, colapso ou recalques diferenciais da estrutura. As fundações do projeto podem ser alternativas de estudo; não são automaticamente apoios simultâneos de uma edificação."
+      },
+      {
+        "id": "toe",
+        "title": "Processo executivo e parcela de ponta no ELU",
+        "clause": "8.2.1.2; Anexos J/N",
+        "status": "declared",
+        "message": "Contato efetivo e procedimentos mínimos declarados: Rp considerado limitado a Rℓ (8.2.1.2; Anexo J, J.3.2). Declaração executiva FICTÍCIA; não corresponde a comprovante"
+      },
+      {
+        "id": "pile-factor",
+        "title": "Fator global — método semiempírico sem tratamento regional",
+        "clause": "6.2.1.2.1",
+        "status": "pass",
+        "message": "FSg mínimo 2 na via simples implementada. Não confundir F1/F2 de Aoki–Velloso com FSg. Reduções por provas de carga ou fatores ξ não são aplicadas sem seus dados e condições.",
+        "value": 2,
+        "limit": 2,
+        "unit": "—"
+      },
+      {
+        "id": "compression",
+        "title": "Comparação parcial de compressão por estaca",
+        "clause": "6.2.1.2.1; 8.2.1.2",
+        "status": "pass",
+        "message": "Usa as reações da matriz global com o vetor ELU separado, não N/n quando há momentos. Não verifica resistência estrutural da estaca ou resistência última do grupo.",
+        "value": 319.88722517446683,
+        "limit": 949.2995401247329,
+        "unit": "kN"
+      },
+      {
+        "id": "tension",
+        "title": "Tração nas estacas",
+        "clause": "8.4.1",
+        "status": "na",
+        "message": "Sem reação axial de tração neste vetor ELU.",
+        "value": 280.1127748255331,
+        "unit": "kN"
+      },
+      {
+        "id": "transfer",
+        "title": "Coerência entre ponta e transferência do modelo",
+        "clause": "8.2.1.2; 8.2.2",
+        "status": "pending",
+        "message": "Frações fixas de carga e coeficientes do solo exigem calibração. Limitação de RP no ELU não define por si só a mobilização no ELS.",
+        "value": 0.7418976962124171,
+        "unit": "—"
+      },
+      {
+        "id": "group",
+        "title": "Resistência e recalque de grupo",
+        "clause": "8.3",
+        "status": "pending",
+        "message": "Interação elástica vertical incluída. Falta verificar a capacidade da sapata hipotética na camada de suporte; η de rigidez não realiza essa verificação."
+      },
+      {
+        "id": "pile-other",
+        "title": "Atrito negativo, esforços transversais e estrutura",
+        "clause": "5.8; 8.4; 8.6",
+        "status": "pending",
+        "message": "Sem dimensionamento para atrito negativo, efeito de carregamento lateral do terreno, capacidade flexional e ligação estaca–bloco."
+      },
+      {
+        "id": "rigid-base",
+        "title": "Justificativa da base indeslocável",
+        "clause": "6.1.1; 7.2; 8.2.2",
+        "status": "pending",
+        "message": "A profundidade de deslocamento nulo é hipótese geotécnica do modelo. Recusa no SPT não comprova essa condição. Justifique a cota e estude a sensibilidade dos recalques."
+      },
+      {
+        "id": "interaction",
+        "title": "Interação fundação–estrutura global",
+        "clause": "5.5",
+        "status": "pending",
+        "message": "Molas locais não executam a análise global da edificação. Avaliar obrigatoriedade, sensibilidade e redistribuição dos esforços com o modelo estrutural."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "RP Aoki–Velloso bruto",
+        "value": 2728.697619117992,
+        "unit": "kN/estaca"
+      },
+      {
+        "label": "RP considerado na conferência ELU",
+        "value": 949.2995401247329,
+        "unit": "kN/estaca"
+      },
+      {
+        "label": "Carga admissível de referência por estaca (FSg≥2)",
+        "value": 949.2995401247329,
+        "unit": "kN/estaca"
+      },
+      {
+        "label": "Maior compressão em estaca — ELU",
+        "value": 319.88722517446683,
+        "unit": "kN"
+      },
+      {
+        "label": "Menor reação axial — ELU",
+        "value": 280.1127748255331,
+        "unit": "kN"
+      }
+    ]
+  },
+  {
+    "id": "N02",
+    "standard": "ABNT NBR 6122:2022",
+    "outcome": "partial",
+    "items": [
+      {
+        "id": "scope",
+        "title": "Alcance da conferência",
+        "clause": "6.1; 6.2",
+        "status": "pending",
+        "message": "Conferência parcial de um modelo local. Não substitui projeto geotécnico/estrutural, combinações da NBR 8681, ensaios, execução e desempenho da obra."
+      },
+      {
+        "id": "service-case",
+        "title": "Identificação das ações de ELS",
+        "clause": "5.1; 6.2.2.1",
+        "status": "declared",
+        "message": "Vetor principal declarado como característico de serviço: Combinação característica de serviço FICTÍCIA para demonstração"
+      },
+      {
+        "id": "ultimate-case",
+        "title": "Identificação das ações de ELU",
+        "clause": "5.1; 6.2.1",
+        "status": "declared",
+        "message": "Vetor separado de ELU: valores característicos / segurança global. Combinação característica de ELU FICTÍCIA"
+      },
+      {
+        "id": "self-weight",
+        "title": "Peso próprio",
+        "clause": "5.6",
+        "status": "declared",
+        "message": "O usuário declara peso próprio do bloco/sapata incluído nos vetores aplicáveis. Nenhuma parcela foi somada automaticamente."
+      },
+      {
+        "id": "ground",
+        "title": "Base geotécnica e domínio do método",
+        "clause": "4; 6.1.1; 7.2; 7.3; 8.2.2",
+        "status": "declared",
+        "message": "Domínio e parâmetros declarados pelo projetista: Declaração FICTÍCIA para demonstrar o fluxo; sem ensaios de obra"
+      },
+      {
+        "id": "settlement",
+        "title": "Deslocamento vertical absoluto no centro",
+        "clause": "6.2.2.1; 6.2.2.2",
+        "status": "pass",
+        "message": "Comparação do efeito previsto com limite justificado: Limites FICTÍCIOS; substituir pelos critérios justificados da obra. É um critério parcial do modelo.",
+        "value": 8.481870021643553,
+        "limit": 15,
+        "unit": "mm"
+      },
+      {
+        "id": "horizontal",
+        "title": "Translação horizontal resultante",
+        "clause": "6.2.2.1; 6.2.2.2",
+        "status": "pass",
+        "message": "Comparação do efeito previsto com limite justificado: Limites FICTÍCIOS; substituir pelos critérios justificados da obra. É um critério parcial do modelo.",
+        "value": 0,
+        "limit": 5,
+        "unit": "mm"
+      },
+      {
+        "id": "rotation",
+        "title": "Rotação resultante (X, Y, Z)",
+        "clause": "6.2.2.1; 6.2.2.2",
+        "status": "pass",
+        "message": "Comparação do efeito previsto com limite justificado: Limites FICTÍCIOS; substituir pelos critérios justificados da obra. É um critério parcial do modelo.",
+        "value": 0,
+        "limit": 3,
+        "unit": "mrad"
+      },
+      {
+        "id": "long-term",
+        "title": "Diferenciais, tempo e vizinhança",
+        "clause": "6.2.2.2; 7.4; 8.2.2",
+        "status": "pending",
+        "message": "Não modelados adensamento, fluência, expansão, colapso ou recalques diferenciais da estrutura. As fundações do projeto podem ser alternativas de estudo; não são automaticamente apoios simultâneos de uma edificação."
+      },
+      {
+        "id": "soil-regime",
+        "title": "Regime da análise de capacidade",
+        "clause": "7.3.2",
+        "status": "declared",
+        "message": "Parâmetros efetivos/drenados declarados. O módulo Vésic usa pesos específicos efetivos com o nível d’água."
+      },
+      {
+        "id": "dimension",
+        "title": "Dimensão mínima em planta",
+        "clause": "7.7.1",
+        "status": "pass",
+        "message": "Critério geométrico para sapata isolada. Não foi aplicado indevidamente a bloco de coroamento sobre estacas.",
+        "value": 1.8,
+        "limit": 0.6,
+        "unit": "m"
+      },
+      {
+        "id": "boundary",
+        "title": "Profundidade, divisa e estabilidade",
+        "clause": "7.7.2; 6.2.1",
+        "status": "pending",
+        "message": "Sem informação de divisas, fundações vizinhas, declividade, flutuação, deslizamento e tombamento; não verificados."
+      },
+      {
+        "id": "footing-factor",
+        "title": "Fator global — capacidade analítica sem provas de carga",
+        "clause": "6.2.1.1.1; Tabela 1",
+        "status": "pass",
+        "message": "Para a situação sem provas de carga implementada: FSg mínimo 3. A redução com ensaios não está automatizada. Fator efetivo da conferência nunca menor que 3.",
+        "value": 3,
+        "limit": 3,
+        "unit": "—"
+      },
+      {
+        "id": "contact",
+        "title": "Solo sem resistência à tração",
+        "clause": "7.6.2",
+        "status": "pass",
+        "message": "Distribuição toda comprimida. Acomp/A=1 satisfaz o mínimo do regime escolhido.",
+        "value": 86.80555555555554,
+        "limit": 0,
+        "unit": "kPa"
+      },
+      {
+        "id": "compressed-area",
+        "title": "Área comprimida mínima",
+        "clause": "7.6.2",
+        "status": "pass",
+        "message": "Mínimo 2/3 para ações características. Contato integral conferido no modelo.",
+        "value": 1,
+        "limit": 0.6666666666666666,
+        "unit": "Acomp/A"
+      },
+      {
+        "id": "compression",
+        "title": "Comparação parcial de pressão máxima",
+        "clause": "6.2.1.1.1; 7.3.2; 7.6.2",
+        "status": "pending",
+        "message": "Vésic permanece uma aproximação com fatores de inclinação, profundidade e outros unitários. Comparação restrita às hipóteses declaradas; cargas horizontais, momentos de tombamento, regime não drenado e perda de contato impedem esta conferência. Valores de cálculo não recebem majoração adicional.",
+        "value": 121.52777777777777,
+        "limit": 315.8790552988947,
+        "unit": "kPa"
+      },
+      {
+        "id": "interaction",
+        "title": "Interação fundação–estrutura global",
+        "clause": "5.5",
+        "status": "pending",
+        "message": "Molas locais não executam a análise global da edificação. Avaliar obrigatoriedade, sensibilidade e redistribuição dos esforços com o modelo estrutural."
+      }
+    ],
+    "metrics": [
+      {
+        "label": "qmin ELU — distribuição bilateral",
+        "value": 86.80555555555554,
+        "unit": "kPa"
+      },
+      {
+        "label": "qmax ELU — distribuição bilateral",
+        "value": 121.52777777777777,
+        "unit": "kPa"
+      },
+      {
+        "label": "Tensão admissível de referência (FSg≥3)",
+        "value": 315.8790552988947,
+        "unit": "kPa"
+      }
+    ]
+  }
+]

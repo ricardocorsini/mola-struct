@@ -4,7 +4,7 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.2.0 possui 33 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 22 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.3.0 possui 61 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 22 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
 
 | Verificação                                         | Referência ou propriedade                                                                       |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -27,7 +27,7 @@ npm run test:core
 npm run build
 ```
 
-Os testes analíticos estão em `tests/engine.test.ts` e `tests/methods.test.ts`; os casos compartilhados, em `crates/molas-core/tests/parity.json`. Regenerar casos pela própria implementação serve para regressão e paridade, sem criar uma nova validação independente.
+Os testes analíticos estão em `tests/engine.test.ts`, `tests/methods.test.ts` e `tests/nbr6122.test.ts`; os casos compartilhados, em `crates/molas-core/tests/parity.json`. Regenerar casos pela própria implementação serve para regressão e paridade, sem criar uma nova validação independente.
 
 ## Interface e exportações
 
@@ -64,3 +64,15 @@ Consulte [ROADMAP.md](ROADMAP.md) para a evolução planejada.
 - Migração implícita dos novos campos de JSON v1, mantendo resultados legados.
 
 Os 22 casos de paridade cobrem todos os perfis, estacas com 1/2/3/4 posições, E manual/SPT e transferência manual/automática. Estes casos confirmam consistência entre os motores; não substituem as referências independentes dos testes analíticos.
+
+## Revisão com a NBR 6122:2022 — versão 0.3.0
+
+A revisão dos itens pertinentes e das condições do Anexo J está em [NBR6122-2022.md](NBR6122-2022.md). São 28 testes novos de conferência parcial: ausência de limite universal, diferenciação de declarações, independência ELU/ELS, fatores da via simples, recuperação de reações por matriz sob momentos, ponta conforme execução, coerência de transferência, contato integral/parcial, dimensão mínima e preservação de arquivos antigos.
+
+A exceção de ponta sem limitação do Anexo J.3.3 não foi liberada pelo modelo atual de solo/SPT. A presença de interação vertical Mindlin não é uma verificação da capacidade de grupo de 8.3. Não se deduziu área comprimida real cortando as tensões negativas do modelo bilateral.
+
+A leitura da norma estabelece critérios e permite detectar incompatibilidades. Não equivale a validação geotécnica por ensaio ou benchmark externo, nem a aprovação global de projeto. Os valores dos dez casos de exemplo numérico da 0.2.0 foram comparados antes/depois, com a mesma geometria e os mesmos parâmetros; a camada de conferência preserva a matriz e a resposta.
+
+A regeneração das fontes PDF é uma tarefa opcional de desenvolvimento: `python scripts/build-pdf-fonts.py [diretório-DejaVu]`, com FontTools disponível. Não é requisito de execução do aplicativo.
+
+Na revisão 0.3.0 foram conferidos na interface: restauração do JSON da conferência, separação ELU/ELS, detecção de ponta ignorada com transferência positiva, regime de cálculo sem dupla majoração, limite ELS excedido e geração/download do PDF. Não foram observados erros JavaScript nesse percurso. Captura: [Conferência NBR 6122](assets/nbr6122-conferencia.png).

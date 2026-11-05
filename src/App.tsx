@@ -854,7 +854,7 @@ export default function App() {
           ))}
         </nav>
         <span className="release">
-          MOLAS DE FUNDAÇÃO <b>v0.2</b>
+          MOLAS DE FUNDAÇÃO <b>v0.3</b>
         </span>
       </div>
       <div className="ribbon">
@@ -1132,6 +1132,7 @@ export default function App() {
                 result={r}
                 onCopy={() => void exportFile("copy")}
                 onSelect={select}
+                onFoundation={updateFoundation}
               />
             )}
             {view === "report" && (
@@ -1210,7 +1211,7 @@ export default function App() {
           {r.valid
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
-          <i /> Motor 0.2.0
+          <i /> Motor 0.3.0
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑
@@ -1401,8 +1402,9 @@ export default function App() {
                   Aoki–Velloso e tensão última com fatores de Vésic.
                 </p>
                 <p>
-                  <b>Em preparação:</b> Terzaghi e referência histórica NBR
-                  6122:1996. As opções pendentes não geram valores.
+                  <b>Conferência:</b> critérios parciais da NBR 6122:2022 na aba
+                  de resultados, com ações de ELU e ELS separadas. Terzaghi
+                  permanece pendente.
                 </p>
                 <div className="shortcut-grid">
                   <span>

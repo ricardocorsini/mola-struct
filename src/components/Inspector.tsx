@@ -296,7 +296,8 @@ export default function Inspector({
                 onChange={(water) => onProject({ ...p, water })}
               />
               <NumberField
-                label="Cota do impenetrável"
+                label="Base rígida de referência"
+                hint="Hipótese do modelo; não se confunde automaticamente com impenetrabilidade ao SPT."
                 symbol="zi"
                 unit="m"
                 value={p.bedrock}
@@ -556,11 +557,12 @@ export default function Inspector({
                 </p>
               </Section>
             )}
+            <p className="field-help">
+              Análise → NBR 6122:2022 reúne as verificações parciais, hipóteses
+              e dados que faltam para o projeto.
+            </p>
             <Section title="METODOLOGIA A COMPLEMENTAR">
-              {[
-                "NBR 6122:1996 · referência histórica",
-                "Terzaghi · capacidade de carga",
-              ].map((m) => (
+              {["Terzaghi · capacidade de carga"].map((m) => (
                 <div className="pending-method" key={m}>
                   <span>{m}</span>
                   <small>Pendente</small>
