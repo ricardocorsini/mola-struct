@@ -1,0 +1,21 @@
+name: Proposta de melhoria
+description: Sugira recurso, método ou melhoria na documentação.
+title: "[Proposta] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Qual problema deseja resolver?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposta e exemplo de uso
+    validations:
+      required: true
+  - type: textarea
+    id: references
+    attributes:
+      label: Referências ou alternativas
+      description: Para métodos de engenharia, inclua formulação, referências e casos de validação quando disponíveis.

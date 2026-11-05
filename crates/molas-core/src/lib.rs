@@ -1,0 +1,355 @@
+//! Static linear foundation stiffness. Internal units: kN, m, rad.
+//! No capacity, normative approval or group-interaction model is implied.
+use serde::{Deserialize, Serialize};
+use std::f64::consts::PI;
+pub type Matrix = Vec<Vec<f64>>;
+
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Foundation {
+    pub kind: String,
+    pub count: usize,
+    pub diameter: f64,
+    pub length: f64,
+    pub spacing_x: f64,
+    pub spacing_y: f64,
+    pub cap_x: f64,
+    pub cap_y: f64,
+    pub depth: f64,
+    pub ec: f64,
+    pub concrete_nu: f64,
+    pub efficiency: f64,
+    pub segments: usize,
+    pub n: f64,
+    pub hx: f64,
+    pub hy: f64,
+    pub mx: f64,
+    pub my: f64,
+    pub mz: f64,
+}
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Layer {
+    pub bottom: f64,
+    pub e: f64,
+    pub nu: f64,
+    pub kh: f64,
+    pub shaft_k: f64,
+    pub base_k: f64,
+}
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct Input {
+    pub foundation: Foundation,
+    pub layers: Vec<Layer>,
+}
+#[derive(Clone, Debug, Deserialize, Serialize)]
+pub struct Output {
+    pub matrix: Matrix,
+    pub displacement: Vec<f64>,
+}
+fn zeros(n: usize) -> Matrix {
+    vec![vec![0.; n]; n]
+}
+
+pub fn solve(a: &Matrix, b: &[f64]) -> Result<Vec<f64>, String> {
+    let n = b.len();
+    if a.len() != n || a.iter().any(|r| r.len() != n) {
+        return Err("Dimensões da matriz inválidas".into());
+    }
+    let mut m = a.clone();
+    for i in 0..n {
+        m[i].push(b[i]);
+    }
+    for c in 0..n {
+        let mut pivot = c;
+        for i in c + 1..n {
+            if m[i][c].abs() > m[pivot][c].abs() {
+                pivot = i;
+            }
+        }
+        if !m[pivot][c].is_finite() || m[pivot][c].abs() < 1e-12 {
+            return Err("Matriz singular".into());
+        }
+        m.swap(c, pivot);
+        let row = m[c].clone();
+        for i in c + 1..n {
+            let ratio = m[i][c] / row[c];
+            if ratio == 0. {
+                continue;
+            }
+            for j in c..=n {
+                m[i][j] -= ratio * row[j];
+            }
+        }
+    }
+    let mut x = vec![0.; n];
+    for i in (0..n).rev() {
+        let mut v = m[i][n];
+        for j in i + 1..n {
+            v -= m[i][j] * x[j];
+        }
+        x[i] = v / m[i][i];
+    }
+    if x.iter().any(|v| !v.is_finite()) {
+        return Err("Resultado não finito".into());
+    }
+    Ok(x)
+}
+fn layer_at(layers: &[Layer], z: f64) -> &Layer {
+    layers
+        .iter()
+        .find(|l| z <= l.bottom + 1e-9)
+        .unwrap_or_else(|| layers.last().expect("validated layers"))
+}
+fn positive(v: f64) -> bool {
+    v.is_finite() && v > 0.
+}
+fn validate(input: &Input) -> Result<(), String> {
+    let f = &input.foundation;
+    if f.kind != "pile" && f.kind != "footing" {
+        return Err("Tipo de fundação desconhecido".into());
+    }
+    if ![
+        f.diameter,
+        f.length,
+        f.spacing_x,
+        f.spacing_y,
+        f.cap_x,
+        f.cap_y,
+        f.ec,
+        f.efficiency,
+    ]
+    .iter()
+    .all(|v| positive(*v))
+        || f.efficiency > 1.
+        || !f.depth.is_finite()
+        || f.depth < 0.
+        || !(8..=64).contains(&f.segments)
+        || !(1..=4).contains(&f.count)
+        || !(0.0..=0.45).contains(&f.concrete_nu)
+    {
+        return Err("Parâmetros de fundação inválidos".into());
+    }
+    if ![f.n, f.hx, f.hy, f.mx, f.my, f.mz]
+        .iter()
+        .all(|v| v.is_finite())
+        || f.n < 0.
+    {
+        return Err("Ações inválidas".into());
+    }
+    if input.layers.is_empty() {
+        return Err("Perfil de solo vazio".into());
+    }
+    let mut top = 0.;
+    for l in &input.layers {
+        if ![l.bottom, l.e, l.kh, l.shaft_k, l.base_k]
+            .iter()
+            .all(|v| positive(*v))
+            || l.bottom <= top
+            || !(0.0..=0.49).contains(&l.nu)
+        {
+            return Err("Camadas inválidas".into());
+        }
+        top = l.bottom;
+    }
+    let required = if f.kind == "pile" {
+        f.depth + f.length
+    } else {
+        f.depth + 2. * f.cap_x.min(f.cap_y)
+    };
+    if required > top + 1e-8 {
+        return Err("Perfil de solo insuficiente".into());
+    }
+    Ok(())
+}
+pub fn positions(f: &Foundation) -> Vec<(f64, f64)> {
+    let x = f.spacing_x / 2.;
+    let y = f.spacing_y / 2.;
+    match f.count {
+        1 => vec![(0., 0.)],
+        2 => vec![(-x, 0.), (x, 0.)],
+        3 => vec![(-x, -y * 2. / 3.), (x, -y * 2. / 3.), (0., y * 4. / 3.)],
+        _ => vec![(-x, -y), (x, -y), (x, y), (-x, y)],
+    }
+}
+fn lateral(input: &Input) -> Result<Matrix, String> {
+    let f = &input.foundation;
+    let n = f.segments;
+    let l = f.length / n as f64;
+    let ei = f.ec * 1e6 * PI * f.diameter.powi(4) / 64.;
+    let mut k = zeros(2 * (n + 1));
+    let beam = [
+        [12., 6. * l, -12., 6. * l],
+        [6. * l, 4. * l * l, -6. * l, 2. * l * l],
+        [-12., -6. * l, 12., -6. * l],
+        [6. * l, 2. * l * l, -6. * l, 4. * l * l],
+    ];
+    let soil = [
+        [156., 22. * l, 54., -13. * l],
+        [22. * l, 4. * l * l, 13. * l, -3. * l * l],
+        [54., 13. * l, 156., -22. * l],
+        [-13. * l, -3. * l * l, -22. * l, 4. * l * l],
+    ];
+    for e in 0..n {
+        let kh = layer_at(&input.layers, f.depth + (e as f64 + 0.5) * l).kh * f.diameter;
+        for i in 0..4 {
+            for j in 0..4 {
+                k[2 * e + i][2 * e + j] += ei / l.powi(3) * beam[i][j] + kh * l / 420. * soil[i][j];
+            }
+        }
+    }
+    let mut force = vec![0.; k.len()];
+    force[0] = 1.;
+    let c0 = solve(&k, &force)?;
+    force[0] = 0.;
+    force[1] = 1.;
+    let c1 = solve(&k, &force)?;
+    let det = c0[0] * c1[1] - c1[0] * c0[1];
+    Ok(vec![
+        vec![c1[1] / det, -c1[0] / det],
+        vec![-c0[1] / det, c0[0] / det],
+    ])
+}
+fn bar(input: &Input, torsion: bool) -> Result<f64, String> {
+    let f = &input.foundation;
+    let n = f.segments;
+    let l = f.length / n as f64;
+    let r = f.diameter / 2.;
+    let area = PI * r * r;
+    let ea = if torsion {
+        f.ec * 1e6 / (2. * (1. + f.concrete_nu)) * PI * r.powi(4) / 2.
+    } else {
+        f.ec * 1e6 * area
+    };
+    let mut k = zeros(n + 1);
+    for e in 0..n {
+        let layer = layer_at(&input.layers, f.depth + (e as f64 + 0.5) * l);
+        let ks = layer.shaft_k * 2. * PI * r * if torsion { r * r } else { 1. };
+        k[e][e] += ea / l + ks * l / 3.;
+        k[e + 1][e + 1] += ea / l + ks * l / 3.;
+        k[e][e + 1] += -ea / l + ks * l / 6.;
+        k[e + 1][e] += -ea / l + ks * l / 6.;
+    }
+    if !torsion {
+        k[n][n] += area * layer_at(&input.layers, f.depth + f.length).base_k;
+    }
+    let mut force = vec![0.; n + 1];
+    force[0] = 1.;
+    Ok(1. / solve(&k, &force)?[0])
+}
+pub fn stiffness(input: &Input) -> Result<Output, String> {
+    validate(input)?;
+    let f = &input.foundation;
+    let mut matrix = zeros(6);
+    if f.kind == "pile" {
+        let lateral = lateral(input)?;
+        let mut local = zeros(6);
+        local[0][0] = lateral[0][0];
+        local[1][1] = lateral[0][0];
+        local[2][2] = bar(input, false)?;
+        local[3][3] = lateral[1][1];
+        local[4][4] = lateral[1][1];
+        local[5][5] = bar(input, true)?;
+        local[0][4] = -lateral[0][1];
+        local[4][0] = -lateral[0][1];
+        local[1][3] = lateral[0][1];
+        local[3][1] = lateral[0][1];
+        for (x, y) in positions(f) {
+            let t = [
+                [1., 0., 0., 0., 0., -y],
+                [0., 1., 0., 0., 0., x],
+                [0., 0., 1., y, -x, 0.],
+                [0., 0., 0., 1., 0., 0.],
+                [0., 0., 0., 0., 1., 0.],
+                [0., 0., 0., 0., 0., 1.],
+            ];
+            for i in 0..6 {
+                for j in 0..6 {
+                    for a in 0..6 {
+                        for b in 0..6 {
+                            matrix[i][j] += t[a][i] * local[a][b] * t[b][j] * f.efficiency;
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        let area = f.cap_x * f.cap_y;
+        let b = f.cap_x.min(f.cap_y);
+        let end = f.depth + 2. * b;
+        let mut top = 0.;
+        let mut inve = 0.;
+        let mut nu = 0.;
+        for l in &input.layers {
+            let a = f.depth.max(top);
+            let z = end.min(l.bottom);
+            if z > a {
+                inve += (z - a) / l.e;
+                nu += (z - a) * l.nu;
+            }
+            top = l.bottom;
+        }
+        let e = 2. * b / inve;
+        nu /= 2. * b;
+        let g = e * 1000. / (2. * (1. + nu));
+        let radius = (area / PI).sqrt();
+        let kz = 4. * g * radius / (1. - nu);
+        let kh = 8. * g * radius / (2. - nu);
+        let kv = kz / area;
+        let ix = f.cap_x * f.cap_y.powi(3) / 12.;
+        let iy = f.cap_y * f.cap_x.powi(3) / 12.;
+        let diag = [kh, kh, kz, kv * ix, kv * iy, kh / area * (ix + iy)];
+        for i in 0..6 {
+            matrix[i][i] = diag[i];
+        }
+    }
+    if matrix.iter().flatten().any(|v| !v.is_finite()) {
+        return Err("Rigidez não finita".into());
+    }
+    let displacement = solve(&matrix, &[f.hx, f.hy, -f.n, f.mx, f.my, f.mz])?;
+    Ok(Output {
+        matrix,
+        displacement,
+    })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn pivoted_solver() {
+        assert_eq!(
+            solve(&vec![vec![0., 2.], vec![1., 3.]], &[4., 7.]).unwrap(),
+            vec![1., 2.]
+        );
+    }
+    #[test]
+    fn reject_singular() {
+        assert!(solve(&vec![vec![0.; 2]; 2], &[1., 1.]).is_err());
+    }
+    #[test]
+    fn shared_parity_fixtures() {
+        #[derive(Deserialize)]
+        struct Fixture {
+            input: Input,
+            expected: Output,
+        }
+        let cases: Vec<Fixture> =
+            serde_json::from_str(include_str!("../tests/parity.json")).unwrap();
+        assert!(cases.len() >= 5);
+        for case in cases {
+            let out = stiffness(&case.input).unwrap();
+            for i in 0..6 {
+                for j in 0..6 {
+                    let a = out.matrix[i][j];
+                    let b = case.expected.matrix[i][j];
+                    assert!(
+                        (a - b).abs() <= 1e-8 * b.abs().max(1.),
+                        "matrix {i},{j}: {a} != {b}"
+                    );
+                }
+                assert!((out.displacement[i] - case.expected.displacement[i]).abs() < 1e-9);
+            }
+        }
+    }
+}

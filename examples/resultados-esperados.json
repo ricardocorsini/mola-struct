@@ -1,0 +1,439 @@
+[
+  {
+    "id": "F01",
+    "matrix": [
+      [
+        30892.548164842738,
+        0,
+        0,
+        0,
+        -33111.15021736958,
+        0
+      ],
+      [
+        0,
+        30892.548164842738,
+        0,
+        33111.15021736958,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        411858.4149338777,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        33111.15021736958,
+        0,
+        71232.20613485883,
+        0,
+        0
+      ],
+      [
+        -33111.15021736958,
+        0,
+        0,
+        0,
+        219501.2355110548,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        21076.62083061035
+      ]
+    ],
+    "diagonal": [
+      30892.548164842738,
+      30892.548164842738,
+      411858.4149338777,
+      71232.20613485883,
+      219501.2355110548,
+      21076.62083061035
+    ],
+    "displacement": [
+      0.0007539404454823941,
+      0,
+      -0.0012140094310814872,
+      0,
+      0.0002504033073770554,
+      0
+    ],
+    "settlement": 1.2140094310814873,
+    "method": "Viga e barra em base de Winkler · bloco rígido",
+    "notices": [
+      {
+        "level": "warning",
+        "message": "Estacas independentes em bloco rígido. Interação entre estacas e contato bloco–solo não modelados; η é um redutor manual da rigidez."
+      },
+      {
+        "level": "info",
+        "message": "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão."
+      },
+      {
+        "level": "info",
+        "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      }
+    ],
+    "valid": true,
+    "area": 2.64,
+    "e": 45,
+    "nu": 0.28,
+    "shaft": 949.2995401247329,
+    "point": 2728.697619117992,
+    "ultimate": 3677.9971592427246,
+    "pileForces": [
+      219.0607872188456,
+      280.93921278115437
+    ],
+    "qMin": null,
+    "qMax": null,
+    "qUltimate": null,
+    "qReference": null,
+    "qSpt": null,
+    "kv": 0,
+    "segments": [
+      {
+        "top": 1,
+        "bottom": 2,
+        "n": 6,
+        "layer": "Areia siltosa",
+        "shaft": 34.46775939938516,
+        "point": 0
+      },
+      {
+        "top": 2,
+        "bottom": 3,
+        "n": 10,
+        "layer": "Areia siltosa",
+        "shaft": 57.44626566564193,
+        "point": 0
+      },
+      {
+        "top": 3,
+        "bottom": 4,
+        "n": 12,
+        "layer": "Areia siltosa",
+        "shaft": 68.93551879877032,
+        "point": 0
+      },
+      {
+        "top": 4,
+        "bottom": 5,
+        "n": 20,
+        "layer": "Areia siltosa",
+        "shaft": 114.89253133128386,
+        "point": 0
+      },
+      {
+        "top": 5,
+        "bottom": 6,
+        "n": 26,
+        "layer": "Areia compacta",
+        "shaft": 130.6902543893354,
+        "point": 0
+      },
+      {
+        "top": 6,
+        "bottom": 7,
+        "n": 32,
+        "layer": "Areia compacta",
+        "shaft": 160.8495438637974,
+        "point": 0
+      },
+      {
+        "top": 7,
+        "bottom": 8,
+        "n": 38,
+        "layer": "Areia compacta",
+        "shaft": 191.00883333825942,
+        "point": 0
+      },
+      {
+        "top": 8,
+        "bottom": 9,
+        "n": 38,
+        "layer": "Areia compacta",
+        "shaft": 191.00883333825942,
+        "point": 0
+      }
+    ],
+    "version": "0.1.0-experimental"
+  },
+  {
+    "id": "F02",
+    "matrix": [
+      [
+        61785.096329685475,
+        0,
+        0,
+        0,
+        -66222.30043473915,
+        0
+      ],
+      [
+        0,
+        61785.096329685475,
+        0,
+        66222.30043473915,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        823716.8298677554,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        66222.30043473915,
+        0,
+        439002.4710221096,
+        0,
+        0
+      ],
+      [
+        -66222.30043473915,
+        0,
+        0,
+        0,
+        439002.4710221096,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        64395.87633990747
+      ]
+    ],
+    "diagonal": [
+      61785.096329685475,
+      61785.096329685475,
+      823716.8298677554,
+      439002.4710221096,
+      439002.4710221096,
+      64395.87633990747
+    ],
+    "displacement": [
+      0.0004352172860844004,
+      0,
+      -0.0010926084879733385,
+      0,
+      0.00017954589114261112,
+      0
+    ],
+    "settlement": 1.0926084879733384,
+    "method": "Viga e barra em base de Winkler · bloco rígido",
+    "notices": [
+      {
+        "level": "warning",
+        "message": "Estacas independentes em bloco rígido. Interação entre estacas e contato bloco–solo não modelados; η é um redutor manual da rigidez."
+      },
+      {
+        "level": "info",
+        "message": "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão."
+      },
+      {
+        "level": "info",
+        "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      }
+    ],
+    "valid": true,
+    "area": 4.840000000000001,
+    "e": 45,
+    "nu": 0.28,
+    "shaft": 949.2995401247329,
+    "point": 2728.697619117992,
+    "ultimate": 3677.9971592427246,
+    "pileForces": [
+      202.81575415983409,
+      247.1842458401659,
+      247.1842458401659,
+      202.81575415983409
+    ],
+    "qMin": null,
+    "qMax": null,
+    "qUltimate": null,
+    "qReference": null,
+    "qSpt": null,
+    "kv": 0,
+    "segments": [
+      {
+        "top": 1,
+        "bottom": 2,
+        "n": 6,
+        "layer": "Areia siltosa",
+        "shaft": 34.46775939938516,
+        "point": 0
+      },
+      {
+        "top": 2,
+        "bottom": 3,
+        "n": 10,
+        "layer": "Areia siltosa",
+        "shaft": 57.44626566564193,
+        "point": 0
+      },
+      {
+        "top": 3,
+        "bottom": 4,
+        "n": 12,
+        "layer": "Areia siltosa",
+        "shaft": 68.93551879877032,
+        "point": 0
+      },
+      {
+        "top": 4,
+        "bottom": 5,
+        "n": 20,
+        "layer": "Areia siltosa",
+        "shaft": 114.89253133128386,
+        "point": 0
+      },
+      {
+        "top": 5,
+        "bottom": 6,
+        "n": 26,
+        "layer": "Areia compacta",
+        "shaft": 130.6902543893354,
+        "point": 0
+      },
+      {
+        "top": 6,
+        "bottom": 7,
+        "n": 32,
+        "layer": "Areia compacta",
+        "shaft": 160.8495438637974,
+        "point": 0
+      },
+      {
+        "top": 7,
+        "bottom": 8,
+        "n": 38,
+        "layer": "Areia compacta",
+        "shaft": 191.00883333825942,
+        "point": 0
+      },
+      {
+        "top": 8,
+        "bottom": 9,
+        "n": 38,
+        "layer": "Areia compacta",
+        "shaft": 191.00883333825942,
+        "point": 0
+      }
+    ],
+    "version": "0.1.0-experimental"
+  },
+  {
+    "id": "S01",
+    "matrix": [
+      [
+        38855.28788217001,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        38855.28788217001,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        47159.411660318154,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        12733.041148285902,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        22636.51759695271,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        29141.465911627503
+      ]
+    ],
+    "diagonal": [
+      38855.28788217001,
+      38855.28788217001,
+      47159.411660318154,
+      12733.041148285902,
+      22636.51759695271,
+      29141.465911627503
+    ],
+    "displacement": [
+      0,
+      0,
+      -0.008481870021643554,
+      0,
+      0,
+      0
+    ],
+    "settlement": 8.481870021643553,
+    "method": "Semiespaço circular equivalente + Winkler distribuído",
+    "notices": [
+      {
+        "level": "info",
+        "message": "Estimativa experimental linear. E, ν e coeficientes de reação são informados; SPT é usado somente na capacidade Aoki–Velloso e na correlação de tensão."
+      },
+      {
+        "level": "warning",
+        "message": "Sapatas: E equivalente harmônico e ν médio na faixa de 2B sob a base. Rigidezes de translação por disco de mesma área; rotações por Winkler. Sem correção de embutimento ou base rígida."
+      }
+    ],
+    "valid": true,
+    "area": 4.32,
+    "e": 18.305084745762713,
+    "nu": 0.2994444444444444,
+    "shaft": null,
+    "point": null,
+    "ultimate": null,
+    "pileForces": [],
+    "qMin": 92.59259259259258,
+    "qMax": 92.59259259259258,
+    "qUltimate": 947.6371658966841,
+    "qReference": 315.8790552988947,
+    "qSpt": 264.4444444444444,
+    "kv": 10916.530476925498,
+    "segments": [],
+    "version": "0.1.0-experimental"
+  }
+]

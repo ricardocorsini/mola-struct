@@ -1,0 +1,25 @@
+[package]
+name = "molasstruct"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Estimativa de molas de fundação - OpenStruct"
+authors = ["OpenStruct contributors"]
+
+[lib]
+name = "molasstruct_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+molas-core = { path = "../crates/molas-core" }
+
+[profile.release]
+codegen-units = 1
+lto = true
+strip = true

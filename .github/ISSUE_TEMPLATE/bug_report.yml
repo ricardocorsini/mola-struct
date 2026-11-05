@@ -1,0 +1,30 @@
+name: Problema no programa
+description: Relate um comportamento incorreto da interface, importação ou exportação.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: O que aconteceu?
+      description: Descreva o comportamento observado e o esperado.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Como reproduzir
+      placeholder: "1. Abra…\n2. Altere…\n3. Observe…"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Versão e ambiente
+      placeholder: "Ex.: v0.1.0, Windows 11, Chrome, versão web"
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Exemplo ou captura
+      description: Use dados fictícios ou anonimizados; não inclua dados privados de clientes.

@@ -1,0 +1,1045 @@
+[
+  {
+    "input": {
+      "foundation": {
+        "id": "F01",
+        "name": "F01",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 1.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          30892.548164842738,
+          0,
+          0,
+          0,
+          -33111.15021736958,
+          0
+        ],
+        [
+          0,
+          30892.548164842738,
+          0,
+          33111.15021736958,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          411858.4149338777,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          33111.15021736958,
+          0,
+          71232.20613485883,
+          0,
+          0
+        ],
+        [
+          -33111.15021736958,
+          0,
+          0,
+          0,
+          219501.2355110548,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          21076.62083061035
+        ]
+      ],
+      "displacement": [
+        0.0007539404454823941,
+        0,
+        -0.0012140094310814872,
+        0,
+        0.0002504033073770554,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "F02",
+        "name": "F02",
+        "kind": "pile",
+        "count": 4,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 2.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 900,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 50,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          61785.096329685475,
+          0,
+          0,
+          0,
+          -66222.30043473915,
+          0
+        ],
+        [
+          0,
+          61785.096329685475,
+          0,
+          66222.30043473915,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          823716.8298677554,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          66222.30043473915,
+          0,
+          439002.4710221096,
+          0,
+          0
+        ],
+        [
+          -66222.30043473915,
+          0,
+          0,
+          0,
+          439002.4710221096,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          64395.87633990747
+        ]
+      ],
+      "displacement": [
+        0.0004352172860844004,
+        0,
+        -0.0010926084879733385,
+        0,
+        0.00017954589114261112,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S01",
+        "name": "S01",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.4,
+        "capY": 1.8,
+        "height": 0.6,
+        "depth": 1.5,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          38855.28788217001,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          38855.28788217001,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          47159.411660318154,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          12733.041148285902,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          22636.51759695271,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          29141.465911627503
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.008481870021643554,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "N1",
+        "name": "N1",
+        "kind": "pile",
+        "count": 1,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 2.5,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          15446.274082421369,
+          0,
+          0,
+          0,
+          -16555.57510868479,
+          0
+        ],
+        [
+          0,
+          15446.274082421369,
+          0,
+          16555.57510868479,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          205929.20746693885,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          16555.57510868479,
+          0,
+          35616.103067429416,
+          0,
+          0
+        ],
+        [
+          -16555.57510868479,
+          0,
+          0,
+          0,
+          35616.103067429416,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4977.651745633483
+        ]
+      ],
+      "displacement": [
+        0.0037345134924098617,
+        0,
+        -0.0024280188621629744,
+        0,
+        0.002578244409393658,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "N3",
+        "name": "N3",
+        "kind": "pile",
+        "count": 3,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 2.5,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          46338.82224726411,
+          0,
+          0,
+          0,
+          -49666.725326054366,
+          0
+        ],
+        [
+          0,
+          46338.82224726411,
+          0,
+          49666.725326054366,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          617787.6224008165,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          49666.725326054366,
+          0,
+          304540.3483705495,
+          0,
+          0
+        ],
+        [
+          -49666.725326054366,
+          0,
+          0,
+          0,
+          255117.33857848422,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          40882.69569536834
+        ]
+      ],
+      "displacement": [
+        0.0005683304638834121,
+        0,
+        -0.0008093396207209916,
+        0,
+        0.00022823659641703857,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "F01",
+        "name": "F01",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 5.5,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2.2,
+        "capY": 1.2,
+        "height": 0.65,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 500,
+        "hx": 15,
+        "hy": 0,
+        "mx": 0,
+        "my": 30,
+        "mz": 0,
+        "efficiency": 0.75,
+        "segments": 48,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          22455.347958705897,
+          0,
+          0,
+          0,
+          -23972.389553377772,
+          0
+        ],
+        [
+          0,
+          22455.347958705897,
+          0,
+          23972.389553377772,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          216709.36709580134,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          23972.389553377772,
+          0,
+          52301.36691024805,
+          0,
+          0
+        ],
+        [
+          -23972.389553377772,
+          0,
+          0,
+          0,
+          130316.73906473652,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          14129.427207468369
+        ]
+      ],
+      "displacement": [
+        0.0011370497073286343,
+        0,
+        -0.0023072375998355603,
+        0,
+        0.0004393740891351851,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S01",
+        "name": "S01",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.4,
+        "capY": 3,
+        "height": 0.6,
+        "depth": 0.8,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 400,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20
+      },
+      "layers": [
+        {
+          "id": "L1",
+          "name": "Areia siltosa",
+          "bottom": 5,
+          "soil": "sand",
+          "e": 18,
+          "nu": 0.3,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994"
+        },
+        {
+          "id": "L2",
+          "name": "Areia compacta",
+          "bottom": 10,
+          "soil": "sand",
+          "e": 45,
+          "nu": 0.28,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.014,
+          "k": 1000,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#A79980"
+        },
+        {
+          "id": "L3",
+          "name": "Silte arenoso",
+          "bottom": 16,
+          "soil": "silt",
+          "e": 60,
+          "nu": 0.32,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.022,
+          "k": 550,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#7D8B84"
+        }
+      ]
+    },
+    "expected": {
+      "matrix": [
+        [
+          37669.50658282714,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          37669.50658282714,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          45741.543707718665,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          34306.157780789006,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          7471.118805594048,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          34404.81601231546
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.008744785758782818,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

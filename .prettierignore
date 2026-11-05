@@ -1,0 +1,11 @@
+node_modules/
+dist/
+target/
+coverage/
+package-lock.json
+**/Cargo.lock
+src/pdfFonts.ts
+examples/*-corte.svg
+examples/*-planta.svg
+examples/resultados-esperados.json
+crates/molas-core/tests/parity.json

@@ -1,0 +1,30 @@
+name: Erro ou divergência de cálculo
+description: Apresente um caso reproduzível e um resultado independente para comparação.
+title: "[Cálculo] "
+body:
+  - type: textarea
+    id: case
+    attributes:
+      label: Caso e parâmetros
+      description: Informe geometria, sondagem, camadas, materiais, ações e unidades. Um JSON fictício ajuda a reproduzir.
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Resultado observado e esperado
+      description: Identifique grandeza, valor, unidade e diferença encontrada.
+    validations:
+      required: true
+  - type: textarea
+    id: reference
+    attributes:
+      label: Referência e hipóteses
+      description: Informe fonte, solução analítica ou cálculo manual, com eixos e condições de contorno. Se ainda não houver referência, explique a dúvida.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Versão e modalidade
+      placeholder: "Ex.: v0.1.0, web ou desktop"

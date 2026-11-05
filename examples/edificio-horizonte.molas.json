@@ -1,0 +1,221 @@
+{
+  "format": "molasstruct",
+  "version": 1,
+  "name": "Edifício Horizonte",
+  "author": "",
+  "notes": "Estudo comparativo de rigidez das fundações. Dados de demonstração, sem vínculo com uma obra real.",
+  "water": 3,
+  "bedrock": 20,
+  "borehole": "SP-01",
+  "spt": [
+    {
+      "depth": 1,
+      "n": 4
+    },
+    {
+      "depth": 2,
+      "n": 6
+    },
+    {
+      "depth": 3,
+      "n": 10
+    },
+    {
+      "depth": 4,
+      "n": 12
+    },
+    {
+      "depth": 5,
+      "n": 20
+    },
+    {
+      "depth": 6,
+      "n": 26
+    },
+    {
+      "depth": 7,
+      "n": 32
+    },
+    {
+      "depth": 8,
+      "n": 38
+    },
+    {
+      "depth": 9,
+      "n": 38
+    },
+    {
+      "depth": 10,
+      "n": 40
+    },
+    {
+      "depth": 11,
+      "n": 42
+    },
+    {
+      "depth": 12,
+      "n": 45
+    },
+    {
+      "depth": 13,
+      "n": 48
+    },
+    {
+      "depth": 14,
+      "n": 50
+    },
+    {
+      "depth": 15,
+      "n": 50
+    },
+    {
+      "depth": 16,
+      "n": 50
+    }
+  ],
+  "layers": [
+    {
+      "id": "L1",
+      "name": "Areia siltosa",
+      "bottom": 5,
+      "soil": "sand",
+      "e": 18,
+      "nu": 0.3,
+      "gamma": 18,
+      "gammaSat": 20,
+      "phi": 30,
+      "cohesion": 0,
+      "alpha": 0.02,
+      "k": 800,
+      "kh": 18000,
+      "shaftK": 16000,
+      "baseK": 100000,
+      "color": "#D1B994"
+    },
+    {
+      "id": "L2",
+      "name": "Areia compacta",
+      "bottom": 10,
+      "soil": "sand",
+      "e": 45,
+      "nu": 0.28,
+      "gamma": 19,
+      "gammaSat": 21,
+      "phi": 35,
+      "cohesion": 0,
+      "alpha": 0.014,
+      "k": 1000,
+      "kh": 40000,
+      "shaftK": 30000,
+      "baseK": 180000,
+      "color": "#A79980"
+    },
+    {
+      "id": "L3",
+      "name": "Silte arenoso",
+      "bottom": 16,
+      "soil": "silt",
+      "e": 60,
+      "nu": 0.32,
+      "gamma": 19,
+      "gammaSat": 21,
+      "phi": 32,
+      "cohesion": 10,
+      "alpha": 0.022,
+      "k": 550,
+      "kh": 55000,
+      "shaftK": 40000,
+      "baseK": 220000,
+      "color": "#7D8B84"
+    }
+  ],
+  "foundations": [
+    {
+      "id": "F01",
+      "name": "F01",
+      "kind": "pile",
+      "count": 2,
+      "diameter": 0.4,
+      "length": 8,
+      "spacingX": 1.2,
+      "spacingY": 1.2,
+      "capX": 2.2,
+      "capY": 1.2,
+      "height": 0.65,
+      "depth": 1,
+      "fck": 25,
+      "ec": 30,
+      "concreteNu": 0.2,
+      "f1": 1.75,
+      "f2": 3.5,
+      "n": 500,
+      "hx": 15,
+      "hy": 0,
+      "mx": 0,
+      "my": 30,
+      "mz": 0,
+      "efficiency": 1,
+      "segments": 24,
+      "safety": 3,
+      "sptFactor": 20
+    },
+    {
+      "id": "F02",
+      "name": "F02",
+      "kind": "pile",
+      "count": 4,
+      "diameter": 0.4,
+      "length": 8,
+      "spacingX": 1.2,
+      "spacingY": 1.2,
+      "capX": 2.2,
+      "capY": 2.2,
+      "height": 0.65,
+      "depth": 1,
+      "fck": 25,
+      "ec": 30,
+      "concreteNu": 0.2,
+      "f1": 1.75,
+      "f2": 3.5,
+      "n": 900,
+      "hx": 15,
+      "hy": 0,
+      "mx": 0,
+      "my": 50,
+      "mz": 0,
+      "efficiency": 1,
+      "segments": 24,
+      "safety": 3,
+      "sptFactor": 20
+    },
+    {
+      "id": "S01",
+      "name": "S01",
+      "kind": "footing",
+      "count": 2,
+      "diameter": 0.4,
+      "length": 8,
+      "spacingX": 1.2,
+      "spacingY": 1.2,
+      "capX": 2.4,
+      "capY": 1.8,
+      "height": 0.6,
+      "depth": 1.5,
+      "fck": 25,
+      "ec": 30,
+      "concreteNu": 0.2,
+      "f1": 1.75,
+      "f2": 3.5,
+      "n": 400,
+      "hx": 0,
+      "hy": 0,
+      "mx": 0,
+      "my": 0,
+      "mz": 0,
+      "efficiency": 1,
+      "segments": 24,
+      "safety": 3,
+      "sptFactor": 20
+    }
+  ]
+}

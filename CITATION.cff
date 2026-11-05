@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "Se utilizar o MolasStruct em um trabalho, cite esta versão e as referências dos métodos aplicados."
+type: software
+title: "MolasStruct: estimativa de rigidez de fundações"
+authors:
+  - family-names: Corsini
+    given-names: Ricardo
+version: 0.1.0
+date-released: 2026-11-05
+repository-code: "https://github.com/ricardocorsini/mola-struct"
+url: "https://github.com/ricardocorsini/mola-struct"
+license: MIT
+keywords:
+  - fundações
+  - interação solo-estrutura
+  - Winkler
+  - OpenStruct

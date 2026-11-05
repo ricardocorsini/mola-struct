@@ -1,0 +1,12 @@
+[package]
+name = "molas-core"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Núcleo independente de rigidez experimental de fundações"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+
+[dev-dependencies]
+serde_json = "1"
