@@ -30,6 +30,7 @@ export const benchmarkAssumptions = [
   "O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck.",
   "O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico.",
   "kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print.",
+  "O caso-base mantém a ligação rígida à flexão das versões anteriores. Em Métodos, selecione Rotulada em X e Y para ensaiar o binário axial sem momentos de topo, conforme o esquema fornecido pelo usuário. A escolha não calibra o solo nem comprova todas as hipóteses do programa externo.",
   "Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional.",
 ];
 export function reference16Project(): Project {
@@ -224,7 +225,9 @@ export function reference16Comparison(
           ? "kh e condição de cabeça do cálculo de referência não informados; não comparar valores ilustrativos como se fossem os mesmos dados."
           : i === 2
             ? "Ec, transferência, interação entre estacas, discretização e continuação abaixo de 20 m ainda precisam de equivalência."
-            : "O modelo ativo inclui flexão local Winkler; o print é aproximadamente compatível com rotação somente pelo braço axial. Veja as parcelas abaixo.",
+            : f.headConnection === "pinned"
+              ? "Ligação rotulada: momentos locais de topo nulos; rotação pelo braço axial. A interação e os parâmetros verticais ainda diferem das hipóteses do print."
+              : "O modelo ativo inclui flexão local Winkler; o print é aproximadamente compatível com rotação somente pelo braço axial. Veja as parcelas abaixo.",
       ),
     ),
     row(

@@ -82,6 +82,7 @@ export const foundationSchema = z.object({
   safety: positive,
   sptFactor: positive,
   pileMethod: z.enum(["winkler", "randolph", "mindlin"]).default("winkler"),
+  headConnection: z.enum(["fixed", "pinned"]).default("fixed"),
   footingMethod: z
     .enum(["elastic", "winkler", "safe", "mindlin"])
     .default("elastic"),
@@ -121,6 +122,8 @@ export const projectSchema = z.object({
 export type Layer = z.infer<typeof layerSchema>;
 export type Foundation = z.infer<typeof foundationSchema>;
 export type Project = z.infer<typeof projectSchema>;
+export const headConnectionLabel = (f: Foundation) =>
+  f.headConnection === "pinned" ? "Rotulada em X e Y" : "Rígida à flexão";
 export const uid = () => crypto.randomUUID();
 export const soilNames = {
   sand: "Areia",
@@ -189,6 +192,7 @@ export const defaultFoundation = (
   safety: 3,
   sptFactor: 20,
   pileMethod: "winkler",
+  headConnection: "fixed",
   footingMethod: "elastic",
   modulusSource: "manual",
   aokiFactor: 6,

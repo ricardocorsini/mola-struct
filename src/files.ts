@@ -18,7 +18,12 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
 import { SectionSvg } from "./components/SectionView";
 import { references } from "./components/Report";
-import { fmt, type Foundation, type Project } from "./domain/model";
+import {
+  fmt,
+  headConnectionLabel,
+  type Foundation,
+  type Project,
+} from "./domain/model";
 import type { Calculation } from "./domain/engine";
 export const safeName = (s: string) =>
   s
@@ -98,6 +103,19 @@ export function matrixCsv(f: Foundation, r: Calculation): string {
           ...row.map(csvN),
         ].join(";"),
       ),
+      ...(f.kind === "pile"
+        ? [
+            ["Ligação estaca–bloco", headConnectionLabel(f)]
+              .map(csvText)
+              .join(";"),
+          ]
+        : []),
+      [
+        "GDL livres",
+        r.freeDofs.map((i) => header[i + 1]).join(", ") || "Nenhum",
+      ]
+        .map(csvText)
+        .join(";"),
     ].join("\r\n")
   );
 }
@@ -366,6 +384,7 @@ export async function reportPdf(
   });
   title("03 / Modelo e hipoteses");
   text(r.method, 10, true);
+  if (f.kind === "pile") row("Ligação estaca–bloco", headConnectionLabel(f));
   for (const paragraph of methodNarrative(f)) text(paragraph);
   row(
     "Seletores",
@@ -389,7 +408,11 @@ export async function reportPdf(
   );
   row(
     "Resposta [mm, mrad]",
-    r.displacement.map((v) => fmt(v * 1000, 5)).join(" ; "),
+    r.displacement
+      .map((v, i) =>
+        r.freeDofs.includes(i) ? "Livre / indeterminado" : fmt(v * 1000, 5),
+      )
+      .join(" ; "),
   );
   row("Recalque linear", `${fmt(r.settlement, 4)} mm`);
   title("05 / Capacidade de carga");
@@ -411,6 +434,11 @@ export async function reportPdf(
       "Reacoes nas estacas",
       r.pileForces.map((v, i) => `E${i + 1}=${fmt(v)} kN`).join("; "),
     );
+    for (const [i, moments] of r.pileMoments.entries())
+      row(
+        `Momentos de topo · E${i + 1}`,
+        `Mx=${fmt(moments[0], 4)}; My=${fmt(moments[1], 4)} kN·m`,
+      );
   } else {
     text(
       "Vesic: qult=c Nc sc + q Nq sq + 0.5 gamma' B Ngamma sg. Nq=exp(pi tan(phi)) tan(pi/4+phi/2)^2; Nc=(Nq-1)/tan(phi), limite pi+2 para phi=0; Ngamma=2(Nq+1)tan(phi). sc=1+(Nq/Nc)(B/L); sq=1+(B/L)tan(phi); sg=1-0.4(B/L). Fatores de profundidade, inclinacao e excentricidade unitarios. Pesos efetivos com NA e estratigrafia.",
@@ -487,7 +515,7 @@ export async function reportPdf(
       for (const test of audit.boundaryCases)
         row(test.label, `${fmt(test.ry, 4)} tf·m/rad`);
       text(
-        "Liberar Hx=0 aplica o complemento de Schur e é diferente de articular os topos. Articulação requer liberar momentos locais e condensar os acoplamentos. Estes cenários não alteram o modelo e não identificam, sozinhos, o algoritmo do print.",
+        "Liberar Hx=0 aplica o complemento de Schur e é diferente de articular os topos. A opção rotulada em Métodos libera os momentos locais e condensa os acoplamentos antes da montagem. Os cenários diagnósticos não modificam a seleção ativa nem identificam, sozinhos, o algoritmo do print.",
         8,
       );
     }
@@ -513,24 +541,24 @@ export async function reportPdf(
   }
   for (const m of review.metrics) row(m.label, `${fmt(m.value, 4)} ${m.unit}`);
   // Keep the bibliography together when it fits on one page.
-  const referenceHeight = references.reduce((height, ref) => {
+  const referenceEntryHeight = (ref: (typeof references)[number]) => {
     pdf.setFont("DejaVu", "bold");
     pdf.setFontSize(7);
     const titleLines = pdf.splitTextToSize(ref.title, 174).length;
     pdf.setFont("DejaVu", "normal");
     pdf.setFontSize(6);
+    pdf.setFontSize(6);
     const urlLines = ref.url ? pdf.splitTextToSize(ref.url, 174).length : 0;
-    return (
-      height +
-      titleLines * 7 * 0.48 +
-      2 +
-      (urlLines ? urlLines * 6 * 0.48 + 2 : 0)
-    );
-  }, 20);
+    return titleLines * 7 * 0.48 + 2 + (urlLines ? urlLines * 6 * 0.48 + 2 : 0);
+  };
+  const referenceHeight = references.reduce(
+    (height, ref) => height + referenceEntryHeight(ref),
+    20,
+  );
   if (y + referenceHeight > 273) next();
   title("08 / Referencias");
   references.forEach((ref) => {
-    if (y > 250) next();
+    if (y + referenceEntryHeight(ref) > 273) next();
     text(ref.title, 7, true);
     if (ref.url) text(ref.url, 6);
   });

@@ -4,7 +4,11 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.4.0 possui 83 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 26 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.5.0 possui 105 testes Vitest e 6 testes Rust. Um dos testes Rust percorre 39 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+
+A ligação rotulada é verificada em `tests/headConnection.test.ts`: momento unitário com ΔN=My/s, momentos de topo nulos, equilíbrio das seis ações, preservação do bloco axial, mudança lateral/torsional e mecanismos sem travamento. Há um limite analítico independente de cabeça livre em Winkler e conferência de ELS/ELU sem aprovação de rotação indeterminada. Detalhes em [LIGACAO-ESTACA-BLOCO.md](LIGACAO-ESTACA-BLOCO.md). As referências OpenSees congeladas abaixo continuam sendo casos de ligação rígida; não foram convertidas em alvos de cabeça articulada.
+
+O percurso de interface da 0.5.0 foi conferido com seleção da ligação, My=1 tf·m, tabela de forças/momentos, indicação de θx livre, bloqueio de Mx incompatível, exportação PDF, salvamento JSON, recarga do rascunho e restauração da ligação rígida, sem erros JavaScript. A conferência nativa percorreu os 39 casos; os primeiros 26 alvos de matriz/deslocamento permaneceram exatamente iguais aos anteriores. Captura: [Ligação rotulada](assets/ligacao-rotulada.png).
 
 | Verificação                                         | Referência ou propriedade                                                                       |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |

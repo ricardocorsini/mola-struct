@@ -96,9 +96,11 @@ export function twoPileRotationAudit(f: Foundation, r: Calculation) {
   // Release pile-head moments, rather than merely zeroing cap diagonal terms.
   // For two identical piles in X, local rotational stiffness is summed before condensation.
   const pinnedHorizontal =
-    localRy > 0
-      ? (r.matrix[0][0] - r.matrix[0][4] ** 2 / (localRy * TF)) / TF
-      : null;
+    f.headConnection === "pinned"
+      ? r.matrix[0][0] / TF
+      : localRy > 0
+        ? (r.matrix[0][0] - r.matrix[0][4] ** 2 / (localRy * TF)) / TF
+        : null;
   return {
     available: true as const,
     spacing,

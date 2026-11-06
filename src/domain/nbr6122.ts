@@ -3,7 +3,7 @@
  * Stiffness is unchanged. ELU actions are independent of the service vector.
  */
 import { pilePositions, type Foundation, type Verification } from "./model";
-import { solve } from "./matrix";
+import { solve, solveSupported, dofNames } from "./matrix";
 import type { Calculation } from "./engine";
 export type ReviewStatus = "pass" | "fail" | "pending" | "na" | "declared";
 export type ReviewItem = {
@@ -229,13 +229,22 @@ export function reviewFoundation(f: Foundation, r: Calculation): NbrReview {
     v.horizontalLimit,
     "mm",
   );
-  limit(
-    "rotation",
-    "Rotação resultante (X, Y, Z)",
-    service.rotation,
-    v.rotationLimit,
-    "mrad",
-  );
+  if (r.freeDofs.length)
+    add(
+      "rotation",
+      "Rotação resultante (X, Y, Z)",
+      "6.2.2.1; 6.2.2.2",
+      "pending",
+      `Rotação indeterminada em ${r.freeDofs.map((i) => dofNames[i]).join(", ")}. O zero de referência do solver não permite verificar o limite. Inclua as restrições da estrutura para determinar a rotação.`,
+    );
+  else
+    limit(
+      "rotation",
+      "Rotação resultante (X, Y, Z)",
+      service.rotation,
+      v.rotationLimit,
+      "mrad",
+    );
   add(
     "long-term",
     "Diferenciais, tempo e vizinhança",
@@ -403,46 +412,58 @@ export function reviewFoundation(f: Foundation, r: Calculation): NbrReview {
         { value: v.pileSafety, limit: 2, unit: "—" },
       );
     if (ultimateReady) {
-      const u = solve(r.matrix, [
-        v.ultimateHx,
-        v.ultimateHy,
-        -v.ultimateN,
-        v.ultimateMx,
-        v.ultimateMy,
-        v.ultimateMz,
-      ]);
-      const head = pilePositions(f).map(
-        ([x, y]) => -(u[2] + y * u[3] - x * u[4]),
-      );
-      const reactions = r.verticalCompliance
-        ? solve(r.verticalCompliance, head).map((n) => n * f.efficiency)
-        : head.map((d) => (d * r.diagonal[2]) / f.count);
-      const maximum = Math.max(...reactions),
-        minimum = Math.min(...reactions);
-      metric("Maior compressão em estaca — ELU", maximum, "kN");
-      metric("Menor reação axial — ELU", minimum, "kN");
-      add(
-        "compression",
-        "Comparação parcial de compressão por estaca",
-        "6.2.1.2.1; 8.2.1.2",
-        !groundReady || !executionReady
-          ? "pending"
-          : maximum <= resistance
-            ? "pass"
-            : "fail",
-        "Usa as reações da matriz global com o vetor ELU separado, não N/n quando há momentos. Não verifica resistência estrutural da estaca ou resistência última do grupo.",
-        { value: maximum, limit: resistance, unit: "kN" },
-      );
-      add(
-        "tension",
-        "Tração nas estacas",
-        "8.4.1",
-        minimum < -1e-8 ? "pending" : "na",
-        minimum < -1e-8
-          ? "Há reação de tração: resistência de arrancamento/aderência e ligação com bloco não foram verificadas."
-          : "Sem reação axial de tração neste vetor ELU.",
-        { value: minimum, unit: "kN" },
-      );
+      try {
+        const u = solveSupported(r.matrix, [
+          v.ultimateHx,
+          v.ultimateHy,
+          -v.ultimateN,
+          v.ultimateMx,
+          v.ultimateMy,
+          v.ultimateMz,
+        ]);
+        const head = pilePositions(f).map(
+          ([x, y]) => -(u[2] + y * u[3] - x * u[4]),
+        );
+        const reactions = r.verticalCompliance
+          ? solve(r.verticalCompliance, head).map((n) => n * f.efficiency)
+          : head.map((d) => (d * r.diagonal[2]) / f.count);
+        const maximum = Math.max(...reactions),
+          minimum = Math.min(...reactions);
+        metric("Maior compressão em estaca — ELU", maximum, "kN");
+        metric("Menor reação axial — ELU", minimum, "kN");
+        add(
+          "compression",
+          "Comparação parcial de compressão por estaca",
+          "6.2.1.2.1; 8.2.1.2",
+          !groundReady || !executionReady
+            ? "pending"
+            : maximum <= resistance
+              ? "pass"
+              : "fail",
+          "Usa as reações da matriz global com o vetor ELU separado, não N/n quando há momentos. Não verifica resistência estrutural da estaca ou resistência última do grupo.",
+          { value: maximum, limit: resistance, unit: "kN" },
+        );
+        add(
+          "tension",
+          "Tração nas estacas",
+          "8.4.1",
+          minimum < -1e-8 ? "pending" : "na",
+          minimum < -1e-8
+            ? "Há reação de tração: resistência de arrancamento/aderência e ligação com bloco não foram verificadas."
+            : "Sem reação axial de tração neste vetor ELU.",
+          { value: minimum, unit: "kN" },
+        );
+      } catch (error) {
+        add(
+          "ultimate-equilibrium",
+          "Equilíbrio do vetor ELU",
+          "6.1; 6.2.1",
+          "fail",
+          error instanceof Error
+            ? error.message
+            : "Vetor ELU incompatível com a rigidez da fundação isolada.",
+        );
+      }
     }
     if (f.pileMethod === "mindlin") {
       const beta =

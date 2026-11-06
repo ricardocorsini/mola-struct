@@ -42,6 +42,7 @@
     "O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck.",
     "O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico.",
     "kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print.",
+    "O caso-base mantém a ligação rígida à flexão das versões anteriores. Em Métodos, selecione Rotulada em X e Y para ensaiar o binário axial sem momentos de topo, conforme o esquema fornecido pelo usuário. A escolha não calibra o solo nem comprova todas as hipóteses do programa externo.",
     "Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional."
   ],
   "inputDifferences": [],
@@ -274,6 +275,7 @@
       0,
       0
     ],
+    "freeDofs": [],
     "settlement": 1.7592526712857082,
     "method": "Mindlin/Aoki–Lopes + Steinbrenner (vertical) · Winkler lateral/torção",
     "notices": [
@@ -292,6 +294,10 @@
       {
         "level": "warning",
         "message": "Mindlin/Aoki–Lopes: cargas de fuste e ponta com mobilização proporcional fixa (ou fração de ponta informada), superposição vertical entre estacas e encurtamento EA. Não é a curva bilinear de mobilização do ALPI. Lateral e torção permanecem Winkler."
+      },
+      {
+        "level": "info",
+        "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
     "valid": true,
@@ -304,6 +310,16 @@
     "pileForces": [
       196.1329999999999,
       196.13299999999992
+    ],
+    "pileMoments": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
     ],
     "qMin": null,
     "qMax": null,
@@ -483,6 +499,6 @@
         0.000008666772805941327
       ]
     ],
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   }
 }

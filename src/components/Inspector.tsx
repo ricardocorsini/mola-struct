@@ -407,6 +407,32 @@ export default function Inspector({
                 Métodos experimentais. Consulte as hipóteses e os valores
                 intermediários na memória de cálculo.
               </p>
+              {f.kind === "pile" && (
+                <>
+                  <label className="select-field method-select">
+                    <span>Ligação estaca–bloco</span>
+                    <select
+                      aria-label="Ligação estaca–bloco"
+                      value={f.headConnection}
+                      onChange={(e) =>
+                        up({
+                          ...f,
+                          headConnection: e.target
+                            .value as Foundation["headConnection"],
+                        })
+                      }
+                    >
+                      <option value="fixed">Rígida à flexão</option>
+                      <option value="pinned">Rotulada em X e Y</option>
+                    </select>
+                  </label>
+                  <p className="field-help">
+                    {f.headConnection === "pinned"
+                      ? "Mx e My nulos no topo; o bloco permanece rígido e transmite momento pelos binários axiais. A rigidez lateral Winkler é condensada. Torção em Z permanece vinculada."
+                      : "O topo acompanha a rotação do bloco. O momento pode ser dividido entre flexão das estacas e binários axiais."}
+                  </p>
+                </>
+              )}
               {(f.kind === "pile" ||
                 f.footingMethod === "mindlin" ||
                 f.footingMethod === "elastic") && (

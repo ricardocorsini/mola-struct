@@ -1,0 +1,85 @@
+{
+  "description": "Comparação das ligações para N=40 tf e My=1 tf·m. Mesmos parâmetros de solo e geometria; não constitui validação geotécnica contra o print.",
+  "forceUnit": "tf",
+  "momentUnit": "tf·m",
+  "stiffnessUnits": [
+    "tf/m",
+    "tf/m",
+    "tf/m",
+    "tf·m/rad",
+    "tf·m/rad",
+    "tf·m/rad"
+  ],
+  "cases": [
+    {
+      "headConnection": "fixed",
+      "diagonal": [
+        1908.9419344000837,
+        1908.9419344000837,
+        22736.927249209144,
+        2871.805097083249,
+        7809.541971805786,
+        801.8505364278859
+      ],
+      "freeDofs": [],
+      "pileForces": [
+        19.13952602776036,
+        20.860473972239625
+      ],
+      "pileMoments": [
+        [
+          0,
+          0.11278671249216583
+        ],
+        [
+          0,
+          0.11278671249216583
+        ]
+      ],
+      "displacement": [
+        0.00013591347437766588,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00015683836434868433,
+        0
+      ]
+    },
+    {
+      "headConnection": "pinned",
+      "diagonal": [
+        956.0341056675069,
+        956.0341056675069,
+        22736.927249209144,
+        0,
+        4937.736874722538,
+        608.8867011095391
+      ],
+      "freeDofs": [
+        3
+      ],
+      "pileForces": [
+        18.88888888888888,
+        21.111111111111104
+      ],
+      "pileMoments": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  ]
+}

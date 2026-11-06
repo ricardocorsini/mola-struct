@@ -1,6 +1,7 @@
 import { effectiveProfile } from "../domain/methods";
 import NormativeReview from "./NormativeReview";
 import BenchmarkComparison from "./BenchmarkComparison";
+import PileHeadActions from "./PileHeadActions";
 import { hasReference16 } from "../domain/benchmark16";
 import { useMemo, useState } from "react";
 import {
@@ -49,16 +50,16 @@ export function SpringCards({
             </small>
             {!compact && (
               <span className="spring-caption">
-                {
-                  [
-                    "Translação em X",
-                    "Translação em Y",
-                    "Translação vertical",
-                    "Rotação em X",
-                    "Rotação em Y",
-                    "Torção em Z",
-                  ][i]
-                }
+                {r.freeDofs.includes(i)
+                  ? "Livre · sem travamento"
+                  : [
+                      "Translação em X",
+                      "Translação em Y",
+                      "Translação vertical",
+                      "Rotação em X",
+                      "Rotação em Y",
+                      "Torção em Z",
+                    ][i]}
               </span>
             )}
           </div>
@@ -214,13 +215,20 @@ export default function Results({
               <span>Rotações da fundação</span>
               <strong>
                 {r.valid
-                  ? `${fmt(r.displacement[3] * 1000, 3)} / ${fmt(r.displacement[4] * 1000, 3)}`
+                  ? [3, 4]
+                      .map((i) =>
+                        r.freeDofs.includes(i)
+                          ? "Livre"
+                          : fmt(r.displacement[i] * 1000, 3),
+                      )
+                      .join(" / ")
                   : "—"}{" "}
                 <small>mrad</small>
               </strong>
               <p>θx / θy no centro da base</p>
             </div>
           </div>
+          <PileHeadActions foundation={f} result={r} unit={unit} />
           <div className="info-box">
             <Info size={16} />
             <p>
@@ -283,7 +291,13 @@ export default function Results({
               {r.displacement.map((v, i) => (
                 <span key={i}>
                   <small>{["ux", "uy", "uz", "θx", "θy", "θz"][i]}</small>
-                  <b>{r.valid ? fmt(v * 1000, 4) : "—"}</b>
+                  <b>
+                    {r.valid
+                      ? r.freeDofs.includes(i)
+                        ? "Livre / indeterminado"
+                        : fmt(v * 1000, 4)
+                      : "—"}
+                  </b>
                   <em>{i < 3 ? "mm" : "mrad"}</em>
                 </span>
               ))}
@@ -293,8 +307,9 @@ export default function Results({
             <Info size={15} />
             <p>
               Fz = −N. Matrizes geradas por transformação das estacas para o
-              centro do bloco, com topo solidário ao bloco rígido. A matriz não
-              inclui a rigidez da superestrutura.
+              centro do bloco rígido, respeitando a ligação estaca–bloco
+              selecionada. GDL livres têm linha e coluna nulas; não há rigidez
+              fictícia de travamento. A matriz não inclui a superestrutura.
             </p>
           </div>
         </>

@@ -104,6 +104,33 @@ const cases = [
     f: { ...m.foundations[2], modulusSource: "aoki" as const, aokiFactor },
   })),
   { p: reference16Project(), f: reference16Project().foundations[0] },
+  ...(["winkler", "mindlin", "randolph"] as const).flatMap((pileMethod) =>
+    ([1, 2, 3, 4] as const).map((count) => ({
+      p: m,
+      f: {
+        ...m.foundations[0],
+        headConnection: "pinned" as const,
+        pileMethod,
+        count,
+        capX: 3,
+        capY: 3,
+        efficiency: 0.73,
+        hx: 15,
+        hy: 7,
+        mx: count >= 3 ? 15 : 0,
+        my: count >= 2 ? 30 : 0,
+        mz: 4,
+      },
+    })),
+  ),
+  {
+    p: reference16Project(),
+    f: {
+      ...reference16Project().foundations[0],
+      headConnection: "pinned" as const,
+      my: 9.80665,
+    },
+  },
 ];
 const fixtures = cases.map(({ p, f }) => {
   const r = calculate(p, f);
@@ -184,6 +211,64 @@ writeFileSync(
       concreteSensitivity: concreteSensitivity16(reference, foundation),
       initialModuli: initialModuli16(reference),
       result,
+    },
+    null,
+    2,
+  ) + "\n",
+);
+
+const pinned = structuredClone(reference);
+pinned.name = "Referência 16 m · ligação rotulada / momento unitário";
+pinned.notes +=
+  " Ensaio de ligação: My=1 tf·m superposto a N=40 tf; momentos de topo liberados em X/Y.";
+pinned.foundations[0] = {
+  ...foundation,
+  headConnection: "pinned",
+  my: 9.80665,
+};
+const pinnedFoundation = pinned.foundations[0],
+  pinnedResult = calculate(pinned, pinnedFoundation);
+if (!pinnedResult.valid) throw new Error("Invalid pinned 16 m benchmark");
+writeFileSync(
+  "examples/referencia-16m-rotulada.molas.json",
+  JSON.stringify(pinned, null, 2) + "\n",
+);
+writeFileSync(
+  "examples/B16-rotulada-matriz.csv",
+  matrixCsv(pinnedFoundation, pinnedResult),
+);
+writeFileSync(
+  "examples/B16-rotulada-memoria.pdf",
+  await reportPdf(pinned, pinnedFoundation, pinnedResult),
+);
+writeFileSync(
+  "examples/referencia-16m-ligacoes.json",
+  JSON.stringify(
+    {
+      description:
+        "Comparação das ligações para N=40 tf e My=1 tf·m. Mesmos parâmetros de solo e geometria; não constitui validação geotécnica contra o print.",
+      forceUnit: "tf",
+      momentUnit: "tf·m",
+      stiffnessUnits: [
+        "tf/m",
+        "tf/m",
+        "tf/m",
+        "tf·m/rad",
+        "tf·m/rad",
+        "tf·m/rad",
+      ],
+      cases: (["fixed", "pinned"] as const).map((headConnection) => {
+        const f = { ...foundation, my: 9.80665, headConnection },
+          r = calculate(reference, f);
+        return {
+          headConnection,
+          diagonal: r.diagonal.map((v) => v / 9.80665),
+          freeDofs: r.freeDofs,
+          pileForces: r.pileForces.map((v) => v / 9.80665),
+          pileMoments: r.pileMoments.map((m) => m.map((v) => v / 9.80665)),
+          displacement: r.displacement,
+        };
+      }),
     },
     null,
     2,

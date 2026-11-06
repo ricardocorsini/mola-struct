@@ -3,10 +3,16 @@ import { ReviewSummary } from "./NormativeReview";
 import { hasReference16 } from "../domain/benchmark16";
 import BenchmarkComparison from "./BenchmarkComparison";
 import { BookOpen, ExternalLink } from "lucide-react";
-import { fmt, type Foundation, type Project } from "../domain/model";
+import {
+  fmt,
+  headConnectionLabel,
+  type Foundation,
+  type Project,
+} from "../domain/model";
 import { methodNarrative } from "../domain/methods";
 import type { Calculation } from "../domain/engine";
 import { Notices } from "./Results";
+import PileHeadActions from "./PileHeadActions";
 export const references = [
   {
     title:
@@ -20,6 +26,16 @@ export const references = [
   {
     title: "TQS · Coeficiente de mola — Uma estaca (discussão conceitual)",
     url: "https://docs.tqs.com.br/Docs/Details?id=3288&language=pt-BR",
+  },
+  {
+    title:
+      "TQS · SISEs – Parte 10 · Articulações na interface estaca–bloco e transmissão por binários",
+    url: "https://docs.tqs.com.br/Docs/Details?id=3458&language=pt-br",
+  },
+  {
+    title:
+      "Crispin & Mylonakis (2022) · Exact Winkler Solution for Laterally Loaded Piles in Inhomogeneous Soil · Journal of Engineering Mechanics, 148(11), 04022065",
+    url: "https://doi.org/10.1061/(ASCE)EM.1943-7889.0002125",
   },
   {
     title:
@@ -132,6 +148,7 @@ export default function Report({
                       "Malha e redutor",
                       `${f.segments} elementos / estaca · η = ${fmt(f.efficiency)}`,
                     ],
+                    ["Ligação estaca–bloco", headConnectionLabel(f)],
                   ]
                 : []),
             ].map(([a, b]) => (
@@ -223,6 +240,7 @@ export default function Report({
             </tr>
           </tbody>
         </table>
+        <PileHeadActions foundation={f} result={r} />
         <p>
           A diagonal Kii pressupõe os demais graus de liberdade impedidos. Para
           blocos com estacas, os acoplamentos devem ser preservados na matriz

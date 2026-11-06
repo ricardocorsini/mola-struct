@@ -6,7 +6,14 @@ import {
   type Project,
 } from "./model";
 
-import { zeros, solve, type Matrix } from "./matrix";
+import {
+  zeros,
+  solve,
+  solveSupported,
+  freeCoordinates,
+  dofNames,
+  type Matrix,
+} from "./matrix";
 import { intervals, layerAt, sptAt } from "./profile";
 export { zeros, solve, type Matrix } from "./matrix";
 export { layerAt, sptAt } from "./profile";
@@ -29,6 +36,7 @@ export type Calculation = {
   matrix: Matrix;
   diagonal: number[];
   displacement: number[];
+  freeDofs: number[];
   settlement: number;
   method: string;
   notices: Notice[];
@@ -40,6 +48,7 @@ export type Calculation = {
   point: number | null;
   ultimate: number | null;
   pileForces: number[];
+  pileMoments: [number, number][];
   qMin: number | null;
   qMax: number | null;
   qUltimate: number | null;
@@ -51,7 +60,7 @@ export type Calculation = {
   verticalCompliance: Matrix | null;
   version: string;
 };
-export const ENGINE_VERSION = "0.4.0-experimental";
+export const ENGINE_VERSION = "0.5.0-experimental";
 function check(p: Project, f: Foundation): Notice[] {
   const ns: Notice[] = [];
   const err = (message: string) => ns.push({ level: "error", message });
@@ -204,6 +213,20 @@ export function barHead(p: Project, f: Foundation, torsion = false): number {
   return 1 / solve(k, force)[0];
 }
 
+/** Release the local pile-head slope at M=0 before assembling the rigid cap.
+ * Axial stiffness and vertical-axis torsion are independent of this flexural release.
+ */
+export function connectedLateralHead(k: Matrix, f: Foundation): Matrix {
+  if (f.headConnection !== "pinned") return k;
+  const horizontal = k[0][0] - (k[0][1] * k[1][0]) / k[1][1];
+  if (!Number.isFinite(horizontal) || horizontal <= 0)
+    throw new Error("Rigidez lateral condensada não positiva.");
+  return [
+    [horizontal, 0],
+    [0, 0],
+  ];
+}
+
 export function assemblePileGroup(f: Foundation, local: Matrix): Matrix {
   const out = zeros(6);
   for (const [x, y] of pilePositions(f)) {
@@ -230,6 +253,7 @@ export function calculate(p: Project, f: Foundation): Calculation {
       matrix: zeros(6),
       diagonal: Array(6).fill(0),
       displacement: Array(6).fill(0),
+      freeDofs: [],
       settlement: 0,
       method: "",
       notices,
@@ -241,6 +265,7 @@ export function calculate(p: Project, f: Foundation): Calculation {
       point: null,
       ultimate: null,
       pileForces: [],
+      pileMoments: [],
       qMin: null,
       qMax: null,
       qUltimate: null,
@@ -256,11 +281,13 @@ export function calculate(p: Project, f: Foundation): Calculation {
   try {
     const original = p;
     p = effectiveProfile(p, f);
+    let headStiffness: Matrix | null = null;
     if (f.kind === "pile") {
-      const lateral = lateralHead(p, f),
+      const lateral = connectedLateralHead(lateralHead(p, f), f),
         axial = barHead(p, f),
         torsion = barHead(p, f, true),
         local = zeros(6);
+      headStiffness = lateral;
       local[0][0] = local[1][1] = lateral[0][0];
       local[2][2] = axial;
       local[3][3] = local[4][4] = lateral[1][1];
@@ -399,6 +426,14 @@ export function calculate(p: Project, f: Foundation): Calculation {
     if (model.method) result.method = model.method;
     if (model.kv !== undefined) result.kv = model.kv;
     notices.push(...model.notices);
+    if (f.kind === "pile")
+      notices.push({
+        level: "info",
+        message:
+          f.headConnection === "pinned"
+            ? "Ligação estaca–bloco rotulada em X e Y: momentos de topo nulos; bloco rígido e binários axiais preservados. A flexão no fuste continua possível. Torção em Z permanece vinculada."
+            : "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais.",
+      });
     if (f.modulusSource !== "manual") {
       result.details.push(
         ...p.layers.map((l, i) => ({
@@ -416,7 +451,13 @@ export function calculate(p: Project, f: Foundation): Calculation {
       });
     }
     result.diagonal = result.matrix.map((row, i) => row[i]);
-    result.displacement = solve(result.matrix, [
+    result.freeDofs = freeCoordinates(result.matrix);
+    if (result.freeDofs.length)
+      notices.push({
+        level: "warning",
+        message: `Graus de liberdade livres: ${result.freeDofs.map((i) => dofNames[i]).join(", ")}. A fundação isolada não determina esses deslocamentos. Zero interno é apenas referência; ações nessas direções exigem travamento no modelo estrutural.`,
+      });
+    result.displacement = solveSupported(result.matrix, [
       f.hx,
       f.hy,
       -f.n,
@@ -433,6 +474,27 @@ export function calculate(p: Project, f: Foundation): Calculation {
       result.pileForces = model.compliance
         ? solve(model.compliance, head).map((v) => v * f.efficiency)
         : head.map((v) => v * barHead(p, f) * f.efficiency);
+      const positions = pilePositions(f);
+      result.pileMoments = positions.map(([x, y]) => {
+        if (f.headConnection === "pinned") return [0, 0];
+        if (f.pileMethod === "randolph") {
+          const bending =
+            (1.5 * f.ec * 1e6 * Math.PI * f.diameter ** 4) / 64 / f.length;
+          return [
+            positions.every(([, py]) => Math.abs(py) < 1e-10)
+              ? bending * d[3] * f.efficiency
+              : 0,
+            positions.every(([px]) => Math.abs(px) < 1e-10)
+              ? bending * d[4] * f.efficiency
+              : 0,
+          ];
+        }
+        const k = headStiffness!;
+        return [
+          (k[1][0] * (d[1] + x * d[5]) + k[1][1] * d[3]) * f.efficiency,
+          (-k[1][0] * (d[0] - y * d[5]) + k[1][1] * d[4]) * f.efficiency,
+        ];
+      });
       if (result.pileForces.some((n) => n < 0))
         notices.push({
           level: "warning",

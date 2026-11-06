@@ -97,6 +97,6 @@ A comparação deve primeiro usar as mesmas condições: participação ou liber
 
 Depois, a equivalência vertical exige confirmar Ec, E e ν, lei de transferência, ponto de avaliação e tratamento do solo sob a ponta. Não há motivo para calibrar kh, Ec ou βp antes de fixar essas hipóteses. O pequeno resíduo da relação do print deve continuar registrado.
 
-Uma futura escolha de topos articulados exige tratamento coerente dos acoplamentos e dos graus de liberdade liberados, inclusive eventual singularidade do apoio isolado. Não foi introduzido um modo articulado no motor nem zerada uma diagonal como atalho.
+A versão 0.5.0 acrescenta a escolha de ligação rotulada, com condensação local e tratamento explícito dos mecanismos. O caso-base rígido desta investigação continua numericamente preservado. A comparação implementada e o ensaio de momento unitário estão em [LIGACAO-ESTACA-BLOCO.md](LIGACAO-ESTACA-BLOCO.md).
 
 Oito testes automatizados verificam as identidades modais, reconstrução, duas molas independentes, condensação, influência separada de kh, refinamento, limite do arredondamento e bloqueio fora da geometria admitida. Um teste confirma que a matriz calculada continua exatamente igual à matriz publicada antes desta investigação. A base passa a 80 testes TypeScript; os 26 casos de paridade existentes não foram regenerados para produzir novos alvos externos.

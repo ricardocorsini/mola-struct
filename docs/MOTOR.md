@@ -1,4 +1,4 @@
-# Motor 0.4.0 — hipóteses, equações e unidades
+# Motor 0.5.0 — hipóteses, equações e unidades
 
 ## Convenções
 
@@ -34,6 +34,14 @@ K_bloco = eta SUM(T_i^T K_estaca T_i)
 ```
 
 Bloco perfeitamente rígido, estacas verticais idênticas, terreno horizontal, sem contato bloco–solo e sem interação entre estacas. η reduz todas as componentes da rigidez; não é calculado por um método de interação. O arranjo triangular tem centroide na origem. Variações locais bruscas exigem estudo de refinamento da malha; 24 elementos é um valor inicial, não uma demonstração automática de convergência.
+
+### Ligação estaca–bloco
+
+`headConnection="fixed"` é a ligação rígida à flexão, padrão preservado para JSON antigos: a rotação local acompanha o bloco. `headConnection="pinned"` libera os momentos de topo Mx/My. O bloco continua rígido; as translações dos topos respeitam os braços geométricos. A torção em Z permanece vinculada, pois essa opção representa a liberação à flexão.
+
+Para cada plano lateral, antes de montar o grupo, a matriz de cabeça `[[a,b],[c,d]]` é condensada impondo `M=0`: `θ=-c u/d` e `kh,pinned=a-bc/d`. A matriz local passa a `[[kh,pinned,0],[0,0]]`. As parcelas de flexão e seus acoplamentos desaparecem, e a parcela de torção de grupo devida ao braço horizontal muda junto com Kh. A flexão ao longo do fuste sob força lateral continua possível.
+
+O bloco axial é preservado. Em duas estacas alinhadas em X, a ligação rotulada produz Kθx=0 e mantém Kθy pelo binário. No Mindlin, Kθy não é necessariamente Kz·s²/4, porque a matriz de flexibilidade vertical inclui interação. No Randolph simplificado, Kh=μh Kz não vem de uma viga lateral acoplada; conserva-se essa aproximação e elimina-se a flexão local aproximada dos eixos sem braço. Consulte [LIGACAO-ESTACA-BLOCO.md](LIGACAO-ESTACA-BLOCO.md).
 
 ### Capacidade Aoki–Velloso
 
@@ -92,6 +100,8 @@ Pressões de contato `qmin/qmax = N/A ± |Mx| Ly/(2Ix) ± |My| Lx/(2Iy)`, sob di
 ## Matriz e resposta
 
 Ordem `[ux,uy,uz,thetaX,thetaY,thetaZ]`. Kii é a rigidez com os outros GDL impedidos, distinta da rigidez efetiva com rotações livres. Bloco TT em kN/m, TR e RT em kN e RR em kN·m/rad. A resposta é resolvida com pivotamento parcial, sem regularização artificial de matrizes singulares.
+
+Linhas e colunas exatamente nulas identificam GDL livres; não há corte por magnitude para transformar molas fracas em mecanismos. Se a ação conjugada for zero, resolve-se apenas o subconjunto sustentado e o zero armazenado no GDL livre é uma referência numérica, não uma rotação determinada. Ações não nulas nessas direções são rejeitadas. Outras singularidades continuam bloqueadas pelo solver. Em ELS, rotação indeterminada não recebe aprovação; no ELU, o vetor separado precisa ser compatível com o apoio.
 
 Exportações mantêm kN, m e rad. A opção tf na tela divide rigidezes por 9,80665. Não há matriz em unidades mistas sem indicação de linha/coluna.
 

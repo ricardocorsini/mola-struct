@@ -280,8 +280,11 @@ pub fn apply(input: &Input, matrix: &mut Matrix) -> Result<(), String> {
             matrix[0][0] = f.efficiency * f.count as f64 * f.horizontal_ratio * axial;
             matrix[1][1] = matrix[0][0];
             matrix[5][5] = torsion;
-            let bending = 1.5 * f.ec * 1e6 * PI * f.diameter.powi(4) / 64. / f.length
-                * f.count as f64
+            let bending = (if f.head_connection == "pinned" {
+                0.
+            } else {
+                1.5 * f.ec * 1e6 * PI * f.diameter.powi(4) / 64. / f.length
+            }) * f.count as f64
                 * f.efficiency;
             if pos.iter().all(|(_, y)| y.abs() < 1e-10) {
                 matrix[3][3] = bending

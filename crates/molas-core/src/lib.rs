@@ -29,6 +29,8 @@ pub struct Foundation {
     pub mz: f64,
     #[serde(default = "winkler")]
     pub pile_method: String,
+    #[serde(default = "fixed")]
+    pub head_connection: String,
     #[serde(default = "elastic")]
     pub footing_method: String,
     #[serde(default = "manual")]
@@ -72,6 +74,9 @@ pub struct Layer {
 }
 fn winkler() -> String {
     "winkler".into()
+}
+fn fixed() -> String {
+    "fixed".into()
 }
 fn elastic() -> String {
     "elastic".into()
@@ -170,6 +175,33 @@ pub fn solve(a: &Matrix, b: &[f64]) -> Result<Vec<f64>, String> {
     }
     Ok(x)
 }
+// Only exact zero rows/columns are released; never regularize or discard weak stiffness.
+fn solve_supported(k: &Matrix, forces: &[f64]) -> Result<Vec<f64>, String> {
+    let free: Vec<usize> = (0..forces.len())
+        .filter(|&i| k[i].iter().all(|&v| v == 0.) && k.iter().all(|r| r[i] == 0.))
+        .collect();
+    let names = ["ux", "uy", "uz", "θx", "θy", "θz"];
+    for &i in &free {
+        if forces[i] != 0. {
+            return Err(format!(
+                "Sem rigidez em {}: ação incompatível com a fundação isolada",
+                names[i]
+            ));
+        }
+    }
+    let supported: Vec<usize> = (0..forces.len()).filter(|i| !free.contains(i)).collect();
+    let reduced: Matrix = supported
+        .iter()
+        .map(|&i| supported.iter().map(|&j| k[i][j]).collect())
+        .collect();
+    let load: Vec<f64> = supported.iter().map(|&i| forces[i]).collect();
+    let solution = solve(&reduced, &load)?;
+    let mut displacement = vec![0.; forces.len()];
+    for (j, &i) in supported.iter().enumerate() {
+        displacement[i] = solution[j];
+    }
+    Ok(displacement)
+}
 fn layer_at(layers: &[Layer], z: f64) -> &Layer {
     layers
         .iter()
@@ -181,6 +213,9 @@ fn positive(v: f64) -> bool {
 }
 fn validate(input: &Input) -> Result<(), String> {
     let f = &input.foundation;
+    if f.head_connection != "fixed" && f.head_connection != "pinned" {
+        return Err("Ligação estaca–bloco desconhecida".into());
+    }
     if f.kind != "pile" && f.kind != "footing" {
         return Err("Tipo de fundação desconhecido".into());
     }
@@ -394,7 +429,14 @@ pub fn stiffness(input: &Input) -> Result<Output, String> {
     let f = &input.foundation;
     let mut matrix = zeros(6);
     if f.kind == "pile" {
-        let lateral = lateral(input)?;
+        let mut lateral = lateral(input)?;
+        if f.head_connection == "pinned" {
+            let horizontal = lateral[0][0] - lateral[0][1] * lateral[1][0] / lateral[1][1];
+            if !horizontal.is_finite() || horizontal <= 0. {
+                return Err("Rigidez lateral condensada não positiva".into());
+            }
+            lateral = vec![vec![horizontal, 0.], vec![0., 0.]];
+        }
         let mut local = zeros(6);
         local[0][0] = lateral[0][0];
         local[1][1] = lateral[0][0];
@@ -459,7 +501,7 @@ pub fn stiffness(input: &Input) -> Result<Output, String> {
     if matrix.iter().flatten().any(|v| !v.is_finite()) {
         return Err("Rigidez não finita".into());
     }
-    let displacement = solve(&matrix, &[f.hx, f.hy, -f.n, f.mx, f.my, f.mz])?;
+    let displacement = solve_supported(&matrix, &[f.hx, f.hy, -f.n, f.mx, f.my, f.mz])?;
     Ok(Output {
         matrix,
         displacement,
@@ -479,6 +521,31 @@ mod tests {
     #[test]
     fn reject_singular() {
         assert!(solve(&vec![vec![0.; 2]; 2], &[1., 1.]).is_err());
+    }
+    #[test]
+    fn unloaded_release_is_not_a_support() {
+        let k = vec![vec![1e-8, 0.], vec![0., 0.]];
+        assert_eq!(solve_supported(&k, &[1e-8, 0.]).unwrap(), vec![1., 0.]);
+        assert!(solve_supported(&k, &[0., 1e-14]).is_err());
+        assert!(solve_supported(&vec![vec![1., 1.], vec![1., 1.]], &[0., 0.]).is_err());
+    }
+    #[test]
+    fn pinned_single_pile_rejects_unbalanced_moment() {
+        let cases: Vec<serde_json::Value> =
+            serde_json::from_str(include_str!("../tests/parity.json")).unwrap();
+        let mut input: Input = serde_json::from_value(cases[0]["input"].clone()).unwrap();
+        input.foundation.head_connection = "pinned".into();
+        input.foundation.count = 1;
+        input.foundation.mx = 0.;
+        input.foundation.my = 0.;
+        let out = stiffness(&input).unwrap();
+        assert!(out.matrix[3].iter().all(|&v| v == 0.));
+        assert!(out.matrix[4].iter().all(|&v| v == 0.));
+        input.foundation.mx = 1.;
+        assert!(stiffness(&input).unwrap_err().contains("θx"));
+        input.foundation.mx = 0.;
+        input.foundation.my = 1.;
+        assert!(stiffness(&input).unwrap_err().contains("θy"));
     }
     #[test]
     fn shared_parity_fixtures() {

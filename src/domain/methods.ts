@@ -341,7 +341,9 @@ export function methodMatrix(
           0,
         );
       const bending =
-        ((1.5 * f.ec * 1e6 * Math.PI * f.diameter ** 4) / 64 / f.length) *
+        (f.headConnection === "pinned"
+          ? 0
+          : (1.5 * f.ec * 1e6 * Math.PI * f.diameter ** 4) / 64 / f.length) *
         f.count *
         f.efficiency;
       if (pos.every(([, y]) => Math.abs(y) < 1e-10)) matrix[3][3] = bending;
@@ -355,7 +357,7 @@ export function methodMatrix(
       out.notices.push({
         level: "warning",
         message:
-          "Formulação simplificada publicada pelo TQS, com parcela de fuste de Randolph–Wroth. E e ν médios por espessura no fuste; ρ informado. Sem interação entre estacas nem termo de base do método completo. Kh = μh Kz; rotação sem braço = 0,5·3EI/L por estaca. Torção usa Winkler + braço horizontal.",
+          "Formulação simplificada publicada pelo TQS, com parcela de fuste de Randolph–Wroth. E e ν médios por espessura no fuste; ρ informado. Sem interação entre estacas nem termo de base do método completo. Kh = μh Kz, independente da ligação nesta aproximação. Rotação sem braço = 0,5·3EI/L por estaca somente na ligação rígida; nula na rotulada. Torção usa Winkler + braço horizontal.",
       });
     }
   } else {
@@ -465,6 +467,9 @@ export function methodNarrative(f: Foundation): string[] {
               "Steinbrenner: Σ[w(topo,Ei,νi)−w(base,Ei,νi)] das camadas entre a ponta e a base indeslocável. Avaliação no centro da ponta de cada estaca. Encurtamento elástico próprio = ∫N(z)/(Ep Ap) dz. Flexibilidade C inclui as contribuições mútuas; Kvertical = η Bᵀ C⁻¹ B, B=[1,y,−x]. Lateral, flexão local e torção continuam pelo modelo Winkler.",
             ];
     model.push(
+      f.headConnection === "pinned"
+        ? "Ligação estaca–bloco rotulada à flexão em X e Y: Mx=My=0 no topo; bloco permanece rígido. Em Winkler e no lateral do Mindlin, kh,rotulado = Kuu − Kuθ Kθθ⁻¹ Kθu, antes da montagem do grupo. Eliminam-se momentos locais e acoplamentos de flexão; os braços axiais e a torção em Z são preservados. No Randolph simplificado, Kh=μh Kz permanece uma hipótese independente; remove-se apenas a flexão local aproximada. A rótula não elimina momentos ao longo do fuste sob ações laterais."
+        : "Ligação estaca–bloco rígida à flexão: θx e θy dos topos acompanham o bloco. Momentos podem ser resistidos pelos binários axiais e pela flexão local das estacas. A rigidez da estaca e do solo é finita; não é um apoio perfeitamente engastado no terreno.",
       "Aoki–Velloso é independente do cálculo de rigidez: RL = U Σ(α K N Δz)/F2; RP = Ap K Np/F1. α decimal; K em kPa/golpe. Np pertence ao intervalo que termina na ponta, inclusive em fronteira de camada. Sem médias ou limites automáticos de Np e sem verificação normativa de grupo.",
     );
   } else {

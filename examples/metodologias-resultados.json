@@ -67,6 +67,7 @@
       0.0002504033073770554,
       0
     ],
+    "freeDofs": [],
     "settlement": 1.2140094310814873,
     "method": "Viga e barra em base de Winkler · bloco rígido",
     "notices": [
@@ -81,6 +82,10 @@
       {
         "level": "info",
         "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      },
+      {
+        "level": "info",
+        "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
     "valid": true,
@@ -93,6 +98,16 @@
     "pileForces": [
       219.0607872188456,
       280.93921278115437
+    ],
+    "pileMoments": [
+      [
+        0,
+        -3.5635276686922435
+      ],
+      [
+        0,
+        -3.5635276686922435
+      ]
     ],
     "qMin": null,
     "qMax": null,
@@ -168,7 +183,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "M2",
@@ -238,6 +253,7 @@
       0.0003182979431835859,
       0
     ],
+    "freeDofs": [],
     "settlement": 1.9097876591015153,
     "method": "Randolph–Wroth simplificado conforme TQS · grupo rígido",
     "notices": [
@@ -255,7 +271,11 @@
       },
       {
         "level": "warning",
-        "message": "Formulação simplificada publicada pelo TQS, com parcela de fuste de Randolph–Wroth. E e ν médios por espessura no fuste; ρ informado. Sem interação entre estacas nem termo de base do método completo. Kh = μh Kz; rotação sem braço = 0,5·3EI/L por estaca. Torção usa Winkler + braço horizontal."
+        "message": "Formulação simplificada publicada pelo TQS, com parcela de fuste de Randolph–Wroth. E e ν médios por espessura no fuste; ρ informado. Sem interação entre estacas nem termo de base do método completo. Kh = μh Kz, independente da ligação nesta aproximação. Rotação sem braço = 0,5·3EI/L por estaca somente na ligação rígida; nula na rotulada. Torção usa Winkler + braço horizontal."
+      },
+      {
+        "level": "info",
+        "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
     "valid": true,
@@ -268,6 +288,16 @@
     "pileForces": [
       225,
       275
+    ],
+    "pileMoments": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
     ],
     "qMin": null,
     "qMax": null,
@@ -378,7 +408,7 @@
         0.000007639150636406061
       ]
     ],
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "M3",
@@ -448,6 +478,7 @@
       0.0006738326792037648,
       0
     ],
+    "freeDofs": [],
     "settlement": 6.2212146407116355,
     "method": "Mindlin/Aoki–Lopes + Steinbrenner (vertical) · Winkler lateral/torção",
     "notices": [
@@ -466,6 +497,10 @@
       {
         "level": "warning",
         "message": "Mindlin/Aoki–Lopes: cargas de fuste e ponta com mobilização proporcional fixa (ou fração de ponta informada), superposição vertical entre estacas e encurtamento EA. Não é a curva bilinear de mobilização do ALPI. Lateral e torção permanecem Winkler."
+      },
+      {
+        "level": "info",
+        "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
     "valid": true,
@@ -478,6 +513,16 @@
     "pileForces": [
       231.67302664814716,
       268.32697335185276
+    ],
+    "pileMoments": [
+      [
+        0,
+        4.003815988888935
+      ],
+      [
+        0,
+        4.003815988888935
+      ]
     ],
     "qMin": null,
     "qMax": null,
@@ -593,7 +638,7 @@
         0.000023472608672211372
       ]
     ],
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "S1",
@@ -663,6 +708,7 @@
       0,
       0
     ],
+    "freeDofs": [],
     "settlement": 8.481870021643553,
     "method": "Semiespaço circular equivalente + Winkler distribuído",
     "notices": [
@@ -683,6 +729,7 @@
     "point": null,
     "ultimate": null,
     "pileForces": [],
+    "pileMoments": [],
     "qMin": 92.59259259259258,
     "qMax": 92.59259259259258,
     "qUltimate": 947.6371658966841,
@@ -692,7 +739,7 @@
     "segments": [],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "S2",
@@ -762,6 +809,7 @@
       0,
       0
     ],
+    "freeDofs": [],
     "settlement": 3.0864197530864197,
     "method": "Winkler · kv informado",
     "notices": [
@@ -782,6 +830,7 @@
     "point": null,
     "ultimate": null,
     "pileForces": [],
+    "pileMoments": [],
     "qMin": 92.59259259259258,
     "qMax": 92.59259259259258,
     "qUltimate": 947.6371658966841,
@@ -802,7 +851,7 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "S3",
@@ -872,6 +921,7 @@
       0,
       0
     ],
+    "freeDofs": [],
     "settlement": 2.3069222736265433,
     "method": "Winkler · correlação SAFE/Morrison conforme TQS",
     "notices": [
@@ -892,6 +942,7 @@
     "point": null,
     "ultimate": null,
     "pileForces": [],
+    "pileMoments": [],
     "qMin": 92.59259259259258,
     "qMax": 92.59259259259258,
     "qUltimate": 947.6371658966841,
@@ -917,7 +968,7 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "S4",
@@ -987,6 +1038,7 @@
       0,
       0
     ],
+    "freeDofs": [],
     "settlement": 5.642545029188932,
     "method": "Mindlin–Steinbrenner · pressão uniforme / centro da sapata",
     "notices": [
@@ -1007,6 +1059,7 @@
     "point": null,
     "ultimate": null,
     "pileForces": [],
+    "pileMoments": [],
     "qMin": 92.59259259259258,
     "qMax": 92.59259259259258,
     "qUltimate": 947.6371658966841,
@@ -1042,6 +1095,6 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   }
 ]

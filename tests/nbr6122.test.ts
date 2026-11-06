@@ -46,6 +46,25 @@ const review = (foundation: Foundation) =>
 const item = (foundation: Foundation, id: string) =>
   review(foundation).items.find((i) => i.id === id)!;
 describe("conferência parcial NBR 6122:2022", () => {
+  it("não aprova rotação indeterminada nem vetor ELU com momento em mecanismo", () => {
+    const foundation = { ...f(), headConnection: "pinned" as const };
+    const initial = review(foundation);
+    expect(initial.items.find((i) => i.id === "rotation")!.status).toBe(
+      "pending",
+    );
+    expect(initial.items.find((i) => i.id === "compression")!.status).toBe(
+      "pass",
+    );
+    foundation.verification.ultimateMx = 1;
+    const incompatible = review(foundation);
+    expect(
+      incompatible.items.find((i) => i.id === "ultimate-equilibrium")!.status,
+    ).toBe("fail");
+    expect(
+      incompatible.items.find((i) => i.id === "compression"),
+    ).toBeUndefined();
+    expect(incompatible.outcome).toBe("inconsistent");
+  });
   it("não inventa limite de recalque nem declara conformidade integral", () => {
     const foundation = defaultFoundation(),
       r = review(foundation);

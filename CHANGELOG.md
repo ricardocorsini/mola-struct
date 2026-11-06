@@ -2,6 +2,14 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.5.0 — 2026-11-06
+
+- Opção de ligação estaca–bloco rígida à flexão ou rotulada em X/Y, preservando o bloco rígido e os binários axiais. Projetos antigos mantêm a ligação rígida.
+- Condensação estática da rotação local em Winkler/Mindlin; rigidez horizontal, acoplamentos e braço torsional recalculados. No Randolph simplificado, Kh=μh Kz continua independente da ligação e a flexão aproximada é removida na rótula.
+- Matrizes sem rigidez em uma direção conservam zeros exatos. Deslocamentos livres aparecem como indeterminados; momentos sem caminho resistente são bloqueados, inclusive no vetor ELU separado.
+- Forças axiais e momentos de topo em tela/PDF; ligação e GDL livres registrados no CSV. Exemplo de duas estacas com My=1 tf·m e N=40 tf.
+- 105 testes TypeScript, 6 testes Rust e 39 casos compartilhados. Verificações de binário, equilíbrio, ligação, mecanismo e limite analítico de cabeça livre; sem calibração dos parâmetros para coincidir com o print.
+
 ## Revisão de confiabilidade — 2026-11-06
 
 - Pesquisa de fontes primárias e plano de validação numérica/geotécnica, com lacunas de transferência de carga, módulos e condições de ligação identificadas.

@@ -871,7 +871,7 @@ export default function App() {
           ))}
         </nav>
         <span className="release">
-          MOLAS DE FUNDAÇÃO <b>v0.4</b>
+          MOLAS DE FUNDAÇÃO <b>v0.5</b>
         </span>
       </div>
       <div className="ribbon">
@@ -1228,7 +1228,7 @@ export default function App() {
           {r.valid
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
-          <i /> Motor 0.4.0
+          <i /> Motor 0.5.0
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑

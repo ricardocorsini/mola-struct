@@ -67,6 +67,7 @@
       0.0002504033073770554,
       0
     ],
+    "freeDofs": [],
     "settlement": 1.2140094310814873,
     "method": "Viga e barra em base de Winkler · bloco rígido",
     "notices": [
@@ -81,6 +82,10 @@
       {
         "level": "info",
         "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      },
+      {
+        "level": "info",
+        "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
     "valid": true,
@@ -93,6 +98,16 @@
     "pileForces": [
       219.0607872188456,
       280.93921278115437
+    ],
+    "pileMoments": [
+      [
+        0,
+        -3.5635276686922435
+      ],
+      [
+        0,
+        -3.5635276686922435
+      ]
     ],
     "qMin": null,
     "qMax": null,
@@ -168,7 +183,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "F02",
@@ -238,6 +253,7 @@
       0.00017954589114261112,
       0
     ],
+    "freeDofs": [],
     "settlement": 1.0926084879733384,
     "method": "Viga e barra em base de Winkler · bloco rígido",
     "notices": [
@@ -252,6 +268,10 @@
       {
         "level": "info",
         "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      },
+      {
+        "level": "info",
+        "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
     "valid": true,
@@ -266,6 +286,24 @@
       247.1842458401659,
       247.1842458401659,
       202.81575415983409
+    ],
+    "pileMoments": [
+      [
+        0,
+        -0.8105475040993237
+      ],
+      [
+        0,
+        -0.8105475040993237
+      ],
+      [
+        0,
+        -0.8105475040993237
+      ],
+      [
+        0,
+        -0.8105475040993237
+      ]
     ],
     "qMin": null,
     "qMax": null,
@@ -341,7 +379,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   },
   {
     "id": "S01",
@@ -411,6 +449,7 @@
       0,
       0
     ],
+    "freeDofs": [],
     "settlement": 8.481870021643553,
     "method": "Semiespaço circular equivalente + Winkler distribuído",
     "notices": [
@@ -431,6 +470,7 @@
     "point": null,
     "ultimate": null,
     "pileForces": [],
+    "pileMoments": [],
     "qMin": 92.59259259259258,
     "qMax": 92.59259259259258,
     "qUltimate": 947.6371658966841,
@@ -440,6 +480,6 @@
     "segments": [],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.4.0-experimental"
+    "version": "0.5.0-experimental"
   }
 ]

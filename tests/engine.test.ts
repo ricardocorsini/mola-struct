@@ -231,7 +231,7 @@ describe("contratos de arquivos", () => {
       f = p.foundations[0],
       r = calculate(p, f),
       csv = matrixCsv(f, r);
-    expect(csv.split("\r\n")).toHaveLength(8);
+    expect(csv.split("\r\n")).toHaveLength(10);
     expect(csv).toContain("theta_y");
     expect(csv).toContain(r.matrix[0][4].toFixed(6).replace(".", ","));
   });

@@ -104,13 +104,14 @@ export default function RotationInvestigation({
       </div>
       <p className="field-help">
         Liberar ux com Hx=0 aplica Kθθ−Kθx·Kxx⁻¹·Kxθ. Isso é diferente de
-        articular os topos das estacas. Uma articulação exige liberar também os
-        momentos locais e condensar seus acoplamentos; zerar apenas Kθx deixaria
-        um modelo inconsistente. No diagnóstico articulado, Kx seria{" "}
+        articular os topos das estacas. A opção “Rotulada em X e Y” em Métodos
+        libera os momentos locais e condensa seus acoplamentos antes da montagem
+        do grupo. Para essa ligação, Kx ={" "}
         {audit.pinnedHorizontal === null
           ? "não disponível"
           : fmt(audit.pinnedHorizontal, 2)}{" "}
-        tf/m, ainda distinto do print.
+        tf/m, ainda distinto do print. A seleção atual é{" "}
+        {f.headConnection === "pinned" ? "rotulada" : "rígida à flexão"}.
       </p>
     </section>
   );
