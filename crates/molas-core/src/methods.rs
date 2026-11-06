@@ -18,7 +18,7 @@ fn spt(input: &Input, z: f64) -> f64 {
 }
 pub fn effective(input: &Input) -> Result<Input, String> {
     let mut out = input.clone();
-    if input.foundation.modulus_source != "spt" {
+    if input.foundation.modulus_source == "manual" {
         return Ok(out);
     }
     let mut top = 0.;
@@ -33,7 +33,11 @@ pub fn effective(input: &Input) -> Result<Input, String> {
             .iter()
             .map(|(u, v)| (v - u) * spt(input, (u + v) / 2.))
             .sum();
-        l.e = 3. * l.schmertmann_k * sum / (end - a);
+        l.e = if input.foundation.modulus_source == "aoki" {
+            input.foundation.aoki_factor * l.k * sum / (end - a) / 1000.
+        } else {
+            3. * l.schmertmann_k * sum / (end - a)
+        };
         if !positive(l.e) {
             return Err("Correlação SPT: módulo nulo".into());
         }

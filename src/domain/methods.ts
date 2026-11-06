@@ -29,7 +29,7 @@ export function safeKv(pressureKpa: number): number {
 }
 /** Optional, explicit correlation. Mean N weighted by interval thickness in each layer. */
 export function effectiveProfile(p: Project, f: Foundation): Project {
-  if (f.modulusSource !== "spt") return p;
+  if (f.modulusSource === "manual") return p;
   let top = 0;
   return {
     ...p,
@@ -41,7 +41,11 @@ export function effectiveProfile(p: Project, f: Foundation): Project {
       let sum = 0;
       for (const [u, v] of intervals(p, a, end))
         sum += (v - u) * sptAt(p, (u + v) / 2);
-      const e = (3 * l.schmertmannK * sum) / (end - a);
+      const mean = sum / (end - a);
+      const e =
+        f.modulusSource === "aoki"
+          ? aokiInitialModulus(l.k, mean, f.aokiFactor)
+          : 3 * l.schmertmannK * mean;
       if (!(e > 0))
         throw new Error(
           `Correlação SPT: E nulo na camada ${l.name}. Informe E manual ou revise o perfil.`,
@@ -49,6 +53,14 @@ export function effectiveProfile(p: Project, f: Foundation): Project {
       return { ...l, e };
     }),
   };
+}
+/** E0 = factor K_AV N, with K_AV in kPa/blow and output in MPa. No stress update. */
+export function aokiInitialModulus(
+  kKpa: number,
+  n: number,
+  factor: 3 | 4 | 6,
+): number {
+  return (factor * kKpa * n) / 1000;
 }
 /** Mindlin vertical Green function, m/kN, depths positive downward, E in kPa.
  * The 8(1-nu)^2 term is essential to recover Boussinesq at c=0. No radius clipping.
@@ -429,9 +441,11 @@ export function methodNarrative(f: Foundation): string[] {
   const common =
     "Unidades internas: kN, m, rad. Profundidades positivas para baixo; ponta da estaca em D+L. Matriz referida ao centro da face inferior do bloco/sapata, com Z estrutural para cima.";
   const source =
-    f.modulusSource === "spt"
-      ? "E = 3 K_E N̄SPT (MPa), por camada e média ponderada por espessura dos intervalos investigados. ν informado. K_E de Schmertmann não é K de Aoki–Velloso."
-      : "E e ν informados por camada. Não há correlação automática nesta seleção.";
+    f.modulusSource === "aoki"
+      ? `E0 = ${f.aokiFactor} K_AV N̄SPT (Aoki, 1984); K_AV em kPa/golpe, conversão para MPa. Fatores 6/4/3 para cravada/hélice contínua/escavada. Módulo inicial sem atualização de Es por tensão geostática e acréscimo de tensão; ν informado. Não se usa K_E de Schmertmann nesta correlação.`
+      : f.modulusSource === "spt"
+        ? "E = 3 K_E N̄SPT (MPa), por camada e média ponderada por espessura dos intervalos investigados. ν informado. K_E de Schmertmann não é K de Aoki–Velloso."
+        : "E e ν informados por camada. Não há correlação automática nesta seleção.";
   let model: string[];
   if (f.kind === "pile") {
     model =

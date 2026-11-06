@@ -1,5 +1,7 @@
 import { reviewFoundation, verificationEntries } from "../domain/nbr6122";
 import { ReviewSummary } from "./NormativeReview";
+import { hasReference16 } from "../domain/benchmark16";
+import BenchmarkComparison from "./BenchmarkComparison";
 import { BookOpen, ExternalLink } from "lucide-react";
 import { fmt, type Foundation, type Project } from "../domain/model";
 import { methodNarrative } from "../domain/methods";
@@ -233,6 +235,12 @@ export default function Report({
           print. A conferência segundo 2022 é parcial; sem aprovação integral do
           projeto, dimensionamento do bloco ou validação por provas de carga.
         </p>
+        {hasReference16(p, f) && (
+          <>
+            <h2>Comparação externa — print de 16 m</h2>
+            <BenchmarkComparison project={p} foundation={f} result={r} report />
+          </>
+        )}
         <h2>06 / Conferência parcial — NBR 6122:2022</h2>
         <p>
           Entradas da conferência, separadas dos dados numéricos do motor.

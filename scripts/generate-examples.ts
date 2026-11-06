@@ -1,4 +1,14 @@
 import { reviewFoundation } from "../src/domain/nbr6122";
+import {
+  reference16,
+  reference16Project,
+  reference16Comparison,
+  referenceInputDifferences,
+  benchmarkAssumptions,
+  axialDiagnostics,
+  concreteSensitivity16,
+  initialModuli16,
+} from "../src/domain/benchmark16";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { calculate } from "../src/domain/engine";
 import {
@@ -89,6 +99,11 @@ const extra = [
 const cases = [
   ...variants.map((f) => ({ p, f })),
   ...extra.map((f) => ({ p: m, f })),
+  ...([3, 4, 6] as const).map((aokiFactor) => ({
+    p: m,
+    f: { ...m.foundations[2], modulusSource: "aoki" as const, aokiFactor },
+  })),
+  { p: reference16Project(), f: reference16Project().foundations[0] },
 ];
 const fixtures = cases.map(({ p, f }) => {
   const r = calculate(p, f);
@@ -135,3 +150,42 @@ for (const f of normative.foundations)
     `examples/${f.id}-memoria.pdf`,
     await reportPdf(normative, f, calculate(normative, f)),
   );
+
+const reference = reference16Project(),
+  foundation = reference.foundations[0],
+  result = calculate(reference, foundation);
+if (!result.valid) throw new Error("Invalid 16 m benchmark");
+writeFileSync(
+  "examples/referencia-16m.molas.json",
+  JSON.stringify(reference, null, 2) + "\n",
+);
+writeFileSync("examples/referencia-16m-spt.csv", sptCsv(reference));
+writeFileSync("examples/B16-matriz.csv", matrixCsv(foundation, result));
+writeFileSync("examples/B16-corte.svg", sectionSvg(reference, foundation));
+writeFileSync(
+  "examples/B16-planta.svg",
+  sectionSvg(reference, foundation, true),
+);
+writeFileSync(
+  "examples/B16-memoria.pdf",
+  await reportPdf(reference, foundation, result),
+);
+writeFileSync(
+  "examples/referencia-16m-comparacao.json",
+  JSON.stringify(
+    {
+      description:
+        "Capacidades conferidas na precisão do print; rigidezes não confirmadas. As saídas do motor são regressões, não novos valores externos de referência.",
+      reference: reference16,
+      assumptions: benchmarkAssumptions,
+      inputDifferences: referenceInputDifferences(reference, foundation),
+      comparison: reference16Comparison(reference, foundation, result),
+      axial: axialDiagnostics(foundation, result),
+      concreteSensitivity: concreteSensitivity16(reference, foundation),
+      initialModuli: initialModuli16(reference),
+      result,
+    },
+    null,
+    2,
+  ) + "\n",
+);

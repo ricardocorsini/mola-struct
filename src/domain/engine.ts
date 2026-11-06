@@ -51,7 +51,7 @@ export type Calculation = {
   verticalCompliance: Matrix | null;
   version: string;
 };
-export const ENGINE_VERSION = "0.3.0-experimental";
+export const ENGINE_VERSION = "0.4.0-experimental";
 function check(p: Project, f: Foundation): Notice[] {
   const ns: Notice[] = [];
   const err = (message: string) => ns.push({ level: "error", message });
@@ -83,12 +83,15 @@ function check(p: Project, f: Foundation): Notice[] {
     err(
       `Camadas insuficientes: o modelo requer solo descrito até ${soilRequired.toFixed(2)} m.`,
     );
-  if (
-    (f.modulusSource === "spt" ? layerAt(p, soilRequired).bottom : required) >
-    p.spt[p.spt.length - 1].depth + 1e-8
-  )
+  if (f.kind === "footing" && f.modulusSource === "aoki")
     err(
-      `Sondagem insuficiente: informe SPT até ${required.toFixed(2)} m. Não há extrapolação.`,
+      "A correlação E0 de Aoki (1984) implementada é para estacas. Selecione E manual ou outra correlação para sapatas.",
+    );
+  const sptRequired =
+    f.modulusSource !== "manual" ? layerAt(p, soilRequired).bottom : required;
+  if (sptRequired > p.spt[p.spt.length - 1].depth + 1e-8)
+    err(
+      `Sondagem insuficiente: informe SPT até ${sptRequired.toFixed(2)} m. Não há extrapolação.`,
     );
   if (
     f.depth >= p.bedrock ||
@@ -396,10 +399,10 @@ export function calculate(p: Project, f: Foundation): Calculation {
     if (model.method) result.method = model.method;
     if (model.kv !== undefined) result.kv = model.kv;
     notices.push(...model.notices);
-    if (f.modulusSource === "spt") {
+    if (f.modulusSource !== "manual") {
       result.details.push(
         ...p.layers.map((l, i) => ({
-          label: `E SPT · ${original.layers[i].name}`,
+          label: `${f.modulusSource === "aoki" ? "E0 Aoki" : "E SPT"} · ${original.layers[i].name}`,
           value: l.e,
           unit: "MPa",
         })),
@@ -407,7 +410,9 @@ export function calculate(p: Project, f: Foundation): Calculation {
       notices.push({
         level: "warning",
         message:
-          "E = 3 K_E N̄SPT por camada (Schmertmann conforme TQS). Correlação empírica; K_E em MPa é independente do K de Aoki–Velloso. ν permanece informado.",
+          f.modulusSource === "aoki"
+            ? `E0 = ${f.aokiFactor} K_AV N̄SPT, com K_AV em kPa/golpe e resultado convertido para MPa (Aoki, 1984). É o módulo inicial; sem atualização de Es por acréscimo de tensões. ν permanece informado.`
+            : "E = 3 K_E N̄SPT por camada (Schmertmann conforme TQS). Correlação empírica; K_E em MPa é independente do K de Aoki–Velloso. ν permanece informado.",
       });
     }
     result.diagonal = result.matrix.map((row, i) => row[i]);

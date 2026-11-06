@@ -1,4 +1,7 @@
+import { effectiveProfile } from "../domain/methods";
 import NormativeReview from "./NormativeReview";
+import BenchmarkComparison from "./BenchmarkComparison";
+import { hasReference16 } from "../domain/benchmark16";
 import { useMemo, useState } from "react";
 import {
   ArrowDown,
@@ -139,6 +142,7 @@ export default function Results({
           ["comparison", "Comparar fundações"],
           ["sensitivity", "Sensibilidade"],
           ["normative", "NBR 6122:2022"],
+          ...(hasReference16(p, f) ? [["benchmark", "Comparar print"]] : []),
         ].map(([key, title]) => (
           <button
             key={key}
@@ -149,6 +153,9 @@ export default function Results({
           </button>
         ))}
       </div>
+      {tab === "benchmark" && (
+        <BenchmarkComparison project={p} foundation={f} result={r} />
+      )}
       {tab === "normative" && (
         <NormativeReview foundation={f} result={r} onChange={onFoundation} />
       )}
@@ -508,22 +515,28 @@ function Sensitivity({
           : "e";
   const variant = (factor: number) => {
     const winkler = f.kind === "pile" && f.pileMethod === "winkler";
-    const layers = p.layers.map((l) =>
-      winkler
-        ? {
-            ...l,
-            kh: l.kh * factor,
-            shaftK: l.shaftK * factor,
-            baseK: l.baseK * factor,
-          }
-        : { ...l, e: l.e * factor, schmertmannK: l.schmertmannK * factor },
-    );
-    const foundation = {
-      ...f,
-      kvInput: f.kvInput * factor,
-      allowablePressure: f.allowablePressure * factor,
-    };
-    return calculate({ ...p, layers }, foundation);
+    try {
+      const effective = winkler ? p : effectiveProfile(p, f);
+      const layers = effective.layers.map((l) =>
+        winkler
+          ? {
+              ...l,
+              kh: l.kh * factor,
+              shaftK: l.shaftK * factor,
+              baseK: l.baseK * factor,
+            }
+          : { ...l, e: l.e * factor },
+      );
+      const foundation = {
+        ...f,
+        modulusSource: winkler ? f.modulusSource : ("manual" as const),
+        kvInput: f.kvInput * factor,
+        allowablePressure: f.allowablePressure * factor,
+      };
+      return calculate({ ...effective, layers }, foundation);
+    } catch {
+      return calculate(p, f);
+    }
   };
   const rows = [0.5, 0.75, 1, 1.25, 1.5, 2].map((factor) => ({
     factor,
@@ -551,7 +564,7 @@ function Sensitivity({
                 ? "Varia kv, mantendo μh."
                 : parameter === "safe"
                   ? "Varia σadm; valores fora da faixa SAFE são bloqueados."
-                  : "Varia E (ou K_E na correlação SPT) de todas as camadas, mantendo ν."}{" "}
+                  : "Varia o módulo efetivo escolhido (E ou E0) de todas as camadas, mantendo ν e os parâmetros de capacidade."}{" "}
             Ações e geometria constantes.
           </p>
         </div>

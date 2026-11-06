@@ -425,8 +425,44 @@ export default function Inspector({
                   >
                     <option value="manual">Informado por camada</option>
                     <option value="spt">SPT · Schmertmann (3 K_E N)</option>
+                    {f.kind === "pile" ? (
+                      <option value="aoki">SPT · E0 Aoki (1984)</option>
+                    ) : (
+                      f.modulusSource === "aoki" && (
+                        <option value="aoki" disabled>
+                          Aoki: somente estacas — selecione outra origem
+                        </option>
+                      )
+                    )}
                   </select>
                 </label>
+              )}
+              {f.kind === "pile" && f.modulusSource === "aoki" && (
+                <>
+                  <label className="select-field method-select">
+                    <span>Coeficiente executivo para E0</span>
+                    <select
+                      aria-label="Coeficiente executivo para E0"
+                      value={f.aokiFactor}
+                      onChange={(e) =>
+                        up({
+                          ...f,
+                          aokiFactor: Number(e.target.value) as 3 | 4 | 6,
+                        })
+                      }
+                    >
+                      <option value="6">6 · cravada</option>
+                      <option value="4">4 · hélice contínua</option>
+                      <option value="3">3 · escavada</option>
+                    </select>
+                  </label>
+                  <p className="field-help">
+                    E0 = fator × K_AV × N̄SPT. K_AV em kPa/golpe; resultado
+                    convertido para MPa. Sem atualização do módulo pelo
+                    acréscimo de tensões. Não substitui automaticamente E
+                    manual.
+                  </p>
+                </>
               )}
               {f.kind === "pile" && (
                 <>

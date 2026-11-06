@@ -10,7 +10,7 @@ Estimativa de rigidez de fundações com visualização 3D, perfil SPT e memóri
 
 [![CI](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml/badge.svg)](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml)
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-3448D1)](LICENSE)
-[![Versão 0.3.0](https://img.shields.io/badge/vers%C3%A3o-0.3.0-3448D1)](CHANGELOG.md)
+[![Versão 0.4.0](https://img.shields.io/badge/vers%C3%A3o-0.4.0-3448D1)](CHANGELOG.md)
 [![Experimental](https://img.shields.io/badge/status-experimental-D49A40)](#estado-do-projeto)
 
 Parte do ecossistema **OpenStruct** · Engenharia estrutural aberta
@@ -29,9 +29,9 @@ A aplicação funciona no navegador e possui uma base desktop com Tauri. O cálc
 
 ## Estado do projeto
 
-**v0.3.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
+**v0.4.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
 
-Os exemplos são fictícios. Os parâmetros de deformabilidade e reação precisam de justificativa para o solo, a fundação e o nível de deformação em análise. O bloco é considerado rígido; seu dimensionamento estrutural não faz parte desta versão.
+Os exemplos de demonstração são fictícios; o caso externo de 16 m é identificado separadamente. Os parâmetros de deformabilidade e reação precisam de justificativa para o solo, a fundação e o nível de deformação em análise. O bloco é considerado rígido; seu dimensionamento estrutural não faz parte desta versão.
 
 ## Funcionalidades
 
@@ -99,7 +99,7 @@ Os artefatos ficam em `src-tauri/target/release/bundle/`. O workflow manual [Des
 | Mindlin / Aoki–Lopes / Steinbrenner | Recalque vertical por superposição, camada finita, encurtamento EA e interação vertical no grupo                   |
 | Randolph–Wroth simplificado (TQS)   | Parcela de fuste publicada pelo TQS; Kh proporcional e rotação sem braço por 0,5·3EI/L                             |
 | Sapatas por kv / SAFE-Morrison      | kv informado ou correlação com σadm; unidades originais e domínio controlados                                      |
-| SPT → E                             | Opcional: Schmertmann conforme TQS, E = 3 K_E N̄ por camada                                                         |
+| SPT → E                             | Opcional: Schmertmann (3 K_E N̄) ou E0 inicial de Aoki (6/4/3 K_AV N̄), com unidades e execução explícitas           |
 | Conferência parcial NBR 6122:2022   | Ações ELS/ELU separadas, limites justificados, fatores da via simples, processo executivo e pendências rastreáveis |
 | Terzaghi                            | **Pendente**; não gera resultados                                                                                  |
 
@@ -110,6 +110,14 @@ Em **Início → Exemplo métodos**, carregue uma comparação com a mesma geome
 ![Seleção de métodos, resultados e parâmetros intermediários](docs/assets/metodos.png)
 
 A revisão dos materiais e o caso do print estão em [METODOLOGIAS.md](docs/METODOLOGIAS.md). Mindlin é vertical: lateral e torção das estacas usam Winkler. A sapata Mindlin usa recalque no **centro sob pressão uniforme**, com rotações aproximadas por kv I; não resolve o contato de um punção rígido. Não há comprovação de equivalência completa com o TQS ou com a calculadora do print.
+
+### Comparar o caso externo de 16 m
+
+Em **Início → Exemplo 16 m**, carregue as duas estacas Ø30 cm, F1=2, F2=4, carga total de 40 tf e NSPT(11)=17. **Resultados → Comparar print** mostra os alvos externos ao lado das saídas calculadas e separa a contribuição axial da flexão local.
+
+As resistências conferem: **43,5048 / 40,8211 / 84,3258 tf**. As molas ainda divergem: Kz=22.736,93 contra 21.538,54 tf/m (+5,56%) sob as hipóteses atuais. Ec, unidades de E, solo abaixo de 20 m e formulações lateral/rotacional precisam de equivalência; não há selo de validação para essas linhas. Veja a [transcrição, comparação e pendências](docs/REFERENCIA-16M.md).
+
+A correlação da foto **E0=6/4/3 K_AV N̄** está disponível para estacas. É módulo inicial, sem atualização por tensões. O caso externo mantém E manual; não se extrapola SPT de 20 até 100 m para aplicar a correlação.
 
 ### Conferência com a NBR 6122:2022
 

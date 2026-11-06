@@ -1,4 +1,11 @@
 import {
+  hasReference16,
+  reference16Comparison,
+  referenceInputDifferences,
+  benchmarkAssumptions,
+  axialDiagnostics,
+} from "./domain/benchmark16";
+import {
   reviewFoundation,
   reviewLabels,
   verificationEntries,
@@ -420,6 +427,42 @@ export async function reportPdf(
   text(
     "Terzaghi permanece pendente. NBR 6122:1996 é referência histórica do print, sem resultado calculado. A conferência atual segundo 2022 é parcial.",
   );
+  if (hasReference16(p, f)) {
+    title("Comparação externa — duas estacas de 16 m");
+    text(
+      "Referência com NSPT(11)=17. Confira os estados de cada linha; rigidezes ainda dependem das hipóteses não confirmadas.",
+      9,
+      true,
+    );
+    const changes = referenceInputDifferences(p, f);
+    if (changes.length)
+      text(
+        "Entradas alteradas em relação ao print: " + changes.join("; "),
+        8,
+        true,
+      );
+    for (const a of benchmarkAssumptions) text(a, 8);
+    for (const row of reference16Comparison(p, f, r)) {
+      text(
+        `${row.label}: print=${fmt(row.expected, 4)}; modelo=${row.actual === null ? "Não calculado" : fmt(row.actual, 4)} ${row.unit}; Δ=${row.differencePercent === null ? "—" : fmt(row.differencePercent, 3) + "%"}`,
+        8,
+        true,
+      );
+      text(
+        `${row.status === "match" ? "Confere no arredondamento" : row.status === "different" ? "Diverge" : row.status === "conditional" ? "Não confirmado" : "Não calculado"}. ${row.note}`,
+        8,
+      );
+    }
+    for (const d of axialDiagnostics(f, r))
+      row(
+        d.label,
+        `Kz=${fmt(d.diagonal[0], 4)} tf/m; Kθx=${fmt(d.diagonal[1], 4)}; Kθy=${fmt(d.diagonal[2], 4)} tf·m/rad`,
+      );
+    text(
+      "As parcelas axiais são diagnósticos e não substituem a matriz ativa, que também contém flexão e torção.",
+      8,
+    );
+  }
   title("07 / Conferência parcial — NBR 6122:2022");
   const review = reviewFoundation(f, r);
   text(

@@ -1,0 +1,488 @@
+{
+  "description": "Capacidades conferidas na precisão do print; rigidezes não confirmadas. As saídas do motor são regressões, não novos valores externos de referência.",
+  "reference": {
+    "title": "Print · bloco sobre 2 estacas Ø30 cm, L=16 m",
+    "spt": [
+      6,
+      3,
+      4,
+      5,
+      6,
+      6,
+      8,
+      9,
+      12,
+      14,
+      17,
+      15,
+      12,
+      12,
+      22,
+      35,
+      35,
+      36,
+      38,
+      40
+    ],
+    "shaft": 43.5,
+    "point": 40.8,
+    "ultimate": 84.3,
+    "kx": 168.92,
+    "ky": 168.92,
+    "kz": 21538.54,
+    "rx": 0,
+    "ry": 4361.75,
+    "totalLoad": 40,
+    "spacing": 0.9
+  },
+  "assumptions": [
+    "NSPT(11)=17 foi informado pelo usuário e incluído. D=0 e L=16 m representam a ponta a 16 m.",
+    "K do print foi convertido de tf/m² por golpe para kPa/golpe; 1 tf = 9,80665 kN. Esta interpretação reproduz as três resistências publicadas.",
+    "E=140/88/370 foi interpretado como MPa e ν=0,35. A unidade de E não aparece no print; esta convenção precisa ser confirmada.",
+    "O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck.",
+    "O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico.",
+    "kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print.",
+    "Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional."
+  ],
+  "inputDifferences": [],
+  "comparison": [
+    {
+      "id": "shaft",
+      "label": "Resistência de fuste por estaca",
+      "expected": 43.5,
+      "actual": 43.50477506691145,
+      "unit": "tf",
+      "differencePercent": 0.010977165313685866,
+      "status": "match",
+      "note": "Conferência na precisão exibida pelo print, sem recalibrar α, K, F1 ou F2."
+    },
+    {
+      "id": "point",
+      "label": "Resistência de ponta por estaca",
+      "expected": 40.8,
+      "actual": 40.82106954258238,
+      "unit": "tf",
+      "differencePercent": 0.051641035741134544,
+      "status": "match",
+      "note": "Np=35 na ponta a 16 m; K=33 tf/m² por golpe."
+    },
+    {
+      "id": "ultimate",
+      "label": "Resistência última por estaca",
+      "expected": 84.3,
+      "actual": 84.32584460949384,
+      "unit": "tf",
+      "differencePercent": 0.030657899755448526,
+      "status": "match",
+      "note": "Resultado bruto Aoki–Velloso; não é carga admissível."
+    },
+    {
+      "id": "kx",
+      "label": "Kx",
+      "expected": 168.92,
+      "actual": 1908.9419344000837,
+      "unit": "tf/m",
+      "differencePercent": 1030.0863926119368,
+      "status": "conditional",
+      "note": "kh e condição de cabeça do cálculo de referência não informados; não comparar valores ilustrativos como se fossem os mesmos dados."
+    },
+    {
+      "id": "ky",
+      "label": "Ky",
+      "expected": 168.92,
+      "actual": 1908.9419344000837,
+      "unit": "tf/m",
+      "differencePercent": 1030.0863926119368,
+      "status": "conditional",
+      "note": "kh e condição de cabeça do cálculo de referência não informados; não comparar valores ilustrativos como se fossem os mesmos dados."
+    },
+    {
+      "id": "kz",
+      "label": "Kz global",
+      "expected": 21538.54,
+      "actual": 22736.927249209144,
+      "unit": "tf/m",
+      "differencePercent": 5.563920531331945,
+      "status": "conditional",
+      "note": "Ec, transferência, interação entre estacas, discretização e continuação abaixo de 20 m ainda precisam de equivalência."
+    },
+    {
+      "id": "rx",
+      "label": "Kθx",
+      "expected": 0,
+      "actual": 2871.805097083249,
+      "unit": "tf·m/rad",
+      "differencePercent": null,
+      "status": "conditional",
+      "note": "O modelo ativo inclui flexão local Winkler; o print é aproximadamente compatível com rotação somente pelo braço axial. Veja as parcelas abaixo."
+    },
+    {
+      "id": "ry",
+      "label": "Kθy",
+      "expected": 4361.75,
+      "actual": 7809.541971805786,
+      "unit": "tf·m/rad",
+      "differencePercent": 79.04607031136092,
+      "status": "conditional",
+      "note": "O modelo ativo inclui flexão local Winkler; o print é aproximadamente compatível com rotação somente pelo braço axial. Veja as parcelas abaixo."
+    },
+    {
+      "id": "settlement",
+      "label": "Recalque implícito sob 40 tf",
+      "expected": 1.8571360918613795,
+      "actual": 1.7592526712857082,
+      "unit": "mm",
+      "differencePercent": -5.270664923514801,
+      "status": "conditional",
+      "note": "Valor deduzido de N/Kz, não uma medição nem um recalque impresso separadamente."
+    }
+  ],
+  "axial": [
+    {
+      "label": "Parcela axial · interação do modelo ativo",
+      "diagonal": [
+        22736.92724920914,
+        0,
+        4937.736874722536
+      ]
+    },
+    {
+      "label": "Parcela axial · estacas independentes (diagnóstico)",
+      "diagonal": [
+        23531.624419158255,
+        0,
+        4765.153944879547
+      ]
+    }
+  ],
+  "concreteSensitivity": [
+    {
+      "ec": 26,
+      "valid": true,
+      "kz": 20565.83247130049,
+      "settlement": 1.944973540741411
+    },
+    {
+      "ec": 28,
+      "valid": true,
+      "kz": 21674.57532938417,
+      "settlement": 1.8454802178187129
+    },
+    {
+      "ec": 30,
+      "valid": true,
+      "kz": 22736.927249209144,
+      "settlement": 1.7592526712857082
+    },
+    {
+      "ec": 32,
+      "valid": true,
+      "kz": 23755.74013414432,
+      "settlement": 1.6838035680693304
+    }
+  ],
+  "initialModuli": [
+    {
+      "layer": "Areia · print",
+      "mean": 4.333333333333333,
+      "manual": 140,
+      "driven": 17.848102999999995,
+      "cfa": 11.898735333333331,
+      "bored": 8.924051499999997
+    },
+    {
+      "layer": "Argila 3–11 m · print",
+      "mean": 9.625,
+      "manual": 88,
+      "driven": 12.459348825,
+      "cfa": 8.306232549999999,
+      "bored": 6.2296744125
+    },
+    {
+      "layer": "Argila 11–20 m · print",
+      "mean": 27.22222222222222,
+      "manual": 370,
+      "driven": 52.857843499999994,
+      "cfa": 35.23856233333333,
+      "bored": 26.428921749999997
+    }
+  ],
+  "result": {
+    "matrix": [
+      [
+        18720.32542098458,
+        0,
+        0,
+        0,
+        -16222.717445522116,
+        0
+      ],
+      [
+        0,
+        18720.32542098458,
+        0,
+        16222.717445522116,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        222973.08760845684,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        16222.717445522116,
+        0,
+        28162.78745531144,
+        0,
+        0
+      ],
+      [
+        -16222.717445522116,
+        0,
+        0,
+        0,
+        76585.4447778092,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        7863.467563060527
+      ]
+    ],
+    "diagonal": [
+      18720.32542098458,
+      18720.32542098458,
+      222973.08760845684,
+      28162.78745531144,
+      76585.4447778092,
+      7863.467563060527
+    ],
+    "displacement": [
+      0,
+      0,
+      -0.0017592526712857082,
+      0,
+      0,
+      0
+    ],
+    "settlement": 1.7592526712857082,
+    "method": "Mindlin/Aoki–Lopes + Steinbrenner (vertical) · Winkler lateral/torção",
+    "notices": [
+      {
+        "level": "warning",
+        "message": "Mindlin: interação vertical entre as estacas incluída; sem interação lateral nem contato bloco–solo. η é um redutor manual adicional."
+      },
+      {
+        "level": "info",
+        "message": "Estimativa experimental linear. Capacidade de carga e rigidez são grandezas distintas. Métodos, correlações e parâmetros devem ser avaliados pelo projetista."
+      },
+      {
+        "level": "info",
+        "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      },
+      {
+        "level": "warning",
+        "message": "Mindlin/Aoki–Lopes: cargas de fuste e ponta com mobilização proporcional fixa (ou fração de ponta informada), superposição vertical entre estacas e encurtamento EA. Não é a curva bilinear de mobilização do ALPI. Lateral e torção permanecem Winkler."
+      }
+    ],
+    "valid": true,
+    "area": 0.8999999999999999,
+    "e": 370,
+    "nu": 0.35,
+    "shaft": 426.63610240992716,
+    "point": 400.31794162976547,
+    "ultimate": 826.9540440396927,
+    "pileForces": [
+      196.1329999999999,
+      196.13299999999992
+    ],
+    "qMin": null,
+    "qMax": null,
+    "qUltimate": null,
+    "qReference": null,
+    "qSpt": null,
+    "kv": 0,
+    "segments": [
+      {
+        "top": 0,
+        "bottom": 1,
+        "n": 6,
+        "layer": "Areia · print",
+        "shaft": 23.291225694822714,
+        "point": 0
+      },
+      {
+        "top": 1,
+        "bottom": 2,
+        "n": 3,
+        "layer": "Areia · print",
+        "shaft": 11.645612847411357,
+        "point": 0
+      },
+      {
+        "top": 2,
+        "bottom": 3,
+        "n": 4,
+        "layer": "Areia · print",
+        "shaft": 15.527483796548475,
+        "point": 0
+      },
+      {
+        "top": 3,
+        "bottom": 4,
+        "n": 5,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 10.166804866787693,
+        "point": 0
+      },
+      {
+        "top": 4,
+        "bottom": 5,
+        "n": 6,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 12.200165840145232,
+        "point": 0
+      },
+      {
+        "top": 5,
+        "bottom": 6,
+        "n": 6,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 12.200165840145232,
+        "point": 0
+      },
+      {
+        "top": 6,
+        "bottom": 7,
+        "n": 8,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 16.26688778686031,
+        "point": 0
+      },
+      {
+        "top": 7,
+        "bottom": 8,
+        "n": 9,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 18.300248760217848,
+        "point": 0
+      },
+      {
+        "top": 8,
+        "bottom": 9,
+        "n": 12,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 24.400331680290464,
+        "point": 0
+      },
+      {
+        "top": 9,
+        "bottom": 10,
+        "n": 14,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 28.46705362700554,
+        "point": 0
+      },
+      {
+        "top": 10,
+        "bottom": 11,
+        "n": 17,
+        "layer": "Argila 3–11 m · print",
+        "shaft": 34.56713654707816,
+        "point": 0
+      },
+      {
+        "top": 11,
+        "bottom": 12,
+        "n": 15,
+        "layer": "Argila 11–20 m · print",
+        "shaft": 34.31296642540846,
+        "point": 0
+      },
+      {
+        "top": 12,
+        "bottom": 13,
+        "n": 12,
+        "layer": "Argila 11–20 m · print",
+        "shaft": 27.45037314032677,
+        "point": 0
+      },
+      {
+        "top": 13,
+        "bottom": 14,
+        "n": 12,
+        "layer": "Argila 11–20 m · print",
+        "shaft": 27.45037314032677,
+        "point": 0
+      },
+      {
+        "top": 14,
+        "bottom": 15,
+        "n": 22,
+        "layer": "Argila 11–20 m · print",
+        "shaft": 50.32568409059908,
+        "point": 0
+      },
+      {
+        "top": 15,
+        "bottom": 16,
+        "n": 35,
+        "layer": "Argila 11–20 m · print",
+        "shaft": 80.06358832595308,
+        "point": 0
+      }
+    ],
+    "details": [
+      {
+        "label": "Fração de carga na ponta",
+        "value": 0.4840872893905949,
+        "unit": "—"
+      },
+      {
+        "label": "Flexibilidade própria do solo",
+        "value": 0.000002511838901590419,
+        "unit": "m/kN"
+      },
+      {
+        "label": "Encurtamento elástico por carga unitária",
+        "value": 0.000006154933904350908,
+        "unit": "m/kN"
+      },
+      {
+        "label": "Fontes por estaca",
+        "value": 6144,
+        "unit": "—"
+      },
+      {
+        "label": "Base indeslocável",
+        "value": 100,
+        "unit": "m"
+      },
+      {
+        "label": "Ordem de integração",
+        "value": 32,
+        "unit": "—"
+      }
+    ],
+    "verticalCompliance": [
+      [
+        0.000008666772805941327,
+        3.0291955223250904e-7
+      ],
+      [
+        3.0291955223250904e-7,
+        0.000008666772805941327
+      ]
+    ],
+    "version": "0.4.0-experimental"
+  }
+}

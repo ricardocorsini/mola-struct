@@ -33,6 +33,8 @@ pub struct Foundation {
     pub footing_method: String,
     #[serde(default = "manual")]
     pub modulus_source: String,
+    #[serde(default = "aoki_factor_default")]
+    pub aoki_factor: f64,
     #[serde(default = "manual")]
     pub transfer: String,
     #[serde(default = "one")]
@@ -97,6 +99,9 @@ fn integration_default() -> usize {
 }
 fn schmertmann_default() -> f64 {
     0.9
+}
+fn aoki_factor_default() -> f64 {
+    6.
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Spt {
@@ -227,7 +232,9 @@ fn validate(input: &Input) -> Result<(), String> {
             f.footing_method.as_str(),
             "elastic" | "winkler" | "safe" | "mindlin"
         )
-        || !matches!(f.modulus_source.as_str(), "manual" | "spt")
+        || !matches!(f.modulus_source.as_str(), "manual" | "spt" | "aoki")
+        || ![3., 4., 6.].contains(&f.aoki_factor)
+        || (f.kind == "footing" && f.modulus_source == "aoki")
         || !matches!(f.transfer.as_str(), "manual" | "capacity-ratio")
         || !(8..=32).contains(&f.integration)
         || !(0.0..=1.0).contains(&f.tip_fraction)
@@ -257,7 +264,7 @@ fn validate(input: &Input) -> Result<(), String> {
         return Err("Base rígida ou cobertura de camadas inválida".into());
     }
     let requires_spt =
-        f.modulus_source == "spt" || (f.kind == "pile" && f.pile_method == "mindlin");
+        f.modulus_source != "manual" || (f.kind == "pile" && f.pile_method == "mindlin");
     if requires_spt {
         let mut previous = 0.;
         for s in &input.spt {
@@ -270,7 +277,7 @@ fn validate(input: &Input) -> Result<(), String> {
             }
             previous = s.depth;
         }
-        let end = if f.modulus_source == "spt" {
+        let end = if f.modulus_source != "manual" {
             if mindlin {
                 input.bedrock
             } else if f.kind == "footing" {
@@ -281,7 +288,7 @@ fn validate(input: &Input) -> Result<(), String> {
         } else {
             base
         };
-        let end = if f.modulus_source == "spt" {
+        let end = if f.modulus_source != "manual" {
             layer_at(&input.layers, end).bottom
         } else {
             end

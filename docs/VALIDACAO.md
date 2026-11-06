@@ -4,7 +4,7 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.3.0 possui 61 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 22 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.4.0 possui 72 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 26 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
 
 | Verificação                                         | Referência ou propriedade                                                                       |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -39,7 +39,7 @@ Os PDFs de exemplo foram renderizados e inspecionados quanto a margens, paginaç
 
 O núcleo Rust foi compilado e testado separadamente. O aplicativo Tauri completo, seus instaladores e os diálogos nativos de arquivos ainda precisam de verificação nos sistemas de destino. O workflow manual de desktop prepara a construção desses pacotes, sem presumir que já tenham sido validados.
 
-Não há comprovação de equivalência numérica com outro software de fundações, tolerância-alvo definida para essa comparação ou validação por prova de carga. Cada uso deve respeitar as hipóteses em [MOTOR.md](MOTOR.md).
+Há comparação independente das capacidades de dois prints na precisão apresentada. A equivalência das rigidezes com outro software e a validação por prova de carga ainda não foram demonstradas. Cada uso deve respeitar as hipóteses em [MOTOR.md](MOTOR.md).
 
 ## Próximos passos
 
@@ -76,3 +76,13 @@ A leitura da norma estabelece critérios e permite detectar incompatibilidades. 
 A regeneração das fontes PDF é uma tarefa opcional de desenvolvimento: `python scripts/build-pdf-fonts.py [diretório-DejaVu]`, com FontTools disponível. Não é requisito de execução do aplicativo.
 
 Na revisão 0.3.0 foram conferidos na interface: restauração do JSON da conferência, separação ELU/ELS, detecção de ponta ignorada com transferência positiva, regime de cálculo sem dupla majoração, limite ELS excedido e geração/download do PDF. Não foram observados erros JavaScript nesse percurso. Captura: [Conferência NBR 6122](assets/nbr6122-conferencia.png).
+
+## Caso externo de 16 m e E0 - versão 0.4.0
+
+A transcrição, as hipóteses e a comparação estão em [REFERENCIA-16M.md](REFERENCIA-16M.md). RL=43,5048 tf, RP=40,8211 tf e Ru=84,3258 tf reproduzem os valores 43,5/40,8/84,3 do print. A integração manual independente usa as somas N=13/77/96 e Np=35. A tolerância de 0,05 tf corresponde ao arredondamento do print.
+
+As rigidezes não estão validadas. Com E manual interpretado em MPa, Ec=30 GPa e a continuação hipotética do solo até 100 m, Kz=22.736,9272 tf/m difere +5,5639% do print. E0 correlacionado não foi usado para alterar esse caso. A classificação da comparação continua pendente mesmo se uma mudança de parâmetro produzir coincidência isolada.
+
+Os 11 testes novos conferem a transcrição com N11=17, as capacidades, a classificação das molas, a influência de N11 e Ec, cobertura de solo/SPT, BᵀC⁻¹B contra uma solução independente de duas molas, unidades/fatores de E0, independência de K_E, bloqueios e migração de arquivos. Os 26 casos compartilhados incluem os três fatores E0 e este benchmark. Não se usa a regeneração de valores esperados para criar novas referências externas.
+
+Na interface 0.4.0 foram confirmados o carregamento em um clique, três resistências conferidas, seis linhas de rigidez/recalque não confirmadas, restauração do projeto com N11=17, seleção dos fatores E0, bloqueio visível por ausência de SPT até 100 m e geração/download do PDF. O percurso não apresentou erros JavaScript. As oito memórias foram regeneradas e renderizadas para conferência visual. Captura: [Comparação com o print](assets/referencia-16m.png).

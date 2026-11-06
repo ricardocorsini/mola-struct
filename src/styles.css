@@ -2888,3 +2888,22 @@ a {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.benchmark-comparison {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.benchmark-comparison .data-table td {
+  white-space: normal;
+  vertical-align: top;
+}
+.benchmark-comparison > p {
+  font-size: 11px;
+  line-height: 1.7;
+}
+.benchmark-comparison > ul {
+  font-size: 11px;
+  line-height: 1.8;
+  padding-left: 18px;
+}

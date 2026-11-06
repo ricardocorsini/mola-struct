@@ -1,4 +1,4 @@
-# Motor 0.3.0 — hipóteses, equações e unidades
+# Motor 0.4.0 — hipóteses, equações e unidades
 
 ## Convenções
 
@@ -203,3 +203,23 @@ A camada `src/domain/nbr6122.ts` usa a matriz numérica já calculada. Não alte
 - Os fatores menores da norma exigem os dados e condições específicos de ensaios/regiões representativas; não estão implementados como simples opções numéricas.
 
 A base rígida de referência representa uma hipótese de deslocamento nulo. Não deve ser confundida automaticamente com a cota de recusa de uma sondagem SPT. Consulte o alcance, as condições executivas e as pendências em [NBR6122-2022.md](NBR6122-2022.md).
+
+## Correlação opcional E0 de Aoki (1984) - versão 0.4.0
+
+A foto fornecida pelo usuário distingue o módulo inicial E0 da atualização posterior de Es por tensões. A opção **E0 Aoki** implementa somente:
+
+`E0 (MPa) = a K_AV (kPa/golpe) N̄ / 1000`
+
+| Execução        |   a |
+| --------------- | --: |
+| Cravada         |   6 |
+| Hélice contínua |   4 |
+| Escavada        |   3 |
+
+A média N̄ é ponderada pela espessura em cada camada. K_AV é o coeficiente de capacidade Aoki-Velloso, distinto de K_E de Schmertmann. A seleção não altera o E manual salvo, não deduz kh/kt/kp e não aplica a lei de atualização de Es por tensão geostática e acréscimos de tensão. Não se atribuem os fatores 6/4/3 à NBR 6122. O tipo executivo declarado na conferência é comparado ao fator selecionado.
+
+A correlação foi disponibilizada somente para estacas. Exige SPT até o fim da última camada consumida; N̄ nulo ou perfil insuficiente bloqueiam o cálculo. O caso externo de 16 m mantém E manual, pois os valores de E já foram informados no print e não há SPT abaixo de 20 m.
+
+## Caso externo de 16 m
+
+O projeto e a comparação em tela/PDF estão documentados em [REFERENCIA-16M.md](REFERENCIA-16M.md). A contribuição axial `η Bᵀ C⁻¹ B` é apresentada separadamente da flexão local. A opção diagnóstica com Cij=0 para i≠j permite inspecionar estacas independentes; não modifica o método ativo nem sua matriz completa.

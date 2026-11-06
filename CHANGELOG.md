@@ -2,6 +2,15 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.4.0 — 2026-11-06
+
+- Caso externo de duas estacas Ø30 cm, ponta 16 m e NSPT(11)=17, carregável pela faixa de ferramentas.
+- Comparação em tela/PDF e JSON entre alvos do print e valores calculados; capacidades conferidas a 0,1 tf. Molas permanecem não confirmadas, com diferenças e hipóteses explícitas.
+- Diagnóstico da contribuição axial com/sem interação e sensibilidade ao Ec, sem alterar a matriz ativa ou ajustar parâmetros para forçar equivalência.
+- Correlação opcional E0 de Aoki (1984), fatores 6/4/3, conversão de K_AV e conferência de coerência com a execução. Módulo inicial sem atualização de Es por tensões.
+- Bloqueio de extrapolação SPT e aviso de entradas alteradas no benchmark; E manual preservado.
+- 11 testes novos, total de 72 testes TypeScript e 4 Rust; 26 casos compartilhados de paridade.
+
 ## 0.3.0 — 2026-11-05
 
 - Revisão dos critérios pertinentes da ABNT NBR 6122:2022, com matriz de alcance e dados faltantes.

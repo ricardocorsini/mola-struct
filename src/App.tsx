@@ -1,3 +1,4 @@
+import { reference16Project } from "./domain/benchmark16";
 import {
   lazy,
   Suspense,
@@ -477,6 +478,22 @@ export default function App() {
                   );
                 },
               },
+              {
+                label: "Exemplo 16 m",
+                Icon: BookOpen,
+                action: () => {
+                  const next = reference16Project();
+                  update(next);
+                  setSelected("B16");
+                  setView("results");
+                  setResultTab("benchmark");
+                  setTab("methods");
+                  setRight(true);
+                  toast(
+                    "Referência de 16 m carregada com hipóteses explícitas. Desfazer recupera o projeto anterior.",
+                  );
+                },
+              },
               { label: "Abrir", Icon: FolderOpen, action: () => void open() },
               {
                 label: "Salvar JSON",
@@ -854,7 +871,7 @@ export default function App() {
           ))}
         </nav>
         <span className="release">
-          MOLAS DE FUNDAÇÃO <b>v0.3</b>
+          MOLAS DE FUNDAÇÃO <b>v0.4</b>
         </span>
       </div>
       <div className="ribbon">
@@ -1211,7 +1228,7 @@ export default function App() {
           {r.valid
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
-          <i /> Motor 0.3.0
+          <i /> Motor 0.4.0
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑

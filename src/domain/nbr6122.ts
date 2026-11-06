@@ -243,6 +243,28 @@ export function reviewFoundation(f: Foundation, r: Calculation): NbrReview {
     "pending",
     "Não modelados adensamento, fluência, expansão, colapso ou recalques diferenciais da estrutura. As fundações do projeto podem ser alternativas de estudo; não são automaticamente apoios simultâneos de uma edificação.",
   );
+  if (f.modulusSource === "aoki") {
+    const expected =
+      v.pileType === "driven"
+        ? 6
+        : v.pileType === "cfa"
+          ? 4
+          : v.pileType === "bored-fluid"
+            ? 3
+            : null;
+    add(
+      "aoki-source",
+      "Coerência da correlação E0 com a execução",
+      "8.2.2",
+      expected === null
+        ? "pending"
+        : f.aokiFactor === expected
+          ? "declared"
+          : "fail",
+      "Os fatores 6/4/3 são da correlação de Aoki (1984), não fatores impostos pela NBR. Confira a execução e o domínio da correlação; E0 não inclui atualização de Es por tensão.",
+      { value: f.aokiFactor, limit: expected ?? undefined, unit: "—" },
+    );
+  }
   if (f.kind === "footing") {
     add(
       "soil-regime",

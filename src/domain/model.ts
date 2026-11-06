@@ -85,7 +85,8 @@ export const foundationSchema = z.object({
   footingMethod: z
     .enum(["elastic", "winkler", "safe", "mindlin"])
     .default("elastic"),
-  modulusSource: z.enum(["manual", "spt"]).default("manual"),
+  modulusSource: z.enum(["manual", "spt", "aoki"]).default("manual"),
+  aokiFactor: z.union([z.literal(3), z.literal(4), z.literal(6)]).default(6),
   horizontalRatio: positive.max(1).default(0.3),
   kvInput: positive.default(30000),
   allowablePressure: positive.default(200),
@@ -110,6 +111,12 @@ export const projectSchema = z.object({
     .max(500),
   layers: z.array(layerSchema).min(1).max(100),
   foundations: z.array(foundationSchema).min(1).max(100),
+  benchmark: z
+    .object({
+      id: z.literal("pile-16m-20261106"),
+      foundationId: z.string().min(1),
+    })
+    .optional(),
 });
 export type Layer = z.infer<typeof layerSchema>;
 export type Foundation = z.infer<typeof foundationSchema>;
@@ -184,6 +191,7 @@ export const defaultFoundation = (
   pileMethod: "winkler",
   footingMethod: "elastic",
   modulusSource: "manual",
+  aokiFactor: 6,
   horizontalRatio: 0.3,
   kvInput: 30000,
   allowablePressure: 200,
