@@ -119,3 +119,7 @@ Não há NSPT de 20 a 100 m. Trocar este caso para E0 correlacionado bloqueia o 
 - O caso de 16 m e os três fatores E0 integram os 26 casos de paridade Rust/TypeScript. Paridade verifica consistência de implementações; não comprova equivalência com o software de referência.
 
 Os prints, a foto do livro e os PDFs normativos não são redistribuídos no repositório. O código, as tabelas de comparação e os desenhos foram produzidos independentemente.
+
+## Investigação detalhada da rotação
+
+Veja [INVESTIGACAO-ROTACAO.md](INVESTIGACAO-ROTACAO.md): a flexão local explica 83,3% do excesso de Kθy; removê-la somente do diagnóstico reduz a diferença para 13,21%. Os efeitos do nível de Kz e da interação são separados por uma identidade modal, com testes de condensação e refinamento. As rigidezes continuam não confirmadas contra o software externo.

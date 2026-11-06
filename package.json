@@ -20,7 +20,8 @@
     "test:core": "cargo test --manifest-path crates/molas-core/Cargo.toml",
     "serve": "node scripts/serve.mjs",
     "examples:generate": "vite-node scripts/generate-examples.ts",
-    "format:check": "prettier --check src tests scripts docs .github *.md *.json *.ts *.html"
+    "format:check": "prettier --check src tests scripts docs .github *.md *.json *.ts *.html",
+    "investigate:rotation": "vite-node scripts/investigate-reference16.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

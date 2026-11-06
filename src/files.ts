@@ -4,7 +4,9 @@ import {
   referenceInputDifferences,
   benchmarkAssumptions,
   axialDiagnostics,
+  reference16,
 } from "./domain/benchmark16";
+import { twoPileRotationAudit } from "./domain/rotationAudit";
 import {
   reviewFoundation,
   reviewLabels,
@@ -462,6 +464,33 @@ export async function reportPdf(
       "As parcelas axiais são diagnósticos e não substituem a matriz ativa, que também contém flexão e torção.",
       8,
     );
+    const audit = twoPileRotationAudit(f, r);
+    if (audit.available) {
+      // Keep the reconstruction and its boundary cases together when space is short.
+      if (y > 155) next();
+      title("Investigação da diferença de Kθy");
+      text(
+        `Parcela axial=${fmt(audit.axialRy, 4)} e flexão local=${fmt(audit.localRy, 4)} tf·m/rad. Sem a flexão local, a diferença para o print é ${fmt(audit.axialDifferencePercent, 3)}%. A matriz ativa foi preservada.`,
+        8,
+      );
+      row("Valor do print", `${fmt(reference16.ry, 4)} tf·m/rad`);
+      for (const t of audit.terms) row(t.label, `${fmt(t.value, 5)} tf·m/rad`);
+      row("Soma reconstruída", `${fmt(audit.reconstructed, 4)} tf·m/rad`);
+      text(
+        `Para C=[[a,b],[b,a]], Kz=2η/(a+b) e Kθy,axial=ηs²/[2(a-b)]. b/a=${fmt(audit.interactionRatio * 100, 4)}%. O modo de movimento comum usa a+b; o modo de incrementos axiais opostos usa a-b.`,
+        8,
+      );
+      text(
+        `Kθy≈Kz·s²/4 no print, com desvio residual ${fmt(-audit.referenceClosure, 5)} tf·m/rad. O limite do arredondamento a 0,01 é ${fmt(audit.referenceRoundingBound, 5)}: a relação é próxima, mas não exata.`,
+        8,
+      );
+      for (const test of audit.boundaryCases)
+        row(test.label, `${fmt(test.ry, 4)} tf·m/rad`);
+      text(
+        "Liberar Hx=0 aplica o complemento de Schur e é diferente de articular os topos. Articulação requer liberar momentos locais e condensar os acoplamentos. Estes cenários não alteram o modelo e não identificam, sozinhos, o algoritmo do print.",
+        8,
+      );
+    }
   }
   title("07 / Conferência parcial — NBR 6122:2022");
   const review = reviewFoundation(f, r);

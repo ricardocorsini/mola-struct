@@ -4,7 +4,7 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.4.0 possui 72 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 26 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.4.0 possui 80 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 26 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
 
 | Verificação                                         | Referência ou propriedade                                                                       |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -86,3 +86,9 @@ As rigidezes não estão validadas. Com E manual interpretado em MPa, Ec=30 GPa 
 Os 11 testes novos conferem a transcrição com N11=17, as capacidades, a classificação das molas, a influência de N11 e Ec, cobertura de solo/SPT, BᵀC⁻¹B contra uma solução independente de duas molas, unidades/fatores de E0, independência de K_E, bloqueios e migração de arquivos. Os 26 casos compartilhados incluem os três fatores E0 e este benchmark. Não se usa a regeneração de valores esperados para criar novas referências externas.
 
 Na interface 0.4.0 foram confirmados o carregamento em um clique, três resistências conferidas, seis linhas de rigidez/recalque não confirmadas, restauração do projeto com N11=17, seleção dos fatores E0, bloqueio visível por ausência de SPT até 100 m e geração/download do PDF. O percurso não apresentou erros JavaScript. As oito memórias foram regeneradas e renderizadas para conferência visual. Captura: [Comparação com o print](assets/referencia-16m.png).
+
+## Investigação da rotação - 06/11/2026
+
+Oito testes adicionais conferem os modos a+b/a−b, a reconstrução de Kθy, molas independentes, condensação e distinção entre ux livre e articulação, efeito separado de kh, refinamento, limite do arredondamento e domínio geométrico. A matriz ativa do caso é comparada exatamente ao resultado publicado na 0.4.0. Os 30 ensaios não calibram o motor ou validam a referência externa. Consulte [INVESTIGACAO-ROTACAO.md](INVESTIGACAO-ROTACAO.md).
+
+O percurso de interface da investigação foi verificado com Chromium headless: valores da decomposição e condições de cabeça, download PDF, bloqueio por SPT insuficiente e restauração do diagnóstico ao retornar ao E manual. Sem erros JavaScript nesse percurso. A memória revisada foi renderizada; a reconstrução e os cenários de ligação ficam juntos na página. Captura: [Investigação de Kθy](assets/investigacao-rotacao.png).

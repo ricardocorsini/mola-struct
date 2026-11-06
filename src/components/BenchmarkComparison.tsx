@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Info } from "lucide-react";
+import RotationInvestigation from "./RotationInvestigation";
 import { fmt, type Project, type Foundation } from "../domain/model";
 import type { Calculation } from "../domain/engine";
 import {
@@ -141,6 +142,7 @@ export default function BenchmarkComparison({
           </p>
         </>
       )}
+      <RotationInvestigation foundation={f} result={r} />
       {!report && (
         <>
           <h3>Sensibilidade ao Ec não informado no print</h3>

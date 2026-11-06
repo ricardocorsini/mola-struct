@@ -2907,3 +2907,12 @@ a {
   line-height: 1.8;
   padding-left: 18px;
 }
+.rotation-investigation {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rotation-investigation > p {
+  font-size: 11px;
+  line-height: 1.7;
+}

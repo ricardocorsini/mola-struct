@@ -117,6 +117,8 @@ Em **Início → Exemplo 16 m**, carregue as duas estacas Ø30 cm, F1=2, F2=4, c
 
 As resistências conferem: **43,5048 / 40,8211 / 84,3258 tf**. As molas ainda divergem: Kz=22.736,93 contra 21.538,54 tf/m (+5,56%) sob as hipóteses atuais. Ec, unidades de E, solo abaixo de 20 m e formulações lateral/rotacional precisam de equivalência; não há selo de validação para essas linhas. Veja a [transcrição, comparação e pendências](docs/REFERENCIA-16M.md).
 
+A [investigação de Kθy](docs/INVESTIGACAO-ROTACAO.md) decompõe a diferença em flexão local, interação modal e nível de Kz, com 30 ensaios de hipóteses reproduzíveis por `npm run investigate:rotation`. O motor permanece preservado.
+
 A correlação da foto **E0=6/4/3 K_AV N̄** está disponível para estacas. É módulo inicial, sem atualização por tensões. O caso externo mantém E manual; não se extrapola SPT de 20 até 100 m para aplicar a correlação.
 
 ### Conferência com a NBR 6122:2022

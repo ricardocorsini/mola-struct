@@ -1,0 +1,520 @@
+{
+  "description": "Investigação numérica do caso externo. Decomposição algébrica e ensaios de hipóteses; não são validação das rigidezes, calibração ou alterações do motor ativo.",
+  "reference": {
+    "title": "Print · bloco sobre 2 estacas Ø30 cm, L=16 m",
+    "spt": [
+      6,
+      3,
+      4,
+      5,
+      6,
+      6,
+      8,
+      9,
+      12,
+      14,
+      17,
+      15,
+      12,
+      12,
+      22,
+      35,
+      35,
+      36,
+      38,
+      40
+    ],
+    "shaft": 43.5,
+    "point": 40.8,
+    "ultimate": 84.3,
+    "kx": 168.92,
+    "ky": 168.92,
+    "kz": 21538.54,
+    "rx": 0,
+    "ry": 4361.75,
+    "totalLoad": 40,
+    "spacing": 0.9
+  },
+  "baseline": {
+    "available": true,
+    "spacing": 0.9,
+    "armSquared": 0.2025,
+    "selfCompliance": 0.000008666772805941327,
+    "mutualCompliance": 3.0291955223250904e-7,
+    "interactionRatio": 0.03495182797740455,
+    "commonCompliance": 0.000008969692358173836,
+    "oppositeCompliance": 0.000008363853253708819,
+    "predictedKz": 22736.92724920914,
+    "predictedAxialRy": 4937.736874722536,
+    "kz": 22736.927249209144,
+    "fullRy": 7809.541971805786,
+    "axialRy": 4937.736874722536,
+    "localRy": 2871.805097083249,
+    "sameKzRy": 4604.227767964852,
+    "independentKz": 23531.624419158255,
+    "independentRy": 4765.153944879547,
+    "normalizedAxialRy": 4677.48530925108,
+    "normalizedModePremiumPercent": 7.243540579772434,
+    "axialDifferencePercent": 13.205407800138392,
+    "fullDifferencePercent": 79.04607031136092,
+    "bendingShareOfGap": 0.8329403631562892,
+    "referenceClosure": -0.19564999999965949,
+    "referenceRoundingBound": 0.0060125000000000005,
+    "terms": [
+      {
+        "id": "reference-closure",
+        "label": "Fechamento Kz·s²/4 do print",
+        "value": -0.19564999999965949
+      },
+      {
+        "id": "geometry",
+        "label": "Geometria alterada em relação ao print",
+        "value": 0
+      },
+      {
+        "id": "vertical-level",
+        "label": "Diferença de Kz com o mesmo braço",
+        "value": 242.67341796485152
+      },
+      {
+        "id": "interaction-mode",
+        "label": "Interação: modo de rotação versus translação",
+        "value": 333.5091067576841
+      },
+      {
+        "id": "local-bending",
+        "label": "Flexão local das estacas",
+        "value": 2871.805097083249
+      }
+    ],
+    "reconstructed": 7809.541971805786,
+    "boundaryCases": [
+      {
+        "id": "fixed-x",
+        "label": "Modelo ativo · ux impedido",
+        "ry": 7809.541971805786
+      },
+      {
+        "id": "free-x",
+        "label": "Modelo ativo · Hx=0, ux livre",
+        "ry": 6375.991002920637
+      },
+      {
+        "id": "pinned",
+        "label": "Topos articulados · axial com interação (diagnóstico)",
+        "ry": 4937.736874722536
+      },
+      {
+        "id": "independent",
+        "label": "Topos articulados · axial sem interação (diagnóstico)",
+        "ry": 4765.153944879547
+      }
+    ],
+    "pinnedHorizontal": 956.0341056675124,
+    "horizontalFreeRotation": 1558.5288667087452
+  },
+  "experiments": {
+    "mesh": [
+      {
+        "label": "ne=16; ng=8",
+        "kz": 22792.336665687777,
+        "fullRy": 7823.582284253212,
+        "axialRy": 4951.327897202583,
+        "localRy": 2872.254387050629,
+        "kzDifferencePercent": 5.821177599260552,
+        "fullRyDifferencePercent": 79.36796662470825,
+        "axialRyDifferencePercent": 13.517003432167884,
+        "settlement": 1.7549758318644495,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=16; ng=16",
+        "kz": 22792.3366656878,
+        "fullRy": 7823.582284253214,
+        "axialRy": 4951.327897202586,
+        "localRy": 2872.254387050628,
+        "kzDifferencePercent": 5.821177599260663,
+        "fullRyDifferencePercent": 79.3679666247083,
+        "axialRyDifferencePercent": 13.517003432167973,
+        "settlement": 1.7549758318644477,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=16; ng=32",
+        "kz": 22792.336665687777,
+        "fullRy": 7823.582284253209,
+        "axialRy": 4951.327897202581,
+        "localRy": 2872.254387050628,
+        "kzDifferencePercent": 5.821177599260552,
+        "fullRyDifferencePercent": 79.36796662470817,
+        "axialRyDifferencePercent": 13.51700343216784,
+        "settlement": 1.7549758318644495,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=32; ng=8",
+        "kz": 22744.575775953894,
+        "fullRy": 7811.417443014114,
+        "axialRy": 4939.585375123927,
+        "localRy": 2871.8320678901864,
+        "kzDifferencePercent": 5.599431419000056,
+        "fullRyDifferencePercent": 79.08906844762112,
+        "axialRyDifferencePercent": 13.247787588099435,
+        "settlement": 1.7586610712822768,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=32; ng=16",
+        "kz": 22744.575775953905,
+        "fullRy": 7811.417443014114,
+        "axialRy": 4939.585375123932,
+        "localRy": 2871.832067890182,
+        "kzDifferencePercent": 5.5994314190001,
+        "fullRyDifferencePercent": 79.08906844762112,
+        "axialRyDifferencePercent": 13.247787588099547,
+        "settlement": 1.758661071282276,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=32; ng=32",
+        "kz": 22744.57577595387,
+        "fullRy": 7811.417443014107,
+        "axialRy": 4939.585375123925,
+        "localRy": 2871.8320678901828,
+        "kzDifferencePercent": 5.599431418999923,
+        "fullRyDifferencePercent": 79.08906844762096,
+        "axialRyDifferencePercent": 13.247787588099369,
+        "settlement": 1.7586610712822788,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=64; ng=8",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=64; ng=16",
+        "kz": 22736.92724920917,
+        "fullRy": 7809.541971805791,
+        "axialRy": 4937.736874722542,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531332056,
+        "fullRyDifferencePercent": 79.04607031136106,
+        "axialRyDifferencePercent": 13.205407800138524,
+        "settlement": 1.7592526712857064,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "ne=64; ng=32",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      }
+    ],
+    "kh": [
+      {
+        "label": "kh × 0.01",
+        "kz": 22736.927249209144,
+        "fullRy": 5979.542721579134,
+        "axialRy": 4937.736874722536,
+        "localRy": 1041.8058468565978,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 37.090450428821775,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "kh × 0.1",
+        "kz": 22736.927249209144,
+        "fullRy": 6678.321674672468,
+        "axialRy": 4937.736874722536,
+        "localRy": 1740.584799949932,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 53.11106034670645,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "kh × 1",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "kh × 10",
+        "kz": 22736.927249209144,
+        "fullRy": 9957.59335080418,
+        "axialRy": 4937.736874722536,
+        "localRy": 5019.856476081643,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 128.29353701620175,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      }
+    ],
+    "transfer": [
+      {
+        "label": "βp=0",
+        "kz": 37549.760614051396,
+        "fullRy": 11073.890582124974,
+        "axialRy": 8202.08548504172,
+        "localRy": 2871.8050970832537,
+        "kzDifferencePercent": 74.33753919277441,
+        "fullRyDifferencePercent": 153.88641215395137,
+        "axialRyDifferencePercent": 88.04574964272871,
+        "settlement": 1.0652531293377063,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "βp=0.25",
+        "kz": 28096.609348380163,
+        "fullRy": 8986.299367602087,
+        "axialRy": 6114.49427051884,
+        "localRy": 2871.8050970832473,
+        "kzDifferencePercent": 30.448068199516598,
+        "fullRyDifferencePercent": 106.0250901037906,
+        "axialRyDifferencePercent": 40.184427592568106,
+        "settlement": 1.423659328569698,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "βp=0.4840872893905949",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "βp=0.75",
+        "kz": 18687.469446481893,
+        "fullRy": 6923.717445810261,
+        "axialRy": 4051.9123487270126,
+        "localRy": 2871.8050970832483,
+        "kzDifferencePercent": -13.237065063454201,
+        "fullRyDifferencePercent": 58.73714554502805,
+        "axialRyDifferencePercent": -7.1035169661944675,
+        "settlement": 2.1404717270336677,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "βp=1",
+        "kz": 16007.184496513642,
+        "fullRy": 6338.9390842644625,
+        "axialRy": 3467.1339871812124,
+        "localRy": 2871.80509708325,
+        "kzDifferencePercent": -25.68119985610148,
+        "fullRyDifferencePercent": 45.33017903970797,
+        "axialRyDifferencePercent": -20.510483471514583,
+        "settlement": 2.49887792626567,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      }
+    ],
+    "ec": [
+      {
+        "label": "Ec=26 GPa",
+        "kz": 20565.83247130049,
+        "fullRy": 7007.644963510391,
+        "axialRy": 4435.564797432553,
+        "localRy": 2572.080166077838,
+        "kzDifferencePercent": -4.516125645932867,
+        "fullRyDifferencePercent": 60.661316295303294,
+        "axialRyDifferencePercent": 1.6923206839583482,
+        "settlement": 1.944973540741411,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "Ec=28 GPa",
+        "kz": 21674.57532938417,
+        "fullRy": 7414.220405881173,
+        "axialRy": 4691.150907896156,
+        "localRy": 2723.069497985017,
+        "kzDifferencePercent": 0.6315902999189715,
+        "fullRyDifferencePercent": 69.98269973935172,
+        "axialRyDifferencePercent": 7.552035487961395,
+        "settlement": 1.8454802178187129,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "Ec=30 GPa",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "Ec=32 GPa",
+        "kz": 23755.74013414432,
+        "fullRy": 8194.265713633173,
+        "axialRy": 5175.789865668049,
+        "localRy": 3018.4758479651236,
+        "kzDifferencePercent": 10.29410597999827,
+        "fullRyDifferencePercent": 87.86646904644175,
+        "axialRyDifferencePercent": 18.66314817832404,
+        "settlement": 1.6838035680693304,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      }
+    ],
+    "soil": [
+      {
+        "label": "E × 0.00980665",
+        "kz": 695.6236868779505,
+        "fullRy": 3050.2759090413974,
+        "axialRy": 178.4708119581472,
+        "localRy": 2871.80509708325,
+        "kzDifferencePercent": -96.7703303618632,
+        "fullRyDifferencePercent": -30.067612562815437,
+        "axialRyDifferencePercent": -95.908275074038,
+        "settlement": 57.502354727920775,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "E × 0.0980665",
+        "kz": 5850.773769104757,
+        "fullRy": 4311.798863464694,
+        "axialRy": 1439.9937663814424,
+        "localRy": 2871.805097083251,
+        "kzDifferencePercent": -72.8357921701993,
+        "fullRyDifferencePercent": -1.1452086097393566,
+        "axialRyDifferencePercent": -66.98587112096195,
+        "settlement": 6.836702559107923,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "E × 1",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "E × 10",
+        "kz": 31685.869999814637,
+        "fullRy": 9349.163115731139,
+        "axialRy": 6477.358018647889,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 47.11243194670871,
+        "fullRyDifferencePercent": 114.34431399624323,
+        "axialRyDifferencePercent": 48.50365148502067,
+        "settlement": 1.2623923534444217,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      }
+    ],
+    "baseDepth": [
+      {
+        "label": "Base=20 m",
+        "kz": 23373.78633941331,
+        "fullRy": 7811.760549583726,
+        "axialRy": 4939.955452500478,
+        "localRy": 2871.8050970832483,
+        "kzDifferencePercent": 8.520755535952329,
+        "fullRyDifferencePercent": 79.09693470702646,
+        "axialRyDifferencePercent": 13.25627219580392,
+        "settlement": 1.7113188004354805,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "Base=40 m",
+        "kz": 22865.022084599626,
+        "fullRy": 7809.559282376972,
+        "axialRy": 4937.754185293723,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 6.158644386293721,
+        "fullRyDifferencePercent": 79.04646718351516,
+        "axialRyDifferencePercent": 13.20580467229262,
+        "settlement": 1.7493969545273853,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "Base=100 m",
+        "kz": 22736.927249209144,
+        "fullRy": 7809.541971805786,
+        "axialRy": 4937.736874722536,
+        "localRy": 2871.805097083249,
+        "kzDifferencePercent": 5.563920531331945,
+        "fullRyDifferencePercent": 79.04607031136092,
+        "axialRyDifferencePercent": 13.205407800138392,
+        "settlement": 1.7592526712857082,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      },
+      {
+        "label": "Base=200 m",
+        "kz": 22700.118614126153,
+        "fullRy": 7809.5413431957995,
+        "axialRy": 4937.7362461125485,
+        "localRy": 2871.805097083251,
+        "kzDifferencePercent": 5.393023919569995,
+        "fullRyDifferencePercent": 79.04605589948528,
+        "axialRyDifferencePercent": 13.2053933882627,
+        "settlement": 1.7621053299302247,
+        "shaft": 43.50477506691145,
+        "point": 40.82106954258238
+      }
+    ]
+  }
+}

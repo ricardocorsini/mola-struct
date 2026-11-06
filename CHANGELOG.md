@@ -2,6 +2,12 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## Investigação adicional — 2026-11-06
+
+- Diagnóstico de Kθy em tela/PDF: flexão local, efeito modal da interação, nível de Kz e condições de translação/ligação.
+- 30 ensaios reproduzíveis e oito testes adicionais, totalizando 80 testes TypeScript; matriz numérica preservada.
+- Relação Kθy≈Kz·s²/4 do print identificada como aproximação, com resíduo que excede o arredondamento a 0,01.
+
 ## 0.4.0 — 2026-11-06
 
 - Caso externo de duas estacas Ø30 cm, ponta 16 m e NSPT(11)=17, carregável pela faixa de ferramentas.

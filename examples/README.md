@@ -26,3 +26,5 @@ O comando também atualiza `crates/molas-core/tests/parity.json`, usado para con
 Abra `referencia-16m.molas.json` ou **Início → Exemplo 16 m**. O conjunto inclui `referencia-16m-spt.csv`, `B16-matriz.csv`, desenhos `B16-corte.svg` / `B16-planta.svg`, `B16-memoria.pdf` e `referencia-16m-comparacao.json`.
 
 A capacidade Aoki-Velloso confere na precisão de 0,1 tf; as rigidezes ainda não conferem. A comparação completa, as unidades assumidas e os dados faltantes estão em [REFERENCIA-16M.md](../docs/REFERENCIA-16M.md). Os alvos transcritos do print permanecem separados dos valores gerados pelo motor.
+
+`referencia-16m-investigacao.json` registra a decomposição de Kθy e 30 ensaios de hipóteses. Regenerar: `npm run investigate:rotation`; acrescente `-- --pdf` para atualizar somente `B16-memoria.pdf`. Os ensaios não mudam a fundação ativa ou validam o software externo.
