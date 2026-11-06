@@ -1,7 +1,7 @@
 {
   "name": "mola-struct",
   "private": true,
-  "version": "0.6.0",
+  "version": "0.7.0",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -23,7 +23,8 @@
     "format:check": "prettier --check src tests scripts docs .github *.md *.json *.ts *.html",
     "investigate:rotation": "vite-node scripts/investigate-reference16.ts",
     "investigate:crh": "vite-node scripts/investigate-tqs-crh.ts",
-    "release:version": "node scripts/openstruct-version.mjs"
+    "release:version": "node scripts/openstruct-version.mjs",
+    "validate:footings": "vitest run tests/footings.test.ts"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",

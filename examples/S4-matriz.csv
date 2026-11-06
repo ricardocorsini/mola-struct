@@ -8,3 +8,11 @@ GDL;ux (m);uy (m);uz (m);theta_x (rad);theta_y (rad);theta_z (rad)
 "Mz (kN.m)";0,000000;0,000000;0,000000;0,000000;0,000000;15950,249317
 "GDL livres";"Nenhum"
 "Reação horizontal";"Sapata: modelo horizontal definido pelo método da base."
+"Modelo";"Mindlin–Steinbrenner · pressão uniforme / centro da sapata"
+"Origem E";"manual"
+"Meio contínuo";"não aplicável"
+"Flexibilidade vertical no centro";"0,000014";"m/kN"
+"kv adotado";"16409,721520";"kN/m³"
+"Razão horizontal μh";"0,300000";"—"
+"Base indeslocável";"16,000000";"m"
+"Ordem de integração";"16,000000";"—"

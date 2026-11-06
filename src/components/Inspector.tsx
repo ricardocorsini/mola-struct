@@ -10,6 +10,7 @@ import {
 import { fmt, type Foundation, type Project } from "../domain/model";
 import { NumberField, Section } from "./Fields";
 import LateralSettings from "./LateralSettings";
+import FootingSettings from "./FootingSettings";
 export type PropertyTab =
   | "geometry"
   | "materials"
@@ -390,8 +391,11 @@ export default function Inspector({
                     </>
                   ) : (
                     <>
+                      <option value="halfspace">
+                        Meio contínuo · FEMA 273 · k0
+                      </option>
                       <option value="elastic">
-                        Elasticidade · disco equivalente
+                        Legado · disco + rotações Winkler
                       </option>
                       <option value="winkler">Winkler · kv informado</option>
                       <option value="safe">
@@ -436,6 +440,7 @@ export default function Inspector({
               )}
               {(f.kind === "pile" ||
                 f.footingMethod === "mindlin" ||
+                f.footingMethod === "halfspace" ||
                 f.footingMethod === "elastic") && (
                 <label className="select-field method-select">
                   <span>Módulo do solo E</span>
@@ -452,6 +457,16 @@ export default function Inspector({
                   >
                     <option value="manual">Informado por camada</option>
                     <option value="spt">SPT · Schmertmann (3 K_E N)</option>
+                    {f.kind === "footing" && (
+                      <option value="teixeira">
+                        SPT · Teixeira–Godoy (αTG K_E N)
+                      </option>
+                    )}
+                    {f.kind === "pile" && f.modulusSource === "teixeira" && (
+                      <option value="teixeira" disabled>
+                        Teixeira–Godoy: somente fundações diretas
+                      </option>
+                    )}
                     {f.kind === "pile" ? (
                       <option value="aoki">SPT · E0 Aoki (1984)</option>
                     ) : (
@@ -464,6 +479,7 @@ export default function Inspector({
                   </select>
                 </label>
               )}
+              <FootingSettings project={p} foundation={f} onChange={up} />
               {f.kind === "pile" && f.modulusSource === "aoki" && (
                 <>
                   <label className="select-field method-select">
@@ -529,7 +545,9 @@ export default function Inspector({
                 </>
               )}
               {((f.kind === "pile" && f.pileMethod === "randolph") ||
-                (f.kind === "footing" && f.footingMethod !== "elastic")) &&
+                (f.kind === "footing" &&
+                  f.footingMethod !== "elastic" &&
+                  f.footingMethod !== "halfspace")) &&
                 field(
                   "horizontalRatio",
                   "Razão horizontal / vertical",

@@ -3,6 +3,8 @@ import NormativeReview from "./NormativeReview";
 import BenchmarkComparison from "./BenchmarkComparison";
 import PileHeadActions from "./PileHeadActions";
 import { hasReference16 } from "../domain/benchmark16";
+import { hasFootingReference } from "../domain/benchmarkFootings";
+import FootingComparison from "./FootingComparison";
 import { useMemo, useState } from "react";
 import {
   ArrowDown,
@@ -143,7 +145,9 @@ export default function Results({
           ["comparison", "Comparar fundações"],
           ["sensitivity", "Sensibilidade"],
           ["normative", "NBR 6122:2022"],
-          ...(hasReference16(p, f) ? [["benchmark", "Comparar print"]] : []),
+          ...(hasReference16(p, f) || hasFootingReference(p, f)
+            ? [["benchmark", "Comparar print"]]
+            : []),
         ].map(([key, title]) => (
           <button
             key={key}
@@ -154,7 +158,10 @@ export default function Results({
           </button>
         ))}
       </div>
-      {tab === "benchmark" && (
+      {tab === "benchmark" && hasFootingReference(p, f) && (
+        <FootingComparison project={p} />
+      )}
+      {tab === "benchmark" && hasReference16(p, f) && (
         <BenchmarkComparison project={p} foundation={f} result={r} />
       )}
       {tab === "normative" && (

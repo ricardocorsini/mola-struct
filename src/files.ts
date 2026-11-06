@@ -14,6 +14,11 @@ import {
 } from "./domain/nbr6122";
 import { methodNarrative } from "./domain/methods";
 import { lateralEntries, lateralSummary } from "./domain/lateral";
+import { teixeiraAlpha } from "./domain/footing";
+import {
+  hasFootingReference,
+  footingBenchmarkTable,
+} from "./domain/benchmarkFootings";
 import { isTauri } from "@tauri-apps/api/core";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
@@ -118,6 +123,23 @@ export function matrixCsv(f: Foundation, r: Calculation): string {
         .map(csvText)
         .join(";"),
       ["Reação horizontal", lateralSummary(f)].map(csvText).join(";"),
+      ...(f.kind === "footing"
+        ? [
+            ["Modelo", r.method].map(csvText).join(";"),
+            ["Origem E", f.modulusSource].map(csvText).join(";"),
+            [
+              "Meio contínuo",
+              f.footingMethod === "halfspace"
+                ? (f.footingSoil ?? "support")
+                : "não aplicável",
+            ]
+              .map(csvText)
+              .join(";"),
+            ...r.details.map((d) =>
+              [d.label, csvN(d.value), d.unit].map(csvText).join(";"),
+            ),
+          ]
+        : []),
     ].join("\r\n")
   );
 }
@@ -373,7 +395,7 @@ export async function reportPdf(
     text(`Camada ${i + 1}: ${l.name} - ate ${fmt(l.bottom)} m`, 10, true);
     row(
       "Elasticidade",
-      `K_E=${fmt(l.schmertmannK)} MPa; E=${fmt(l.e)} MPa; nu=${fmt(l.nu)}`,
+      `K_E=${fmt(l.schmertmannK)} MPa; αTG=${l.teixeiraAlpha ?? (l.soil === "fill" ? "não associado" : teixeiraAlpha(l))}; E informado=${fmt(l.e)} MPa; nu=${fmt(l.nu)}`,
     );
     row(
       "Capacidade",
@@ -460,6 +482,17 @@ export async function reportPdf(
   text(
     "Terzaghi permanece pendente. NBR 6122:1996 é referência histórica do print, sem resultado calculado. A conferência atual segundo 2022 é parcial.",
   );
+  if (hasFootingReference(p, f)) {
+    title("Comparação externa — sapatas FEMA 273");
+    text(
+      "Silte NSPT=7, E=12,25 MPa (1.249,15 tf/m² arredondado), ν=0,35. Atual / print: Kx, Kz em tf/m; Kθx e Kθz em tf·m/rad. Tolerância do print: ±0,05 por coluna. Não valida capacidade, contato não linear ou estratificação.",
+    );
+    for (const row of footingBenchmarkTable(p))
+      text(
+        `${row.cm}×${row.cm} cm | ${row.expected.map((v, i) => `${row.actual ? fmt(row.actual[i], 1) : "—"}/${fmt(v, 1)}`).join(" | ")} | ${row.match ? "Compatível" : "Revisar entradas"}`,
+        8,
+      );
+  }
   if (hasReference16(p, f)) {
     title("Comparação externa — duas estacas de 16 m");
     text(

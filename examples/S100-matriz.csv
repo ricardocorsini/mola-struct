@@ -1,0 +1,22 @@
+﻿"MolasStruct";"S100";"kN;m;rad"
+GDL;ux (m);uy (m);uz (m);theta_x (rad);theta_y (rad);theta_z (rad)
+"Fx (kN)";12410,904419;0,000000;0,000000;0,000000;0,000000;0,000000
+"Fy (kN)";0,000000;12410,904419;0,000000;0,000000;0,000000;0,000000
+"Fz (kN)";0,000000;0,000000;15752,301763;0,000000;0,000000;0,000000
+"Mx (kN.m)";0,000000;0,000000;0,000000;3460,384473;0,000000;0,000000
+"My (kN.m)";0,000000;0,000000;0,000000;0,000000;3460,384473;0,000000
+"Mz (kN.m)";0,000000;0,000000;0,000000;0,000000;0,000000;4498,499815
+"GDL livres";"Nenhum"
+"Reação horizontal";"Sapata: modelo horizontal definido pelo método da base."
+"Modelo";"Meio contínuo elástico · FEMA 273, fig. 4-2 · k0"
+"Origem E";"teixeira"
+"Meio contínuo";"support"
+"E do semiespaço";"12,250000";"MPa"
+"ν do semiespaço";"0,350000";"—"
+"G do semiespaço";"4537,037037";"kPa"
+"Raio de translação rT";"0,564190";"m"
+"Raio de rotação rθx";"0,570732";"m"
+"Raio de rotação rθy";"0,570732";"m"
+"Raio de torção rθz";"0,570732";"m"
+"kv equivalente apenas à translação";"15752,301763";"kN/m³"
+"E Teixeira–Godoy · Silte · NSPT 7";"12,250000";"MPa"

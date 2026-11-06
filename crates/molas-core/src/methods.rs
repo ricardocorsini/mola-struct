@@ -36,7 +36,13 @@ pub fn effective(input: &Input) -> Result<Input, String> {
         l.e = if input.foundation.modulus_source == "aoki" {
             input.foundation.aoki_factor * l.k * sum / (end - a) / 1000.
         } else {
-            3. * l.schmertmann_k * sum / (end - a)
+            (if input.foundation.modulus_source == "teixeira" {
+                footing::teixeira_alpha(l)?
+            } else {
+                3.
+            }) * l.schmertmann_k
+                * sum
+                / (end - a)
         };
         if !positive(l.e) {
             return Err("Correlação SPT: módulo nulo".into());
@@ -300,6 +306,10 @@ pub fn apply(input: &Input, matrix: &mut Matrix) -> Result<(), String> {
         }
     } else {
         if f.footing_method == "elastic" {
+            return Ok(());
+        }
+        if f.footing_method == "halfspace" {
+            *matrix = footing::halfspace(input)?;
             return Ok(());
         }
         let area = f.cap_x * f.cap_y;

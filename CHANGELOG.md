@@ -2,6 +2,14 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.7.0 — 2026-11-06
+
+- Sapatas em meio contínuo elástico: constantes k0 da FEMA 273, fig. 4-2, com raios equivalentes específicos para translação, rotação X/Y e torção. Método legado preservado explicitamente.
+- Meio homogêneo com parâmetros da camada de apoio, incluindo seleção da camada inferior em interface, ou homogeneização adicional em 2B. Sem correção automática de forma/embutimento.
+- Correlação Teixeira–Godoy E=αTG K_E N̄SPT para fundações diretas; αTG padrão por tipo ou personalizado, independente de α Aoki–Velloso. Disponível também para Mindlin–Steinbrenner.
+- Exemplo executável de 13 sapatas (60–180 cm), comparação com os 52 valores do print, parâmetros e raios em tela/memória/PDF/CSV, JSON e guia técnico com fontes TQS/FEMA e limites.
+- 149 testes TypeScript, 9 Rust e 71 casos de paridade; os 50 alvos anteriores de matriz/deslocamento preservados. Teste específico do efeito de arredondar Es no cabeçalho do print.
+
 ## 0.6.0 — 2026-11-06
 
 - Configuração horizontal por fundação: kh manual, K/nh por tipo de solo ou SPT/m (Tietz conforme TQS), independente do núcleo vertical.

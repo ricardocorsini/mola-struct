@@ -1,5 +1,6 @@
 //! Static linear foundation stiffness. Internal units: kN, m, rad.
 //! Experimental models; no normative approval is implied.
+pub mod footing;
 pub mod lateral;
 mod methods;
 use serde::{Deserialize, Serialize};
@@ -36,6 +37,8 @@ pub struct Foundation {
     pub lateral: lateral::Options,
     #[serde(default = "elastic")]
     pub footing_method: String,
+    #[serde(default = "support")]
+    pub footing_soil: String,
     #[serde(default = "manual")]
     pub modulus_source: String,
     #[serde(default = "aoki_factor_default")]
@@ -78,6 +81,11 @@ pub struct Layer {
     pub k: f64,
     #[serde(default = "schmertmann_default")]
     pub schmertmann_k: f64,
+    #[serde(default)]
+    pub teixeira_alpha: Option<f64>,
+}
+fn support() -> String {
+    "support".into()
 }
 fn winkler() -> String {
     "winkler".into()
@@ -270,6 +278,7 @@ fn validate(input: &Input) -> Result<(), String> {
             .all(|v| positive(*v))
             || l.bottom <= top
             || !(0.0..=0.49).contains(&l.nu)
+            || l.teixeira_alpha.is_some_and(|a| !positive(a))
         {
             return Err("Camadas inválidas".into());
         }
@@ -278,11 +287,16 @@ fn validate(input: &Input) -> Result<(), String> {
     if !matches!(f.pile_method.as_str(), "winkler" | "randolph" | "mindlin")
         || !matches!(
             f.footing_method.as_str(),
-            "elastic" | "winkler" | "safe" | "mindlin"
+            "elastic" | "halfspace" | "winkler" | "safe" | "mindlin"
         )
-        || !matches!(f.modulus_source.as_str(), "manual" | "spt" | "aoki")
+        || !matches!(f.footing_soil.as_str(), "support" | "equivalent")
+        || !matches!(
+            f.modulus_source.as_str(),
+            "manual" | "spt" | "aoki" | "teixeira"
+        )
         || ![3., 4., 6.].contains(&f.aoki_factor)
         || (f.kind == "footing" && f.modulus_source == "aoki")
+        || (f.kind == "pile" && f.modulus_source == "teixeira")
         || !matches!(f.transfer.as_str(), "manual" | "capacity-ratio")
         || !(8..=32).contains(&f.integration)
         || !(0.0..=1.0).contains(&f.tip_fraction)

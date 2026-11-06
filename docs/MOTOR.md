@@ -1,4 +1,4 @@
-# Motor 0.6.0 — hipóteses, equações e unidades
+# Motor 0.7.0 — hipóteses, equações e unidades
 
 ## Convenções
 
@@ -54,6 +54,14 @@ O bloco axial é preservado. Em duas estacas alinhadas em X, a ligação rotulad
 `Ru = RL + RP`
 
 Integração dividida nos limites de SPT, nas transições de solo e na geometria da estaca. N representa o intervalo entre o registro anterior e a profundidade indicada. Np corresponde ao intervalo que contém a ponta; se a ponta coincide com uma fronteira, usa o intervalo que termina nela. Não há média na ponta ou truncamento automático de N. F1/F2 são editáveis e não são inferidos pelo tipo executivo. Resistências últimas por estaca isolada, sem verificação de grupo, arraste negativo, fator de segurança ou limites normativos. No modo Winkler, a capacidade não altera a rigidez linear. Em Mindlin, a razão RP/(RL+RP) pode definir a transferência proporcional de carga.
+
+## Sapata em meio contínuo — FEMA 273 k0
+
+`footingMethod="halfspace"` usa as seis constantes elásticas da figura 4-2, com raios equivalentes por área e momentos de área: rT=√(A/π), rθx=(4Ix/π)^(1/4), rθy=(4Iy/π)^(1/4), rθz=[2(Ix+Iy)/π]^(1/4). G=E/[2(1+ν)]; Kh=8G rT/(2−ν), Kz=4G rT/(1−ν), Kθx/y=8G rθx/y³/[3(1−ν)] e Kθz=16G rθz³/3. Os eixos seguem as dimensões capX/capY do programa. Não usa rotações kv I.
+
+O meio homogêneo adota os parâmetros da camada imediatamente abaixo da base, estendidos ao semiespaço todo. Em interfaces, usa a camada inferior. A alternativa `footingSoil="equivalent"` usa E harmônico/ν médio em 2B, como homogeneização explícita. α=β=1; sem correções dos ábacos de forma/embutimento, resistência passiva, amortecimento ou contato unilateral. As tensões planas N/A ± M/W são apenas triagem.
+
+`modulusSource="teixeira"` acrescenta E=αTG K_E N̄SPT, MPa, para fundações diretas. αTG é opcional por camada: 3/5/7 para areia/silte/argila, aterro sem associação automática. A tabela de K_E é independente de K_AV e αTG é independente de α_AV. A correlação também pode alimentar Mindlin–Steinbrenner. Consulte a reprodução de 52 valores e os limites em [SAPATAS-MEIO-CONTINUO.md](SAPATAS-MEIO-CONTINUO.md).
 
 ## Sapata por disco equivalente (opção legada)
 

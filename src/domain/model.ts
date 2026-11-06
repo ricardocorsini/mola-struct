@@ -51,6 +51,7 @@ export const layerSchema = z.object({
   shaftK: positive,
   baseK: positive,
   schmertmannK: positive.default(0.9),
+  teixeiraAlpha: positive.optional(),
   color: z.string().regex(/^#[0-9a-f]{6}$/i),
 });
 export const verificationSchema = z.object({
@@ -117,9 +118,12 @@ export const foundationSchema = z.object({
   headConnection: z.enum(["fixed", "pinned"]).default("fixed"),
   lateral: lateralSchema.optional(),
   footingMethod: z
-    .enum(["elastic", "winkler", "safe", "mindlin"])
+    .enum(["elastic", "halfspace", "winkler", "safe", "mindlin"])
     .default("elastic"),
-  modulusSource: z.enum(["manual", "spt", "aoki"]).default("manual"),
+  footingSoil: z.enum(["support", "equivalent"]).optional(),
+  modulusSource: z
+    .enum(["manual", "spt", "aoki", "teixeira"])
+    .default("manual"),
   aokiFactor: z.union([z.literal(3), z.literal(4), z.literal(6)]).default(6),
   horizontalRatio: positive.max(1).default(0.3),
   kvInput: positive.default(30000),
@@ -147,7 +151,7 @@ export const projectSchema = z.object({
   foundations: z.array(foundationSchema).min(1).max(100),
   benchmark: z
     .object({
-      id: z.literal("pile-16m-20261106"),
+      id: z.enum(["pile-16m-20261106", "footings-fema273-20261106"]),
       foundationId: z.string().min(1),
     })
     .optional(),

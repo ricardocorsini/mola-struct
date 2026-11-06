@@ -10,7 +10,7 @@ Estimativa de rigidez de fundações com visualização 3D, perfil SPT e memóri
 
 [![CI](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml/badge.svg)](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml)
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-3448D1)](LICENSE)
-[![Versão 0.6.0](https://img.shields.io/badge/vers%C3%A3o-0.6.0-3448D1)](CHANGELOG.md)
+[![Versão 0.7.0](https://img.shields.io/badge/vers%C3%A3o-0.7.0-3448D1)](CHANGELOG.md)
 [![Experimental](https://img.shields.io/badge/status-experimental-D49A40)](#estado-do-projeto)
 
 Parte do ecossistema **OpenStruct** · Engenharia estrutural aberta
@@ -21,6 +21,8 @@ Parte do ecossistema **OpenStruct** · Engenharia estrutural aberta
 
 ![Interface com bloco sobre quatro estacas, perfil de solo e coeficientes de mola](docs/assets/interface-3d.jpg)
 
+Sapatas também podem ser calculadas como meio contínuo elástico pela FEMA 273 (constantes k0), com correlação Teixeira–Godoy e comparação de 13 tamanhos com o print de referência. Acesse **Início → Exemplo sapatas** e o [guia de cálculo e validação](docs/SAPATAS-MEIO-CONTINUO.md).
+
 ## Sobre
 
 O MolasStruct auxilia o estudo da rigidez do conjunto **fundação + solo** e sua representação por apoios elásticos em modelos estruturais. Permite definir geometria, materiais, ações, sondagem SPT e camadas para comparar estimativas de translação e rotação de **sapatas retangulares** e **blocos sobre 1 a 4 estacas**.
@@ -29,7 +31,7 @@ A aplicação funciona no navegador e possui uma base desktop com Tauri. O cálc
 
 ## Estado do projeto
 
-**v0.6.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
+**v0.7.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
 
 Os exemplos de demonstração são fictícios; o caso externo de 16 m é identificado separadamente. Os parâmetros de deformabilidade e reação precisam de justificativa para o solo, a fundação e o nível de deformação em análise. O bloco é considerado rígido; seu dimensionamento estrutural não faz parte desta versão.
 

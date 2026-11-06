@@ -4,7 +4,9 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.6.0 possui 125 testes Vitest e 8 testes Rust. Um dos testes Rust percorre 50 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.7.0 possui 149 testes Vitest e 9 testes Rust. Um dos testes Rust percorre 71 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+
+Os 24 testes de `tests/footings.test.ts` verificam a reprodução das 13 sapatas do print (52 valores independentes), rotações e torção contínuas, raios/eixos, proporcionalidade com E e dimensões, equilíbrio, camada inferior em interface, homogeneização explícita, correlação Teixeira–Godoy, seus parâmetros e unidades, JSON/exportação e precisão de E. Os 50 casos anteriores de matriz/deslocamento foram preservados sem alteração numérica. Referências, hipóteses e comparação em [SAPATAS-MEIO-CONTINUO.md](SAPATAS-MEIO-CONTINUO.md).
 
 Os 13 testes de `tests/lateralOptions.test.ts` verificam os seletores reais do motor, a reprodução dos ensaios consistente/nodal, versões e unidades K/nh, níveis d’água, coeficientes ausentes, tabelas personalizadas, origem z, equilíbrio, JSON v2 e alcance por método. Os 39 alvos numéricos anteriores permaneceram exatamente iguais. Na interface foram conferidos os seletores, troca 3829/3836, associações, nh e m personalizados, salvar/reabrir, exportar PDF e restaurar manual, sem erros JavaScript. Detalhes em [CONFIGURACAO-CRH.md](CONFIGURACAO-CRH.md).
 
@@ -39,6 +41,8 @@ Os testes analíticos estão em `tests/engine.test.ts`, `tests/methods.test.ts` 
 
 ## Interface e exportações
 
+Na 0.7.0 foram conferidos o exemplo das 13 sapatas, retorno ao legado, troca Schmertmann/Teixeira–Godoy, edição de αTG, seleção do meio homogêneo/equivalente, salvar/reabrir com os seletores e download PDF, sem erros JavaScript. A navegação 3D da sapata também foi conferida. Os 12 PDFs de exemplo foram renderizados; as cinco páginas de S100 foram inspecionadas integralmente.
+
 Na verificação inicial foram conferidos navegação, alteração de geometria com recálculo, desfazer, arranjo triangular, matriz completa, sapata, edição SPT/camadas e memória. O ambiente gráfico utilizado não dispunha de WebGL; o renderizador SVG de contingência foi exercitado. O caminho WebGL precisa de conferência em equipamento compatível.
 
 Os PDFs de exemplo foram renderizados e inspecionados quanto a margens, paginação, cabeçalhos e caracteres. Na revisão 0.2.0, a seleção de métodos com recálculo, a origem SPT de E, o bloqueio de σadm fora da faixa SAFE, a geração **e o download PDF** foram confirmados em Chromium headless, sem erros JavaScript. O download JSON já havia sido confirmado na revisão inicial. Resultados inválidos bloqueiam as exportações de cálculo. A captura atual está em [Seleção de métodos](assets/metodos.png).
@@ -47,7 +51,7 @@ Os PDFs de exemplo foram renderizados e inspecionados quanto a margens, paginaç
 
 O núcleo Rust foi compilado e testado separadamente. O aplicativo Tauri completo, seus instaladores e os diálogos nativos de arquivos ainda precisam de verificação nos sistemas de destino. O workflow manual de desktop prepara a construção desses pacotes, sem presumir que já tenham sido validados.
 
-Há comparação independente das capacidades de dois prints na precisão apresentada. A equivalência das rigidezes com outro software e a validação por prova de carga ainda não foram demonstradas. Cada uso deve respeitar as hipóteses em [MOTOR.md](MOTOR.md).
+Há comparação independente das capacidades de dois prints e reprodução das constantes k0 das 13 sapatas FEMA na precisão apresentada. Para estacas, a equivalência das rigidezes com outro software segue não demonstrada; a tabela das sapatas não valida estratificação, embutimento, contato real nem parâmetros de campo. A validação por prova de carga não foi realizada. Cada uso deve respeitar as hipóteses em [MOTOR.md](MOTOR.md).
 
 ## Próximos passos
 

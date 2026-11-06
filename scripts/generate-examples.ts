@@ -1,5 +1,9 @@
 import { reviewFoundation } from "../src/domain/nbr6122";
 import {
+  footingReferenceProject,
+  footingBenchmarkTable,
+} from "../src/domain/benchmarkFootings";
+import {
   reference16,
   reference16Project,
   reference16Comparison,
@@ -99,6 +103,12 @@ const extra = [
   },
 ];
 const crhProject = reference16Project();
+const footings = footingReferenceProject();
+const layeredFootings = structuredClone(footings);
+layeredFootings.layers = [
+  { ...footings.layers[0], id: "superior", bottom: 1, e: 5, nu: 0.2 },
+  { ...footings.layers[0], id: "inferior", bottom: 50, e: 20, nu: 0.4 },
+];
 crhProject.layers = crhProject.layers.map((l, i) => ({
   ...l,
   crh: {
@@ -238,6 +248,56 @@ const cases = [
     },
   },
 ];
+cases.push(
+  ...footings.foundations.map((f) => ({ p: footings, f })),
+  {
+    p: {
+      ...footings,
+      layers: [{ ...footings.layers[0], e: (1249.15 * 9.80665) / 1000 }],
+    },
+    f: { ...footings.foundations[4], modulusSource: "manual" },
+  },
+  ...[
+    [2, 4],
+    [4, 2],
+  ].map(([capX, capY]) => ({
+    p: footings,
+    f: {
+      ...footings.foundations[4],
+      capX,
+      capY,
+      hx: 3,
+      hy: 2,
+      mx: 4,
+      my: 5,
+      mz: 1,
+    },
+  })),
+  {
+    p: layeredFootings,
+    f: {
+      ...footings.foundations[4],
+      modulusSource: "manual",
+      footingSoil: "equivalent",
+    },
+  },
+  {
+    p: layeredFootings,
+    f: { ...footings.foundations[4], modulusSource: "manual", depth: 1 },
+  },
+  { p: footings, f: { ...footings.foundations[4], footingMethod: "mindlin" } },
+  {
+    p: { ...footings, layers: [{ ...footings.layers[0], teixeiraAlpha: 4 }] },
+    f: footings.foundations[4],
+  },
+  {
+    p: {
+      ...footings,
+      layers: [{ ...footings.layers[0], soil: "fill", teixeiraAlpha: 6 }],
+    },
+    f: footings.foundations[4],
+  },
+);
 const fixtures = cases.map(({ p, f }) => {
   const r = calculate(p, f);
   if (!r.valid) throw new Error("Invalid fixture " + f.id);
@@ -255,6 +315,21 @@ const fixtures = cases.map(({ p, f }) => {
 writeFileSync(
   "crates/molas-core/tests/parity.json",
   JSON.stringify(fixtures, null, 2) + "\n",
+);
+writeFileSync(
+  "examples/sapatas-fema273.molas.json",
+  JSON.stringify(footings, null, 2) + "\n",
+);
+writeFileSync(
+  "examples/sapatas-fema273-comparacao.json",
+  JSON.stringify(footingBenchmarkTable(footings), null, 2) + "\n",
+);
+const footing100 = footings.foundations.find((f) => f.id === "S100")!;
+const footingResult = calculate(footings, footing100);
+writeFileSync("examples/S100-matriz.csv", matrixCsv(footing100, footingResult));
+writeFileSync(
+  "examples/S100-memoria.pdf",
+  await reportPdf(footings, footing100, footingResult),
 );
 
 for (const source of ["tietz", "terzaghi"] as const) {

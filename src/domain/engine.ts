@@ -17,6 +17,7 @@ import {
 } from "./matrix";
 import { intervals, layerAt, sptAt } from "./profile";
 import { lateralLaw, lateralSummary, hasLateralModel } from "./lateral";
+import { continuumParameters } from "./footing";
 export { zeros, solve, type Matrix } from "./matrix";
 export { layerAt, sptAt } from "./profile";
 import {
@@ -62,7 +63,7 @@ export type Calculation = {
   verticalCompliance: Matrix | null;
   version: string;
 };
-export const ENGINE_VERSION = "0.6.0-experimental";
+export const ENGINE_VERSION = "0.7.0-experimental";
 function check(p: Project, f: Foundation): Notice[] {
   const ns: Notice[] = [];
   const err = (message: string) => ns.push({ level: "error", message });
@@ -97,6 +98,10 @@ function check(p: Project, f: Foundation): Notice[] {
   if (f.kind === "footing" && f.modulusSource === "aoki")
     err(
       "A correlação E0 de Aoki (1984) implementada é para estacas. Selecione E manual ou outra correlação para sapatas.",
+    );
+  if (f.kind === "pile" && f.modulusSource === "teixeira")
+    err(
+      "A correlação Teixeira–Godoy implementada é para fundações diretas. Selecione outra origem de E para estacas.",
     );
   const sptRequired =
     f.modulusSource !== "manual" ? layerAt(p, soilRequired).bottom : required;
@@ -353,6 +358,11 @@ export function calculate(p: Project, f: Foundation): Calculation {
       }
       result.e = (2 * b) / invE;
       result.nu = nu / (2 * b);
+      if (f.footingMethod === "halfspace") {
+        const soil = continuumParameters(p, f);
+        result.e = soil.e;
+        result.nu = soil.nu;
+      }
       const g = (result.e * 1000) / (2 * (1 + result.nu)),
         r = Math.sqrt(result.area / Math.PI),
         kz = (4 * g * r) / (1 - result.nu),
@@ -483,7 +493,7 @@ export function calculate(p: Project, f: Foundation): Calculation {
     if (f.modulusSource !== "manual") {
       result.details.push(
         ...p.layers.map((l, i) => ({
-          label: `${f.modulusSource === "aoki" ? "E0 Aoki" : "E SPT"} · ${original.layers[i].name}`,
+          label: `${f.modulusSource === "aoki" ? "E0 Aoki" : f.modulusSource === "teixeira" ? "E Teixeira–Godoy" : "E SPT"} · ${original.layers[i].name}`,
           value: l.e,
           unit: "MPa",
         })),
@@ -493,7 +503,9 @@ export function calculate(p: Project, f: Foundation): Calculation {
         message:
           f.modulusSource === "aoki"
             ? `E0 = ${f.aokiFactor} K_AV N̄SPT, com K_AV em kPa/golpe e resultado convertido para MPa (Aoki, 1984). É o módulo inicial; sem atualização de Es por acréscimo de tensões. ν permanece informado.`
-            : "E = 3 K_E N̄SPT por camada (Schmertmann conforme TQS). Correlação empírica; K_E em MPa é independente do K de Aoki–Velloso. ν permanece informado.",
+            : f.modulusSource === "teixeira"
+              ? "E = αTG K_E N̄SPT por camada (Teixeira–Godoy conforme TQS 3828). αTG=3/5/7 para areia/silte/argila, salvo valor informado. αTG é independente de α Aoki–Velloso. ν informado."
+              : "E = 3 K_E N̄SPT por camada (Schmertmann conforme TQS). Correlação empírica; K_E em MPa é independente do K de Aoki–Velloso. ν permanece informado.",
       });
     }
     result.diagonal = result.matrix.map((row, i) => row[i]);

@@ -1,4 +1,5 @@
 import { reference16Project } from "./domain/benchmark16";
+import { footingReferenceProject } from "./domain/benchmarkFootings";
 import {
   lazy,
   Suspense,
@@ -495,6 +496,21 @@ export default function App() {
                   );
                 },
               },
+              {
+                label: "Exemplo sapatas",
+                Icon: BookOpen,
+                action: () => {
+                  update(footingReferenceProject());
+                  setSelected("S100");
+                  setView("results");
+                  setResultTab("benchmark");
+                  setTab("methods");
+                  setRight(true);
+                  toast(
+                    "Referência FEMA 273 carregada: 13 sapatas, silte NSPT 7. Desfazer recupera o projeto anterior.",
+                  );
+                },
+              },
               { label: "Abrir", Icon: FolderOpen, action: () => void open() },
               {
                 label: "Salvar JSON",
@@ -872,7 +888,7 @@ export default function App() {
           ))}
         </nav>
         <span className="release">
-          MOLAS DE FUNDAÇÃO <b>v0.6</b>
+          MOLAS DE FUNDAÇÃO <b>v0.7</b>
         </span>
       </div>
       <div className="ribbon">
@@ -1231,7 +1247,7 @@ export default function App() {
           {r.valid
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
-          <i /> Motor 0.6.0
+          <i /> Motor 0.7.0
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑

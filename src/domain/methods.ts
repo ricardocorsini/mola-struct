@@ -4,6 +4,11 @@ import { solve, zeros, type Matrix } from "./matrix";
 import { lateralSummary, hasLateralModel } from "./lateral";
 import { lateralOptions } from "./model";
 import type { Notice } from "./engine";
+import {
+  continuumParameters,
+  halfspaceSprings,
+  teixeiraAlpha,
+} from "./footing";
 
 export type MethodResult = {
   matrix: Matrix;
@@ -47,7 +52,9 @@ export function effectiveProfile(p: Project, f: Foundation): Project {
       const e =
         f.modulusSource === "aoki"
           ? aokiInitialModulus(l.k, mean, f.aokiFactor)
-          : 3 * l.schmertmannK * mean;
+          : (f.modulusSource === "teixeira" ? teixeiraAlpha(l) : 3) *
+            l.schmertmannK *
+            mean;
       if (!(e > 0))
         throw new Error(
           `Correlação SPT: E nulo na camada ${l.name}. Informe E manual ou revise o perfil.`,
@@ -299,6 +306,41 @@ export function methodMatrix(
     out.details.push({ label, value, unit });
   if (f.kind === "pile" && f.pileMethod === "winkler") return out;
   if (f.kind === "footing" && f.footingMethod === "elastic") return out;
+  if (f.kind === "footing" && f.footingMethod === "halfspace") {
+    const soil = continuumParameters(p, f),
+      h = halfspaceSprings(f.capX, f.capY, soil.e, soil.nu);
+    out.matrix = h.diagonal.map((v, i) =>
+      h.diagonal.map((_, j) => (i === j ? v : 0)),
+    );
+    out.kv = h.kv;
+    out.method = "Meio contínuo elástico · FEMA 273, fig. 4-2 · k0";
+    detail("E do semiespaço", soil.e, "MPa");
+    detail("ν do semiespaço", soil.nu, "—");
+    detail("G do semiespaço", h.g, "kPa");
+    detail("Raio de translação rT", h.rt, "m");
+    detail("Raio de rotação rθx", h.rx, "m");
+    detail("Raio de rotação rθy", h.ry, "m");
+    detail("Raio de torção rθz", h.rz, "m");
+    detail("kv equivalente apenas à translação", h.kv, "kN/m³");
+    out.notices.push({
+      level: "info",
+      message:
+        f.footingSoil === "equivalent"
+          ? "FEMA 273 k0: semiespaço homogêneo equivalente com E harmônico e ν médio em 2B. Essa homogeneização é uma hipótese adicional; não resolve o meio estratificado."
+          : `FEMA 273 k0: E e ν de ${soil.soil}, imediatamente abaixo da base, estendidos a todo o semiespaço homogêneo. As demais camadas não modificam essas molas.`,
+    });
+    out.notices.push({
+      level: "warning",
+      message:
+        "Sapata rígida na superfície de semiespaço elástico isotrópico; raios específicos por GDL. Fatores de forma e embutimento α=β=1. D não majora a rigidez. Sem resistência passiva lateral, amortecimento ou separação de contato. E deve corresponder ao nível de deformação analisado; não é convertido em módulo dinâmico.",
+    });
+    out.notices.push({
+      level: "warning",
+      message:
+        "qmin/qmax são uma estimativa de triagem pela distribuição plana N/A ± M/W. Não são as tensões de contato da solução elástica do punção rígido. kv=Kz/A não deve ser usado para substituir Kθ por kv I neste modelo.",
+    });
+    return out;
+  }
   const matrix = zeros(6);
   out.matrix = matrix;
   if (f.kind === "pile") {
@@ -447,9 +489,11 @@ export function methodNarrative(f: Foundation): string[] {
   const source =
     f.modulusSource === "aoki"
       ? `E0 = ${f.aokiFactor} K_AV N̄SPT (Aoki, 1984); K_AV em kPa/golpe, conversão para MPa. Fatores 6/4/3 para cravada/hélice contínua/escavada. Módulo inicial sem atualização de Es por tensão geostática e acréscimo de tensão; ν informado. Não se usa K_E de Schmertmann nesta correlação.`
-      : f.modulusSource === "spt"
-        ? "E = 3 K_E N̄SPT (MPa), por camada e média ponderada por espessura dos intervalos investigados. ν informado. K_E de Schmertmann não é K de Aoki–Velloso."
-        : "E e ν informados por camada. Não há correlação automática nesta seleção.";
+      : f.modulusSource === "teixeira"
+        ? "Teixeira–Godoy conforme TQS 3828: E = αTG K_E N̄SPT (MPa), por camada. αTG padrão: areia 3, silte 5, argila 7; personalizável. Aterro exige αTG informado. K_E informado na tabela do solo (silte típico: 0,35 MPa). Média de NSPT ponderada por espessura na camada investigada. ν informado. αTG e K_E são independentes de α e K de Aoki–Velloso."
+        : f.modulusSource === "spt"
+          ? "E = 3 K_E N̄SPT (MPa), por camada e média ponderada por espessura dos intervalos investigados. ν informado. K_E de Schmertmann não é K de Aoki–Velloso."
+          : "E e ν informados por camada. Não há correlação automática nesta seleção.";
   let model: string[];
   if (f.kind === "pile") {
     model =
@@ -482,24 +526,33 @@ export function methodNarrative(f: Foundation): string[] {
     );
   } else {
     model =
-      f.footingMethod === "elastic"
+      f.footingMethod === "halfspace"
         ? [
-            "Disco de mesma área: r=√(A/π), G=Eeq/[2(1+ν)], Kz=4Gr/(1−ν), Kh=8Gr/(2−ν). Eeq harmônico e ν médio na faixa de 2B abaixo da base. Sem correção de embutimento nem base rígida.",
+            "FEMA 273 (1997), fig. 4-2: constantes estáticas k0 de sapata rígida sobre semiespaço elástico isotrópico. A=Bx By; Ix=Bx By³/12; Iy=By Bx³/12, com X ao longo de Bx e Y ao longo de By. rT=√(A/π); rθx=(4Ix/π)^(1/4); rθy=(4Iy/π)^(1/4); rθz=[2(Ix+Iy)/π]^(1/4).",
+            "G=E/[2(1+ν)]; Kx=Ky=8G rT/(2−ν); Kz=4G rT/(1−ν); Kθx=8G rθx³/[3(1−ν)]; Kθy=8G rθy³/[3(1−ν)]; Kθz=16G rθz³/3. Matriz diagonal referida ao centro da base. Não usa rotações kv I. α=β=1; não foram aplicadas as correções dos ábacos da fig. 4-3, nem resistência passiva, amortecimento ou não linearidade de contato.",
+            f.footingSoil === "equivalent"
+              ? "E harmônico e ν médio na faixa de 2B são uma homogeneização adicional explícita. Não é solução do meio estratificado."
+              : "Adotam-se E e ν da camada imediatamente abaixo da base para TODO o semiespaço homogêneo. Demais camadas e base indeslocável não modificam a rigidez.",
           ]
-        : f.footingMethod === "mindlin"
+        : f.footingMethod === "elastic"
           ? [
-              "Mindlin–Steinbrenner: pressão uniforme sobre retângulo, integração por Gauss–Legendre com transformação de Duffy, sem corte artificial da singularidade. Soma das diferenças de deslocamento por camada até a base indeslocável. Kz = P/wcentro, kv = Kz/A. É o recalque no centro de uma base flexível sob pressão uniforme; não é a solução de contato de sapata rígida.",
+              "Disco de mesma área: r=√(A/π), G=Eeq/[2(1+ν)], Kz=4Gr/(1−ν), Kh=8Gr/(2−ν). Eeq harmônico e ν médio na faixa de 2B abaixo da base. Sem correção de embutimento nem base rígida.",
             ]
-          : f.footingMethod === "safe"
+          : f.footingMethod === "mindlin"
             ? [
-                "SAFE/Morrison conforme TQS: kv = −0,0257 σ⁴ + 0,2294 σ³ − 0,6517 σ² + 2,5467 σ + 0,1083; σ em kgf/cm² e kv em kgf/cm³. Conversões: 1 kgf/cm² = 98,0665 kPa; 1 kgf/cm³ = 9.806,65 kN/m³. Faixa 0,25–4 kgf/cm², sem extrapolação. σadm é informado pelo projetista e não é obtido automaticamente de Vésic.",
+                "Mindlin–Steinbrenner: pressão uniforme sobre retângulo, integração por Gauss–Legendre com transformação de Duffy, sem corte artificial da singularidade. Soma das diferenças de deslocamento por camada até a base indeslocável. Kz = P/wcentro, kv = Kz/A. É o recalque no centro de uma base flexível sob pressão uniforme; não é a solução de contato de sapata rígida.",
               ]
-            : [
-                "Winkler com kv informado em kN/m³. Kz = kv A. Não há dedução automática de kv a partir da capacidade de carga.",
-              ];
-    model.push(
-      "Rotações aproximadas por Winkler: Kθx = kv Ix; Kθy = kv Iy. Nos métodos com kv, Kh = μh Kz. Extensão torsional adotada pelo MolasStruct: Kθz = (Kh/A)(Ix+Iy). Modelo linear bilateral, sem redistribuição do contato quando houver levantamento.",
-    );
+            : f.footingMethod === "safe"
+              ? [
+                  "SAFE/Morrison conforme TQS: kv = −0,0257 σ⁴ + 0,2294 σ³ − 0,6517 σ² + 2,5467 σ + 0,1083; σ em kgf/cm² e kv em kgf/cm³. Conversões: 1 kgf/cm² = 98,0665 kPa; 1 kgf/cm³ = 9.806,65 kN/m³. Faixa 0,25–4 kgf/cm², sem extrapolação. σadm é informado pelo projetista e não é obtido automaticamente de Vésic.",
+                ]
+              : [
+                  "Winkler com kv informado em kN/m³. Kz = kv A. Não há dedução automática de kv a partir da capacidade de carga.",
+                ];
+    if (f.footingMethod !== "halfspace")
+      model.push(
+        "Rotações aproximadas por Winkler: Kθx = kv Ix; Kθy = kv Iy. Nos métodos com kv, Kh = μh Kz. Extensão torsional adotada pelo MolasStruct: Kθz = (Kh/A)(Ix+Iy). Modelo linear bilateral, sem redistribuição do contato quando houver levantamento.",
+      );
     model.push(
       "Capacidade Vésic: fatores de forma incluídos, demais fatores unitários; peso específico efetivo com nível d’água. qSPT = C N̄(2B) é referência exploratória. Terzaghi permanece pendente; NBR 6122:1996 é referência histórica do print. Critérios parciais da NBR 6122:2022 são conferidos separadamente.",
     );

@@ -14,7 +14,25 @@ import type { Calculation } from "../domain/engine";
 import { Notices } from "./Results";
 import PileHeadActions from "./PileHeadActions";
 import { lateralEntries } from "../domain/lateral";
+import { hasFootingReference } from "../domain/benchmarkFootings";
+import FootingComparison from "./FootingComparison";
+import { teixeiraAlpha } from "../domain/footing";
 export const references = [
+  {
+    title:
+      "FEMA 273 (1997) · fig. 4-2, p. 4-11 · constantes k0 de sapatas rígidas sobre semiespaço elástico",
+    url: "https://www.wbdg.org/FFC/DHS/ARCHIVES/FEMA273_NEHRP_Guidelines_for_the_Seismic_Rehabilitation_of_Buildings_1997.pdf",
+  },
+  {
+    title:
+      "TQS 3828 · CRV – Sapatas e Tubulões · elasticidade, Steinbrenner e correlações de E",
+    url: "https://docs.tqs.com.br/Docs/Details?id=3828&language=pt-BR",
+  },
+  {
+    title:
+      "TQS 3830 · Correções sobre CRV e tensão em sapatas · contexto das limitações do contato",
+    url: "https://docs.tqs.com.br/Docs/Details?id=3830&language=pt-BR",
+  },
   {
     title: "TQS 3829 · CRH – Sapatas e Tubulões · tabelas K, nh e SPT/m",
     url: "https://docs.tqs.com.br/Docs/Details?id=3829&language=pt-br",
@@ -178,6 +196,7 @@ export default function Report({
               <th>E (MPa)</th>
               <th>ν</th>
               <th>K_E (MPa)</th>
+              <th>αTG</th>
               <th>α</th>
               <th>K (kPa)</th>
             </tr>
@@ -190,6 +209,10 @@ export default function Report({
                 <td>{fmt(l.e, 0)}</td>
                 <td>{fmt(l.nu)}</td>
                 <td>{fmt(l.schmertmannK)}</td>
+                <td>
+                  {l.teixeiraAlpha ??
+                    (l.soil === "fill" ? "—" : teixeiraAlpha(l))}
+                </td>
                 <td>{fmt(l.alpha, 3)}</td>
                 <td>{fmt(l.k, 0)}</td>
               </tr>
@@ -268,6 +291,12 @@ export default function Report({
           <>
             <h2>Comparação externa — print de 16 m</h2>
             <BenchmarkComparison project={p} foundation={f} result={r} report />
+          </>
+        )}
+        {hasFootingReference(p, f) && (
+          <>
+            <h2>Comparação externa — sapatas FEMA 273</h2>
+            <FootingComparison project={p} />
           </>
         )}
         <h2>06 / Conferência parcial — NBR 6122:2022</h2>

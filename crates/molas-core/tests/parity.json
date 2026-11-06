@@ -14276,5 +14276,7521 @@
         0
       ]
     }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S60",
+        "name": "S60",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 0.6,
+        "capY": 0.6,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          7446.542651539408,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          7446.542651539408,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          9451.381057723094,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          747.4430461201672,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          747.4430461201672,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          971.6759599562174
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.010375891036566134,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S70",
+        "name": "S70",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 0.7,
+        "capY": 0.7,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          8687.633093462642,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8687.633093462642,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          11026.611234010277,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1186.9118741630436,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1186.9118741630436,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1542.9854364119567
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.008893620888485256,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S80",
+        "name": "S80",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 0.8,
+        "capY": 0.8,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          9928.72353538588,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          9928.72353538588,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12601.841410297462,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1771.7168500626194,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1771.7168500626194,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          2303.2319050814053
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.007781918277424598,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S90",
+        "name": "S90",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 0.9,
+        "capY": 0.9,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          11169.813977309113,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          11169.813977309113,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          14177.071586584643,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2522.6202806555657,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2522.6202806555657,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3279.4063648522356
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.006917260691044088,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          12410.904419232349,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          12410.904419232349,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15752.301762871826,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3460.3844727785513,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3460.3844727785513,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4498.499814612117
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.006225534621939679,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S110",
+        "name": "S110",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.1,
+        "capY": 1.1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          13651.994861155585,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          13651.994861155585,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          17327.53193915901,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4605.771733268255,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          4605.771733268255,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5987.503253248732
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0056595769290360715,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S120",
+        "name": "S120",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.2,
+        "capY": 1.2,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          14893.085303078817,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          14893.085303078817,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          18902.76211544619,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          5979.544368961338,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5979.544368961338,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7773.407679649739
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.005187945518283067,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S130",
+        "name": "S130",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.3,
+        "capY": 1.3,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          16134.175745002054,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          16134.175745002054,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          20477.992291733375,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          7602.464686694479,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          7602.464686694479,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9883.204092702823
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.004788872786107445,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S140",
+        "name": "S140",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.4,
+        "capY": 1.4,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          17375.266186925284,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          17375.266186925284,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          22053.222468020555,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          9495.29499330435,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          9495.29499330435,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          12343.883491295654
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.004446810444242628,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S150",
+        "name": "S150",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.5,
+        "capY": 1.5,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          18616.356628848524,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          18616.356628848524,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          23628.45264430774,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          11678.797595627613,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          11678.797595627613,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          15182.4368743159
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.004150356414626452,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S160",
+        "name": "S160",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.6,
+        "capY": 1.6,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          19857.44707077176,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          19857.44707077176,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          25203.682820594924,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          14173.734800500955,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          14173.734800500955,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          18425.855240651243
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.003890959138712299,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S170",
+        "name": "S170",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.7,
+        "capY": 1.7,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          21098.53751269499,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          21098.53751269499,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          26778.912996882103,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          17000.868914761028,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          17000.868914761028,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          22101.12958918934
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.003662079189376282,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S180",
+        "name": "S180",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1.8,
+        "capY": 1.8,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          22339.627954618227,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          22339.627954618227,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          28354.143173169286,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          20180.962245244526,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          20180.962245244526,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          26235.250918817885
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.003458630345522044,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.2499768475,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          12410.880962622996,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          12410.880962622996,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          15752.271991021493,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          3460.377932651898,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          3460.377932651898,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4498.491312447468
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.006225546388222353,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 2,
+        "capY": 4,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 3,
+        "hy": 2,
+        "mx": 4,
+        "my": 5,
+        "mz": 1,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          35103.33870198914,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          35103.33870198914,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          44554.2375832939,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          131683.6427415422,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          46557.1983769456,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120333.12551840342
+        ]
+      ],
+      "displacement": [
+        0.00008546195635317174,
+        0.000056974637568781157,
+        -0.0022010588738425882,
+        0.000030375830412368456,
+        0.00010739477834379146,
+        0.000008310263659253682
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 4,
+        "capY": 2,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 3,
+        "hy": 2,
+        "mx": 4,
+        "my": 5,
+        "mz": 1,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          35103.33870198914,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          35103.33870198914,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          44554.2375832939,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          46557.1983769456,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          131683.6427415422,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          120333.12551840342
+        ]
+      ],
+      "displacement": [
+        0.00008546195635317174,
+        0.000056974637568781157,
+        -0.0022010588738425882,
+        0.00008591582267503316,
+        0.00003796978801546057,
+        0.000008310263659253682
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "equivalent"
+      },
+      "layers": [
+        {
+          "id": "superior",
+          "name": "Silte · NSPT 7",
+          "bottom": 1,
+          "soil": "silt",
+          "e": 5,
+          "schmertmannK": 0.35,
+          "nu": 0.2,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        },
+        {
+          "id": "inferior",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 20,
+          "schmertmannK": 0.35,
+          "nu": 0.4,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          8169.260938248054,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          8169.260938248054,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          9919.816853586923,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2179.1342452483013,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2179.1342452483013,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3050.7879433476214
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.009885918404283841,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 1,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "superior",
+          "name": "Silte · NSPT 7",
+          "bottom": 1,
+          "soil": "silt",
+          "e": 5,
+          "schmertmannK": 0.35,
+          "nu": 0.2,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        },
+        {
+          "id": "inferior",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 20,
+          "schmertmannK": 0.35,
+          "nu": 0.4,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          20149.627983848437,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          20149.627983848437,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          26866.170645131253,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          5901.82191421415,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          5901.82191421415,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7082.186297056979
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0036501852569663412,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "mindlin",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 5
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          3769.8210468215466,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3769.8210468215466,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12566.070156071823,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1047.1725130059851,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1047.1725130059851,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          628.3035078035911
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.007804070706434426,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "silt",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 4
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          9928.723535385878,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          9928.723535385878,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          12601.841410297458,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          2768.3075782228407,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          2768.3075782228407,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          3598.7998516896932
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0077819182774246,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "S100",
+        "name": "S100",
+        "kind": "footing",
+        "count": 2,
+        "diameter": 0.4,
+        "length": 8,
+        "spacingX": 1.2,
+        "spacingY": 1.2,
+        "capX": 1,
+        "capY": 1,
+        "height": 0.4,
+        "depth": 0,
+        "fck": 25,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 1.75,
+        "f2": 3.5,
+        "n": 98.06649999999999,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 24,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "winkler",
+        "headConnection": "fixed",
+        "footingMethod": "halfspace",
+        "modulusSource": "teixeira",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 16,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "footingSoil": "support"
+      },
+      "layers": [
+        {
+          "id": "silte",
+          "name": "Silte · NSPT 7",
+          "bottom": 50,
+          "soil": "fill",
+          "e": 12.25,
+          "schmertmannK": 0.35,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.02,
+          "k": 800,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "teixeiraAlpha": 6
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 7
+        },
+        {
+          "depth": 2,
+          "n": 7
+        },
+        {
+          "depth": 3,
+          "n": 7
+        },
+        {
+          "depth": 4,
+          "n": 7
+        },
+        {
+          "depth": 5,
+          "n": 7
+        },
+        {
+          "depth": 6,
+          "n": 7
+        },
+        {
+          "depth": 7,
+          "n": 7
+        },
+        {
+          "depth": 8,
+          "n": 7
+        },
+        {
+          "depth": 9,
+          "n": 7
+        },
+        {
+          "depth": 10,
+          "n": 7
+        },
+        {
+          "depth": 11,
+          "n": 7
+        },
+        {
+          "depth": 12,
+          "n": 7
+        },
+        {
+          "depth": 13,
+          "n": 7
+        },
+        {
+          "depth": 14,
+          "n": 7
+        },
+        {
+          "depth": 15,
+          "n": 7
+        },
+        {
+          "depth": 16,
+          "n": 7
+        },
+        {
+          "depth": 17,
+          "n": 7
+        },
+        {
+          "depth": 18,
+          "n": 7
+        },
+        {
+          "depth": 19,
+          "n": 7
+        },
+        {
+          "depth": 20,
+          "n": 7
+        },
+        {
+          "depth": 21,
+          "n": 7
+        },
+        {
+          "depth": 22,
+          "n": 7
+        },
+        {
+          "depth": 23,
+          "n": 7
+        },
+        {
+          "depth": 24,
+          "n": 7
+        },
+        {
+          "depth": 25,
+          "n": 7
+        },
+        {
+          "depth": 26,
+          "n": 7
+        },
+        {
+          "depth": 27,
+          "n": 7
+        },
+        {
+          "depth": 28,
+          "n": 7
+        },
+        {
+          "depth": 29,
+          "n": 7
+        },
+        {
+          "depth": 30,
+          "n": 7
+        },
+        {
+          "depth": 31,
+          "n": 7
+        },
+        {
+          "depth": 32,
+          "n": 7
+        },
+        {
+          "depth": 33,
+          "n": 7
+        },
+        {
+          "depth": 34,
+          "n": 7
+        },
+        {
+          "depth": 35,
+          "n": 7
+        },
+        {
+          "depth": 36,
+          "n": 7
+        },
+        {
+          "depth": 37,
+          "n": 7
+        },
+        {
+          "depth": 38,
+          "n": 7
+        },
+        {
+          "depth": 39,
+          "n": 7
+        },
+        {
+          "depth": 40,
+          "n": 7
+        },
+        {
+          "depth": 41,
+          "n": 7
+        },
+        {
+          "depth": 42,
+          "n": 7
+        },
+        {
+          "depth": 43,
+          "n": 7
+        },
+        {
+          "depth": 44,
+          "n": 7
+        },
+        {
+          "depth": 45,
+          "n": 7
+        },
+        {
+          "depth": 46,
+          "n": 7
+        },
+        {
+          "depth": 47,
+          "n": 7
+        },
+        {
+          "depth": 48,
+          "n": 7
+        },
+        {
+          "depth": 49,
+          "n": 7
+        },
+        {
+          "depth": 50,
+          "n": 7
+        }
+      ],
+      "bedrock": 50,
+      "water": 50
+    },
+    "expected": {
+      "matrix": [
+        [
+          14893.085303078817,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          14893.085303078817,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          18902.76211544619,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          4152.461367334262,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          4152.461367334262,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5398.199777534541
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.005187945518283067,
+        0,
+        0,
+        0
+      ]
+    }
   }
 ]

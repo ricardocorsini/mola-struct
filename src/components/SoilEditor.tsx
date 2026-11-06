@@ -358,6 +358,7 @@ export default function SoilEditor({
                       <th>E (MPa)</th>
                       <th>ν</th>
                       <th>K_E (MPa)</th>
+                      <th>αTG</th>
                     </>
                   )}
                   <th />
@@ -429,6 +430,20 @@ export default function SoilEditor({
                         />
                       </td>
                     ))}
+                    {!advanced && (
+                      <td>
+                        <Cell
+                          label={`αTG camada ${i + 1}`}
+                          value={
+                            l.teixeiraAlpha ??
+                            { sand: 3, silt: 5, clay: 7, fill: 0 }[l.soil]
+                          }
+                          onChange={(teixeiraAlpha) =>
+                            setLayer(i, { teixeiraAlpha })
+                          }
+                        />
+                      </td>
+                    )}
                     <td>
                       <button
                         title={`Remover camada ${i + 1}`}
