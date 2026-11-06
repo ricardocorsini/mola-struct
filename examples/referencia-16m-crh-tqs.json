@@ -1,0 +1,2867 @@
+{
+  "sourceEngineVersion": "0.5.0-experimental",
+  "inputProject": {
+    "format": "molasstruct",
+    "version": 1,
+    "name": "Referência 16 m · comparação com print",
+    "author": "",
+    "notes": "Caso externo de referência, com hipóteses não confirmadas. NSPT(11)=17 foi informado pelo usuário e incluído. D=0 e L=16 m representam a ponta a 16 m. K do print foi convertido de tf/m² por golpe para kPa/golpe; 1 tf = 9,80665 kN. Esta interpretação reproduz as três resistências publicadas. E=140/88/370 foi interpretado como MPa e ν=0,35. A unidade de E não aparece no print; esta convenção precisa ser confirmada. O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck. O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico. kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print. O caso-base mantém a ligação rígida à flexão das versões anteriores. Em Métodos, selecione Rotulada em X e Y para ensaiar o binário axial sem momentos de topo, conforme o esquema fornecido pelo usuário. A escolha não calibra o solo nem comprova todas as hipóteses do programa externo. Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional.",
+    "water": 1,
+    "bedrock": 100,
+    "borehole": "SP-Ref16",
+    "spt": [
+      {
+        "depth": 1,
+        "n": 6
+      },
+      {
+        "depth": 2,
+        "n": 3
+      },
+      {
+        "depth": 3,
+        "n": 4
+      },
+      {
+        "depth": 4,
+        "n": 5
+      },
+      {
+        "depth": 5,
+        "n": 6
+      },
+      {
+        "depth": 6,
+        "n": 6
+      },
+      {
+        "depth": 7,
+        "n": 8
+      },
+      {
+        "depth": 8,
+        "n": 9
+      },
+      {
+        "depth": 9,
+        "n": 12
+      },
+      {
+        "depth": 10,
+        "n": 14
+      },
+      {
+        "depth": 11,
+        "n": 17
+      },
+      {
+        "depth": 12,
+        "n": 15
+      },
+      {
+        "depth": 13,
+        "n": 12
+      },
+      {
+        "depth": 14,
+        "n": 12
+      },
+      {
+        "depth": 15,
+        "n": 22
+      },
+      {
+        "depth": 16,
+        "n": 35
+      },
+      {
+        "depth": 17,
+        "n": 35
+      },
+      {
+        "depth": 18,
+        "n": 36
+      },
+      {
+        "depth": 19,
+        "n": 38
+      },
+      {
+        "depth": 20,
+        "n": 40
+      }
+    ],
+    "layers": [
+      {
+        "id": "R1",
+        "name": "Areia · print",
+        "bottom": 3,
+        "soil": "sand",
+        "e": 140,
+        "schmertmannK": 0.7,
+        "nu": 0.35,
+        "gamma": 18,
+        "gammaSat": 20,
+        "phi": 30,
+        "cohesion": 0,
+        "alpha": 0.024,
+        "k": 686.4654999999999,
+        "kh": 18000,
+        "shaftK": 16000,
+        "baseK": 100000,
+        "color": "#D1B994"
+      },
+      {
+        "id": "R2",
+        "name": "Argila 3–11 m · print",
+        "bottom": 11,
+        "soil": "clay",
+        "e": 88,
+        "schmertmannK": 0.9,
+        "nu": 0.35,
+        "gamma": 19,
+        "gammaSat": 21,
+        "phi": 35,
+        "cohesion": 0,
+        "alpha": 0.04,
+        "k": 215.7463,
+        "kh": 40000,
+        "shaftK": 30000,
+        "baseK": 180000,
+        "color": "#b7a38f"
+      },
+      {
+        "id": "R3",
+        "name": "Argila 11–20 m · print",
+        "bottom": 20,
+        "soil": "clay",
+        "e": 370,
+        "schmertmannK": 0.45,
+        "nu": 0.35,
+        "gamma": 19,
+        "gammaSat": 21,
+        "phi": 32,
+        "cohesion": 10,
+        "alpha": 0.03,
+        "k": 323.61945,
+        "kh": 55000,
+        "shaftK": 40000,
+        "baseK": 220000,
+        "color": "#8d9c9a"
+      },
+      {
+        "id": "R4",
+        "name": "Continuação 20–100 m · HIPÓTESE",
+        "bottom": 100,
+        "soil": "clay",
+        "e": 370,
+        "schmertmannK": 0.45,
+        "nu": 0.35,
+        "gamma": 19,
+        "gammaSat": 21,
+        "phi": 32,
+        "cohesion": 10,
+        "alpha": 0.03,
+        "k": 323.61945,
+        "kh": 55000,
+        "shaftK": 40000,
+        "baseK": 220000,
+        "color": "#b8c3c2"
+      }
+    ],
+    "foundations": [
+      {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "fixed",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        }
+      }
+    ],
+    "benchmark": {
+      "id": "pile-16m-20261106",
+      "foundationId": "B16"
+    }
+  },
+  "description": "Estudo controlado de CRH: compara hipóteses, não valida parâmetros nem reproduz o algoritmo do TQS ou da calculadora do print. O app não é alterado pelo estudo.",
+  "sources": [
+    {
+      "url": "https://docs.tqs.com.br/Docs/Details?id=3829&language=pt-br",
+      "providedPdf": "3829.pdf",
+      "pages": 4
+    },
+    {
+      "url": "https://docs.tqs.com.br/Docs/Details?id=3836&language=pt-br"
+    }
+  ],
+  "units": {
+    "diagonal": [
+      "tf/m",
+      "tf/m",
+      "tf/m",
+      "tf·m/rad",
+      "tf·m/rad",
+      "tf·m/rad"
+    ],
+    "kh": "kN/m³",
+    "lineReaction": "kN/m²",
+    "m": "tf/m⁴",
+    "settlement": "mm"
+  },
+  "assumptions": [
+    "Mesmo caso de 16 m, Ø0,30 m, Ec=30 GPa, E/ν, RL/RP, interação e transferência vertical; só a lei de reação horizontal é substituída.",
+    "SPT/m: tabelas idênticas nas páginas 3829/3836; interpolação linear ou degrau inferior/superior são hipóteses separadas, pois não se conhece a regra da calculadora do print.",
+    "A referência da origem do método SPT/m são tubulões com cerca de 1 m ou mais. TQS 3836 o apresenta para estacas, mas ressalva a comprovação para solos brasileiros e simplificações. Ø0,30 m é extrapolação de domínio, sem validação por esse ensaio.",
+    "No caso estudado D=0. A profundidade z é contada do terreno; a generalização para bloco enterrado requer escolher a referência e considerar o trecho de solo atuante.",
+    "Por tipo de solo: camada de areia pode ser fofa/mediana/compacta; as argilas foram ensaiadas como pré-adensadas com todas as consistências. Essas condições não constam no print e não são inferidas somente do SPT.",
+    "Molas nodais: k_i=m z_i d Δl, pesos Δl inteiros na ponta, sem mola no nó de cota zero; viga entre os nós. Isso é uma hipótese de discretização, não uma confirmação do esquema interno do TQS.",
+    "3829 e 3836 contêm diferenças de tabela, arredondamento e unidades; um preset genérico 'TQS' não identifica todas as convenções. Não houve ajuste de Ec, solo ou coeficientes para alcançar o alvo."
+  ],
+  "tables3829": {
+    "clayK": [
+      {
+        "id": "medium",
+        "name": "Média",
+        "k": 8
+      },
+      {
+        "id": "stiff",
+        "name": "Rija",
+        "k": 50
+      },
+      {
+        "id": "very-stiff",
+        "name": "Muito rija",
+        "k": 100
+      },
+      {
+        "id": "hard",
+        "name": "Dura",
+        "k": 195
+      }
+    ],
+    "nh": [
+      {
+        "id": "loose-sand",
+        "name": "Areia fofa",
+        "dry": 0.26,
+        "wet": 0.15
+      },
+      {
+        "id": "medium-sand",
+        "name": "Areia medianamente compacta",
+        "dry": 0.8,
+        "wet": 0.5
+      },
+      {
+        "id": "dense-sand",
+        "name": "Areia compacta",
+        "dry": 2,
+        "wet": 1.25
+      },
+      {
+        "id": "very-soft-clay",
+        "name": "Argila muito mole",
+        "dry": 0.06,
+        "wet": 0.06
+      },
+      {
+        "id": "soft-clay",
+        "name": "Argila mole",
+        "dry": 0.08,
+        "wet": 0.08
+      },
+      {
+        "id": "very-loose-silt",
+        "name": "Silte muito mole fofo",
+        "dry": 0.055,
+        "wet": 0.055
+      }
+    ],
+    "m": {
+      "clay": [
+        [
+          0,
+          25
+        ],
+        [
+          1,
+          75
+        ],
+        [
+          3,
+          150
+        ],
+        [
+          6,
+          300
+        ],
+        [
+          12,
+          500
+        ],
+        [
+          22,
+          700
+        ],
+        [
+          30,
+          900
+        ]
+      ],
+      "granular": [
+        [
+          1,
+          150
+        ],
+        [
+          7,
+          300
+        ],
+        [
+          20,
+          500
+        ],
+        [
+          40,
+          800
+        ],
+        [
+          50,
+          1500
+        ]
+      ]
+    }
+  },
+  "reference": {
+    "kx": 168.92,
+    "ky": 168.92,
+    "kz": 21538.54,
+    "ry": 4361.75
+  },
+  "baseline": {
+    "fixed": {
+      "diagonal": [
+        1908.9419344000837,
+        1908.9419344000837,
+        22736.927249209144,
+        2871.805097083249,
+        7809.541971805786,
+        801.8505364278859
+      ],
+      "freeDofs": [],
+      "settlement": 1.7592526712857082,
+      "capacities": [
+        43.50477506691145,
+        40.82106954258238,
+        84.32584460949384
+      ]
+    },
+    "pinned": {
+      "diagonal": [
+        956.0341056675069,
+        956.0341056675069,
+        22736.927249209144,
+        0,
+        4937.736874722538,
+        608.8867011095391
+      ],
+      "freeDofs": [
+        3
+      ],
+      "settlement": 1.7592526712857082,
+      "capacities": [
+        43.50477506691145,
+        40.82106954258238,
+        84.32584460949384
+      ]
+    }
+  },
+  "spt": [
+    {
+      "policy": "lower",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            370.2648281946989,
+            370.2648281946989,
+            22736.927249209144,
+            1931.3236018705907,
+            6869.0604765931275,
+            490.26842242129544
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            140.08117709987837,
+            140.08117709987837,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            443.6562330745943
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "policy": "linear",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            469.3489933276042,
+            469.3489933276042,
+            22736.927249209144,
+            2060.4706397050713,
+            6998.207514427609,
+            510.3329658607088
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            182.10293184055845,
+            182.10293184055845,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            452.165638409582
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "policy": "upper",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            551.3205246686882,
+            551.3205246686882,
+            22736.927249209144,
+            2166.6030166273295,
+            7104.339891349868,
+            526.9322009572783
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            211.33916444383354,
+            211.33916444383354,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            458.0859755117452
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    }
+  ],
+  "nodal": [
+    {
+      "segments": 16,
+      "interval": 1,
+      "policy": "lower",
+      "khFixed": 357.50089626781835,
+      "khPinned": 131.94589392101915
+    },
+    {
+      "segments": 16,
+      "interval": 1,
+      "policy": "linear",
+      "khFixed": 464.72791000822207,
+      "khPinned": 174.96424197214586
+    },
+    {
+      "segments": 16,
+      "interval": 1,
+      "policy": "upper",
+      "khFixed": 534.6088581592239,
+      "khPinned": 195.41668971473416
+    },
+    {
+      "segments": 32,
+      "interval": 0.5,
+      "policy": "lower",
+      "khFixed": 365.3030881707477,
+      "khPinned": 137.56474715179618
+    },
+    {
+      "segments": 32,
+      "interval": 0.5,
+      "policy": "linear",
+      "khFixed": 469.6876695967468,
+      "khPinned": 181.44224642439377
+    },
+    {
+      "segments": 32,
+      "interval": 0.5,
+      "policy": "upper",
+      "khFixed": 546.526237971935,
+      "khPinned": 206.5582140321677
+    },
+    {
+      "segments": 64,
+      "interval": 0.25,
+      "policy": "lower",
+      "khFixed": 367.94089027695463,
+      "khPinned": 139.04127448434582
+    },
+    {
+      "segments": 64,
+      "interval": 0.25,
+      "policy": "linear",
+      "khFixed": 469.8695188448565,
+      "khPinned": 182.21966487455308
+    },
+    {
+      "segments": 64,
+      "interval": 0.25,
+      "policy": "upper",
+      "khFixed": 549.4102013529216,
+      "khPinned": 209.4107897993948
+    },
+    {
+      "segments": 128,
+      "interval": 0.125,
+      "policy": "lower",
+      "khFixed": 368.95981598722506,
+      "khPinned": 139.44009301417003
+    },
+    {
+      "segments": 128,
+      "interval": 0.125,
+      "policy": "linear",
+      "khFixed": 469.42389307730485,
+      "khPinned": 181.98330656087472
+    },
+    {
+      "segments": 128,
+      "interval": 0.125,
+      "policy": "upper",
+      "khFixed": 550.1319916293187,
+      "khPinned": 210.14002495950817
+    }
+  ],
+  "convergence": [
+    {
+      "segments": 16,
+      "diagonal": [
+        193.67972419002743,
+        193.67972419002743,
+        22792.336665687777,
+        0,
+        4951.327897202581,
+        455.15864760089653
+      ],
+      "freeDofs": [
+        3
+      ],
+      "settlement": 1.7549758318644495,
+      "capacities": [
+        43.50477506691145,
+        40.82106954258238,
+        84.32584460949384
+      ]
+    },
+    {
+      "segments": 32,
+      "diagonal": [
+        184.42401880526361,
+        184.42401880526361,
+        22744.57577595387,
+        0,
+        4939.585375123923,
+        452.76560939853164
+      ],
+      "freeDofs": [
+        3
+      ],
+      "settlement": 1.7586610712822788,
+      "capacities": [
+        43.50477506691146,
+        40.82106954258238,
+        84.32584460949384
+      ]
+    },
+    {
+      "segments": 64,
+      "diagonal": [
+        182.10293184055845,
+        182.10293184055845,
+        22736.927249209144,
+        0,
+        4937.736874722538,
+        452.165638409582
+      ],
+      "freeDofs": [
+        3
+      ],
+      "settlement": 1.7592526712857082,
+      "capacities": [
+        43.50477506691145,
+        40.82106954258238,
+        84.32584460949383
+      ]
+    }
+  ],
+  "byType": [
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Média",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            811.244718990822,
+            811.244718990822,
+            22736.927249209144,
+            2268.502332540809,
+            7206.239207263345,
+            579.5668503075103
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            330.7932040101466,
+            330.7932040101466,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            482.27541852392363
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Média",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            811.3912319032835,
+            811.3912319032835,
+            22736.927249209144,
+            2268.8676054292623,
+            7206.604480151796,
+            579.5965191722838
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            330.83637077921867,
+            330.83637077921867,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            482.28415979466075
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Média",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            811.4552336731473,
+            811.4552336731473,
+            22736.927249209144,
+            2268.9710586159854,
+            7206.70793333852,
+            579.6094795306813
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            330.85458595593497,
+            330.85458595593497,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            482.2878483679458
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Média",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            811.521317773464,
+            811.521317773464,
+            22736.927249209144,
+            2269.0517971609693,
+            7206.788671883504,
+            579.6228615609954
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            330.8759544814863,
+            330.8759544814863,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            482.2921754943699
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Rija",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            838.5465610219392,
+            838.5465610219392,
+            22736.927249209144,
+            2415.9589993440823,
+            7353.695874066618,
+            585.0954733188116
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            342.7187149618438,
+            342.7187149618438,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            484.69033449164226
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Rija",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            838.5580002760303,
+            838.5580002760303,
+            22736.927249209144,
+            2415.9676652478024,
+            7353.704539970339,
+            585.0977897677651
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            342.7241029058726,
+            342.7241029058726,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            484.69142555030817
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Rija",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            838.5611890082988,
+            838.5611890082988,
+            22736.927249209144,
+            2415.9695253578857,
+            7353.706400080421,
+            585.0984354860494
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            342.7261413128931,
+            342.7261413128931,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            484.6918383277298
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Rija",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            838.5634530643887,
+            838.5634530643887,
+            22736.927249209144,
+            2415.9709937953508,
+            7353.707868517885,
+            585.0988939574077
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            342.7279239603804,
+            342.7279239603804,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            484.6921993138459
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            857.5724826532054,
+            857.5724826532054,
+            22736.927249209144,
+            2487.794824992274,
+            7425.531699714809,
+            588.948222449143
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            345.7126963582668,
+            345.7126963582668,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.2966157244179
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            857.5749556642679,
+            857.5749556642679,
+            22736.927249209144,
+            2487.8000081762075,
+            7425.536882898742,
+            588.9487232338832
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            345.7130701100346,
+            345.7130701100346,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.2966914091509
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            857.5760860006039,
+            857.5760860006039,
+            22736.927249209144,
+            2487.8018966100385,
+            7425.538771332574,
+            588.9489521269912
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            345.7132932562209,
+            345.7132932562209,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.29673659625365
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            857.5771872391983,
+            857.5771872391983,
+            22736.927249209144,
+            2487.803483289924,
+            7425.5403580124585,
+            588.9491751278066
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            345.71355190736074,
+            345.71355190736074,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.29678897310947
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Dura",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            881.2277308511675,
+            881.2277308511675,
+            22736.927249209144,
+            2561.721092408384,
+            7499.457967130921,
+            593.7384102092304
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            348.6385685420211,
+            348.6385685420211,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.8891048416282
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Dura",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            881.2278039590572,
+            881.2278039590572,
+            22736.927249209144,
+            2561.721309186336,
+            7499.458183908871,
+            593.7384250135781
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            348.63861101313785,
+            348.63861101313785,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.8891134420293
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Dura",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            881.227844124674,
+            881.227844124674,
+            22736.927249209144,
+            2561.7214549666332,
+            7499.458329689169,
+            593.7384331471154
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            348.63862147149086,
+            348.63862147149086,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.88911555984583
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia fofa",
+      "clay3to11": "Dura",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            881.2279006468764,
+            881.2279006468764,
+            22736.927249209144,
+            2561.7216369818343,
+            7499.45851170437,
+            593.7384445928614
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            348.6386304587353,
+            348.6386304587353,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            485.88911737976287
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1733.0705232889768,
+            1733.0705232889768,
+            22736.927249209144,
+            3052.0957271559873,
+            7989.832601878524,
+            766.2365756778867
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            680.2735460019978,
+            680.2735460019978,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            553.0451877772736
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1733.158862150296,
+            1733.158862150296,
+            22736.927249209144,
+            3052.1872110650493,
+            7989.924085787584,
+            766.2544642973038
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            680.3181585395587,
+            680.3181585395587,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            553.0542218161296
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1733.1973062604873,
+            1733.1973062604873,
+            22736.927249209144,
+            3052.226185901116,
+            7989.963060623652,
+            766.2622492296176
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            680.329754437588,
+            680.329754437588,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            553.0565699854805
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1733.242332018164,
+            1733.242332018164,
+            22736.927249209144,
+            3052.265749440565,
+            7990.0026241631,
+            766.2713669455471
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            680.3419997495947,
+            680.3419997495947,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            553.0590496611618
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1757.1764708233347,
+            1757.1764708233347,
+            22736.927249209144,
+            3071.6701808100497,
+            8009.407055532586,
+            771.1180300535942
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            707.7572970563676,
+            707.7572970563676,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            558.6106473657834
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1757.1877641646574,
+            1757.1877641646574,
+            22736.927249209144,
+            3071.676726267415,
+            8009.41360098995,
+            771.1203169552119
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            707.7614149013411,
+            707.7614149013411,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            558.6114812293905
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1757.19207862152,
+            1757.19207862152,
+            22736.927249209144,
+            3071.6784439627772,
+            8009.415318685313,
+            771.1211906327267
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            707.7633895929637,
+            707.7633895929637,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            558.611881104444
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1757.1958762100264,
+            1757.1958762100264,
+            22736.927249209144,
+            3071.6796178464774,
+            8009.416492569013,
+            771.1219596443992
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            707.7654017461247,
+            707.7654017461247,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            558.6122885654593
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1763.5506175379332,
+            1763.5506175379332,
+            22736.927249209144,
+            3086.570149269304,
+            8024.30702399184,
+            772.4087947633005
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            715.4461672546663,
+            715.4461672546663,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            560.1676435809388
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1763.551361067908,
+            1763.551361067908,
+            22736.927249209144,
+            3086.571919834136,
+            8024.30879455667,
+            772.4089453281204
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            715.4463205928224,
+            715.4463205928224,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            560.1676746319155
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1763.5518106435945,
+            1763.5518106435945,
+            22736.927249209144,
+            3086.5726886389957,
+            8024.309563361531,
+            772.4090363671968
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            715.4463869490057,
+            715.4463869490057,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            560.1676880690426
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1763.5523368233335,
+            1763.5523368233335,
+            22736.927249209144,
+            3086.5734135642992,
+            8024.3102882868325,
+            772.409142918594
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            715.4464750121194,
+            715.4464750121194,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            560.1677059018231
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1769.580120477107,
+            1769.580120477107,
+            22736.927249209144,
+            3105.9813122381843,
+            8043.718186960718,
+            773.6297691084832
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            721.0616142602639,
+            721.0616142602639,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            561.3047715995724
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1769.5802125856594,
+            1769.5802125856594,
+            22736.927249209144,
+            3105.9813655665926,
+            8043.7182402891285,
+            773.629787760465
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            721.0616946639599,
+            721.0616946639599,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            561.3047878813209
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1769.5802351501063,
+            1769.5802351501063,
+            22736.927249209144,
+            3105.9814004206596,
+            8043.718275143193,
+            773.6297923297655
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            721.0617198619938,
+            721.0617198619938,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            561.3047929839228
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia medianamente compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            1769.580254082528,
+            1769.580254082528,
+            22736.927249209144,
+            3105.9814488751936,
+            8043.718323597728,
+            773.6297961635809
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            721.0617389952382,
+            721.0617389952382,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            561.3047968584046
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3107.947554991156,
+            3107.947554991156,
+            22736.927249209144,
+            3740.8907187164973,
+            8678.627593439034,
+            1044.649174597578
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1248.548143619767,
+            1248.548143619767,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            668.1207937948718
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3108.025231086578,
+            3108.025231086578,
+            22736.927249209144,
+            3740.934149129319,
+            8678.671023851854,
+            1044.664904006901
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1248.575646650196,
+            1248.575646650196,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            668.1263631585336
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3108.050014921918,
+            3108.050014921918,
+            22736.927249209144,
+            3740.953641416393,
+            8678.69051613893,
+            1044.6699227335575
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1248.58123396712,
+            1248.58123396712,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            668.1274945902107
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Média",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3108.0781073799353,
+            3108.0781073799353,
+            22736.927249209144,
+            3740.976379310041,
+            8678.713254032577,
+            1044.675611456306
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1248.5862180236443,
+            1248.5862180236443,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            668.128503861657
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3151.8913175538323,
+            3151.8913175538323,
+            22736.927249209144,
+            3751.8605655487327,
+            8689.597440271269,
+            1053.5477865165203
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1270.4868638083196,
+            1270.4868638083196,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            672.5633846330536
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3151.9005837612985,
+            3151.9005837612985,
+            22736.927249209144,
+            3751.8662377947153,
+            8689.603112517252,
+            1053.549662923532
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1270.4889354426068,
+            1270.4889354426068,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            672.5638041389968
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3151.904825512468,
+            3151.904825512468,
+            22736.927249209144,
+            3751.8683814631413,
+            8689.605256185678,
+            1053.5505218781436
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1270.4900503522467,
+            1270.4900503522467,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            672.5640299081989
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Rija",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3151.909021490362,
+            3151.909021490362,
+            22736.927249209144,
+            3751.8702548407505,
+            8689.607129563285,
+            1053.5513715636673
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1270.491277134444,
+            1270.491277134444,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            672.5642783315939
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3165.2461299343195,
+            3165.2461299343195,
+            22736.927249209144,
+            3755.0296752182917,
+            8692.766549940827,
+            1056.2521360235685
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1279.1748613454988,
+            1279.1748613454988,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            674.3227041343325
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3165.2464513602313,
+            3165.2464513602313,
+            22736.927249209144,
+            3755.030066874277,
+            8692.766941596812,
+            1056.252201112316
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1279.1750679771346,
+            1279.1750679771346,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            674.3227459772387
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3165.2466213002263,
+            3165.2466213002263,
+            22736.927249209144,
+            3755.0303014429046,
+            8692.767176165442,
+            1056.252235525165
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1279.1751167845152,
+            1279.1751167845152,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            674.3227558607333
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Muito rija",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3165.246851117104,
+            3165.246851117104,
+            22736.927249209144,
+            3755.0305739743562,
+            8692.767448696892,
+            1056.2522820630827
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1279.1751598373282,
+            1279.1751598373282,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            674.322764578928
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Média",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3175.5595868291443,
+            3175.5595868291443,
+            22736.927249209144,
+            3758.1399362407883,
+            8695.876810963324,
+            1058.3406110447706
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1287.1588040138972,
+            1287.1588040138972,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            675.9394525246831
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3175.5597551915525,
+            3175.5597551915525,
+            22736.927249209144,
+            3758.13998127311,
+            8695.876855995644,
+            1058.3406451381584
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1287.1588832415528,
+            1287.1588832415528,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            675.9394685682834
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Muito rija",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3175.559805627403,
+            3175.559805627403,
+            22736.927249209144,
+            3758.1399923774397,
+            8695.876867099974,
+            1058.340655351418
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1287.15891360487,
+            1287.15891360487,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            675.9394747168551
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    },
+    {
+      "sand": "Areia compacta",
+      "clay3to11": "Dura",
+      "clay11to20": "Dura",
+      "result": {
+        "fixed": {
+          "diagonal": [
+            3175.5598429556285,
+            3175.5598429556285,
+            22736.927249209144,
+            3758.1400019713337,
+            8695.876876693868,
+            1058.3406629103836
+          ],
+          "freeDofs": [],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        },
+        "pinned": {
+          "diagonal": [
+            1287.1589398609513,
+            1287.1589398609513,
+            22736.927249209144,
+            0,
+            4937.736874722538,
+            675.9394800337116
+          ],
+          "freeDofs": [
+            3
+          ],
+          "settlement": 1.7592526712857082,
+          "capacities": [
+            43.50477506691145,
+            40.82106954258238,
+            84.32584460949383
+          ]
+        }
+      }
+    }
+  ],
+  "samples": [
+    {
+      "depth": 0.5,
+      "n": 6,
+      "soil": "sand",
+      "m": 275,
+      "currentKh": 18000,
+      "tietzKh": 1348.4143749999998,
+      "currentLine": 5400,
+      "tietzLine": 404.52431249999995
+    },
+    {
+      "depth": 1,
+      "n": 6,
+      "soil": "sand",
+      "m": 275,
+      "currentKh": 18000,
+      "tietzKh": 2696.8287499999997,
+      "currentLine": 5400,
+      "tietzLine": 809.0486249999999
+    },
+    {
+      "depth": 2,
+      "n": 3,
+      "soil": "sand",
+      "m": 200,
+      "currentKh": 18000,
+      "tietzKh": 3922.66,
+      "currentLine": 5400,
+      "tietzLine": 1176.798
+    },
+    {
+      "depth": 3,
+      "n": 4,
+      "soil": "sand",
+      "m": 225,
+      "currentKh": 18000,
+      "tietzKh": 6619.488749999999,
+      "currentLine": 5400,
+      "tietzLine": 1985.8466249999994
+    },
+    {
+      "depth": 4,
+      "n": 5,
+      "soil": "clay",
+      "m": 250,
+      "currentKh": 40000,
+      "tietzKh": 9806.65,
+      "currentLine": 12000,
+      "tietzLine": 2941.995
+    },
+    {
+      "depth": 8,
+      "n": 9,
+      "soil": "clay",
+      "m": 400,
+      "currentKh": 40000,
+      "tietzKh": 31381.28,
+      "currentLine": 12000,
+      "tietzLine": 9414.384
+    },
+    {
+      "depth": 12,
+      "n": 15,
+      "soil": "clay",
+      "m": 560,
+      "currentKh": 55000,
+      "tietzKh": 65900.688,
+      "currentLine": 16500,
+      "tietzLine": 19770.2064
+    },
+    {
+      "depth": 16,
+      "n": 35,
+      "soil": "clay",
+      "m": 900,
+      "currentKh": 55000,
+      "tietzKh": 141215.75999999998,
+      "currentLine": 16500,
+      "tietzLine": 42364.727999999996
+    }
+  ],
+  "comparison": {
+    "linearConsistentKx": 182.10293184055845,
+    "linearConsistentDifferencePercent": 7.804245702438117,
+    "linearNodal1mKx": 174.96424197214586,
+    "linearNodal1mDifferencePercent": 3.578168347232924,
+    "unchangedKz": 22736.927249209144,
+    "unchangedRy": 4937.736874722538
+  }
+}

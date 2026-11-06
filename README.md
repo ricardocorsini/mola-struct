@@ -37,6 +37,7 @@ Os exemplos de demonstração são fictícios; o caso externo de 16 m é identif
 
 - **Fundações:** sapatas e blocos sobre 1 a 4 estacas; dimensões, espaçamentos, cotas, concreto e ações editáveis.
 - **Ligação estaca–bloco:** rígida à flexão ou rotulada em X/Y; condensação lateral, momentos de topo e identificação de rotações livres. [Hipóteses e ensaio do binário](docs/LIGACAO-ESTACA-BLOCO.md).
+- **Estudo de coeficientes:** comparação reproduzível do kh manual com K/nh e SPT/m das referências TQS, incluindo unidades e hipóteses de discretização. [Investigação de CRH](docs/COEFICIENTES-TQS.md).
 - **Investigação:** SPT, camadas, importação CSV/TSV, colagem de planilhas e nível d'água.
 - **Visualização:** modelo 3D com órbita, zoom, pan e vistas predefinidas; solo em corte, água, cotas e molas esquemáticas; planta e corte vetoriais.
 - **Análise:** seis coeficientes, matriz **6 × 6** com acoplamentos, deslocamentos, rotações, capacidade estimada, comparação e sensibilidade.

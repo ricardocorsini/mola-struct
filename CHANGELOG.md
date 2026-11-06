@@ -2,6 +2,12 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## Investigação de CRH — 2026-11-06
+
+- Estudo do documento TQS 3829 e confronto com o manual específico de estacas 3836, com distinção entre K de reação, kh de pressão/deslocamento e K de Aoki–Velloso.
+- Comparações controladas no caso de 16 m: SPT/m com três regras entre pontos; 48 combinações por tipo de solo; discretizações consistente e nodal. Interpolação linear com topos rotulados resulta em Kh=182,10 tf/m; molas nodais de 1 m dão 174,96 tf/m, frente a 168,92 tf/m do print. A hipótese horizontal não explica o desvio axial de Kθy.
+- Script `npm run investigate:crh`, resultados JSON e sete testes adicionais, total de 112 testes TypeScript. Nenhum preset foi ativado no motor: o estudo não comprova a associação de solo, os critérios ou o algoritmo interno da calculadora externa.
+
 ## 0.5.0 — 2026-11-06
 
 - Opção de ligação estaca–bloco rígida à flexão ou rotulada em X/Y, preservando o bloco rígido e os binários axiais. Projetos antigos mantêm a ligação rígida.

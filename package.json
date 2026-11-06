@@ -22,6 +22,7 @@
     "examples:generate": "vite-node scripts/generate-examples.ts",
     "format:check": "prettier --check src tests scripts docs .github *.md *.json *.ts *.html",
     "investigate:rotation": "vite-node scripts/investigate-reference16.ts",
+    "investigate:crh": "vite-node scripts/investigate-tqs-crh.ts",
     "release:version": "node scripts/openstruct-version.mjs"
   },
   "dependencies": {
