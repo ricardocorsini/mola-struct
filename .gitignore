@@ -16,3 +16,7 @@ tmp/
 src-tauri/gen/
 .DS_Store
 Thumbs.db
+
+.venv-verification/
+__pycache__/
+*.py[cod]

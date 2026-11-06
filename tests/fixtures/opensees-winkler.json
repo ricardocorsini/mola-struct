@@ -1,0 +1,994 @@
+{
+  "generator": "OpenSeesPy elasticBeamColumn + nodal Elastic zeroLength springs + rigidLink; no MolasStruct solver imported",
+  "version": "3.7.1",
+  "openseespy": "3.7.1.2",
+  "openseespylinux": "3.7.1.2",
+  "python": "3.12.16",
+  "cases": [
+    {
+      "id": "single-uniform",
+      "input": {
+        "project": {
+          "format": "molasstruct",
+          "version": 1,
+          "name": "Referência 16 m · comparação com print",
+          "author": "",
+          "notes": "Caso externo de referência, com hipóteses não confirmadas. NSPT(11)=17 foi informado pelo usuário e incluído. D=0 e L=16 m representam a ponta a 16 m. K do print foi convertido de tf/m² por golpe para kPa/golpe; 1 tf = 9,80665 kN. Esta interpretação reproduz as três resistências publicadas. E=140/88/370 foi interpretado como MPa e ν=0,35. A unidade de E não aparece no print; esta convenção precisa ser confirmada. O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck. O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico. kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print. Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional.",
+          "water": 1,
+          "bedrock": 100,
+          "borehole": "SP-Ref16",
+          "spt": [
+            {
+              "depth": 1,
+              "n": 6
+            },
+            {
+              "depth": 2,
+              "n": 3
+            },
+            {
+              "depth": 3,
+              "n": 4
+            },
+            {
+              "depth": 4,
+              "n": 5
+            },
+            {
+              "depth": 5,
+              "n": 6
+            },
+            {
+              "depth": 6,
+              "n": 6
+            },
+            {
+              "depth": 7,
+              "n": 8
+            },
+            {
+              "depth": 8,
+              "n": 9
+            },
+            {
+              "depth": 9,
+              "n": 12
+            },
+            {
+              "depth": 10,
+              "n": 14
+            },
+            {
+              "depth": 11,
+              "n": 17
+            },
+            {
+              "depth": 12,
+              "n": 15
+            },
+            {
+              "depth": 13,
+              "n": 12
+            },
+            {
+              "depth": 14,
+              "n": 12
+            },
+            {
+              "depth": 15,
+              "n": 22
+            },
+            {
+              "depth": 16,
+              "n": 35
+            },
+            {
+              "depth": 17,
+              "n": 35
+            },
+            {
+              "depth": 18,
+              "n": 36
+            },
+            {
+              "depth": 19,
+              "n": 38
+            },
+            {
+              "depth": 20,
+              "n": 40
+            }
+          ],
+          "layers": [
+            {
+              "id": "R1",
+              "name": "Areia · print",
+              "bottom": 100,
+              "soil": "sand",
+              "e": 140,
+              "schmertmannK": 0.7,
+              "nu": 0.35,
+              "gamma": 18,
+              "gammaSat": 20,
+              "phi": 30,
+              "cohesion": 0,
+              "alpha": 0.024,
+              "k": 686.4654999999999,
+              "kh": 18000,
+              "shaftK": 16000,
+              "baseK": 100000,
+              "color": "#D1B994"
+            }
+          ],
+          "foundations": [
+            {
+              "id": "B16",
+              "name": "B16 · 2 estacas / 16 m",
+              "kind": "pile",
+              "count": 1,
+              "diameter": 0.3,
+              "length": 16,
+              "spacingX": 0.9,
+              "spacingY": 0.9,
+              "capX": 1.5,
+              "capY": 0.6,
+              "height": 0.65,
+              "depth": 0,
+              "fck": 30,
+              "ec": 30,
+              "concreteNu": 0.2,
+              "f1": 2,
+              "f2": 4,
+              "n": 392.26599999999996,
+              "hx": 0,
+              "hy": 0,
+              "mx": 0,
+              "my": 0,
+              "mz": 0,
+              "efficiency": 1,
+              "segments": 64,
+              "safety": 3,
+              "sptFactor": 20,
+              "pileMethod": "winkler",
+              "footingMethod": "elastic",
+              "modulusSource": "manual",
+              "aokiFactor": 6,
+              "horizontalRatio": 0.3,
+              "kvInput": 30000,
+              "allowablePressure": 200,
+              "randolphRho": 1,
+              "integration": 32,
+              "transfer": "capacity-ratio",
+              "tipFraction": 0.5,
+              "verification": {
+                "serviceConfirmed": false,
+                "serviceReference": "",
+                "settlementLimit": null,
+                "horizontalLimit": null,
+                "rotationLimit": null,
+                "limitsReference": "",
+                "ultimateBasis": "unset",
+                "ultimateReference": "",
+                "ultimateN": 0,
+                "ultimateHx": 0,
+                "ultimateHy": 0,
+                "ultimateMx": 0,
+                "ultimateMy": 0,
+                "ultimateMz": 0,
+                "selfWeightIncluded": false,
+                "geotechnicalBasisConfirmed": false,
+                "soilRegime": "unset",
+                "geotechnicalReference": "",
+                "pileType": "unspecified",
+                "toeProcedure": "unconfirmed",
+                "executionReference": "",
+                "pileSafety": 2
+              }
+            }
+          ],
+          "benchmark": {
+            "id": "pile-16m-20261106",
+            "foundationId": "B16"
+          }
+        },
+        "foundation": {
+          "id": "B16",
+          "name": "B16 · 2 estacas / 16 m",
+          "kind": "pile",
+          "count": 1,
+          "diameter": 0.3,
+          "length": 16,
+          "spacingX": 0.9,
+          "spacingY": 0.9,
+          "capX": 1.5,
+          "capY": 0.6,
+          "height": 0.65,
+          "depth": 0,
+          "fck": 30,
+          "ec": 30,
+          "concreteNu": 0.2,
+          "f1": 2,
+          "f2": 4,
+          "n": 392.26599999999996,
+          "hx": 0,
+          "hy": 0,
+          "mx": 0,
+          "my": 0,
+          "mz": 0,
+          "efficiency": 1,
+          "segments": 64,
+          "safety": 3,
+          "sptFactor": 20,
+          "pileMethod": "winkler",
+          "footingMethod": "elastic",
+          "modulusSource": "manual",
+          "aokiFactor": 6,
+          "horizontalRatio": 0.3,
+          "kvInput": 30000,
+          "allowablePressure": 200,
+          "randolphRho": 1,
+          "integration": 32,
+          "transfer": "capacity-ratio",
+          "tipFraction": 0.5,
+          "verification": {
+            "serviceConfirmed": false,
+            "serviceReference": "",
+            "settlementLimit": null,
+            "horizontalLimit": null,
+            "rotationLimit": null,
+            "limitsReference": "",
+            "ultimateBasis": "unset",
+            "ultimateReference": "",
+            "ultimateN": 0,
+            "ultimateHx": 0,
+            "ultimateHy": 0,
+            "ultimateMx": 0,
+            "ultimateMy": 0,
+            "ultimateMz": 0,
+            "selfWeightIncluded": false,
+            "geotechnicalBasisConfirmed": false,
+            "soilRegime": "unset",
+            "geotechnicalReference": "",
+            "pileType": "unspecified",
+            "toeProcedure": "unconfirmed",
+            "executionReference": "",
+            "pileSafety": 2
+          }
+        },
+        "positions": [[0, 0]]
+      },
+      "reference": [
+        {
+          "segments": 64,
+          "matrix": [
+            [9310.128783376867, 0, 0, 0, -7997.563647279263, 0],
+            [0, 9310.128783376867, 0, 7997.563647279263, 0, 0],
+            [0, 0, 157890.8516628143, 0, 0, 0],
+            [0, 7997.563647279262, 0, 13836.903083817284, 0, 0],
+            [-7997.563647279262, 0, 0, 0, 13836.903083817284, 0],
+            [0, 0, 0, 0, 0, 1827.0393671354325]
+          ],
+          "maxNormalizedEntryError": 0.0024830978095309636,
+          "diagonalErrorsPercent": [
+            0.00012721536137849654, 0.00012721536137849654,
+            0.0024189347089587088, -0.0015920206978714546,
+            -0.0015920206978714546, 0.017203991688852227
+          ]
+        },
+        {
+          "segments": 128,
+          "matrix": [
+            [9310.101590490107, 0, 0, 0, -8018.702913199348, 0],
+            [0, 9310.101590490107, 0, 8018.702913199348, 0, 0],
+            [0, 0, 157885.07733039156, 0, 0, 0],
+            [0, 8018.702913199348, 0, 13837.101622475137, 0, 0],
+            [-8018.702913199348, 0, 0, 0, 13837.101622475137, 0],
+            [0, 0, 0, 0, 0, 1826.6780149532729]
+          ],
+          "maxNormalizedEntryError": 0.0006206272032247005,
+          "diagonalErrorsPercent": [
+            -0.00016486353449085556, -0.00016486353449085556,
+            -0.0012383209453514787, -0.00015719459643959155,
+            -0.00015719459643959155, -0.002577429317185409
+          ]
+        },
+        {
+          "segments": 256,
+          "matrix": [
+            [9310.09990866088, 0, 0, 0, -8023.979226655219, 0],
+            [0, 9310.09990866088, 0, 8023.979226655219, 0, 0],
+            [0, 0, 157883.6336994432, 0, 0, 0],
+            [0, 8023.9792266552195, 0, 13837.11405826504, 0, 0],
+            [-8023.9792266552195, 0, 0, 0, 13837.11405826504, 0],
+            [0, 0, 0, 0, 0, 1826.5876652319898]
+          ],
+          "maxNormalizedEntryError": 0.00015575870881399438,
+          "diagonalErrorsPercent": [
+            -0.00018292806834852016, -0.00018292806834852016,
+            -0.002152665160770617, -0.00006732194323122442,
+            -0.00006732194323122442, -0.00752342373125936
+          ]
+        }
+      ]
+    },
+    {
+      "id": "two-uniform",
+      "input": {
+        "project": {
+          "format": "molasstruct",
+          "version": 1,
+          "name": "Referência 16 m · comparação com print",
+          "author": "",
+          "notes": "Caso externo de referência, com hipóteses não confirmadas. NSPT(11)=17 foi informado pelo usuário e incluído. D=0 e L=16 m representam a ponta a 16 m. K do print foi convertido de tf/m² por golpe para kPa/golpe; 1 tf = 9,80665 kN. Esta interpretação reproduz as três resistências publicadas. E=140/88/370 foi interpretado como MPa e ν=0,35. A unidade de E não aparece no print; esta convenção precisa ser confirmada. O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck. O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico. kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print. Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional.",
+          "water": 1,
+          "bedrock": 100,
+          "borehole": "SP-Ref16",
+          "spt": [
+            {
+              "depth": 1,
+              "n": 6
+            },
+            {
+              "depth": 2,
+              "n": 3
+            },
+            {
+              "depth": 3,
+              "n": 4
+            },
+            {
+              "depth": 4,
+              "n": 5
+            },
+            {
+              "depth": 5,
+              "n": 6
+            },
+            {
+              "depth": 6,
+              "n": 6
+            },
+            {
+              "depth": 7,
+              "n": 8
+            },
+            {
+              "depth": 8,
+              "n": 9
+            },
+            {
+              "depth": 9,
+              "n": 12
+            },
+            {
+              "depth": 10,
+              "n": 14
+            },
+            {
+              "depth": 11,
+              "n": 17
+            },
+            {
+              "depth": 12,
+              "n": 15
+            },
+            {
+              "depth": 13,
+              "n": 12
+            },
+            {
+              "depth": 14,
+              "n": 12
+            },
+            {
+              "depth": 15,
+              "n": 22
+            },
+            {
+              "depth": 16,
+              "n": 35
+            },
+            {
+              "depth": 17,
+              "n": 35
+            },
+            {
+              "depth": 18,
+              "n": 36
+            },
+            {
+              "depth": 19,
+              "n": 38
+            },
+            {
+              "depth": 20,
+              "n": 40
+            }
+          ],
+          "layers": [
+            {
+              "id": "R1",
+              "name": "Areia · print",
+              "bottom": 100,
+              "soil": "sand",
+              "e": 140,
+              "schmertmannK": 0.7,
+              "nu": 0.35,
+              "gamma": 18,
+              "gammaSat": 20,
+              "phi": 30,
+              "cohesion": 0,
+              "alpha": 0.024,
+              "k": 686.4654999999999,
+              "kh": 18000,
+              "shaftK": 16000,
+              "baseK": 100000,
+              "color": "#D1B994"
+            }
+          ],
+          "foundations": [
+            {
+              "id": "B16",
+              "name": "B16 · 2 estacas / 16 m",
+              "kind": "pile",
+              "count": 2,
+              "diameter": 0.3,
+              "length": 16,
+              "spacingX": 0.9,
+              "spacingY": 0.9,
+              "capX": 1.5,
+              "capY": 0.6,
+              "height": 0.65,
+              "depth": 0,
+              "fck": 30,
+              "ec": 30,
+              "concreteNu": 0.2,
+              "f1": 2,
+              "f2": 4,
+              "n": 392.26599999999996,
+              "hx": 0,
+              "hy": 0,
+              "mx": 0,
+              "my": 0,
+              "mz": 0,
+              "efficiency": 1,
+              "segments": 64,
+              "safety": 3,
+              "sptFactor": 20,
+              "pileMethod": "winkler",
+              "footingMethod": "elastic",
+              "modulusSource": "manual",
+              "aokiFactor": 6,
+              "horizontalRatio": 0.3,
+              "kvInput": 30000,
+              "allowablePressure": 200,
+              "randolphRho": 1,
+              "integration": 32,
+              "transfer": "capacity-ratio",
+              "tipFraction": 0.5,
+              "verification": {
+                "serviceConfirmed": false,
+                "serviceReference": "",
+                "settlementLimit": null,
+                "horizontalLimit": null,
+                "rotationLimit": null,
+                "limitsReference": "",
+                "ultimateBasis": "unset",
+                "ultimateReference": "",
+                "ultimateN": 0,
+                "ultimateHx": 0,
+                "ultimateHy": 0,
+                "ultimateMx": 0,
+                "ultimateMy": 0,
+                "ultimateMz": 0,
+                "selfWeightIncluded": false,
+                "geotechnicalBasisConfirmed": false,
+                "soilRegime": "unset",
+                "geotechnicalReference": "",
+                "pileType": "unspecified",
+                "toeProcedure": "unconfirmed",
+                "executionReference": "",
+                "pileSafety": 2
+              }
+            }
+          ],
+          "benchmark": {
+            "id": "pile-16m-20261106",
+            "foundationId": "B16"
+          }
+        },
+        "foundation": {
+          "id": "B16",
+          "name": "B16 · 2 estacas / 16 m",
+          "kind": "pile",
+          "count": 2,
+          "diameter": 0.3,
+          "length": 16,
+          "spacingX": 0.9,
+          "spacingY": 0.9,
+          "capX": 1.5,
+          "capY": 0.6,
+          "height": 0.65,
+          "depth": 0,
+          "fck": 30,
+          "ec": 30,
+          "concreteNu": 0.2,
+          "f1": 2,
+          "f2": 4,
+          "n": 392.26599999999996,
+          "hx": 0,
+          "hy": 0,
+          "mx": 0,
+          "my": 0,
+          "mz": 0,
+          "efficiency": 1,
+          "segments": 64,
+          "safety": 3,
+          "sptFactor": 20,
+          "pileMethod": "winkler",
+          "footingMethod": "elastic",
+          "modulusSource": "manual",
+          "aokiFactor": 6,
+          "horizontalRatio": 0.3,
+          "kvInput": 30000,
+          "allowablePressure": 200,
+          "randolphRho": 1,
+          "integration": 32,
+          "transfer": "capacity-ratio",
+          "tipFraction": 0.5,
+          "verification": {
+            "serviceConfirmed": false,
+            "serviceReference": "",
+            "settlementLimit": null,
+            "horizontalLimit": null,
+            "rotationLimit": null,
+            "limitsReference": "",
+            "ultimateBasis": "unset",
+            "ultimateReference": "",
+            "ultimateN": 0,
+            "ultimateHx": 0,
+            "ultimateHy": 0,
+            "ultimateMx": 0,
+            "ultimateMy": 0,
+            "ultimateMz": 0,
+            "selfWeightIncluded": false,
+            "geotechnicalBasisConfirmed": false,
+            "soilRegime": "unset",
+            "geotechnicalReference": "",
+            "pileType": "unspecified",
+            "toeProcedure": "unconfirmed",
+            "executionReference": "",
+            "pileSafety": 2
+          }
+        },
+        "positions": [
+          [-0.45, 0],
+          [0.45, 0]
+        ]
+      },
+      "reference": [
+        {
+          "segments": 64,
+          "matrix": [
+            [18620.25756674632, 0, 0, 0, -15995.127294555772, 0],
+            [0, 18620.257566746328, 0, 15995.12729455578, 0, 0],
+            [0, 0, 315781.7033256293, 0, 0, 0],
+            [0, 15995.127294555781, 0, 27673.806167632294, 0, 0],
+            [-15995.127294555774, 0, 0, 0, 91619.60109107103, 0],
+            [0, 0, 0, 0, 0, 7424.680891538039]
+          ],
+          "maxNormalizedEntryError": 0.0024830978096518808,
+          "diagonalErrorsPercent": [
+            0.00012721532154369442, 0.00012721532158810334,
+            0.0024189347091807534, -0.001592020706087105, 0.0012073870834017342,
+            0.008530872704826109
+          ]
+        },
+        {
+          "segments": 128,
+          "matrix": [
+            [18620.20318096876, 0, 0, 0, -16037.405826399101, 0],
+            [0, 18620.203180968765, 0, 16037.405826399105, 0, 0],
+            [0, 0, 315770.1546608284, 0, 0, 0],
+            [0, 16037.405826399105, 0, 27674.203244950506, 0, 0],
+            [-16037.405826399106, 0, 0, 0, 91617.65956376959, 0],
+            [0, 0, 0, 0, 0, 7423.947174053638]
+          ],
+          "maxNormalizedEntryError": 0.000620627203206671,
+          "diagonalErrorsPercent": [
+            -0.00016486359599721112, -0.0001648635959861089,
+            -0.0012383209310073973, -0.00015719459559582205,
+            -0.000911756331400948, -0.0013521120001636078
+          ]
+        },
+        {
+          "segments": 256,
+          "matrix": [
+            [18620.199817180637, 0, 0, 0, -16047.958453088999, 0],
+            [0, 18620.199817180634, 0, 16047.958453088999, 0, 0],
+            [0, 0, 315767.2673988045, 0, 0, 0],
+            [0, 16047.958453088999, 0, 27674.2281162187, 0, 0],
+            [-16047.958453089, 0, 0, 0, 91617.09976447748, 0],
+            [0, 0, 0, 0, 0, 7423.765793442727]
+          ],
+          "maxNormalizedEntryError": 0.00015575871856888252,
+          "diagonalErrorsPercent": [
+            -0.00018292882625337015, -0.0001829288262755746,
+            -0.002152665186705427, -0.00006732306839785096,
+            -0.0015227675608686653, -0.003795261906669456
+          ]
+        }
+      ]
+    },
+    {
+      "id": "two-layered",
+      "input": {
+        "project": {
+          "format": "molasstruct",
+          "version": 1,
+          "name": "Referência 16 m · comparação com print",
+          "author": "",
+          "notes": "Caso externo de referência, com hipóteses não confirmadas. NSPT(11)=17 foi informado pelo usuário e incluído. D=0 e L=16 m representam a ponta a 16 m. K do print foi convertido de tf/m² por golpe para kPa/golpe; 1 tf = 9,80665 kN. Esta interpretação reproduz as três resistências publicadas. E=140/88/370 foi interpretado como MPa e ν=0,35. A unidade de E não aparece no print; esta convenção precisa ser confirmada. O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck. O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico. kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print. Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional.",
+          "water": 1,
+          "bedrock": 100,
+          "borehole": "SP-Ref16",
+          "spt": [
+            {
+              "depth": 1,
+              "n": 6
+            },
+            {
+              "depth": 2,
+              "n": 3
+            },
+            {
+              "depth": 3,
+              "n": 4
+            },
+            {
+              "depth": 4,
+              "n": 5
+            },
+            {
+              "depth": 5,
+              "n": 6
+            },
+            {
+              "depth": 6,
+              "n": 6
+            },
+            {
+              "depth": 7,
+              "n": 8
+            },
+            {
+              "depth": 8,
+              "n": 9
+            },
+            {
+              "depth": 9,
+              "n": 12
+            },
+            {
+              "depth": 10,
+              "n": 14
+            },
+            {
+              "depth": 11,
+              "n": 17
+            },
+            {
+              "depth": 12,
+              "n": 15
+            },
+            {
+              "depth": 13,
+              "n": 12
+            },
+            {
+              "depth": 14,
+              "n": 12
+            },
+            {
+              "depth": 15,
+              "n": 22
+            },
+            {
+              "depth": 16,
+              "n": 35
+            },
+            {
+              "depth": 17,
+              "n": 35
+            },
+            {
+              "depth": 18,
+              "n": 36
+            },
+            {
+              "depth": 19,
+              "n": 38
+            },
+            {
+              "depth": 20,
+              "n": 40
+            }
+          ],
+          "layers": [
+            {
+              "id": "R1",
+              "name": "Areia · print",
+              "bottom": 3,
+              "soil": "sand",
+              "e": 140,
+              "schmertmannK": 0.7,
+              "nu": 0.35,
+              "gamma": 18,
+              "gammaSat": 20,
+              "phi": 30,
+              "cohesion": 0,
+              "alpha": 0.024,
+              "k": 686.4654999999999,
+              "kh": 18000,
+              "shaftK": 16000,
+              "baseK": 100000,
+              "color": "#D1B994"
+            },
+            {
+              "id": "R2",
+              "name": "Argila 3–11 m · print",
+              "bottom": 11,
+              "soil": "clay",
+              "e": 88,
+              "schmertmannK": 0.9,
+              "nu": 0.35,
+              "gamma": 19,
+              "gammaSat": 21,
+              "phi": 35,
+              "cohesion": 0,
+              "alpha": 0.04,
+              "k": 215.7463,
+              "kh": 40000,
+              "shaftK": 30000,
+              "baseK": 180000,
+              "color": "#b7a38f"
+            },
+            {
+              "id": "R3",
+              "name": "Argila 11–20 m · print",
+              "bottom": 20,
+              "soil": "clay",
+              "e": 370,
+              "schmertmannK": 0.45,
+              "nu": 0.35,
+              "gamma": 19,
+              "gammaSat": 21,
+              "phi": 32,
+              "cohesion": 10,
+              "alpha": 0.03,
+              "k": 323.61945,
+              "kh": 55000,
+              "shaftK": 40000,
+              "baseK": 220000,
+              "color": "#8d9c9a"
+            },
+            {
+              "id": "R4",
+              "name": "Continuação 20–100 m · HIPÓTESE",
+              "bottom": 100,
+              "soil": "clay",
+              "e": 370,
+              "schmertmannK": 0.45,
+              "nu": 0.35,
+              "gamma": 19,
+              "gammaSat": 21,
+              "phi": 32,
+              "cohesion": 10,
+              "alpha": 0.03,
+              "k": 323.61945,
+              "kh": 55000,
+              "shaftK": 40000,
+              "baseK": 220000,
+              "color": "#b8c3c2"
+            }
+          ],
+          "foundations": [
+            {
+              "id": "B16",
+              "name": "B16 · 2 estacas / 16 m",
+              "kind": "pile",
+              "count": 2,
+              "diameter": 0.3,
+              "length": 16,
+              "spacingX": 0.9,
+              "spacingY": 0.9,
+              "capX": 1.5,
+              "capY": 0.6,
+              "height": 0.65,
+              "depth": 0,
+              "fck": 30,
+              "ec": 30,
+              "concreteNu": 0.2,
+              "f1": 2,
+              "f2": 4,
+              "n": 392.26599999999996,
+              "hx": 0,
+              "hy": 0,
+              "mx": 0,
+              "my": 0,
+              "mz": 0,
+              "efficiency": 1,
+              "segments": 64,
+              "safety": 3,
+              "sptFactor": 20,
+              "pileMethod": "winkler",
+              "footingMethod": "elastic",
+              "modulusSource": "manual",
+              "aokiFactor": 6,
+              "horizontalRatio": 0.3,
+              "kvInput": 30000,
+              "allowablePressure": 200,
+              "randolphRho": 1,
+              "integration": 32,
+              "transfer": "capacity-ratio",
+              "tipFraction": 0.5,
+              "verification": {
+                "serviceConfirmed": false,
+                "serviceReference": "",
+                "settlementLimit": null,
+                "horizontalLimit": null,
+                "rotationLimit": null,
+                "limitsReference": "",
+                "ultimateBasis": "unset",
+                "ultimateReference": "",
+                "ultimateN": 0,
+                "ultimateHx": 0,
+                "ultimateHy": 0,
+                "ultimateMx": 0,
+                "ultimateMy": 0,
+                "ultimateMz": 0,
+                "selfWeightIncluded": false,
+                "geotechnicalBasisConfirmed": false,
+                "soilRegime": "unset",
+                "geotechnicalReference": "",
+                "pileType": "unspecified",
+                "toeProcedure": "unconfirmed",
+                "executionReference": "",
+                "pileSafety": 2
+              }
+            }
+          ],
+          "benchmark": {
+            "id": "pile-16m-20261106",
+            "foundationId": "B16"
+          }
+        },
+        "foundation": {
+          "id": "B16",
+          "name": "B16 · 2 estacas / 16 m",
+          "kind": "pile",
+          "count": 2,
+          "diameter": 0.3,
+          "length": 16,
+          "spacingX": 0.9,
+          "spacingY": 0.9,
+          "capX": 1.5,
+          "capY": 0.6,
+          "height": 0.65,
+          "depth": 0,
+          "fck": 30,
+          "ec": 30,
+          "concreteNu": 0.2,
+          "f1": 2,
+          "f2": 4,
+          "n": 392.26599999999996,
+          "hx": 0,
+          "hy": 0,
+          "mx": 0,
+          "my": 0,
+          "mz": 0,
+          "efficiency": 1,
+          "segments": 64,
+          "safety": 3,
+          "sptFactor": 20,
+          "pileMethod": "winkler",
+          "footingMethod": "elastic",
+          "modulusSource": "manual",
+          "aokiFactor": 6,
+          "horizontalRatio": 0.3,
+          "kvInput": 30000,
+          "allowablePressure": 200,
+          "randolphRho": 1,
+          "integration": 32,
+          "transfer": "capacity-ratio",
+          "tipFraction": 0.5,
+          "verification": {
+            "serviceConfirmed": false,
+            "serviceReference": "",
+            "settlementLimit": null,
+            "horizontalLimit": null,
+            "rotationLimit": null,
+            "limitsReference": "",
+            "ultimateBasis": "unset",
+            "ultimateReference": "",
+            "ultimateN": 0,
+            "ultimateHx": 0,
+            "ultimateHy": 0,
+            "ultimateMx": 0,
+            "ultimateMy": 0,
+            "ultimateMz": 0,
+            "selfWeightIncluded": false,
+            "geotechnicalBasisConfirmed": false,
+            "soilRegime": "unset",
+            "geotechnicalReference": "",
+            "pileType": "unspecified",
+            "toeProcedure": "unconfirmed",
+            "executionReference": "",
+            "pileSafety": 2
+          }
+        },
+        "positions": [
+          [-0.45, 0],
+          [0.45, 0]
+        ]
+      },
+      "reference": [
+        {
+          "segments": 64,
+          "matrix": [
+            [18723.951708521694, 0, 0, 0, -16171.671657969715, 0],
+            [0, 18723.951708521694, 0, 16171.671657969713, 0, 0],
+            [0, 0, 418542.1345766047, 0, 0, 0],
+            [0, 16171.671657969717, 0, 28169.659101830573, 0, 0],
+            [-16171.671657969711, 0, 0, 0, 112924.44135359302, 0],
+            [0, 0, 0, 0, 0, 7865.213541080244]
+          ],
+          "maxNormalizedEntryError": 0.0022231327315037678,
+          "diagonalErrorsPercent": [
+            0.019370857373290917, 0.019370857373290917, 0.005128481856098155,
+            0.024399738591340814, 0.009935113812775676, 0.022203665313247356
+          ]
+        },
+        {
+          "segments": 128,
+          "matrix": [
+            [18721.198485881094, 0, 0, 0, -16209.962146786973, 0],
+            [0, 18721.198485881097, 0, 16209.96214678698, 0, 0],
+            [0, 0, 418515.8772762213, 0, 0, 0],
+            [0, 16209.962146786982, 0, 28164.574724674116, 0, 0],
+            [-16209.962146786975, 0, 0, 0, 112914.0398731092, 0],
+            [0, 0, 0, 0, 0, 7863.578553657979]
+          ],
+          "maxNormalizedEntryError": 0.0005555154201329139,
+          "diagonalErrorsPercent": [
+            0.004663727135501006, 0.00466372713552321, -0.0011453541128636502,
+            0.006346209037411121, 0.0007231896641535229, 0.0014114714222746017
+          ]
+        },
+        {
+          "segments": 256,
+          "matrix": [
+            [18720.517356634144, 0, 0, 0, -16219.514996826649, 0],
+            [0, 18720.517356634136, 0, 16219.51499682664, 0, 0],
+            [0, 0, 418509.3126274348, 0, 0, 0],
+            [0, 16219.514996826645, 0, 28163.226130155606, 0, 0],
+            [-16219.514996826649, 0, 0, 0, 112911.36193720624, 0],
+            [0, 0, 0, 0, 0, 7863.171215116977]
+          ],
+          "maxNormalizedEntryError": 0.00013947220441188515,
+          "diagonalErrorsPercent": [
+            0.0010252794502729756, 0.0010252794502285667, -0.002713890446714995,
+            0.001557640005844796, -0.0016484864113097686, -0.003768667463477371
+          ]
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "workflow": "https://github.com/ricardocorsini/mola-struct/actions/runs/42238968590",
+    "commit": "b5207b3c3703eaa27fcf011c46b8525589cac5c1",
+    "job": 127963933746,
+    "scope": "Independent numerical verification of the linear Winkler model only; no physical calibration or Mindlin vertical validation.",
+    "numericalToleranceNormalized": 0.005
+  }
+}

@@ -2,6 +2,12 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## Revisão de confiabilidade — 2026-11-06
+
+- Pesquisa de fontes primárias e plano de validação numérica/geotécnica, com lacunas de transferência de carga, módulos e condições de ligação identificadas.
+- Verificação independente das matrizes Winkler 6 × 6 com OpenSees: três casos e refinamento 64/128/256; maior erro normalizado entre 0,01395% e 0,01558% no refinamento final.
+- Comparador opcional e referências externas congeladas; três novos testes, totalizando 83 testes TypeScript. Sem alteração do motor ativo ou aprovação automática das molas do print.
+
 ## Investigação adicional — 2026-11-06
 
 - Diagnóstico de Kθy em tela/PDF: flexão local, efeito modal da interação, nível de Kz e condições de translação/ligação.

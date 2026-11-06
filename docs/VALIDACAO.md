@@ -4,7 +4,7 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.4.0 possui 80 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 26 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.4.0 possui 83 testes Vitest e 4 testes Rust. Um dos testes Rust percorre 26 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
 
 | Verificação                                         | Referência ou propriedade                                                                       |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
@@ -92,3 +92,9 @@ Na interface 0.4.0 foram confirmados o carregamento em um clique, três resistê
 Oito testes adicionais conferem os modos a+b/a−b, a reconstrução de Kθy, molas independentes, condensação e distinção entre ux livre e articulação, efeito separado de kh, refinamento, limite do arredondamento e domínio geométrico. A matriz ativa do caso é comparada exatamente ao resultado publicado na 0.4.0. Os 30 ensaios não calibram o motor ou validam a referência externa. Consulte [INVESTIGACAO-ROTACAO.md](INVESTIGACAO-ROTACAO.md).
 
 O percurso de interface da investigação foi verificado com Chromium headless: valores da decomposição e condições de cabeça, download PDF, bloqueio por SPT insuficiente e restauração do diagnóstico ao retornar ao E manual. Sem erros JavaScript nesse percurso. A memória revisada foi renderizada; a reconstrução e os cenários de ligação ficam juntos na página. Captura: [Investigação de Kθy](assets/investigacao-rotacao.png).
+
+## Verificação externa Winkler e revisão bibliográfica - 06/11/2026
+
+Três referências numéricas foram geradas pelo OpenSees em um runner separado, com vigas 3D, molas nodais e vínculo rígido do bloco. As matrizes 6 × 6 convergiram para o MolasStruct com erro normalizado máximo de 0,01558% (solo uniforme) e 0,01395% (perfil estratificado), diante do limite de desenvolvimento previamente definido de 0,5%. O teste confere a formulação Winkler nesses casos e não valida a rigidez axial Mindlin ou os dados geotécnicos do print.
+
+A procedência dos alvos está em `tests/fixtures/opensees-winkler.json`; os três testes novos estão em `tests/opensees.test.ts`. Não se geraram essas referências com o próprio motor TypeScript. Literatura primária, resultados e plano de validação física estão em [CONFIABILIDADE.md](CONFIABILIDADE.md).

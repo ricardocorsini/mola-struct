@@ -138,6 +138,12 @@ A norma não fornece valores universais de molas nem valida sozinha os métodos 
 
 Consulte equações, condições de contorno e limites em [MOTOR.md](docs/MOTOR.md).
 
+### Confiabilidade e validação independente
+
+A [revisão de confiabilidade](docs/CONFIABILIDADE.md) relaciona referências primárias, hipóteses atuais e critérios de validação. Uma conferência externa com OpenSees verificou as matrizes 6 × 6 de três modelos Winkler lineares; com refinamento, o maior erro normalizado ficou entre **0,01395% e 0,01558%**. Isso verifica a montagem nesses casos, sem validar parâmetros do solo ou a rigidez vertical Mindlin do print.
+
+As referências numéricas externas estão congeladas em `tests/fixtures/opensees-winkler.json`. O workflow [Independent Winkler verification](.github/workflows/verify-independent.yml) permite reproduzir a comparação. OpenSees não é dependência de execução do aplicativo.
+
 ## Desenvolvimento e testes
 
 | Comando                                 | Finalidade                                |
