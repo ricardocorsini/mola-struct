@@ -1,11 +1,11 @@
 name: Publish release
 on:
   push:
-    tags: ['v*']
+    tags: ["v*"]
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Tag existente, por exemplo v0.3.1'
+        description: "Tag existente, por exemplo v0.3.1"
         required: true
         type: string
 permissions:
