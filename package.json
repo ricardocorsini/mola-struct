@@ -21,7 +21,8 @@
     "serve": "node scripts/serve.mjs",
     "examples:generate": "vite-node scripts/generate-examples.ts",
     "format:check": "prettier --check src tests scripts docs .github *.md *.json *.ts *.html",
-    "investigate:rotation": "vite-node scripts/investigate-reference16.ts"
+    "investigate:rotation": "vite-node scripts/investigate-reference16.ts",
+    "release:version": "node scripts/openstruct-version.mjs"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.2.8",
