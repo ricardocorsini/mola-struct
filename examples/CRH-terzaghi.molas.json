@@ -1,0 +1,334 @@
+{
+  "format": "molasstruct",
+  "version": 2,
+  "name": "Referência 16 m · CRH K/nh 3829",
+  "author": "",
+  "notes": "Caso externo de referência, com hipóteses não confirmadas. NSPT(11)=17 foi informado pelo usuário e incluído. D=0 e L=16 m representam a ponta a 16 m. K do print foi convertido de tf/m² por golpe para kPa/golpe; 1 tf = 9,80665 kN. Esta interpretação reproduz as três resistências publicadas. E=140/88/370 foi interpretado como MPa e ν=0,35. A unidade de E não aparece no print; esta convenção precisa ser confirmada. O print informa fck=30 MPa, mas não a fórmula nem o valor de Ec. O caso usa Ec=30 GPa como hipótese explícita; o motor não deriva Ec automaticamente de fck. O perfil mostrado termina em 20 m e a base indeslocável é 100 m. Foi acrescentada uma camada 20–100 m com E e ν iguais aos da última camada, somente como hipótese de ensaio numérico. kh, kt e kp não constam nos prints. Os valores do projeto de exemplo são ilustrativos; as molas horizontais e a flexão local não estão validadas contra o print. O caso-base mantém a ligação rígida à flexão das versões anteriores. Em Métodos, selecione Rotulada em X e Y para ensaiar o binário axial sem momentos de topo, conforme o esquema fornecido pelo usuário. A escolha não calibra o solo nem comprova todas as hipóteses do programa externo. Dimensões do bloco não informadas: 1,50 × 0,60 × 0,65 m apenas para visualização. N=40 tf é aplicado diretamente, sem peso próprio adicional. Ensaio de CRH, sem calibração. Nas associações por tipo foram escolhidas areia fofa, argila pré-adensada média e dura apenas como hipóteses, não fornecidas pelo print. My=1 tf·m.",
+  "water": 1,
+  "bedrock": 100,
+  "borehole": "SP-Ref16",
+  "spt": [
+    {
+      "depth": 1,
+      "n": 6
+    },
+    {
+      "depth": 2,
+      "n": 3
+    },
+    {
+      "depth": 3,
+      "n": 4
+    },
+    {
+      "depth": 4,
+      "n": 5
+    },
+    {
+      "depth": 5,
+      "n": 6
+    },
+    {
+      "depth": 6,
+      "n": 6
+    },
+    {
+      "depth": 7,
+      "n": 8
+    },
+    {
+      "depth": 8,
+      "n": 9
+    },
+    {
+      "depth": 9,
+      "n": 12
+    },
+    {
+      "depth": 10,
+      "n": 14
+    },
+    {
+      "depth": 11,
+      "n": 17
+    },
+    {
+      "depth": 12,
+      "n": 15
+    },
+    {
+      "depth": 13,
+      "n": 12
+    },
+    {
+      "depth": 14,
+      "n": 12
+    },
+    {
+      "depth": 15,
+      "n": 22
+    },
+    {
+      "depth": 16,
+      "n": 35
+    },
+    {
+      "depth": 17,
+      "n": 35
+    },
+    {
+      "depth": 18,
+      "n": 36
+    },
+    {
+      "depth": 19,
+      "n": 38
+    },
+    {
+      "depth": 20,
+      "n": 40
+    }
+  ],
+  "layers": [
+    {
+      "id": "R1",
+      "name": "Areia · print",
+      "bottom": 3,
+      "soil": "sand",
+      "e": 140,
+      "schmertmannK": 0.7,
+      "nu": 0.35,
+      "gamma": 18,
+      "gammaSat": 20,
+      "phi": 30,
+      "cohesion": 0,
+      "alpha": 0.024,
+      "k": 686.4654999999999,
+      "kh": 18000,
+      "shaftK": 16000,
+      "baseK": 100000,
+      "color": "#D1B994",
+      "crh": {
+        "preset": "sand-loose",
+        "k": null,
+        "nhDry": null,
+        "nhWet": null,
+        "family": "soil"
+      }
+    },
+    {
+      "id": "R2",
+      "name": "Argila 3–11 m · print",
+      "bottom": 11,
+      "soil": "clay",
+      "e": 88,
+      "schmertmannK": 0.9,
+      "nu": 0.35,
+      "gamma": 19,
+      "gammaSat": 21,
+      "phi": 35,
+      "cohesion": 0,
+      "alpha": 0.04,
+      "k": 215.7463,
+      "kh": 40000,
+      "shaftK": 30000,
+      "baseK": 180000,
+      "color": "#b7a38f",
+      "crh": {
+        "preset": "clay-medium",
+        "k": null,
+        "nhDry": null,
+        "nhWet": null,
+        "family": "soil"
+      }
+    },
+    {
+      "id": "R3",
+      "name": "Argila 11–20 m · print",
+      "bottom": 20,
+      "soil": "clay",
+      "e": 370,
+      "schmertmannK": 0.45,
+      "nu": 0.35,
+      "gamma": 19,
+      "gammaSat": 21,
+      "phi": 32,
+      "cohesion": 10,
+      "alpha": 0.03,
+      "k": 323.61945,
+      "kh": 55000,
+      "shaftK": 40000,
+      "baseK": 220000,
+      "color": "#8d9c9a",
+      "crh": {
+        "preset": "clay-hard",
+        "k": null,
+        "nhDry": null,
+        "nhWet": null,
+        "family": "soil"
+      }
+    },
+    {
+      "id": "R4",
+      "name": "Continuação 20–100 m · HIPÓTESE",
+      "bottom": 100,
+      "soil": "clay",
+      "e": 370,
+      "schmertmannK": 0.45,
+      "nu": 0.35,
+      "gamma": 19,
+      "gammaSat": 21,
+      "phi": 32,
+      "cohesion": 10,
+      "alpha": 0.03,
+      "k": 323.61945,
+      "kh": 55000,
+      "shaftK": 40000,
+      "baseK": 220000,
+      "color": "#b8c3c2",
+      "crh": {
+        "preset": "clay-hard",
+        "k": null,
+        "nhDry": null,
+        "nhWet": null,
+        "family": "soil"
+      }
+    }
+  ],
+  "foundations": [
+    {
+      "id": "B16",
+      "name": "B16 · 2 estacas / 16 m",
+      "kind": "pile",
+      "count": 2,
+      "diameter": 0.3,
+      "length": 16,
+      "spacingX": 0.9,
+      "spacingY": 0.9,
+      "capX": 1.5,
+      "capY": 0.6,
+      "height": 0.65,
+      "depth": 0,
+      "fck": 30,
+      "ec": 30,
+      "concreteNu": 0.2,
+      "f1": 2,
+      "f2": 4,
+      "n": 392.26599999999996,
+      "hx": 0,
+      "hy": 0,
+      "mx": 0,
+      "my": 9.80665,
+      "mz": 0,
+      "efficiency": 1,
+      "segments": 64,
+      "safety": 3,
+      "sptFactor": 20,
+      "pileMethod": "mindlin",
+      "headConnection": "pinned",
+      "footingMethod": "elastic",
+      "modulusSource": "manual",
+      "aokiFactor": 6,
+      "horizontalRatio": 0.3,
+      "kvInput": 30000,
+      "allowablePressure": 200,
+      "randolphRho": 1,
+      "integration": 32,
+      "transfer": "capacity-ratio",
+      "tipFraction": 0.5,
+      "verification": {
+        "serviceConfirmed": false,
+        "serviceReference": "",
+        "settlementLimit": null,
+        "horizontalLimit": null,
+        "rotationLimit": null,
+        "limitsReference": "",
+        "ultimateBasis": "unset",
+        "ultimateReference": "",
+        "ultimateN": 0,
+        "ultimateHx": 0,
+        "ultimateHy": 0,
+        "ultimateMx": 0,
+        "ultimateMy": 0,
+        "ultimateMz": 0,
+        "selfWeightIncluded": false,
+        "geotechnicalBasisConfirmed": false,
+        "soilRegime": "unset",
+        "geotechnicalReference": "",
+        "pileType": "unspecified",
+        "toeProcedure": "unconfirmed",
+        "executionReference": "",
+        "pileSafety": 2
+      },
+      "lateral": {
+        "source": "terzaghi",
+        "tableVersion": "tqs-3829",
+        "depthReference": "ground",
+        "discretization": "consistent",
+        "nodalStep": 1,
+        "interpolation": "linear",
+        "mTableSource": "tqs",
+        "clayTable": [
+          [
+            0,
+            25
+          ],
+          [
+            1,
+            75
+          ],
+          [
+            3,
+            150
+          ],
+          [
+            6,
+            300
+          ],
+          [
+            12,
+            500
+          ],
+          [
+            22,
+            700
+          ],
+          [
+            30,
+            900
+          ],
+          [
+            100,
+            900
+          ]
+        ],
+        "granularTable": [
+          [
+            1,
+            150
+          ],
+          [
+            7,
+            300
+          ],
+          [
+            20,
+            500
+          ],
+          [
+            40,
+            800
+          ],
+          [
+            50,
+            1500
+          ]
+        ]
+      }
+    }
+  ],
+  "benchmark": {
+    "id": "pile-16m-20261106",
+    "foundationId": "B16"
+  }
+}

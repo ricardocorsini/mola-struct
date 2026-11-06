@@ -4,6 +4,7 @@ import {
   projectSchema,
   type Foundation,
   type Project,
+  lateralOptions,
 } from "./model";
 
 import {
@@ -15,6 +16,7 @@ import {
   type Matrix,
 } from "./matrix";
 import { intervals, layerAt, sptAt } from "./profile";
+import { lateralLaw, lateralSummary, hasLateralModel } from "./lateral";
 export { zeros, solve, type Matrix } from "./matrix";
 export { layerAt, sptAt } from "./profile";
 import {
@@ -60,7 +62,7 @@ export type Calculation = {
   verticalCompliance: Matrix | null;
   version: string;
 };
-export const ENGINE_VERSION = "0.5.0-experimental";
+export const ENGINE_VERSION = "0.6.0-experimental";
 function check(p: Project, f: Foundation): Notice[] {
   const ns: Notice[] = [];
   const err = (message: string) => ns.push({ level: "error", message });
@@ -154,8 +156,17 @@ function check(p: Project, f: Foundation): Notice[] {
 
 /** Euler–Bernoulli beam + consistent Winkler matrix; free toe. Returns head [u, slope] stiffness. */
 export function lateralHead(p: Project, f: Foundation): Matrix {
-  const n = f.segments,
-    l = f.length / n,
+  const cfg = lateralOptions(f),
+    nodal = hasLateralModel(f) && cfg.discretization === "nodal";
+  const n = nodal
+    ? Math.max(2, Math.ceil(f.length / cfg.nodalStep))
+    : f.segments;
+  if (n > 128)
+    throw new Error(
+      "Malha lateral nodal excede 128 trechos. Aumente o passo máximo.",
+    );
+  const lineReaction = lateralLaw(p, f);
+  const l = f.length / n,
     ei = (f.ec * 1e6 * Math.PI * f.diameter ** 4) / 64,
     k = zeros(2 * (n + 1));
   const beam = [
@@ -171,12 +182,15 @@ export function lateralHead(p: Project, f: Foundation): Matrix {
     [-13 * l, -3 * l * l, -22 * l, 4 * l * l],
   ];
   for (let e = 0; e < n; e++) {
-    const kh = layerAt(p, f.depth + (e + 0.5) * l).kh * f.diameter;
+    const kh = nodal ? 0 : lineReaction(f.depth + (e + 0.5) * l);
     for (let i = 0; i < 4; i++)
       for (let j = 0; j < 4; j++)
         k[2 * e + i][2 * e + j] +=
           (ei / l ** 3) * beam[i][j] + ((kh * l) / 420) * soil[i][j];
   }
+  if (nodal)
+    for (let i = 1; i <= n; i++)
+      k[2 * i][2 * i] += lineReaction(f.depth + i * l) * l;
   const v = Array(k.length).fill(0);
   v[0] = 1;
   const c0 = solve(k, v);
@@ -426,6 +440,38 @@ export function calculate(p: Project, f: Foundation): Calculation {
     if (model.method) result.method = model.method;
     if (model.kv !== undefined) result.kv = model.kv;
     notices.push(...model.notices);
+    if (f.kind === "pile") {
+      notices.push({ level: "info", message: lateralSummary(f) });
+      const cfg = lateralOptions(f);
+      if (hasLateralModel(f) && cfg.source === "tietz")
+        notices.push({
+          level: "warning",
+          message:
+            "SPT/m (Tietz conforme TQS): origem em tubulões de cerca de 1 m ou mais; associação e correlação exigem justificativa para o solo e diâmetro. Regra entre pontos explicitamente selecionada; sem calibração automática para o print.",
+        });
+      if (
+        hasLateralModel(f) &&
+        cfg.source === "terzaghi" &&
+        cfg.tableVersion === "tqs-3836"
+      )
+        notices.push({
+          level: "info",
+          message:
+            "TQS 3836: nh convertido para kN/m³ pela compatibilidade dimensional K=nh·z; o cabeçalho original mostra MPa. Valores secos não publicados permanecem indisponíveis.",
+        });
+      if (hasLateralModel(f) && cfg.discretization === "nodal") {
+        const n = Math.max(2, Math.ceil(f.length / cfg.nodalStep));
+        result.details.push(
+          { label: "Trechos laterais nodais", value: n, unit: "—" },
+          { label: "Passo lateral efetivo", value: f.length / n, unit: "m" },
+        );
+        notices.push({
+          level: "warning",
+          message:
+            "Molas nodais: peso Δl integral em cada nó abaixo do topo, inclusive na ponta, sem mola no nó de topo. É uma convenção explícita de comparação; não comprova o esquema interno do programa externo.",
+        });
+      }
+    }
     if (f.kind === "pile")
       notices.push({
         level: "info",

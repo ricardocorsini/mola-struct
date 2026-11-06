@@ -7,3 +7,4 @@ GDL;ux (m);uy (m);uz (m);theta_x (rad);theta_y (rad);theta_z (rad)
 "My (kN.m)";0,000000;0,000000;0,000000;0,000000;22636,517597;0,000000
 "Mz (kN.m)";0,000000;0,000000;0,000000;0,000000;0,000000;29141,465912
 "GDL livres";"Nenhum"
+"Reação horizontal";"Sapata: modelo horizontal definido pelo método da base."

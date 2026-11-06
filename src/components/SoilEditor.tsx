@@ -10,15 +10,21 @@ import {
 import { fmt, soilNames, uid, type Layer, type Project } from "../domain/model";
 import { parseSpt } from "../domain/engine";
 import { Cell, NumberField } from "./Fields";
+import CrhEditor from "./CrhEditor";
+import type { Foundation } from "../domain/model";
 export default function SoilEditor({
   project: p,
   onChange,
   toast,
   onDownload,
   initial = "spt",
+  foundation,
+  onFoundation,
 }: {
   initial?: string;
   project: Project;
+  foundation: Foundation;
+  onFoundation: (f: Foundation) => void;
   onChange: (p: Project) => void;
   toast: (s: string) => void;
   onDownload: () => void;
@@ -87,6 +93,12 @@ export default function SoilEditor({
       </div>
       <div className="subnav">
         <button
+          className={tab === "crh" ? "active" : ""}
+          onClick={() => setTab("crh")}
+        >
+          Reação horizontal
+        </button>
+        <button
           className={tab === "spt" ? "active" : ""}
           onClick={() => setTab("spt")}
         >
@@ -99,7 +111,14 @@ export default function SoilEditor({
           Camadas de solo <span>{p.layers.length}</span>
         </button>
       </div>
-      {tab === "spt" ? (
+      {tab === "crh" ? (
+        <CrhEditor
+          project={p}
+          foundation={foundation}
+          onProject={onChange}
+          onFoundation={onFoundation}
+        />
+      ) : tab === "spt" ? (
         <>
           <div className="editor-toolbar">
             <button

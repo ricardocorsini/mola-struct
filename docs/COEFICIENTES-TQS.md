@@ -1,5 +1,7 @@
 # Coeficientes horizontais TQS: comparação antes de adotar um preset
 
+Este documento registra a investigação realizada na 0.5.0. A partir da **0.6.0**, as alternativas estão disponíveis por escolha explícita na interface, com coeficientes editáveis e registro das hipóteses. Consulte [CONFIGURACAO-CRH.md](CONFIGURACAO-CRH.md). Os valores abaixo continuam sendo ensaios controlados, sem validação automática da referência externa.
+
 ## Conclusão do ensaio
 
 A substituição dos coeficientes horizontais ilustrativos por uma lei SPT/m baseada no documento fornecido aproxima bastante **Kx e Ky** do print. Com interpolação linear, o mesmo caso de duas estacas Ø0,30 m e 16 m resulta em **182,1029 tf/m** para os topos rotulados. Um modelo separado com molas nodais a cada metro dá **174,9642 tf/m**, contra **168,92 tf/m** do programa externo. Os desvios são +7,8042% e +3,5782%, respectivamente.
@@ -90,7 +92,7 @@ A configuração horizontal deve ser independente das escolhas de E, ν e transf
 3. **SPT/m – Tietz conforme tabelas publicadas pelo TQS:** família do solo, regra entre pontos, faixas, unidades e limites de aplicação visíveis; ordenadas editáveis. Uma indicação genérica “adotar coeficientes TQS” omite decisões que influenciam o resultado.
 4. **Discretização:** identificar matriz consistente ou modelo nodal de comparação, passo da malha e pesos de extremidade. Não selecionar automaticamente a alternativa que se aproxima do print.
 
-O caso de 16 m continua com os valores manuais para preservar a referência anterior. A checagem requerida vem antes de ativar um preset no cálculo da obra. A evidência favorece investigar SPT/m para a diferença horizontal; a diferença vertical exige confrontar o modelo axial e seus parâmetros.
+O carregamento inicial do caso de 16 m continua com os valores manuais para preservar a referência anterior. Na 0.6.0, as alternativas podem ser ativadas explicitamente em Métodos, com seus domínios e regras registrados. A evidência favorece investigar SPT/m para a diferença horizontal; a diferença vertical exige confrontar o modelo axial e seus parâmetros.
 
 ## Reproduzir e verificar
 

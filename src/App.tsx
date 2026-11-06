@@ -57,6 +57,7 @@ import {
   methodologyProject,
   fmt,
   parseProject,
+  serializeProject,
   uid,
   type Foundation,
   type Project,
@@ -177,7 +178,7 @@ export default function App() {
   useEffect(() => {
     const t = setTimeout(() => {
       try {
-        localStorage.setItem(KEY, JSON.stringify(p));
+        localStorage.setItem(KEY, serializeProject(p));
         setSaved(true);
       } catch {
         toast(
@@ -306,7 +307,7 @@ export default function App() {
       if (kind === "json")
         done = await saveFile(
           `${safeName(p.name)}.molas.json`,
-          JSON.stringify(p, null, 2),
+          serializeProject(p),
           "application/json",
           "json",
         );
@@ -871,7 +872,7 @@ export default function App() {
           ))}
         </nav>
         <span className="release">
-          MOLAS DE FUNDAÇÃO <b>v0.5</b>
+          MOLAS DE FUNDAÇÃO <b>v0.6</b>
         </span>
       </div>
       <div className="ribbon">
@@ -1132,6 +1133,8 @@ export default function App() {
             {view === "plan" && <SectionView project={p} foundation={f} plan />}
             {view === "soil" && (
               <SoilEditor
+                foundation={f}
+                onFoundation={updateFoundation}
                 key={`soil-${soilTab}`}
                 initial={soilTab}
                 project={p}
@@ -1213,7 +1216,7 @@ export default function App() {
             setTab={setTab}
             onFoundation={updateFoundation}
             onProject={update}
-            openSoil={() => showSoil("layers")}
+            openSoil={(tab = "layers") => showSoil(tab)}
             openProject={openProject}
           />
         )}
@@ -1228,7 +1231,7 @@ export default function App() {
           {r.valid
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
-          <i /> Motor 0.5.0
+          <i /> Motor 0.6.0
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑

@@ -213,7 +213,8 @@ describe("contratos de arquivos", () => {
   it("JSON versionado preserva exatamente os dados e rejeita versões desconhecidas", () => {
     const p = exampleProject();
     expect(parseProject(JSON.stringify(p))).toEqual(p);
-    expect(() => parseProject(JSON.stringify({ ...p, version: 2 }))).toThrow();
+    expect(parseProject(JSON.stringify({ ...p, version: 2 })).version).toBe(2);
+    expect(() => parseProject(JSON.stringify({ ...p, version: 3 }))).toThrow();
   });
   it("SPT exportado faz round-trip com decimais pt-BR", () => {
     const p = exampleProject();
@@ -231,7 +232,7 @@ describe("contratos de arquivos", () => {
       f = p.foundations[0],
       r = calculate(p, f),
       csv = matrixCsv(f, r);
-    expect(csv.split("\r\n")).toHaveLength(10);
+    expect(csv.split("\r\n")).toHaveLength(11);
     expect(csv).toContain("theta_y");
     expect(csv).toContain(r.matrix[0][4].toFixed(6).replace(".", ","));
   });

@@ -1,5 +1,6 @@
 //! Static linear foundation stiffness. Internal units: kN, m, rad.
 //! Experimental models; no normative approval is implied.
+pub mod lateral;
 mod methods;
 use serde::{Deserialize, Serialize};
 use std::f64::consts::PI;
@@ -31,6 +32,8 @@ pub struct Foundation {
     pub pile_method: String,
     #[serde(default = "fixed")]
     pub head_connection: String,
+    #[serde(default)]
+    pub lateral: lateral::Options,
     #[serde(default = "elastic")]
     pub footing_method: String,
     #[serde(default = "manual")]
@@ -59,6 +62,10 @@ pub struct Foundation {
 #[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Layer {
+    #[serde(default)]
+    pub soil: String,
+    #[serde(default)]
+    pub crh: Option<lateral::LayerCrh>,
     pub bottom: f64,
     pub e: f64,
     pub nu: f64,
@@ -121,6 +128,8 @@ pub struct Input {
     pub spt: Vec<Spt>,
     #[serde(default)]
     pub bedrock: f64,
+    #[serde(default)]
+    pub water: f64,
 }
 #[derive(Clone, Debug, Deserialize, Serialize)]
 pub struct Output {
@@ -213,6 +222,10 @@ fn positive(v: f64) -> bool {
 }
 fn validate(input: &Input) -> Result<(), String> {
     let f = &input.foundation;
+    lateral::validate(f)?;
+    if !input.water.is_finite() || input.water < 0. {
+        return Err("Nível d'água inválido".into());
+    }
     if f.head_connection != "fixed" && f.head_connection != "pinned" {
         return Err("Ligação estaca–bloco desconhecida".into());
     }
@@ -357,44 +370,6 @@ pub fn positions(f: &Foundation) -> Vec<(f64, f64)> {
         _ => vec![(-x, -y), (x, -y), (x, y), (-x, y)],
     }
 }
-fn lateral(input: &Input) -> Result<Matrix, String> {
-    let f = &input.foundation;
-    let n = f.segments;
-    let l = f.length / n as f64;
-    let ei = f.ec * 1e6 * PI * f.diameter.powi(4) / 64.;
-    let mut k = zeros(2 * (n + 1));
-    let beam = [
-        [12., 6. * l, -12., 6. * l],
-        [6. * l, 4. * l * l, -6. * l, 2. * l * l],
-        [-12., -6. * l, 12., -6. * l],
-        [6. * l, 2. * l * l, -6. * l, 4. * l * l],
-    ];
-    let soil = [
-        [156., 22. * l, 54., -13. * l],
-        [22. * l, 4. * l * l, 13. * l, -3. * l * l],
-        [54., 13. * l, 156., -22. * l],
-        [-13. * l, -3. * l * l, -22. * l, 4. * l * l],
-    ];
-    for e in 0..n {
-        let kh = layer_at(&input.layers, f.depth + (e as f64 + 0.5) * l).kh * f.diameter;
-        for i in 0..4 {
-            for j in 0..4 {
-                k[2 * e + i][2 * e + j] += ei / l.powi(3) * beam[i][j] + kh * l / 420. * soil[i][j];
-            }
-        }
-    }
-    let mut force = vec![0.; k.len()];
-    force[0] = 1.;
-    let c0 = solve(&k, &force)?;
-    force[0] = 0.;
-    force[1] = 1.;
-    let c1 = solve(&k, &force)?;
-    let det = c0[0] * c1[1] - c1[0] * c0[1];
-    Ok(vec![
-        vec![c1[1] / det, -c1[0] / det],
-        vec![-c0[1] / det, c0[0] / det],
-    ])
-}
 fn bar(input: &Input, torsion: bool) -> Result<f64, String> {
     let f = &input.foundation;
     let n = f.segments;
@@ -429,7 +404,7 @@ pub fn stiffness(input: &Input) -> Result<Output, String> {
     let f = &input.foundation;
     let mut matrix = zeros(6);
     if f.kind == "pile" {
-        let mut lateral = lateral(input)?;
+        let mut lateral = lateral::head(input)?;
         if f.head_connection == "pinned" {
             let horizontal = lateral[0][0] - lateral[0][1] * lateral[1][0] / lateral[1][1];
             if !horizontal.is_finite() || horizontal <= 0. {

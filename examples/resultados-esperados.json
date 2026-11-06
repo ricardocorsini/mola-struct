@@ -85,6 +85,10 @@
       },
       {
         "level": "info",
+        "message": "kh manual por camada; 24 elementos com reação consistente; z a partir do terreno."
+      },
+      {
+        "level": "info",
         "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
@@ -183,7 +187,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "F02",
@@ -268,6 +272,10 @@
       {
         "level": "info",
         "message": "Aoki–Velloso: resistência por estaca isolada, sem verificação normativa de grupo. Np é o valor do intervalo que contém a ponta; sem médias ou limites automáticos."
+      },
+      {
+        "level": "info",
+        "message": "kh manual por camada; 24 elementos com reação consistente; z a partir do terreno."
       },
       {
         "level": "info",
@@ -379,7 +387,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "S01",
@@ -480,6 +488,6 @@
     "segments": [],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   }
 ]

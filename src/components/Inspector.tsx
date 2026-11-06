@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { fmt, type Foundation, type Project } from "../domain/model";
 import { NumberField, Section } from "./Fields";
+import LateralSettings from "./LateralSettings";
 export type PropertyTab =
   | "geometry"
   | "materials"
@@ -31,7 +32,7 @@ export default function Inspector({
   setTab: (t: PropertyTab) => void;
   onFoundation: (f: Foundation) => void;
   onProject: (p: Project) => void;
-  openSoil: () => void;
+  openSoil: (tab?: string) => void;
   openProject: () => void;
 }) {
   const setCount = (count: 1 | 2 | 3 | 4) =>
@@ -303,7 +304,7 @@ export default function Inspector({
                 value={p.bedrock}
                 onChange={(bedrock) => onProject({ ...p, bedrock })}
               />
-              <button className="secondary full" onClick={openSoil}>
+              <button className="secondary full" onClick={() => openSoil()}>
                 <Layers size={15} />
                 Editar perfil e SPT
               </button>
@@ -623,6 +624,11 @@ export default function Inspector({
               Análise → NBR 6122:2022 reúne as verificações parciais, hipóteses
               e dados que faltam para o projeto.
             </p>
+            <LateralSettings
+              foundation={f}
+              onChange={up}
+              openSoil={() => openSoil("crh")}
+            />
             <Section title="METODOLOGIA A COMPLEMENTAR">
               {["Terzaghi · capacidade de carga"].map((m) => (
                 <div className="pending-method" key={m}>

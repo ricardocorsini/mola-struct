@@ -1,4 +1,4 @@
-# Motor 0.5.0 — hipóteses, equações e unidades
+# Motor 0.6.0 — hipóteses, equações e unidades
 
 ## Convenções
 
@@ -36,6 +36,8 @@ K_bloco = eta SUM(T_i^T K_estaca T_i)
 Bloco perfeitamente rígido, estacas verticais idênticas, terreno horizontal, sem contato bloco–solo e sem interação entre estacas. η reduz todas as componentes da rigidez; não é calculado por um método de interação. O arranjo triangular tem centroide na origem. Variações locais bruscas exigem estudo de refinamento da malha; 24 elementos é um valor inicial, não uma demonstração automática de convergência.
 
 ### Ligação estaca–bloco
+
+A configuração de CRH é independente da ligação. Manual: Klinha=kh·d. Por tipo: Klinha=K ou nh·z, usando a versão TQS selecionada ou coeficientes personalizados. SPT/m: Klinha=9,80665·m·z·d com tabela/família/regra explícitas. Reação consistente preserva a amostragem no ponto médio; malha nodal usa passo L/max(2,ceil(L/passo_máximo)), até 128 trechos, com peso Δl integral nos nós abaixo do topo e na ponta. E, ν e a transferência vertical não são trocados por essa seleção. As conversões, limitações e os arquivos estão em [CONFIGURACAO-CRH.md](CONFIGURACAO-CRH.md).
 
 `headConnection="fixed"` é a ligação rígida à flexão, padrão preservado para JSON antigos: a rotação local acompanha o bloco. `headConnection="pinned"` libera os momentos de topo Mx/My. O bloco continua rígido; as translações dos topos respeitam os braços geométricos. A torção em Z permanece vinculada, pois essa opção representa a liberação à flexão.
 

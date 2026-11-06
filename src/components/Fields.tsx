@@ -12,14 +12,14 @@ export function NumberField({
   label: string;
   symbol?: string;
   unit?: string;
-  value: number;
+  value: number | null;
   onChange: (v: number) => void;
   min?: number;
   step?: number | "any";
   hint?: string;
 }) {
-  const [text, setText] = useState(String(value));
-  useEffect(() => setText(String(value)), [value]);
+  const [text, setText] = useState(value === null ? "" : String(value));
+  useEffect(() => setText(value === null ? "" : String(value)), [value]);
   return (
     <label className="number-field" title={hint}>
       <span>
@@ -35,6 +35,7 @@ export function NumberField({
           step={step}
           onChange={(e) => setText(e.target.value)}
           onBlur={() => {
+            if (value === null && text.trim() === "") return;
             const n = Number(text);
             onChange(Number.isFinite(n) ? n : 0);
             setText(String(Number.isFinite(n) ? n : 0));

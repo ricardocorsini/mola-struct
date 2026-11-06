@@ -85,6 +85,10 @@
       },
       {
         "level": "info",
+        "message": "kh manual por camada; 24 elementos com reação consistente; z a partir do terreno."
+      },
+      {
+        "level": "info",
         "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
@@ -183,7 +187,7 @@
     ],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "M2",
@@ -272,6 +276,10 @@
       {
         "level": "warning",
         "message": "Formulação simplificada publicada pelo TQS, com parcela de fuste de Randolph–Wroth. E e ν médios por espessura no fuste; ρ informado. Sem interação entre estacas nem termo de base do método completo. Kh = μh Kz, independente da ligação nesta aproximação. Rotação sem braço = 0,5·3EI/L por estaca somente na ligação rígida; nula na rotulada. Torção usa Winkler + braço horizontal."
+      },
+      {
+        "level": "info",
+        "message": "Randolph simplificado: Kh=μh Kz; seleção CRH não se aplica."
       },
       {
         "level": "info",
@@ -408,7 +416,7 @@
         0.000007639150636406061
       ]
     ],
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "M3",
@@ -497,6 +505,10 @@
       {
         "level": "warning",
         "message": "Mindlin/Aoki–Lopes: cargas de fuste e ponta com mobilização proporcional fixa (ou fração de ponta informada), superposição vertical entre estacas e encurtamento EA. Não é a curva bilinear de mobilização do ALPI. Lateral e torção permanecem Winkler."
+      },
+      {
+        "level": "info",
+        "message": "kh manual por camada; 24 elementos com reação consistente; z a partir do terreno."
       },
       {
         "level": "info",
@@ -638,7 +650,7 @@
         0.000023472608672211372
       ]
     ],
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "S1",
@@ -739,7 +751,7 @@
     "segments": [],
     "details": [],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "S2",
@@ -851,7 +863,7 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "S3",
@@ -968,7 +980,7 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   },
   {
     "id": "S4",
@@ -1095,6 +1107,6 @@
       }
     ],
     "verticalCompliance": null,
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   }
 ]

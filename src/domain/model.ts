@@ -1,7 +1,38 @@
 import { z } from "zod";
+import { defaultMTable } from "./crhCatalog";
 
 const positive = z.number().finite().positive();
 const nonnegative = z.number().finite().nonnegative();
+const mPoint = z.tuple([z.number().int().min(0).max(100), positive]);
+export const lateralSchema = z.object({
+  source: z.enum(["manual", "terzaghi", "tietz"]).default("manual"),
+  tableVersion: z.enum(["tqs-3829", "tqs-3836"]).default("tqs-3829"),
+  depthReference: z.enum(["ground", "cap"]).default("ground"),
+  discretization: z.enum(["consistent", "nodal"]).default("consistent"),
+  nodalStep: positive.min(0.1).default(1),
+  interpolation: z.enum(["lower", "linear", "upper"]).default("linear"),
+  mTableSource: z.enum(["tqs", "custom"]).default("tqs"),
+  clayTable: z
+    .array(mPoint)
+    .min(2)
+    .max(20)
+    .default(() => [...defaultMTable("clay"), [100, 900] as [number, number]]),
+  granularTable: z
+    .array(mPoint)
+    .min(2)
+    .max(20)
+    .default(() => defaultMTable("granular")),
+});
+export const defaultLateral = () => lateralSchema.parse({});
+export type LateralOptions = z.infer<typeof lateralSchema>;
+export const layerCrhSchema = z.object({
+  preset: z.string().default("unset"),
+  k: positive.nullable().default(null),
+  nhDry: positive.nullable().default(null),
+  nhWet: positive.nullable().default(null),
+  family: z.enum(["soil", "clay", "granular"]).default("soil"),
+});
+export const defaultLayerCrh = () => layerCrhSchema.parse({});
 export const layerSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
@@ -16,6 +47,7 @@ export const layerSchema = z.object({
   alpha: nonnegative,
   k: positive,
   kh: positive,
+  crh: layerCrhSchema.optional(),
   shaftK: positive,
   baseK: positive,
   schmertmannK: positive.default(0.9),
@@ -83,6 +115,7 @@ export const foundationSchema = z.object({
   sptFactor: positive,
   pileMethod: z.enum(["winkler", "randolph", "mindlin"]).default("winkler"),
   headConnection: z.enum(["fixed", "pinned"]).default("fixed"),
+  lateral: lateralSchema.optional(),
   footingMethod: z
     .enum(["elastic", "winkler", "safe", "mindlin"])
     .default("elastic"),
@@ -99,7 +132,7 @@ export const foundationSchema = z.object({
 });
 export const projectSchema = z.object({
   format: z.literal("molasstruct"),
-  version: z.literal(1),
+  version: z.union([z.literal(1), z.literal(2)]),
   name: z.string().min(1),
   author: z.string(),
   notes: z.string(),
@@ -122,6 +155,11 @@ export const projectSchema = z.object({
 export type Layer = z.infer<typeof layerSchema>;
 export type Foundation = z.infer<typeof foundationSchema>;
 export type Project = z.infer<typeof projectSchema>;
+/** V2 prevents old applications from silently dropping CRH settings and using manual kh. */
+export const serializeProject = (p: Project) =>
+  JSON.stringify({ ...p, version: 2 }, null, 2);
+export const lateralOptions = (f: Foundation): LateralOptions =>
+  f.lateral ?? defaultLateral();
 export const headConnectionLabel = (f: Foundation) =>
   f.headConnection === "pinned" ? "Rotulada em X e Y" : "Rígida à flexão";
 export const uid = () => crypto.randomUUID();

@@ -2,6 +2,15 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.6.0 — 2026-11-06
+
+- Configuração horizontal por fundação: kh manual, K/nh por tipo de solo ou SPT/m (Tietz conforme TQS), independente do núcleo vertical.
+- Seleção de tabelas K/nh 3829/3836, associações explícitas por camada, valores personalizados e bloqueio de coeficientes secos/submersos não publicados.
+- Tabelas m publicadas ou personalizadas, com regra linear/degrau inferior/degrau superior, família do solo e faixas controladas.
+- Origem z terreno/base do bloco; reação consistente ou molas nodais com passo máximo e convenção de extremidade explícita. Mesmos cálculos em TypeScript/Rust.
+- Editor de coeficientes na sondagem e registro da configuração na memória/PDF/CSV. JSON v2 para impedir que apps antigos ignorem as opções; leitura v1 mantida.
+- 125 testes TypeScript, 8 Rust e 50 casos de paridade. Os 39 casos anteriores conservam exatamente matrizes e deslocamentos. Conferência de interface para seleção, personalização, salvar/reabrir e PDF.
+
 ## Investigação de CRH — 2026-11-06
 
 - Estudo do documento TQS 3829 e confronto com o manual específico de estacas 3836, com distinção entre K de reação, kh de pressão/deslocamento e K de Aoki–Velloso.

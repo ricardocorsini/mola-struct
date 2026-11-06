@@ -10,7 +10,7 @@ Estimativa de rigidez de fundações com visualização 3D, perfil SPT e memóri
 
 [![CI](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml/badge.svg)](https://github.com/ricardocorsini/mola-struct/actions/workflows/check.yml)
 [![Licença MIT](https://img.shields.io/badge/licen%C3%A7a-MIT-3448D1)](LICENSE)
-[![Versão 0.5.0](https://img.shields.io/badge/vers%C3%A3o-0.5.0-3448D1)](CHANGELOG.md)
+[![Versão 0.6.0](https://img.shields.io/badge/vers%C3%A3o-0.6.0-3448D1)](CHANGELOG.md)
 [![Experimental](https://img.shields.io/badge/status-experimental-D49A40)](#estado-do-projeto)
 
 Parte do ecossistema **OpenStruct** · Engenharia estrutural aberta
@@ -29,7 +29,7 @@ A aplicação funciona no navegador e possui uma base desktop com Tauri. O cálc
 
 ## Estado do projeto
 
-**v0.5.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
+**v0.6.0 — experimental.** Há cálculos implementados e testes com referências analíticas idealizadas. A validação geotécnica com provas de carga e a verificação de conformidade normativa ainda não estão concluídas. As hipóteses estão na memória e em [MOTOR.md](docs/MOTOR.md).
 
 Os exemplos de demonstração são fictícios; o caso externo de 16 m é identificado separadamente. Os parâmetros de deformabilidade e reação precisam de justificativa para o solo, a fundação e o nível de deformação em análise. O bloco é considerado rígido; seu dimensionamento estrutural não faz parte desta versão.
 
@@ -38,6 +38,7 @@ Os exemplos de demonstração são fictícios; o caso externo de 16 m é identif
 - **Fundações:** sapatas e blocos sobre 1 a 4 estacas; dimensões, espaçamentos, cotas, concreto e ações editáveis.
 - **Ligação estaca–bloco:** rígida à flexão ou rotulada em X/Y; condensação lateral, momentos de topo e identificação de rotações livres. [Hipóteses e ensaio do binário](docs/LIGACAO-ESTACA-BLOCO.md).
 - **Estudo de coeficientes:** comparação reproduzível do kh manual com K/nh e SPT/m das referências TQS, incluindo unidades e hipóteses de discretização. [Investigação de CRH](docs/COEFICIENTES-TQS.md).
+- **Configuração de CRH:** seleção por fundação de Manual, K/nh (TQS 3829/3836) ou SPT/m; tabelas editáveis, regras entre pontos e malha consistente/nodal. [Como configurar](docs/CONFIGURACAO-CRH.md).
 - **Investigação:** SPT, camadas, importação CSV/TSV, colagem de planilhas e nível d'água.
 - **Visualização:** modelo 3D com órbita, zoom, pan e vistas predefinidas; solo em corte, água, cotas e molas esquemáticas; planta e corte vetoriais.
 - **Análise:** seis coeficientes, matriz **6 × 6** com acoplamentos, deslocamentos, rotações, capacidade estimada, comparação e sensibilidade.

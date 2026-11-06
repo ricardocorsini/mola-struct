@@ -297,6 +297,10 @@
       },
       {
         "level": "info",
+        "message": "kh manual por camada; 64 elementos com reação consistente; z a partir do terreno."
+      },
+      {
+        "level": "info",
         "message": "Ligação estaca–bloco rígida à flexão: rotação do topo acompanha o bloco; o momento pode ser dividido entre flexão local e binários axiais."
       }
     ],
@@ -499,6 +503,6 @@
         0.000008666772805941327
       ]
     ],
-    "version": "0.5.0-experimental"
+    "version": "0.6.0-experimental"
   }
 }

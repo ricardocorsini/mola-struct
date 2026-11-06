@@ -4,7 +4,9 @@ Testes de software, referências analíticas idealizadas e validação geotécni
 
 ## Testes automatizados
 
-A base 0.5.0, com a investigação de CRH, possui 112 testes Vitest e 6 testes Rust. Um dos testes Rust percorre 39 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+A base 0.6.0 possui 125 testes Vitest e 8 testes Rust. Um dos testes Rust percorre 50 casos compartilhados de paridade entre as implementações. O CI executa o TypeScript estrito, os testes, a formatação e o build web.
+
+Os 13 testes de `tests/lateralOptions.test.ts` verificam os seletores reais do motor, a reprodução dos ensaios consistente/nodal, versões e unidades K/nh, níveis d’água, coeficientes ausentes, tabelas personalizadas, origem z, equilíbrio, JSON v2 e alcance por método. Os 39 alvos numéricos anteriores permaneceram exatamente iguais. Na interface foram conferidos os seletores, troca 3829/3836, associações, nh e m personalizados, salvar/reabrir, exportar PDF e restaurar manual, sem erros JavaScript. Detalhes em [CONFIGURACAO-CRH.md](CONFIGURACAO-CRH.md).
 
 Sete testes de `tests/tqsCrhAudit.test.ts` cobrem conversões, pontos das tabelas e hipóteses entre linhas, adaptação do perfil manual, independência do bloco axial ao variar só CRH, cálculo manual da lei SPT/m, limite analítico da malha nodal com pesos trapezoidais e domínio do estudo. A discretização nodal de 1 m usada na comparação tem sua própria convenção de ponta explícita; aproximação do print não é usada como critério de aprovação. Consulte [COEFICIENTES-TQS.md](COEFICIENTES-TQS.md).
 

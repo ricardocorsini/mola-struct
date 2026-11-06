@@ -13,7 +13,17 @@ import { methodNarrative } from "../domain/methods";
 import type { Calculation } from "../domain/engine";
 import { Notices } from "./Results";
 import PileHeadActions from "./PileHeadActions";
+import { lateralEntries } from "../domain/lateral";
 export const references = [
+  {
+    title: "TQS 3829 · CRH – Sapatas e Tubulões · tabelas K, nh e SPT/m",
+    url: "https://docs.tqs.com.br/Docs/Details?id=3829&language=pt-br",
+  },
+  {
+    title:
+      "TQS 3836 · CRH – Estacas · coeficientes publicados e limites do método",
+    url: "https://docs.tqs.com.br/Docs/Details?id=3836&language=pt-br",
+  },
   {
     title:
       "ABNT NBR 6122:2022 · Projeto e execução de fundações · edição consolidada de 25/03/2022, fornecida pelo usuário. Conferência parcial; texto integral não redistribuído.",
@@ -195,6 +205,7 @@ export default function Report({
           <tbody>
             {[
               ["Origem de E", f.modulusSource],
+              ...lateralEntries(p, f),
               ["μh / ρ", `${fmt(f.horizontalRatio)} / ${fmt(f.randolphRho)}`],
               [
                 "Integração / transferência",

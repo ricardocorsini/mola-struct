@@ -8,3 +8,4 @@ GDL;ux (m);uy (m);uz (m);theta_x (rad);theta_y (rad);theta_z (rad)
 "Mz (kN.m)";0,000000;0,000000;0,000000;0,000000;0,000000;7863,467563
 "Ligação estaca–bloco";"Rígida à flexão"
 "GDL livres";"Nenhum"
+"Reação horizontal";"kh manual por camada; 64 elementos com reação consistente; z a partir do terreno."

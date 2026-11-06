@@ -1,6 +1,8 @@
 import { pilePositions, type Foundation, type Project } from "./model";
 import { intervals, layerAt, sptAt } from "./profile";
 import { solve, zeros, type Matrix } from "./matrix";
+import { lateralSummary, hasLateralModel } from "./lateral";
+import { lateralOptions } from "./model";
 import type { Notice } from "./engine";
 
 export type MethodResult = {
@@ -467,6 +469,12 @@ export function methodNarrative(f: Foundation): string[] {
               "Steinbrenner: Σ[w(topo,Ei,νi)−w(base,Ei,νi)] das camadas entre a ponta e a base indeslocável. Avaliação no centro da ponta de cada estaca. Encurtamento elástico próprio = ∫N(z)/(Ep Ap) dz. Flexibilidade C inclui as contribuições mútuas; Kvertical = η Bᵀ C⁻¹ B, B=[1,y,−x]. Lateral, flexão local e torção continuam pelo modelo Winkler.",
             ];
     model.push(
+      lateralSummary(f),
+      ...(hasLateralModel(f) && lateralOptions(f).source !== "manual"
+        ? [
+            "Reação horizontal: manual usa Klinha=kh·d; por tipo de solo Klinha=K ou nh·z; SPT/m usa Klinha=m·z·d, com m em tf/m⁴ convertido por 9,80665. Klinha em kN/m²; molas nodais em kN/m após multiplicar por Δl. Esse K não é K de Aoki–Velloso. Associação geotécnica e coeficientes exigem justificativa; não alteram E, ν ou a lei de transferência vertical.",
+          ]
+        : []),
       f.headConnection === "pinned"
         ? "Ligação estaca–bloco rotulada à flexão em X e Y: Mx=My=0 no topo; bloco permanece rígido. Em Winkler e no lateral do Mindlin, kh,rotulado = Kuu − Kuθ Kθθ⁻¹ Kθu, antes da montagem do grupo. Eliminam-se momentos locais e acoplamentos de flexão; os braços axiais e a torção em Z são preservados. No Randolph simplificado, Kh=μh Kz permanece uma hipótese independente; remove-se apenas a flexão local aproximada. A rótula não elimina momentos ao longo do fuste sob ações laterais."
         : "Ligação estaca–bloco rígida à flexão: θx e θy dos topos acompanham o bloco. Momentos podem ser resistidos pelos binários axiais e pela flexão local das estacas. A rigidez da estaca e do solo é finita; não é um apoio perfeitamente engastado no terreno.",

@@ -191,7 +191,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -446,7 +447,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -701,7 +703,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -956,7 +959,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -1211,7 +1215,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -1466,7 +1471,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -1721,7 +1727,8 @@
           "n": 50
         }
       ],
-      "bedrock": 20
+      "bedrock": 20,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -1976,7 +1983,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -2231,7 +2239,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -2486,7 +2495,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -2741,7 +2751,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -2996,7 +3007,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -3251,7 +3263,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -3506,7 +3519,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -3761,7 +3775,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -4016,7 +4031,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -4271,7 +4287,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -4526,7 +4543,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -4781,7 +4799,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -5036,7 +5055,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -5291,7 +5311,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -5546,7 +5567,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -5801,7 +5823,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -6056,7 +6079,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -6311,7 +6335,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -6601,7 +6626,8 @@
           "n": 40
         }
       ],
-      "bedrock": 100
+      "bedrock": 100,
+      "water": 1
     },
     "expected": {
       "matrix": [
@@ -6856,7 +6882,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -7111,7 +7138,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -7366,7 +7394,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -7621,7 +7650,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -7876,7 +7906,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -8131,7 +8162,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -8386,7 +8418,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -8641,7 +8674,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -8896,7 +8930,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -9151,7 +9186,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -9406,7 +9442,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -9661,7 +9698,8 @@
           "n": 50
         }
       ],
-      "bedrock": 16
+      "bedrock": 16,
+      "water": 3
     },
     "expected": {
       "matrix": [
@@ -9951,7 +9989,8 @@
           "n": 40
         }
       ],
-      "bedrock": 100
+      "bedrock": 100,
+      "water": 1
     },
     "expected": {
       "matrix": [
@@ -10002,6 +10041,4230 @@
           0,
           0,
           5971.138767435861
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "manual",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "consistent",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          9375.491862344255,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          9375.491862344255,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5971.138767435861
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "manual",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "nodal",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          4990.20471738,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4990.20471738,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          5083.118120580599
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "terzaghi",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "consistent",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          3244.7846790158674,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          3244.7846790158674,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4729.6705628118625
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "terzaghi",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "nodal",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          2430.205796170633,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2430.205796170633,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4564.718339035702
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "tietz",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "consistent",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          1785.8197165342126,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1785.8197165342126,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4434.230157909327
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "tietz",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "nodal",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          1715.813083536144,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1715.813083536144,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4420.053814727218
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00020252192965551492,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "fixed",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "tietz",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "nodal",
+          "nodalStep": 1,
+          "interpolation": "lower",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          3505.886164384801,
+          0,
+          0,
+          0,
+          -6435.586096846019,
+          0
+        ],
+        [
+          0,
+          3505.886164384801,
+          0,
+          6435.586096846019,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          6435.586096846019,
+          0,
+          18724.19134903951,
+          0,
+          0
+        ],
+        [
+          -6435.586096846019,
+          0,
+          0,
+          0,
+          67146.84867153727,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4782.543613599071
+        ]
+      ],
+      "displacement": [
+        0.000325329897467732,
+        0,
+        -0.0017592526712857082,
+        0,
+        0.00017722854907524624,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 4,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 5,
+        "hy": 3,
+        "mx": 8,
+        "my": 9.80665,
+        "mz": 2,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "tietz",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "consistent",
+          "nodalStep": 1,
+          "interpolation": "upper",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          4145.05843398624,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          4145.05843398624,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          420892.255660129,
+          -2.9103830456733704e-11,
+          1.4551915228366852e-11,
+          0
+        ],
+        [
+          0,
+          0,
+          2.9103830456733704e-11,
+          96019.74614470599,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1.4551915228366852e-11,
+          0,
+          96019.74614470599,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          9823.951996386724
+        ]
+      ],
+      "displacement": [
+        0.0012062556124671025,
+        0.0007237533674802614,
+        -0.00093198673704454,
+        0.0000833161961076597,
+        0.00010213159681989743,
+        0.00020358405667450383
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 3,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 3,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "tietz",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "consistent",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "custom",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              180
+            ],
+            [
+              7,
+              360
+            ],
+            [
+              20,
+              600
+            ],
+            [
+              40,
+              960
+            ],
+            [
+              50,
+              1800
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          2983.4613234916924,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          2983.4613234916924,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          324726.8731589584,
+          197.56090201428742,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          197.56090201430197,
+          64301.79744067302,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249775,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          7048.692814866607
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.0012079897466361047,
+        0.0000037114288164284188,
+        0.00020252192965551505,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 1,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 0,
+        "mz": 0,
+        "efficiency": 0.8,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "terzaghi",
+          "tableVersion": "tqs-3836",
+          "depthReference": "ground",
+          "discretization": "consistent",
+          "nodalStep": 1,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "sand-loose",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "clay-medium",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "clay-hard",
+            "k": null,
+            "nhDry": null,
+            "nhWet": null,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 0
+    },
+    "expected": {
+      "matrix": [
+        [
+          1088.167800274578,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1088.167800274578,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          92306.56184405534,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1629.0406661244597
+        ]
+      ],
+      "displacement": [
+        0,
+        0,
+        -0.004249600376869225,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "input": {
+      "foundation": {
+        "id": "B16",
+        "name": "B16 · 2 estacas / 16 m",
+        "kind": "pile",
+        "count": 2,
+        "diameter": 0.3,
+        "length": 16,
+        "spacingX": 0.9,
+        "spacingY": 0.9,
+        "capX": 1.5,
+        "capY": 0.6,
+        "height": 0.65,
+        "depth": 0,
+        "fck": 30,
+        "ec": 30,
+        "concreteNu": 0.2,
+        "f1": 2,
+        "f2": 4,
+        "n": 392.26599999999996,
+        "hx": 0,
+        "hy": 0,
+        "mx": 0,
+        "my": 9.80665,
+        "mz": 0,
+        "efficiency": 1,
+        "segments": 64,
+        "safety": 3,
+        "sptFactor": 20,
+        "pileMethod": "mindlin",
+        "headConnection": "pinned",
+        "footingMethod": "elastic",
+        "modulusSource": "manual",
+        "aokiFactor": 6,
+        "horizontalRatio": 0.3,
+        "kvInput": 30000,
+        "allowablePressure": 200,
+        "randolphRho": 1,
+        "integration": 32,
+        "transfer": "capacity-ratio",
+        "tipFraction": 0.5,
+        "verification": {
+          "serviceConfirmed": false,
+          "serviceReference": "",
+          "settlementLimit": null,
+          "horizontalLimit": null,
+          "rotationLimit": null,
+          "limitsReference": "",
+          "ultimateBasis": "unset",
+          "ultimateReference": "",
+          "ultimateN": 0,
+          "ultimateHx": 0,
+          "ultimateHy": 0,
+          "ultimateMx": 0,
+          "ultimateMy": 0,
+          "ultimateMz": 0,
+          "selfWeightIncluded": false,
+          "geotechnicalBasisConfirmed": false,
+          "soilRegime": "unset",
+          "geotechnicalReference": "",
+          "pileType": "unspecified",
+          "toeProcedure": "unconfirmed",
+          "executionReference": "",
+          "pileSafety": 2
+        },
+        "lateral": {
+          "source": "terzaghi",
+          "tableVersion": "tqs-3829",
+          "depthReference": "ground",
+          "discretization": "nodal",
+          "nodalStep": 0.7,
+          "interpolation": "linear",
+          "mTableSource": "tqs",
+          "clayTable": [
+            [
+              0,
+              25
+            ],
+            [
+              1,
+              75
+            ],
+            [
+              3,
+              150
+            ],
+            [
+              6,
+              300
+            ],
+            [
+              12,
+              500
+            ],
+            [
+              22,
+              700
+            ],
+            [
+              30,
+              900
+            ],
+            [
+              100,
+              900
+            ]
+          ],
+          "granularTable": [
+            [
+              1,
+              150
+            ],
+            [
+              7,
+              300
+            ],
+            [
+              20,
+              500
+            ],
+            [
+              40,
+              800
+            ],
+            [
+              50,
+              1500
+            ]
+          ]
+        }
+      },
+      "layers": [
+        {
+          "id": "R1",
+          "name": "Areia · print",
+          "bottom": 3,
+          "soil": "sand",
+          "e": 140,
+          "schmertmannK": 0.7,
+          "nu": 0.35,
+          "gamma": 18,
+          "gammaSat": 20,
+          "phi": 30,
+          "cohesion": 0,
+          "alpha": 0.024,
+          "k": 686.4654999999999,
+          "kh": 18000,
+          "shaftK": 16000,
+          "baseK": 100000,
+          "color": "#D1B994",
+          "crh": {
+            "preset": "custom-nh",
+            "k": 2500,
+            "nhDry": 1000,
+            "nhWet": 600,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R2",
+          "name": "Argila 3–11 m · print",
+          "bottom": 11,
+          "soil": "clay",
+          "e": 88,
+          "schmertmannK": 0.9,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 35,
+          "cohesion": 0,
+          "alpha": 0.04,
+          "k": 215.7463,
+          "kh": 40000,
+          "shaftK": 30000,
+          "baseK": 180000,
+          "color": "#b7a38f",
+          "crh": {
+            "preset": "custom-k",
+            "k": 2500,
+            "nhDry": 1000,
+            "nhWet": 600,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R3",
+          "name": "Argila 11–20 m · print",
+          "bottom": 20,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#8d9c9a",
+          "crh": {
+            "preset": "custom-k",
+            "k": 2500,
+            "nhDry": 1000,
+            "nhWet": 600,
+            "family": "soil"
+          }
+        },
+        {
+          "id": "R4",
+          "name": "Continuação 20–100 m · HIPÓTESE",
+          "bottom": 100,
+          "soil": "clay",
+          "e": 370,
+          "schmertmannK": 0.45,
+          "nu": 0.35,
+          "gamma": 19,
+          "gammaSat": 21,
+          "phi": 32,
+          "cohesion": 10,
+          "alpha": 0.03,
+          "k": 323.61945,
+          "kh": 55000,
+          "shaftK": 40000,
+          "baseK": 220000,
+          "color": "#b8c3c2",
+          "crh": {
+            "preset": "custom-k",
+            "k": 2500,
+            "nhDry": 1000,
+            "nhWet": 600,
+            "family": "soil"
+          }
+        }
+      ],
+      "spt": [
+        {
+          "depth": 1,
+          "n": 6
+        },
+        {
+          "depth": 2,
+          "n": 3
+        },
+        {
+          "depth": 3,
+          "n": 4
+        },
+        {
+          "depth": 4,
+          "n": 5
+        },
+        {
+          "depth": 5,
+          "n": 6
+        },
+        {
+          "depth": 6,
+          "n": 6
+        },
+        {
+          "depth": 7,
+          "n": 8
+        },
+        {
+          "depth": 8,
+          "n": 9
+        },
+        {
+          "depth": 9,
+          "n": 12
+        },
+        {
+          "depth": 10,
+          "n": 14
+        },
+        {
+          "depth": 11,
+          "n": 17
+        },
+        {
+          "depth": 12,
+          "n": 15
+        },
+        {
+          "depth": 13,
+          "n": 12
+        },
+        {
+          "depth": 14,
+          "n": 12
+        },
+        {
+          "depth": 15,
+          "n": 22
+        },
+        {
+          "depth": 16,
+          "n": 35
+        },
+        {
+          "depth": 17,
+          "n": 35
+        },
+        {
+          "depth": 18,
+          "n": 36
+        },
+        {
+          "depth": 19,
+          "n": 38
+        },
+        {
+          "depth": 20,
+          "n": 40
+        }
+      ],
+      "bedrock": 100,
+      "water": 1
+    },
+    "expected": {
+      "matrix": [
+        [
+          1795.4099170392683,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1795.4099170392683,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          222973.08760845684,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          48422.65732249778,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          4436.172173511601
         ]
       ],
       "displacement": [

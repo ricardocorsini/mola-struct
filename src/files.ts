@@ -13,6 +13,7 @@ import {
   verificationEntries,
 } from "./domain/nbr6122";
 import { methodNarrative } from "./domain/methods";
+import { lateralEntries, lateralSummary } from "./domain/lateral";
 import { isTauri } from "@tauri-apps/api/core";
 import { renderToStaticMarkup } from "react-dom/server";
 import { createElement } from "react";
@@ -116,6 +117,7 @@ export function matrixCsv(f: Foundation, r: Calculation): string {
       ]
         .map(csvText)
         .join(";"),
+      ["Reação horizontal", lateralSummary(f)].map(csvText).join(";"),
     ].join("\r\n")
   );
 }
@@ -386,6 +388,7 @@ export async function reportPdf(
   text(r.method, 10, true);
   if (f.kind === "pile") row("Ligação estaca–bloco", headConnectionLabel(f));
   for (const paragraph of methodNarrative(f)) text(paragraph);
+  for (const [label, value] of lateralEntries(p, f)) row(label, value);
   row(
     "Seletores",
     `E=${f.modulusSource}; μh=${fmt(f.horizontalRatio)}; ρ=${fmt(f.randolphRho)}; integração=${f.integration}; transferência=${f.transfer}; βp=${fmt(f.tipFraction)}`,

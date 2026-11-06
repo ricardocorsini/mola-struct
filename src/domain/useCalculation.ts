@@ -10,6 +10,7 @@ export function useCalculation(p: Project, f: Foundation): Calculation {
       layers: p.layers,
       spt: p.spt,
       bedrock: p.bedrock,
+      water: p.water,
     });
   const [native, setNative] = useState<{
     key: string;

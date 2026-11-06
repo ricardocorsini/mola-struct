@@ -1,0 +1,11 @@
+﻿"MolasStruct";"B16 · 2 estacas / 16 m";"kN;m;rad"
+GDL;ux (m);uy (m);uz (m);theta_x (rad);theta_y (rad);theta_z (rad)
+"Fx (kN)";1715,813084;0,000000;0,000000;0,000000;0,000000;0,000000
+"Fy (kN)";0,000000;1715,813084;0,000000;0,000000;0,000000;0,000000
+"Fz (kN)";0,000000;0,000000;222973,087608;0,000000;0,000000;0,000000
+"Mx (kN.m)";0,000000;0,000000;0,000000;0,000000;0,000000;0,000000
+"My (kN.m)";0,000000;0,000000;0,000000;0,000000;48422,657322;0,000000
+"Mz (kN.m)";0,000000;0,000000;0,000000;0,000000;0,000000;4420,053815
+"Ligação estaca–bloco";"Rotulada em X e Y"
+"GDL livres";"theta_x (rad)"
+"Reação horizontal";"SPT/m Tietz · tabela TQS 3829/3836 · regra linear; molas nodais, passo máximo 1 m (mínimo 2 / máximo 128 trechos); z a partir do terreno."

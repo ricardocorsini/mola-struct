@@ -16,6 +16,8 @@ import {
   exampleProject,
   methodologyProject,
   normativeExampleProject,
+  defaultLateral,
+  defaultLayerCrh,
 } from "../src/domain/model";
 import {
   geometryDxf,
@@ -96,6 +98,41 @@ const extra = [
     integration: 24,
   },
 ];
+const crhProject = reference16Project();
+crhProject.layers = crhProject.layers.map((l, i) => ({
+  ...l,
+  crh: {
+    ...defaultLayerCrh(),
+    preset: i === 0 ? "sand-loose" : i === 1 ? "clay-medium" : "clay-hard",
+  },
+}));
+const crhBase = {
+  ...crhProject.foundations[0],
+  headConnection: "pinned" as const,
+  my: 9.80665,
+};
+const customM = {
+  ...defaultLateral(),
+  source: "tietz" as const,
+  mTableSource: "custom" as const,
+  clayTable: defaultLateral().clayTable,
+  granularTable: defaultLateral().granularTable.map(
+    ([n, m]) => [n, m * 1.2] as [number, number],
+  ),
+};
+const customSoil = {
+  ...crhProject,
+  layers: crhProject.layers.map((l, i) => ({
+    ...l,
+    crh: {
+      ...defaultLayerCrh(),
+      preset: i === 0 ? "custom-nh" : "custom-k",
+      k: 2500,
+      nhDry: 1000,
+      nhWet: 600,
+    },
+  })),
+};
 const cases = [
   ...variants.map((f) => ({ p, f })),
   ...extra.map((f) => ({ p: m, f })),
@@ -131,12 +168,87 @@ const cases = [
       my: 9.80665,
     },
   },
+  ...(["manual", "terzaghi", "tietz"] as const).flatMap((source) =>
+    (["consistent", "nodal"] as const).map((discretization) => ({
+      p: crhProject,
+      f: {
+        ...crhBase,
+        lateral: { ...defaultLateral(), source, discretization },
+      },
+    })),
+  ),
+  {
+    p: crhProject,
+    f: {
+      ...crhBase,
+      headConnection: "fixed" as const,
+      lateral: {
+        ...defaultLateral(),
+        source: "tietz" as const,
+        discretization: "nodal" as const,
+        interpolation: "lower" as const,
+      },
+    },
+  },
+  {
+    p: crhProject,
+    f: {
+      ...crhBase,
+      count: 4 as const,
+      capY: 3,
+      hx: 5,
+      hy: 3,
+      mx: 8,
+      mz: 2,
+      lateral: {
+        ...defaultLateral(),
+        source: "tietz" as const,
+        interpolation: "upper" as const,
+      },
+    },
+  },
+  {
+    p: crhProject,
+    f: { ...crhBase, count: 3 as const, capY: 3, lateral: customM },
+  },
+  {
+    p: { ...crhProject, water: 0 },
+    f: {
+      ...crhBase,
+      count: 1 as const,
+      my: 0,
+      efficiency: 0.8,
+      lateral: {
+        ...defaultLateral(),
+        source: "terzaghi" as const,
+        tableVersion: "tqs-3836" as const,
+      },
+    },
+  },
+  {
+    p: customSoil,
+    f: {
+      ...crhBase,
+      lateral: {
+        ...defaultLateral(),
+        source: "terzaghi" as const,
+        discretization: "nodal" as const,
+        nodalStep: 0.7,
+      },
+    },
+  },
 ];
 const fixtures = cases.map(({ p, f }) => {
   const r = calculate(p, f);
   if (!r.valid) throw new Error("Invalid fixture " + f.id);
   return {
-    input: { foundation: f, layers: p.layers, spt: p.spt, bedrock: p.bedrock },
+    input: {
+      foundation: f,
+      layers: p.layers,
+      spt: p.spt,
+      bedrock: p.bedrock,
+      water: p.water,
+    },
     expected: { matrix: r.matrix, displacement: r.displacement },
   };
 });
@@ -144,6 +256,35 @@ writeFileSync(
   "crates/molas-core/tests/parity.json",
   JSON.stringify(fixtures, null, 2) + "\n",
 );
+
+for (const source of ["tietz", "terzaghi"] as const) {
+  const project = structuredClone(crhProject),
+    f = {
+      ...crhBase,
+      lateral: {
+        ...defaultLateral(),
+        source,
+        discretization:
+          source === "tietz" ? ("nodal" as const) : ("consistent" as const),
+      },
+    };
+  project.name = `Referência 16 m · CRH ${source === "tietz" ? "SPT/m nodal" : "K/nh 3829"}`;
+  project.version = 2;
+  project.notes +=
+    " Ensaio de CRH, sem calibração. Nas associações por tipo foram escolhidas areia fofa, argila pré-adensada média e dura apenas como hipóteses, não fornecidas pelo print. My=1 tf·m.";
+  project.foundations = [f];
+  const r = calculate(project, f);
+  if (!r.valid) throw new Error("Invalid CRH example " + source);
+  writeFileSync(
+    `examples/CRH-${source}.molas.json`,
+    JSON.stringify(project, null, 2) + "\n",
+  );
+  writeFileSync(`examples/CRH-${source}-matriz.csv`, matrixCsv(f, r));
+  writeFileSync(
+    `examples/CRH-${source}-memoria.pdf`,
+    await reportPdf(project, f, r),
+  );
+}
 writeFileSync(
   "examples/resultados-esperados.json",
   JSON.stringify(
