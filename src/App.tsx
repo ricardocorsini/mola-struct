@@ -196,7 +196,7 @@ export default function App() {
     }
   }, [dark]);
   useEffect(() => {
-    document.title = `${f.name} · ${p.name} — MolasStruct`;
+    document.title = `${f.name} · ${p.name} — MolaStruct`;
   }, [f.name, p.name]);
   const select = (id: string) => {
     setSelected(id);
@@ -263,7 +263,7 @@ export default function App() {
       toast("Projeto aberto e validado.");
     } catch {
       toast(
-        "Projeto inválido ou versão não suportada. Use um arquivo MolasStruct v1.",
+        "Projeto inválido ou versão não suportada. Use um arquivo MolaStruct v1.",
       );
     }
   };
@@ -798,9 +798,9 @@ export default function App() {
     <div className="app-shell">
       <header className="titlebar">
         <div className="app-brand">
-          <img src="/molas.svg" alt="" />
+          <img src="/molastruct-icon.png" alt="" />
           <strong>
-            Molas<span>Struct</span>
+            Mola<span>Struct</span>
           </strong>
           <i /> <small>OPENSTRUCT</small>
         </div>
@@ -1308,11 +1308,9 @@ export default function App() {
           >
             <header>
               <div>
-                <img src="/molas.svg" alt="" />
+                <img src="/molastruct-icon.png" alt="" />
                 <h2 id="modal-title">
-                  {modal === "project"
-                    ? "Dados do projeto"
-                    : "MolasStruct · versão 0.1"}
+                  {modal === "project" ? "Dados do projeto" : "MolaStruct"}
                 </h2>
               </div>
               <button onClick={() => setModal(null)} aria-label="Fechar janela">

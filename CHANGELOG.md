@@ -2,6 +2,11 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## 0.5.1 — 2026-11-06
+
+- Nome exibido MolaStruct, arte oficial do Drive na interface, favicon e pacotes nativos.
+- Ícones PNG e ICO/ICNS derivados do mesmo original; identificadores de instalação e arquivos de projeto compatíveis.
+
 ## 0.5.0 — 2026-11-06
 
 - Opção de ligação estaca–bloco rígida à flexão ou rotulada em X/Y, preservando o bloco rígido e os binários axiais. Projetos antigos mantêm a ligação rígida.

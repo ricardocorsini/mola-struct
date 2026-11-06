@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="public/molas.svg" alt="Ícone do MolasStruct" width="64" />
+<img src="public/molastruct-icon.png" alt="Ícone do MolaStruct" width="64" />
 
-# MolasStruct
+# MolaStruct
 
 **Da sondagem ao apoio elástico.**
 
@@ -23,7 +23,7 @@ Parte do ecossistema **OpenStruct** · Engenharia estrutural aberta
 
 ## Sobre
 
-O MolasStruct auxilia o estudo da rigidez do conjunto **fundação + solo** e sua representação por apoios elásticos em modelos estruturais. Permite definir geometria, materiais, ações, sondagem SPT e camadas para comparar estimativas de translação e rotação de **sapatas retangulares** e **blocos sobre 1 a 4 estacas**.
+O MolaStruct auxilia o estudo da rigidez do conjunto **fundação + solo** e sua representação por apoios elásticos em modelos estruturais. Permite definir geometria, materiais, ações, sondagem SPT e camadas para comparar estimativas de translação e rotação de **sapatas retangulares** e **blocos sobre 1 a 4 estacas**.
 
 A aplicação funciona no navegador e possui uma base desktop com Tauri. O cálculo é local: não depende de uma API de engenharia nem envia o perfil de solo a um servidor. A interface segue a organização do ConsoloStruct, com faixa de ferramentas, árvore de projeto, vistas sincronizadas, propriedades e resultados.
 

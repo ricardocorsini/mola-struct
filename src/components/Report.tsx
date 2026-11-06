@@ -90,9 +90,9 @@ export default function Report({
     <div className="report-wrap">
       <article className="calculation-report">
         <div className="report-brand">
-          <img src="/molas.svg" width="30" height="30" alt="" />
+          <img src="/molastruct-icon.png" width="30" height="30" alt="" />
           <span>
-            MOLASSTRUCT <small>OPENSTRUCT / ENGENHARIA ABERTA</small>
+            MOLASTRUCT <small>OPENSTRUCT / ENGENHARIA ABERTA</small>
           </span>
           <span className="report-version">
             MEMÓRIA DE CÁLCULO
@@ -295,7 +295,7 @@ export default function Report({
           </a>
         ))}
         <footer>
-          MolasStruct · OpenStruct · motor {r.version} · unidades internas: kN,
+          MolaStruct · OpenStruct · motor {r.version} · unidades internas: kN,
           m, rad
         </footer>
       </article>
