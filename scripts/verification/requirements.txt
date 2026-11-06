@@ -1,0 +1,3 @@
+openseespy==3.7.1.2
+openseespylinux==3.7.1.2; sys_platform == "linux"
+numpy==2.3.5
