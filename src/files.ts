@@ -70,7 +70,7 @@ export async function nativeOpen() {
   const { open } = await import("@tauri-apps/plugin-dialog");
   const path = await open({
     multiple: false,
-    filters: [{ name: "Projeto MolasStruct", extensions: ["json"] }],
+    filters: [{ name: "Projeto MolaStruct", extensions: ["json"] }],
   });
   if (!path) return null;
   const { readTextFile } = await import("@tauri-apps/plugin-fs");
@@ -92,7 +92,7 @@ export function matrixCsv(f: Foundation, r: Calculation): string {
   return (
     "\uFEFF" +
     [
-      ["MolasStruct", f.name, "kN;m;rad"].map(csvText).join(";"),
+      ["MolaStruct", f.name, "kN;m;rad"].map(csvText).join(";"),
       header.join(";"),
       ...r.matrix.map((row, i) =>
         [
@@ -261,7 +261,7 @@ export function geometryDxf(f: Foundation): string {
   text(
     -f.capX / 2,
     offset - f.depth - (f.kind === "pile" ? f.length : 0) - 0.5,
-    "MolasStruct / OpenStruct - geometria esquematica",
+    "MolaStruct / OpenStruct - geometria esquematica",
   );
   add(0, "ENDSEC", 0, "EOF");
   return e.join("\n") + "\n";
@@ -305,7 +305,7 @@ export async function reportPdf(
     pdf.setFont("DejaVu", "bold");
     pdf.setFontSize(10);
     pdf.setTextColor(52, 72, 209);
-    pdf.text("MOLASSTRUCT / OPENSTRUCT", 18, 20);
+    pdf.text("MOLASTRUCT / OPENSTRUCT", 18, 20);
     pdf.setFontSize(8);
     pdf.setTextColor(110);
     pdf.text("MEMORIA DE CALCULO - v" + r.version, 192, 20, { align: "right" });

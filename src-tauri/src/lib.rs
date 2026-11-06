@@ -9,5 +9,5 @@ pub fn run() {
         .plugin(tauri_plugin_fs::init())
         .invoke_handler(tauri::generate_handler![foundation_stiffness])
         .run(tauri::generate_context!())
-        .expect("Não foi possível iniciar o MolasStruct");
+        .expect("Não foi possível iniciar o MolaStruct");
 }

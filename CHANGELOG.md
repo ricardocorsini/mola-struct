@@ -2,6 +2,11 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## Identidade visual — 2026-11-06
+
+- Nome exibido MolaStruct, arte oficial do Drive na interface, favicon e pacotes nativos.
+- Ícones PNG e ICO/ICNS derivados do mesmo original; identificadores de instalação e arquivos de projeto compatíveis.
+
 ## 0.7.0 — 2026-11-06
 
 - Sapatas em meio contínuo elástico: constantes k0 da FEMA 273, fig. 4-2, com raios equivalentes específicos para translação, rotação X/Y e torção. Método legado preservado explicitamente.
