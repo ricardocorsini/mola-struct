@@ -2949,3 +2949,141 @@ a {
 .crh-tables .inline-actions {
   margin-top: 12px;
 }
+
+/* Atualizações (issue #1): aviso não modal e item da barra de status. */
+.status-update {
+  font-size: 8px;
+  color: var(--muted);
+  padding: 1px 6px;
+  margin-left: 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.status-update:hover {
+  background: var(--blue-soft);
+  color: var(--text);
+}
+.status-update.is-attention {
+  color: var(--blue);
+  font-weight: 600;
+}
+.update-panel {
+  position: fixed;
+  z-index: 98;
+  right: 16px;
+  bottom: 36px;
+  width: min(430px, calc(100vw - 32px));
+  max-height: min(580px, calc(100vh - 120px));
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--blue);
+  border-radius: 7px;
+  box-shadow: var(--shadow);
+  font-size: 11px;
+}
+.update-panel > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px 8px;
+}
+.update-panel h2 {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--heading);
+}
+.update-panel h2 > svg {
+  color: var(--blue);
+}
+.update-close {
+  color: var(--muted);
+  padding: 4px;
+}
+.update-body {
+  padding: 0 14px 10px;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  line-height: 1.5;
+}
+.update-versions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+}
+.update-versions dt {
+  color: var(--muted);
+  font-size: 10px;
+}
+.update-versions dd {
+  font-weight: 600;
+  color: var(--heading);
+  overflow-wrap: anywhere;
+}
+.update-subtitle {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--heading);
+}
+.update-notes {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-family: inherit;
+  max-height: 190px;
+  overflow-y: auto;
+  padding: 8px 10px;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.update-limit {
+  padding: 8px 10px;
+  background: var(--blue-soft);
+  border-left: 3px solid var(--blue);
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+}
+.update-muted {
+  color: var(--muted);
+}
+.update-panel progress {
+  width: 100%;
+  accent-color: var(--blue);
+}
+.update-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 14px 14px;
+  border-top: 1px solid var(--line);
+}
+.update-actions:empty {
+  display: none;
+}
+.update-actions button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.update-spin {
+  animation: update-spin 1s linear infinite;
+}
+@keyframes update-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .update-spin {
+    animation: none;
+  }
+}

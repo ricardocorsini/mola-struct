@@ -2,6 +2,8 @@
 
 Interface: React, Vite, TypeScript, Tailwind CSS, lucide-react, Three.js, Zod, Tauri and Inter Variable. PDF: jsPDF, with a subset of DejaVu Sans embedded for consistent rendering. Package licenses remain with their respective authors.
 
+Desktop updates: to read the signed OpenStruct catalog and verify packages, the Tauri executable includes the Rust crates base64, semver, serde, serde_json, sha2, ureq and url (MIT or Apache-2.0), ed25519-dalek (BSD-3-Clause), rustls (Apache-2.0, ISC or MIT), ring (Apache-2.0 and ISC) and webpki-roots (CDLA-Permissive-2.0, root certificate data). Exact versions are recorded in `src-tauri/Cargo.lock`.
+
 The DejaVu fonts are based on Bitstream Vera and are distributed under the Bitstream Vera and public domain additions terms. The following notice accompanies the embedded font subset.
 
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/

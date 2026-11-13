@@ -90,6 +90,8 @@ npm run desktop:build
 
 Os artefatos ficam em `src-tauri/target/release/bundle/`. O workflow manual [Desktop](.github/workflows/desktop.yml) configura builds para Windows, Linux e macOS e disponibiliza os artefatos no GitHub Actions, sem publicar releases automaticamente. **Não há instalador desktop validado nesta versão**; os testes do núcleo Rust são independentes da interface nativa.
 
+Ao abrir, o aplicativo desktop consulta em segundo plano o catálogo assinado do OpenStruct e oferece uma versão estável mais nova, com **Atualizar** e **Agora não**. Nada é baixado, instalado ou reiniciado sem ação explícita. Veja [docs/ATUALIZACOES.md](docs/ATUALIZACOES.md).
+
 ## Métodos de cálculo
 
 | Recurso                             | Implementação atual                                                                                                |
@@ -168,17 +170,17 @@ Os testes cobrem referências analíticas, equilíbrio, simetria, conservação 
 
 **React 19 · TypeScript · Vite 7 · Tailwind CSS 4 · Three.js · Tauri 2 · Rust**
 
-| Caminho              | Responsabilidade                                            |
-| -------------------- | ----------------------------------------------------------- |
-| `src/domain/`        | Modelo validado, unidades, solver web e adaptador nativo    |
-| `src/components/`    | Interface, propriedades, vistas e resultados                |
-| `src/files.ts`       | Importação e exportações                                    |
-| `crates/molas-core/` | Núcleo Rust independente do Tauri                           |
-| `src-tauri/`         | Janela desktop, permissões e comando `foundation_stiffness` |
-| `tests/`             | Testes TypeScript e referências de comportamento            |
-| `examples/`          | Dados fictícios, resultados e exportações reproduzíveis     |
-| `docs/`              | Métodos, validação, roadmap e recursos de documentação      |
-| `.github/`           | CI, build desktop e modelos de colaboração                  |
+| Caminho              | Responsabilidade                                                  |
+| -------------------- | ----------------------------------------------------------------- |
+| `src/domain/`        | Modelo validado, unidades, solver web e adaptador nativo          |
+| `src/components/`    | Interface, propriedades, vistas e resultados                      |
+| `src/files.ts`       | Importação e exportações                                          |
+| `crates/molas-core/` | Núcleo Rust independente do Tauri                                 |
+| `src-tauri/`         | Janela desktop, permissões, `foundation_stiffness` e atualizações |
+| `tests/`             | Testes TypeScript e referências de comportamento                  |
+| `examples/`          | Dados fictícios, resultados e exportações reproduzíveis           |
+| `docs/`              | Métodos, validação, roadmap e recursos de documentação            |
+| `.github/`           | CI, build desktop e modelos de colaboração                        |
 
 Na web, a rigidez é calculada em TypeScript. No desktop, a matriz vem do Rust e é comparada à implementação web; divergências bloqueiam resultados nativos. Capacidade geotécnica e exportações permanecem no módulo TypeScript.
 
@@ -187,6 +189,7 @@ Na web, a rigidez é calculada em TypeScript. No desktop, a matriz vem do Rust e
 - [Métodos, equações e hipóteses](docs/MOTOR.md)
 - [Funcionalidades](docs/FUNCIONALIDADES.md)
 - [Validação e limites conhecidos](docs/VALIDACAO.md)
+- [Checagem de atualizações no desktop](docs/ATUALIZACOES.md)
 - [Exemplos](examples/README.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Histórico de mudanças](CHANGELOG.md)
