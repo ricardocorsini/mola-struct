@@ -2,6 +2,10 @@
 
 Alterações relevantes são registradas aqui. O projeto está em fase experimental; mudanças de hipóteses e do formato de dados devem ser documentadas explicitamente.
 
+## Não lançado
+
+- Verifica atualizações ao abrir o aplicativo desktop, inclusive por atalho e sem o Struct Launcher (issue #1). A consulta usa o catálogo assinado do OpenStruct (Ed25519, chaves fixadas) e seleciona apenas versões estáveis mais novas do produto `molastruct` com pacote assinado para o sistema. O aviso mostra a versão em execução, a oferecida e as novidades, com Atualizar e Agora não. Nada é baixado, instalado ou reiniciado sem ação explícita, e o trabalho é protegido antes do reinício. Instalações do Launcher são encaminhadas a ele, NSIS e AppImage independentes se atualizam no lugar, e `.deb` e executáveis avulsos recebem o caminho seguro. Cálculo, unidades e formato de projeto não mudam. Veja [docs/ATUALIZACOES.md](docs/ATUALIZACOES.md).
+
 ## Identidade visual — 2026-11-06
 
 - Nome exibido MolaStruct, arte oficial do Drive na interface, favicon e pacotes nativos.

@@ -37,6 +37,7 @@ import {
   Play,
   Plus,
   Redo2,
+  RefreshCw,
   Ruler,
   Save,
   Settings2,
@@ -69,6 +70,11 @@ import SectionView from "./components/SectionView";
 import SoilEditor from "./components/SoilEditor";
 import Results, { SpringCards } from "./components/Results";
 import Report from "./components/Report";
+import UpdatePanel, {
+  UpdateStatus,
+  useUpdater,
+  type PrepareRestart,
+} from "./components/UpdatePanel";
 import {
   geometryDxf,
   matrixCsv,
@@ -383,6 +389,42 @@ export default function App() {
       setBusy(false);
     }
   };
+  // Antes de reiniciar para atualizar: nenhuma exportação em curso, nenhuma edição
+  // pendente na janela de dados do projeto, rascunho gravado e, se pedido, o arquivo
+  // salvo. Cancelar ou falhar ao salvar impede o reinício.
+  const prepareRestart = useCallback<PrepareRestart>(
+    async (withFile) => {
+      if (busy)
+        return "Aguarde a exportação em andamento terminar antes de reiniciar.";
+      if (modal === "project")
+        return "Feche a janela Dados do projeto (salvando ou cancelando as alterações) antes de reiniciar.";
+      if (withFile) {
+        let done = false;
+        try {
+          done = await saveFile(
+            `${safeName(p.name)}.molas.json`,
+            serializeProject(p),
+            "application/json",
+            "json",
+          );
+        } catch {
+          done = false;
+        }
+        if (!done) return "O projeto não foi salvo; o reinício foi cancelado.";
+      }
+      try {
+        localStorage.setItem(KEY, serializeProject(p));
+        setSaved(true);
+        return null;
+      } catch {
+        return withFile
+          ? null
+          : "Não foi possível guardar o rascunho neste dispositivo. Use Salvar projeto e reiniciar.";
+      }
+    },
+    [busy, modal, p],
+  );
+  const updater = useUpdater(toast, prepareRestart);
   const run = () => {
     if (!r.valid) {
       toast("O modelo tem entradas inválidas. Consulte as verificações.");
@@ -747,6 +789,16 @@ export default function App() {
                         label: dark ? "Tema claro" : "Tema escuro",
                         Icon: dark ? Sun : Moon,
                         action: () => setDark(!dark),
+                      },
+                    ],
+                  },
+                  {
+                    title: "Aplicativo",
+                    items: [
+                      {
+                        label: "Verificar atualizações",
+                        Icon: RefreshCw,
+                        action: () => void updater.check(true),
                       },
                     ],
                   },
@@ -1248,6 +1300,7 @@ export default function App() {
             ? `${r.notices.filter((n) => n.level === "warning").length} hipóteses para revisão`
             : "Revise as entradas"}{" "}
           <i /> Motor 0.7.0
+          <UpdateStatus updater={updater} />
         </span>
         <span>
           kN · m · MPa <i /> X / Y / Z ↑
@@ -1473,6 +1526,7 @@ export default function App() {
           </div>
         </div>
       )}
+      <UpdatePanel updater={updater} />
     </div>
   );
 }
